@@ -1,0 +1,60 @@
+relationship 8310bc96-2906-f7d4-0658-96fd0c13f237
+	fromColumn: gold_dpmc_vs_2w3w4w_factdeliverynotes.CompanySK
+	toColumn: gold_dpmc_vs_2w3w4w_dimcompany.CompanySK
+
+relationship 1460a942-2878-62e5-0c49-5af572c7507c
+	fromColumn: gold_dpmc_vs_2w3w4w_factgrndetails.CompanySK
+	toColumn: gold_dpmc_vs_2w3w4w_dimcompany.CompanySK
+
+relationship c1632948-9e09-88bf-374b-16a52ffdea52
+	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.CompanySK
+	toColumn: gold_dpmc_vs_2w3w4w_dimcompany.CompanySK
+
+relationship a3f2cd7f-7f36-e1a1-8108-5e81c32cff47
+	fromColumn: gold_dpmc_vs_2w3w4w_factstock.CompanySK
+	toColumn: gold_dpmc_vs_2w3w4w_dimcompany.CompanySK
+
+relationship 3d8d0346-f35f-9a8d-0125-080dd760c976
+	fromColumn: gold_dpmc_vs_2w3w4w_factsales.CompanySK
+	toColumn: gold_dpmc_vs_2w3w4w_dimcompany.CompanySK
+
+relationship 471c1eca-ca55-ffe1-7c37-87f017012d14
+	fromColumn: gold_dpmc_vs_2w3w4w_dimdivision.CompanySK
+	toColumn: gold_dpmc_vs_2w3w4w_dimcompany.CompanySK
+
+relationship 213e4d03-5c75-9f4a-9cf3-0734908dbace
+	fromColumn: gold_dpmc_vs_2w3w4w_factsales.ProductSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimproduct.ProductSK
+
+relationship 07a99e71-f30a-b9a6-ec82-3e22582c8630
+	fromColumn: gold_dpmc_vs_2w3w4w_factstock.ProductSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimproduct.ProductSK
+
+relationship f20d8148-8147-8a3a-0091-e63751998ae3
+	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.ProductSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimproduct.ProductSK
+
+relationship ee0e35c0-7829-57e4-c239-04468afc591f
+	fromColumn: gold_dpmc_vs_2w3w4w_factdeliverynotes.ProductSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimproduct.ProductSK
+
+relationship 7a68ef18-f0a5-78fa-3cc7-9689ee11d362
+	fromColumn: gold_dpmc_vs_2w3w4w_factgrndetails.ProductSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimproduct.ProductSK
+
+relationship 8d0710a2-0f2e-3480-d119-a1148a455243
+	fromColumn: gold_dpmc_vs_2w3w4w_factsales.InvoiceDate
+	toColumn: gold_dpmc_dimdate.TheDate
+
+relationship 35f5e99a-c1e1-ca95-988c-b8200b7196aa
+	fromColumn: gold_dpmc_vs_2w3w4w_factdeliverynotes.PremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship ef1b50aa-989a-73b2-f4c6-969856fabb1c
+	fromColumn: gold_dpmc_vs_2w3w4w_factdeliverynotes.ActualDeliveryDate
+	toColumn: gold_dpmc_dimdate.TheDate
+
+relationship 27549d72-5c98-09b8-cb14-7a144b7b6994
+	fromColumn: gold_dpmc_vs_2w3w_target.DATE
+	toColumn: gold_dpmc_dimdate.TheDate
+

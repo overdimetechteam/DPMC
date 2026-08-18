@@ -1,0 +1,177 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 391.09031163711791,
+        "y": 108.3352663814731
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 252.4211706688323,
+            "y": 458.61879920032464
+          },
+          "nodeIndex": "gold_dpmc_dimdate",
+          "nodeLineageTag": "84fde573-bfcd-48ec-9ed8-b678efe3ef48",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 321.37564294283828,
+            "y": 0
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w_target",
+          "nodeLineageTag": "b751a629-2f0c-4319-815b-709c80bdedc0",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 622.85711171896048,
+            "y": 460.5122295521706
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_dimcompany",
+          "nodeLineageTag": "27e56e05-e2d7-45fe-86c1-92622e912f9e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 917.63022279431573,
+            "y": 466.19289632610474
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_dimdivision",
+          "nodeLineageTag": "b48f2535-7986-4287-b5bb-658d6f08e3d5",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1312.7897804237105,
+            "y": 465.41978525074956
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_dimpremises",
+          "nodeLineageTag": "3684e382-0f7e-4669-b282-c8dff1b7ee2e",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1725.8148934298813,
+            "y": 465.19289632610486
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_dimproduct",
+          "nodeLineageTag": "276c2aa3-946e-4150-83fe-f4cfaeffa0c3",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 420.88200675785487,
+            "y": 838.17658122183479
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_factdeliverynotes",
+          "nodeLineageTag": "6dfeccf8-f088-4fb5-a5ab-91b2e696fd9b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 836.70418056959852,
+            "y": 824.19974075682842
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_factgrndetails",
+          "nodeLineageTag": "fd8e2180-f7b4-47ea-b317-4165b28203a1",
+          "size": {
+            "height": 288.86555537677634,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1189.7307135774311,
+            "y": 820.38201358704032
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_factinquiry",
+          "nodeLineageTag": "cd69dfca-1b6b-4c9f-a4c0-b195c2f61be9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1141.2892215306704,
+            "y": 0
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_factsales",
+          "nodeLineageTag": "334905bf-f128-4a7c-b31b-a873db67a5c1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 633.69688448935267,
+            "y": 0
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_factstock",
+          "nodeLineageTag": "31043d89-3db7-48c3-bf6d-6c66f74018a4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1886.9831126843683,
+            "y": 0
+          },
+          "nodeIndex": "VehicleTypeSelector",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 92.3060452428088,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,215 @@
+table VehicleTypeSelector
+	lineageTag: 5979d831-7f36-439f-afef-908a46a3df45
+
+	measure 'Total Working Days' =
+			
+			CALCULATE (
+			    COUNTROWS ( gold_dpmc_dimdate ),
+			    gold_dpmc_dimdate[SalesHoliday] = 0
+			)
+		formatString: 0
+		lineageTag: 252f7970-c951-4c6d-8760-f65c175b0875
+
+	measure 'Performed Working Days' =
+			
+			CALCULATE (
+			    [Total Working Days],
+			    gold_dpmc_dimdate[TheDate] <= TODAY ()
+			)
+		formatString: 0
+		lineageTag: 2a987fb3-1f86-4a2c-b983-69fbefce4f81
+
+	measure 'Remaining Working Days' =
+			
+			[Total Working Days] - [Performed Working Days]
+		formatString: 0
+		lineageTag: aa4430b1-5fa7-4aca-96d7-b2daf7e395e4
+
+	measure 'Actual Units' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factsales[ChassisNo] ),
+			    NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[InvoiceNo] )
+			)
+		formatString: 0
+		lineageTag: 1ac71b14-2082-4497-884f-12f30f2705ec
+
+	measure 'Target (Selected)' =
+			
+			IF (
+			    [Selected Vehicle Type] = "3W",
+			    SUM ( gold_dpmc_vs_2w3w_target[3WTarget] ),
+			    SUM ( gold_dpmc_vs_2w3w_target[2WTarget] ))
+		formatString: 0
+		lineageTag: 7d0d0746-93fe-461f-a6cf-9578a3931464
+
+	measure 'Achievement %' =
+			
+			DIVIDE ( [Actual Units], [Target (Selected)] )
+		lineageTag: 4c80deb9-ae37-4638-8c29-e9bd5734b035
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Remaining Target' =
+			
+			[Target (Selected)] - [Actual Units]
+		formatString: 0
+		lineageTag: 94053066-d7e7-482b-bfa5-c9a1e63ed564
+
+	measure 'Sales Value (LKR M)' =
+			
+			DIVIDE (
+			    CALCULATE (
+			        SUM ( gold_dpmc_vs_2w3w4w_factsales[InvoiceValue] ),
+			        NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[InvoiceNo] )
+			    ),
+			    1000000
+			)
+		lineageTag: afec424c-48fd-4ba2-8462-f29bdbbea0ce
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stock Units' =
+			
+			SUM ( gold_dpmc_vs_2w3w4w_factstock[CurrentStock] )
+		formatString: 0
+		lineageTag: 7ef00687-1f91-461d-b6af-530c81cb997d
+
+	measure 'Total Bookings' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factsales[ChassisNo] ),
+			    NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[BookingNo] )
+			)
+		formatString: 0
+		lineageTag: 822e3ac3-5660-4512-aa64-0d61d23b89ae
+
+	measure 'Confirmed Bookings' =
+			
+			CALCULATE (
+			    [Total Bookings],
+			    NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] )
+			)
+		formatString: 0
+		lineageTag: 4956c4e9-91d0-4669-b0e8-f548f4119f58
+
+	measure 'Pending Bookings' =
+			
+			[Total Bookings] - [Confirmed Bookings]
+		formatString: 0
+		lineageTag: d0243492-2c5d-4733-af07-c8768d1512c5
+
+	measure 'No of Inquiries' =
+			
+			DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] )
+		formatString: 0
+		lineageTag: 4863db7d-3a9d-42ad-bf4a-9117fbcaaeed
+
+	measure GRNs =
+			
+			DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factgrndetails[ChassisNo] )
+		formatString: 0
+		lineageTag: 6ff482ac-3cbd-47a5-9bde-88956c43c93a
+
+	measure 'Delivery Notes' =
+			
+			DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factdeliverynotes[ChassisNo] )
+		formatString: 0
+		lineageTag: 04597c4b-31b5-447b-b2e4-50af71847af3
+
+	measure 'Achievement Gauge (HTML)' =
+			
+			VAR Actual = [Actual Units]
+			VAR Target = [Target (Selected)]
+			VAR Pct = DIVIDE ( Actual, Target, 0 ) * 100
+			VAR PctCapped = MIN ( Pct, 150 )
+			VAR PctDisplay = FORMAT ( Pct, "0" ) & "%"
+			VAR Remaining = Target - Actual
+			VAR NeedleRotate = ROUND ( 1.2 * PctCapped - 90, 1 )
+			RETURN
+			"<div class='ach-gauge'>
+			   <style>
+			     .ach-gauge{font-family:'Segoe UI', sans-serif; background:#152540; border:1px solid #2A3F63;
+			       border-radius:16px; padding:16px 18px 10px; color:#EEF3FB; max-width:260px; margin:0 auto;
+			       text-align:center; transition:transform .18s ease, border-color .18s ease;}
+			     .ach-gauge:hover{transform:translateY(-2px); border-color:#3A5488;}
+			     .ach-gauge .eyebrow{font-size:10.5px; text-transform:uppercase; letter-spacing:.8px;
+			       color:#5F7194; text-align:left; font-weight:600; margin-bottom:2px;}
+			     .ach-gauge svg{width:100%; height:auto; display:block; overflow:visible;}
+			     .ach-gauge .needle{transform-origin:110px 120px; transition:transform .6s cubic-bezier(.2,.8,.2,1);}
+			     .ach-gauge .pct{font-family:Consolas,'IBM Plex Mono',monospace; font-weight:700; font-size:30px; margin-top:-8px;}
+			     .ach-gauge .lbl{font-size:10px; color:#93A5C4; letter-spacing:.4px; text-transform:uppercase; margin-top:2px;}
+			     .ach-gauge .foot{display:flex; justify-content:space-between; margin-top:8px; padding:0 4px;}
+			     .ach-gauge .foot .n{font-family:Consolas,'IBM Plex Mono',monospace; font-weight:600; font-size:14px;}
+			     .ach-gauge .foot .l{font-size:9px; color:#5F7194; text-transform:uppercase; letter-spacing:.3px;}
+			   </style>
+			   <div class='eyebrow'>Achievement</div>
+			   <svg viewBox='0 0 220 140'>
+			     <path d='M 15 120 A 95 95 0 0 1 80.64 29.65' stroke='#E8604F' stroke-width='14' fill='none' stroke-linecap='round' opacity='.85'/>
+			     <path d='M 80.64 29.65 A 95 95 0 0 1 139.36 29.65' stroke='#E8A33D' stroke-width='14' fill='none' stroke-linecap='round' opacity='.85'/>
+			     <path d='M 139.36 29.65 A 95 95 0 0 1 205 120' stroke='#3FCB92' stroke-width='14' fill='none' stroke-linecap='round' opacity='.85'/>
+			     <g class='needle' style='transform:rotate(" & NeedleRotate & "deg);'>
+			       <line x1='110' y1='120' x2='110' y2='40' stroke='#EEF3FB' stroke-width='3' stroke-linecap='round'/>
+			       <circle cx='110' cy='120' r='7' fill='#EEF3FB'/>
+			       <circle cx='110' cy='120' r='3' fill='#152540'/>
+			     </g>
+			   </svg>
+			   <div class='pct'>" & PctDisplay & "</div>
+			   <div class='lbl'>of monthly target</div>
+			   <div class='foot'>
+			     <div><div class='n'>" & FORMAT ( Actual, "#,##0" ) & "</div><div class='l'>Actual</div></div>
+			     <div><div class='n'>" & FORMAT ( Target, "#,##0" ) & "</div><div class='l'>Target</div></div>
+			     <div><div class='n'>" & FORMAT ( Remaining, "#,##0" ) & "</div><div class='l'>Remaining</div></div>
+			   </div>
+			</div>"
+		lineageTag: 5ddea363-8011-4025-901c-4520b49c6404
+
+	measure 'KPI Metrices (HTML)' =
+			
+			VAR SalesValue = [Sales Value (LKR M)]
+			VAR StockUnits = [Stock Units]
+			VAR Bookings = [Total Bookings]
+			VAR Inquiries = [No of Inquiries]
+			VAR GRNCount = [GRNs]
+			VAR DN = [Delivery Notes]
+			VAR ConfirmedB = [Confirmed Bookings]
+			VAR PendingB = [Pending Bookings]
+			
+			VAR Style =
+			"<style>
+			  .kpi-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; font-family:'Segoe UI',sans-serif;}
+			  @media (max-width:520px){ .kpi-grid{grid-template-columns:repeat(2,1fr);} }
+			  .kpi{background:#152540; border:1px solid #2A3F63; border-radius:14px; padding:14px 16px;
+			    display:flex; flex-direction:column; gap:6px; transition:transform .18s ease, border-color .18s ease;}
+			  .kpi:hover{transform:translateY(-2px); border-color:#3A5488;}
+			  .kpi .label{font-size:11px; color:#93A5C4; text-transform:uppercase; letter-spacing:.5px; font-weight:600;}
+			  .kpi .value{font-family:Consolas,'IBM Plex Mono',monospace; font-weight:700; font-size:24px; color:#EEF3FB;}
+			</style>"
+			
+			VAR Card1 = "<div class='kpi'><div class='label'>Sales Value</div><div class='value'>" & FORMAT ( SalesValue, "#,##0.0" ) & "M</div></div>"
+			VAR Card2 = "<div class='kpi'><div class='label'>Stock Units</div><div class='value'>" & FORMAT ( StockUnits, "#,##0" ) & "</div></div>"
+			VAR Card3 = "<div class='kpi'><div class='label'>Bookings</div><div class='value'>" & FORMAT ( Bookings, "#,##0" ) & "</div></div>"
+			VAR Card4 = "<div class='kpi'><div class='label'>Inquiries</div><div class='value'>" & FORMAT ( Inquiries, "#,##0" ) & "</div></div>"
+			VAR Card5 = "<div class='kpi'><div class='label'>GRNs</div><div class='value'>" & FORMAT ( GRNCount, "#,##0" ) & "</div></div>"
+			VAR Card6 = "<div class='kpi'><div class='label'>Delivery Notes</div><div class='value'>" & FORMAT ( DN, "#,##0" ) & "</div></div>"
+			VAR Card7 = "<div class='kpi'><div class='label'>Confirmed Bookings</div><div class='value'>" & FORMAT ( ConfirmedB, "#,##0" ) & "</div></div>"
+			VAR Card8 = "<div class='kpi'><div class='label'>Pending Bookings</div><div class='value'>" & FORMAT ( PendingB, "#,##0" ) & "</div></div>"
+			
+			RETURN
+			Style & "<div class='kpi-grid'>" & Card1 & Card2 & Card3 & Card4 & Card5 & Card6 & Card7 & Card8 & "</div>"
+		lineageTag: d6a49a0a-53c2-48d4-aabc-6a37ec5ce7df
+
+	column 'Vehicle Type'
+		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Vehicle Type]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VehicleTypeSelector = calculated
+		mode: import
+		source = DATATABLE("Vehicle Type", STRING, {{"2W"}, {"3W"}})
+
+	annotation PBI_Id = d6c9398321de4168bfa88fd977938be9
+

@@ -1,0 +1,29 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock"]
+
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
+
+ref table gold_dpmc_dimdate
+ref table gold_dpmc_vs_2w3w_target
+ref table gold_dpmc_vs_2w3w4w_dimcompany
+ref table gold_dpmc_vs_2w3w4w_dimdivision
+ref table gold_dpmc_vs_2w3w4w_dimpremises
+ref table gold_dpmc_vs_2w3w4w_dimproduct
+ref table gold_dpmc_vs_2w3w4w_factdeliverynotes
+ref table gold_dpmc_vs_2w3w4w_factgrndetails
+ref table gold_dpmc_vs_2w3w4w_factinquiry
+ref table gold_dpmc_vs_2w3w4w_factsales
+ref table gold_dpmc_vs_2w3w4w_factstock
+ref table VehicleTypeSelector
+
+ref cultureInfo en-US
+

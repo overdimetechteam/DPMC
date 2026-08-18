@@ -1,0 +1,282 @@
+table gold_dpmc_vs_2w3w4w_factsales
+	lineageTag: 334905bf-f128-4a7c-b31b-a873db67a5c1
+
+	measure 'Selected Vehicle Type' = SELECTEDVALUE ( 'VehicleTypeSelector'[Vehicle Type], "2W" )
+		lineageTag: 34be1d40-f9b6-49ff-98f3-b42e10dd49d7
+
+		changedProperty = IsHidden
+
+	column CompanySK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c8f2aa7d-bc53-494f-9274-a12b058e2aaf
+		summarizeBy: none
+		sourceColumn: CompanySK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fa1d6067-ab54-4801-a3dd-0bda72790dc2
+		summarizeBy: sum
+		sourceColumn: DivisionSK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PremiseSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f0126dfd-d78f-45ff-8cb7-5ac195af230c
+		summarizeBy: sum
+		sourceColumn: PremiseSK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 40c63837-87a1-4584-b8e0-b0758960b58f
+		summarizeBy: none
+		sourceColumn: ProductSK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InquiryNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: bf0de6fe-a271-4664-9442-675f82a348ed
+		summarizeBy: none
+		sourceColumn: InquiryNo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column BookingNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 34087195-5b8b-4914-9cad-f330504b588d
+		summarizeBy: none
+		sourceColumn: BookingNo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6c7c8669-00e9-480a-af7e-dcee9d3e05c6
+		summarizeBy: none
+		sourceColumn: InvoiceNo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkshopNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 741da38a-2478-446d-808f-817152f78d02
+		summarizeBy: none
+		sourceColumn: WorkshopNo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 08404caf-75a6-47f0-af59-8adb14526d70
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column InquiryDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ea7e0af5-74ed-4571-8430-fdc34317fc18
+		summarizeBy: none
+		sourceColumn: InquiryDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DeliveryDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ecf38cd0-1022-493e-8065-7c105cd9f969
+		summarizeBy: none
+		sourceColumn: DeliveryDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column GRNDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 47b4685b-dede-474f-8e9f-b13856137531
+		summarizeBy: none
+		sourceColumn: GRNDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ConfirmDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 15ab0553-2440-4930-8ae5-347f3224aacf
+		summarizeBy: none
+		sourceColumn: ConfirmDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ChassisNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 844e169a-b91f-4aba-a1fa-0f72d808b5a9
+		summarizeBy: none
+		sourceColumn: ChassisNo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EngineNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e91f5e9d-5418-40b8-bd74-fab987f25a32
+		summarizeBy: none
+		sourceColumn: EngineNo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column VehicleNo
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 070115e5-b1c3-4439-9996-4157d2f8a5cc
+		summarizeBy: none
+		sourceColumn: VehicleNo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceValue
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 131b24f9-12de-4808-9782-f02b1095c2d3
+		summarizeBy: sum
+		sourceColumn: InvoiceValue
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DMT_LOADED_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 59b49796-39d8-405d-8c39-18734c876be1
+		summarizeBy: none
+		sourceColumn: DMT_LOADED_DATE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column INT_LOADED_DATE
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9c131f41-f4eb-4889-971e-2f3b1886dea9
+		summarizeBy: sum
+		sourceColumn: INT_LOADED_DATE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DMT_MONTH_END
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: fb57c01e-b05d-4ca2-ad07-b52d77855639
+		summarizeBy: none
+		sourceColumn: DMT_MONTH_END
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column INT_MONTH_END
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5058b504-d3f5-4c7b-b069-5466978ce44d
+		summarizeBy: sum
+		sourceColumn: INT_MONTH_END
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dpmc_vs_2w3w4w_factsales = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),
+				    dbo = Source{[Schema="dbo"]}[Data],
+				    gold_dpmc_vs_2w3w4w_factsales1 = dbo{[Name="gold_dpmc_vs_2w3w4w_factsales"]}[Data]
+				in
+				    gold_dpmc_vs_2w3w4w_factsales1
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
