@@ -94,10 +94,10 @@ table gold_dpmc_vs_2w3w4w_factgrndetails
 		formatString: General Date
 		sourceProviderType: datetime2
 		lineageTag: 52d1804a-4a0f-49e1-bc74-dc94ac371ca9
-		summarizeBy: none
+		summarizeBy: distinctCount
 		sourceColumn: GRNDate
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column FromDealerCode
 		dataType: string

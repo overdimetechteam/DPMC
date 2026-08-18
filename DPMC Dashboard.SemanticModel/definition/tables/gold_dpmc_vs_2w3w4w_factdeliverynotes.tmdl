@@ -35,10 +35,10 @@ table gold_dpmc_vs_2w3w4w_factdeliverynotes
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: d0a89de2-9443-4a4b-9a62-50eb8cfa04b3
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: DeliveryNoteNo
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column ChassisNo
 		dataType: string

@@ -54,10 +54,10 @@ table gold_dpmc_vs_2w3w4w_factinquiry
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 37a636e1-4b84-470e-947f-0f448d07a8b0
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: InquiryNo
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column InquiryFrom
 		dataType: string
