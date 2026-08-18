@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "25e127c8adb5cdeac834",
+  "position": {
+    "x": 9.66280766001915,
+    "y": 195.18871473238681,
+    "z": 511,
+    "height": 423.23097550883875,
+    "width": 577.83589806914517,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                    }
+                  },
+                  "Property": "PremisesDesc"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_dimpremises.PremisesDesc",
+              "nativeQueryRef": "PremisesDesc",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": []
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factdeliverynotes"
+                        }
+                      },
+                      "Property": "DeliveryNoteNo"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(gold_dpmc_vs_2w3w4w_factdeliverynotes.DeliveryNoteNo)",
+              "nativeQueryRef": "Count of DeliveryNoteNo"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "gold_dpmc_vs_2w3w4w_factdeliverynotes"
+                      }
+                    },
+                    "Property": "DeliveryNoteNo"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
