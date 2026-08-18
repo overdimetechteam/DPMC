@@ -52,6 +52,25 @@
               },
               "queryRef": "CountNonNull(gold_dpmc_vs_2w3w4w_factinquiry.InquiryNo)",
               "nativeQueryRef": "Count of InquiryNo"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "BookingNo"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(gold_dpmc_vs_2w3w4w_factsales.BookingNo)",
+              "nativeQueryRef": "Count of BookingNo"
             }
           ]
         }
