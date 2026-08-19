@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "bc139ef34f8c8c781dd1",
+  "position": {
+    "x": 829.16431558940735,
+    "y": 251.26191381497193,
+    "z": 18502,
+    "height": 209.9831708310837,
+    "width": 400.22433414813383,
+    "tabOrder": 17002
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                    }
+                  },
+                  "Property": "STR_MODEL_DESC"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_dimproduct.STR_MODEL_DESC",
+              "nativeQueryRef": "STR_MODEL_DESC",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Avg Sales Units (Last 3 Months)"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Avg Sales Units (Last 3 Months)",
+              "nativeQueryRef": "Avg Sales Units (Last 3 Months)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "VehicleTypeSelector"
+                  }
+                },
+                "Property": "Avg Sales Units (Last 3 Months)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Model Wise – Average Sales Units of Last 3 Months'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

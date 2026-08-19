@@ -199,6 +199,26 @@ table VehicleTypeSelector
 			Style & "<div class='kpi-grid'>" & Card1 & Card2 & Card3 & Card4 & Card5 & Card6 & Card7 & Card8 & "</div>"
 		lineageTag: d6a49a0a-53c2-48d4-aabc-6a37ec5ce7df
 
+	measure 'Avg Sales Units (Last 3 Months)' =
+			
+			VAR CurrentDate = CALCULATE(MAX(gold_dpmc_vs_2w3w4w_factsales[InvoiceDate]), ALL(gold_dpmc_vs_2w3w4w_factsales))
+			VAR StartDate = EDATE(CurrentDate, -3)
+			RETURN
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS(gold_dpmc_vs_2w3w4w_factsales),
+			        FILTER(
+			            ALL(gold_dpmc_dimdate),
+			            gold_dpmc_dimdate[TheDate] > StartDate &&
+			            gold_dpmc_dimdate[TheDate] <= CurrentDate
+			        )
+			    ),
+			    3
+			)
+		lineageTag: a7cbf62e-671b-4887-803a-54ee592353fd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd
 		summarizeBy: none
