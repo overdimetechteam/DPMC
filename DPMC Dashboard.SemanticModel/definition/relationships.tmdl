@@ -58,3 +58,8 @@ relationship 27549d72-5c98-09b8-cb14-7a144b7b6994
 	fromColumn: gold_dpmc_vs_2w3w_target.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
+relationship 83d959fd-c2fe-38a2-48fb-707a7b62f7a0
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
+	toColumn: VehicleTypeSelector.'Vehicle Type'
+

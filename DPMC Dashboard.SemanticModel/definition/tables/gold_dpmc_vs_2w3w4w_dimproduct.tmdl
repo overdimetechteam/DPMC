@@ -66,6 +66,12 @@ table gold_dpmc_vs_2w3w4w_dimproduct
 
 		annotation SummarizationSetBy = Automatic
 
+	column VehicleTypeShort = IF(gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] = "2 WHEELERS", "2W", IF(gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] = "3 WHEELERS", "3W", BLANK()))
+		lineageTag: eae4bb6a-58b3-4604-acdf-96f72ba5f656
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition gold_dpmc_vs_2w3w4w_dimproduct = m
 		mode: directQuery
 		source =

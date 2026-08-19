@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "62f6753b6ba58583bc03",
   "position": {
     "x": 946.66666666666663,
@@ -31,23 +31,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
-                  }
-                },
-                "Property": "Delivery Notes"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {
