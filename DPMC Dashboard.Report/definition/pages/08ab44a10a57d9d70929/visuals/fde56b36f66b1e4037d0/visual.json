@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "a6a5882e9284b77e7a47",
+  "name": "fde56b36f66b1e4037d0",
   "position": {
-    "x": 80.12519561815337,
-    "y": 22.034428794992177,
-    "z": 1000,
-    "height": 34.053208137715181,
-    "width": 190.29733959311426,
-    "tabOrder": 1000
+    "x": 354.07407407407408,
+    "y": 216.29629629629628,
+    "z": 18501,
+    "height": 40,
+    "width": 355.55555555555554,
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "textbox",
@@ -35,7 +35,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'DPMC · DPMCL'"
+                  "Value": "'Sales Performance & Achievement'"
                 }
               }
             },
@@ -103,7 +103,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#33456B'"
+                      "Value": "'#0E1729'"
                     }
                   }
                 }
