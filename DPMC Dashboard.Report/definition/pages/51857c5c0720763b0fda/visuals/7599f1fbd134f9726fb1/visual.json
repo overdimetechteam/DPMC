@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "fde56b36f66b1e4037d0",
+  "name": "7599f1fbd134f9726fb1",
   "position": {
-    "x": 354.07407407407408,
-    "y": 216.29629629629628,
-    "z": 19000,
-    "height": 40,
-    "width": 355.55555555555554,
-    "tabOrder": 16000
+    "x": 9.0887573964497044,
+    "y": 113.6094674556213,
+    "z": 11001,
+    "height": 39.384615384615387,
+    "width": 354.46153846153845,
+    "tabOrder": 11001
   },
   "visual": {
     "visualType": "textbox",
@@ -35,7 +35,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sales Performance & Achievement'"
+                  "Value": "'GRNS & Delivery Notes'"
                 }
               }
             },

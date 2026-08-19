@@ -31,23 +31,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
-                  }
-                },
-                "Property": "Delivery Notes"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {

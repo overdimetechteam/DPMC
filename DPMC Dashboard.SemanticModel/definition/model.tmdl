@@ -24,6 +24,7 @@ ref table gold_dpmc_vs_2w3w4w_factinquiry
 ref table gold_dpmc_vs_2w3w4w_factsales
 ref table gold_dpmc_vs_2w3w4w_factstock
 ref table VehicleTypeSelector
+ref table TopBottomSelector
 
 ref cultureInfo en-US
 

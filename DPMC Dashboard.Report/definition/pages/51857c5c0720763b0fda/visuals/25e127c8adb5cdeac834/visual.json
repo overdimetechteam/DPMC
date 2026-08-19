@@ -3,10 +3,10 @@
   "name": "25e127c8adb5cdeac834",
   "position": {
     "x": 0,
-    "y": 195.55555555555554,
+    "y": 195.40828402366864,
     "z": 10000,
-    "height": 422.22222222222217,
-    "width": 577.77777777777771,
+    "height": 422.62721893491124,
+    "width": 607.43195266272187,
     "tabOrder": 10000
   },
   "visual": {
@@ -79,6 +79,44 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "background": [

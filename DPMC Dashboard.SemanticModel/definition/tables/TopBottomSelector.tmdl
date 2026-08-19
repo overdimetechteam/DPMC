@@ -1,0 +1,105 @@
+table TopBottomSelector
+	lineageTag: dca7905f-c55a-4e8a-8824-ad6d5af9638e
+
+	measure 'Top Bottom' = SELECTEDVALUE(TopBottomSelector[Selection], "Top")
+		lineageTag: 5e37de5b-a03a-4a8e-a3f1-b7c7e27253ae
+
+	measure 'Branch Target Chart (HTML)' =
+			
+			VAR Sel = [Top Bottom]
+			VAR MaxBars = 3
+			VAR BaseTable =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( gold_dpmc_vs_2w3w_target[STR_BRANCH] ),
+			            "TargetVal", [Target (Selected)]
+			        ),
+			        NOT ISBLANK ( gold_dpmc_vs_2w3w_target[STR_BRANCH] ) && [TargetVal] > 0
+			    )
+			VAR SortDir = IF ( Sel = "Bottom", 1, 0 )
+			VAR OrderedTable = TOPN ( MaxBars, BaseTable, [TargetVal], ASC)
+			VAR MaxVal = MAXX ( OrderedTable, [TargetVal] ) * 1.15
+			
+			VAR Style =
+			"<style>
+			  .branch-chart{display:flex; align-items:flex-end; gap:16px; height:170px; padding:10px 6px 0; font-family:'Segoe UI',sans-serif;}
+			  .branch-col{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;}
+			  .branch-bars{display:flex; align-items:flex-end; gap:4px; height:120px;}
+			  .branch-track{width:26px; height:120px; display:flex; align-items:flex-end; background:rgba(255,255,255,.05); border-radius:4px 4px 0 0;}
+			  .branch-fill{width:100%; background:#33456B; border-radius:4px 4px 0 0;}
+			  .pending-track{width:26px; height:120px; border:1.5px dashed #E8A33D; border-radius:4px; display:flex; align-items:center; justify-content:center;}
+			  .pending-lbl{font-size:7.5px; color:#E8A33D; writing-mode:vertical-rl; font-weight:600;}
+			  .branch-val{font-family:Consolas,'IBM Plex Mono',monospace; font-size:10.5px; color:#EEF3FB; margin-top:6px; font-weight:600;}
+			  .branch-lbl{font-size:9.5px; color:#93A5C4; margin-top:2px; text-align:center; max-width:80px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+			</style>"
+			
+			VAR Bars =
+			    CONCATENATEX (
+			        OrderedTable,
+			        VAR HeightPct = DIVIDE ( [TargetVal], MaxVal, 0 ) * 100
+			        RETURN
+			        "<div class='branch-col'><div class='branch-bars'>" &
+			        "<div class='branch-track'><div class='branch-fill' style='height:" & HeightPct & "%'></div></div>" &
+			        "<div class='pending-track'><span class='pending-lbl'>PENDING</span></div>" &
+			        "</div><div class='branch-val'>" & FORMAT ( [TargetVal], "#,##0" ) & "</div>" &
+			        "<div class='branch-lbl'>" & [STR_BRANCH] & "</div></div>",
+			        "",
+			        [TargetVal], ASC
+			    )
+			
+			RETURN
+			Style & "<div class='branch-chart'>" & Bars & "</div>"
+		lineageTag: e83c461f-e018-43bc-a6a5-4eeaa7c73e65
+
+	measure 'SRM Rank' =
+			
+			RANKX(ALLSELECTED(gold_dpmc_vs_2w3w_target[SRM]), [Achievement %], , DESC)
+		formatString: 0
+		lineageTag: fd554be5-a39f-4f81-ae84-e14b7e06e9a4
+
+	measure 'Branch Rank' =
+			
+			RANKX(ALLSELECTED(gold_dpmc_vs_2w3w_target[STR_BRANCH]), [Achievement %], , DESC)
+		formatString: 0
+		lineageTag: f62465dc-177b-4f23-9d5d-02ff6f534595
+
+	measure 'Show SRM' =
+			
+			VAR Sel = [Top Bottom]
+			VAR TotalCount = COUNTROWS(ALLSELECTED(gold_dpmc_vs_2w3w_target[SRM]))
+			RETURN
+			    IF(
+			        Sel = "Top",
+			        [SRM Rank] <= 5,
+			        [SRM Rank] > TotalCount - 5
+			    )
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 46c953bc-e1fd-448e-8c21-0853c52591df
+
+	measure 'Show Branch' =
+			
+			VAR Sel = [Top Bottom]
+			VAR TotalCount = COUNTROWS(ALLSELECTED(gold_dpmc_vs_2w3w_target[STR_BRANCH]))
+			RETURN
+			    IF(
+			        Sel = "Top",
+			        [Branch Rank] <= 5,
+			        [Branch Rank] > TotalCount - 5
+			    )
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 06208e7b-a3bb-4d83-a818-79c34fd1f3c9
+
+	column Selection
+		lineageTag: 6b793dd2-3786-4e93-8ec6-be2a0c245c8e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Selection]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TopBottomSelector = calculated
+		mode: import
+		source = DATATABLE("Selection", STRING, {{"Top"}, {"Bottom"}})
+
+	annotation PBI_Id = 9e301ddee47a4f44bd310b91e63e0d1a
+
