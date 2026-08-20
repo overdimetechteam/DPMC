@@ -63,3 +63,8 @@ relationship 83d959fd-c2fe-38a2-48fb-707a7b62f7a0
 	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
 	toColumn: VehicleTypeSelector.'Vehicle Type'
 
+relationship 4f62e7e1-70ad-05b2-6e8c-1439a5318748
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w_target.STR_BRANCH
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseCode
+

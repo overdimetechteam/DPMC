@@ -1,6 +1,21 @@
 table gold_dpmc_vs_2w3w_target
 	lineageTag: b751a629-2f0c-4319-815b-709c80bdedc0
 
+	measure 'Next Daily Target' = ```
+			
+			VAR TargetUnits = 
+			    SUM(gold_dpmc_vs_2w3w_target[2WTarget]) + SUM(gold_dpmc_vs_2w3w_target[3WTarget])
+			VAR ActualUnits = 
+			    CALCULATE(COUNTROWS(gold_dpmc_vs_2w3w4w_factsales))
+			VAR RemainingDays = 
+			    [Remaining Working Days]
+			RETURN
+			DIVIDE(TargetUnits - ActualUnits, RemainingDays)
+			```
+		lineageTag: 2e81c4b3-614c-4177-89d6-0431189e8357
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column DATE
 		dataType: dateTime
 		formatString: Long Date

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "44374fed02d6079f0ba5",
+  "position": {
+    "x": 353.33333333333337,
+    "y": 483.33333333333337,
+    "z": 18503,
+    "height": 211.66666666666669,
+    "width": 361.66666666666669,
+    "tabOrder": 17003
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w_target"
+                    }
+                  },
+                  "Property": "SRM"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w_target.SRM",
+              "nativeQueryRef": "SRM",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w_target"
+                    }
+                  },
+                  "Property": "Next Daily Target"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w_target.Next Daily Target",
+              "nativeQueryRef": "Next Daily Target"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_dpmc_vs_2w3w_target"
+                  }
+                },
+                "Property": "Next Daily Target"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Next Daily Target'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
