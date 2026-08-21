@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "a1c0b0a1800d4d703d76",
   "position": {
     "x": 501.79401993355481,
     "y": 110.56478405315615,
-    "z": 10000,
+    "z": 4000,
     "height": 86.467331118493917,
     "width": 138.91472868217053,
-    "tabOrder": 10000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "tableEx",
@@ -208,23 +208,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "eaab5bf6fc70fcdecd76",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Total Bookings"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

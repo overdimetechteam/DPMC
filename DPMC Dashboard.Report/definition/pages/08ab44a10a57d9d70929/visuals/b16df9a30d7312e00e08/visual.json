@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "b16df9a30d7312e00e08",
   "position": {
     "x": 652.04872646733111,
     "y": 110.56478405315615,
-    "z": 8000,
+    "z": 2000,
     "height": 86.467331118493917,
     "width": 114.8172757475083,
-    "tabOrder": 8000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "tableEx",
@@ -208,23 +208,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ffa3149b625cd03eadaa",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "GRNs"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

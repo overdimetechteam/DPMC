@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "14f9217d5475d079d02e",
   "position": {
     "x": 335.94684385382061,
     "y": 228.2170542635659,
-    "z": 7000,
+    "z": 1000,
     "height": 87.884828349944627,
     "width": 154.50719822812846,
-    "tabOrder": 7000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -208,23 +208,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "59850e9ddb451c2186e0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Stock Units"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
