@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "c53546a8674d1f95296a",
+  "name": "233d69136a0916c13f78",
   "position": {
-    "x": 34.64968152866242,
-    "y": 489.171974522293,
-    "z": 24000,
-    "height": 207.89808917197453,
-    "width": 295.54140127388536,
-    "tabOrder": 21000
+    "x": 669.63704630788482,
+    "y": 488.61076345431786,
+    "z": 24001,
+    "height": 206.65832290362951,
+    "width": 301.17647058823525,
+    "tabOrder": 24001
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -23,11 +23,11 @@
                       "Entity": "gold_dpmc_vs_2w3w_target"
                     }
                   },
-                  "Property": "SRM"
+                  "Property": "Product_Owner"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w_target.SRM",
-              "nativeQueryRef": "SRM",
+              "queryRef": "gold_dpmc_vs_2w3w_target.Product_Owner",
+              "nativeQueryRef": "Product_Owner",
               "active": true
             }
           ]
@@ -66,10 +66,43 @@
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "VehicleTypeSelector"
+                  }
+                },
+                "Property": "Target (Selected)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
     "objects": {
+      "legend": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
       "categoryAxis": [
         {
           "properties": {
@@ -152,24 +185,6 @@
           },
           "selector": {
             "metadata": "VehicleTypeSelector.Actual Units"
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "labelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.2
-                    }
-                  }
-                }
-              }
-            }
           }
         }
       ]
@@ -279,138 +294,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "94c3c305f668e8fdc273",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w_target"
-              }
-            },
-            "Property": "SRM"
-          }
-        },
-        "type": "TopN",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "subquery",
-              "Expression": {
-                "Subquery": {
-                  "Query": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "g",
-                        "Entity": "gold_dpmc_vs_2w3w_target",
-                        "Type": 0
-                      },
-                      {
-                        "Name": "t",
-                        "Entity": "TopBottomSelector",
-                        "Type": 0
-                      }
-                    ],
-                    "Select": [
-                      {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "g"
-                            }
-                          },
-                          "Property": "SRM"
-                        },
-                        "Name": "field"
-                      }
-                    ],
-                    "OrderBy": [
-                      {
-                        "Direction": 2,
-                        "Expression": {
-                          "Measure": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "t"
-                              }
-                            },
-                            "Property": "Show SRM"
-                          }
-                        }
-                      }
-                    ],
-                    "Top": 5
-                  }
-                }
-              },
-              "Type": 2
-            },
-            {
-              "Name": "g",
-              "Entity": "gold_dpmc_vs_2w3w_target",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "g"
-                          }
-                        },
-                        "Property": "SRM"
-                      }
-                    }
-                  ],
-                  "Table": {
-                    "SourceRef": {
-                      "Source": "subquery"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      },
-      {
-        "name": "a07bfcc0458986015945",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Target (Selected)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "28dab2449bdc7e787817",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Achievement %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
