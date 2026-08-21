@@ -69,12 +69,12 @@ table gold_dpmc_vs_2w3w4w_factsales
 		dataType: string
 		sourceProviderType: varchar(8000)
 		lineageTag: 34087195-5b8b-4914-9cad-f330504b588d
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: BookingNo
 
 		changedProperty = IsHidden
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column InvoiceNo
 		dataType: string
