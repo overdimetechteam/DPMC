@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 320.18437077017182,
-        "y": 0
+        "x": 407.44961035534521,
+        "y": 1.089437432629202
       },
       "nodes": [
         {
@@ -75,8 +75,8 @@
         },
         {
           "location": {
-            "x": 1249.1397213513997,
-            "y": 310.27346540059835
+            "x": 1246.9879447102471,
+            "y": 366.21965807055966
           },
           "nodeIndex": "gold_dpmc_vs_2w3w4w_dimproduct",
           "nodeLineageTag": "276c2aa3-946e-4150-83fe-f4cfaeffa0c3",
@@ -166,7 +166,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 46.473225002780154,
+      "zoomValue": 73.432396203813454,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

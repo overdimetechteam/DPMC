@@ -167,3 +167,5 @@ table gold_dpmc_dimdate
 
 	annotation PBI_ResultType = Table
 
+	annotation PBI_NavigationStepName = Navigation
+
