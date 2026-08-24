@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "9c45c7fcaec2a0175b8a",
   "position": {
-    "x": 16,
-    "y": 16,
+    "x": 24.000000000000004,
+    "y": 24.000000000000004,
     "z": 5000,
-    "height": 112.00000000000001,
-    "width": 112.00000000000001,
+    "height": 120,
+    "width": 120,
     "tabOrder": 10000
   },
   "visual": {

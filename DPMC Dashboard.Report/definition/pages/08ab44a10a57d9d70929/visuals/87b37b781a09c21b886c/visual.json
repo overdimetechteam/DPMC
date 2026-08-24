@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "87b37b781a09c21b886c",
   "position": {
-    "x": 481.59990234375891,
-    "y": 19.199981689453125,
+    "x": 484.26673177084223,
+    "y": 40.533345540364586,
     "z": 0,
     "height": 80,
     "width": 128,
@@ -45,7 +45,7 @@
                 "Property": "Sales Value (LKR M)"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
