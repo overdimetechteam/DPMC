@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "14f9217d5475d079d02e",
   "position": {
-    "x": 880,
-    "y": 111.99999999999999,
+    "x": 958.39990234375,
+    "y": 19.199981689453111,
     "z": 1000,
     "height": 80,
     "width": 128,
-    "tabOrder": 5000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "tableEx",
@@ -45,7 +45,7 @@
                 "Property": "Stock Units"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
