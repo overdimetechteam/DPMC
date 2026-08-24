@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "7d1946de18682a9ba65e",
   "position": {
-    "x": 363.22180916976453,
-    "y": 30.1363073110285,
-    "z": 10000,
-    "height": 41.239157372986369,
-    "width": 61.858736059479554,
-    "tabOrder": 13000
+    "x": 408,
+    "y": 32,
+    "z": 6000,
+    "height": 48,
+    "width": 80,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "actionButton",
@@ -35,6 +35,13 @@
               "expr": {
                 "Literal": {
                   "Value": "10L"
+                }
+              }
+            },
+            "tileShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'rectangleRounded'"
                 }
               }
             }
@@ -69,8 +76,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#EEF3FB'"
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
                     }
                   }
                 }
@@ -101,15 +109,55 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EEF3FB'"
+                      "Value": "'#0C4CA3'"
                     }
                   }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
                 }
               }
             }
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0C4CA3'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "75D"
+                }
+              }
+            }
           }
         }
       ]

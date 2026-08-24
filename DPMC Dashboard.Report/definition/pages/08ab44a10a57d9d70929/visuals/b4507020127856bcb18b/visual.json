@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "b4507020127856bcb18b",
   "position": {
-    "x": 94.068241469816272,
-    "y": 52.073490813648291,
+    "x": 0,
+    "y": 32,
     "z": 8000,
-    "height": 30.236220472440944,
-    "width": 193.17585301837269,
-    "tabOrder": 10000
+    "height": 32,
+    "width": 224,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "VEHICLE SALES OPS"
+                    "value": ""
                   }
                 ]
               }
@@ -32,6 +32,13 @@
       "background": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
             "color": {
               "solid": {
                 "color": {
@@ -42,6 +49,13 @@
                   }
                 }
               }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
             }
           }
         }
@@ -49,6 +63,13 @@
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'VEHICLE SALES OPS'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -56,10 +77,17 @@
                 }
               }
             },
-            "text": {
+            "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'VEHICLE SALES OPS'"
+                  "Value": "'Normal'"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
@@ -68,9 +96,62 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#93A5C4'"
+                      "Value": "'#0A1220'"
                     }
                   }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -79,5 +160,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "4596610af6f0ccdf321c"
 }

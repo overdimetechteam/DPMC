@@ -131,7 +131,7 @@ table VehicleTypeSelector
 			   <style>
 			     .ach-gauge{font-family:'Segoe UI', sans-serif; background:#152540; border:1px solid #2A3F63;
 			       border-radius:16px; padding:16px 18px 10px; color:#EEF3FB; max-width:260px; margin:0 auto;
-			       text-align:center; transition:transform .18s ease, border-color .18s ease;}
+			       text-align:center; transition:transform .18s ease, border-color .18s ease; height:100%; box-sizing:border-box;}
 			     .ach-gauge:hover{transform:translateY(-2px); border-color:#3A5488;}
 			     .ach-gauge .eyebrow{font-size:10.5px; text-transform:uppercase; letter-spacing:.8px;
 			       color:#5F7194; text-align:left; font-weight:600; margin-bottom:2px;}

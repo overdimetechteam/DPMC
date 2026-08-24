@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "08ab44a10a57d9d70929",
   "displayName": "Sales Overview",
-  "displayOption": "FitToWidth",
-  "height": 720,
-  "width": 1280,
+  "displayOption": "ActualSize",
+  "height": 2000,
+  "width": 2400,
   "filterConfig": {
     "filters": [
       {
@@ -96,8 +96,9 @@
             "solid": {
               "color": {
                 "expr": {
-                  "Literal": {
-                    "Value": "'#0E1729'"
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
                   }
                 }
               }
@@ -120,6 +121,19 @@
             "expr": {
               "Literal": {
                 "Value": "223L"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
               }
             }
           }
