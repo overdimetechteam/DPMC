@@ -112,24 +112,6 @@ table gold_dpmc_vs_2w3w4w_factstock
 
 		annotation SummarizationSetBy = Automatic
 
-	column LocationCode
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 1b8d6ff8-13cd-4c6f-8a81-20619d300df9
-		summarizeBy: none
-		sourceColumn: LocationCode
-
-		annotation SummarizationSetBy = Automatic
-
-	column LocationName
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 78229d63-f06b-4730-9705-1f8ca9b168ac
-		summarizeBy: none
-		sourceColumn: LocationName
-
-		annotation SummarizationSetBy = Automatic
-
 	column CrateStatus
 		dataType: string
 		sourceProviderType: varchar(8000)
@@ -335,6 +317,28 @@ table gold_dpmc_vs_2w3w4w_factstock
 		lineageTag: a3cdfbba-91f4-4ec2-bbb5-8a17144878ca
 		summarizeBy: sum
 		sourceColumn: INT_MONTH_END
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 6de5fc7d-58df-4d3b-ad59-406ff2a24393
+		summarizeBy: none
+		sourceColumn: DeliveryDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DtmDeclareDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8404e489-3044-400a-a86d-8ec66233b119
+		summarizeBy: none
+		sourceColumn: DtmDeclareDate
 
 		annotation SummarizationSetBy = Automatic
 

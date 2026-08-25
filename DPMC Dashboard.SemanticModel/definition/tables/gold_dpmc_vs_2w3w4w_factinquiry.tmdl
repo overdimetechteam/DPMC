@@ -86,15 +86,6 @@ table gold_dpmc_vs_2w3w4w_factinquiry
 
 		annotation SummarizationSetBy = Automatic
 
-	column VehicleType
-		dataType: string
-		sourceProviderType: varchar(8000)
-		lineageTag: 70fdbd16-3866-4770-8956-4a4ec8c956b6
-		summarizeBy: none
-		sourceColumn: VehicleType
-
-		annotation SummarizationSetBy = Automatic
-
 	column InquiryDate
 		dataType: dateTime
 		formatString: General Date
@@ -140,6 +131,15 @@ table gold_dpmc_vs_2w3w4w_factinquiry
 		lineageTag: 2ca23c4b-feec-4889-87e5-ca093cb48ad2
 		summarizeBy: sum
 		sourceColumn: INT_MONTH_END
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e4a2486f-f0d9-41dc-b102-20b8a9d61a3b
+		summarizeBy: none
+		sourceColumn: Type
 
 		annotation SummarizationSetBy = Automatic
 
