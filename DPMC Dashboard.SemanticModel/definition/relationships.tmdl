@@ -67,3 +67,19 @@ relationship ace104df-f723-e35f-7dab-2dd55eb5cc21
 	fromColumn: gold_dpmc_vs_2w3w4w_factstock.PremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
 
+relationship 87d2971f-412f-4503-a45a-d772325b78ba
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Vw_dpmc_vs_DimDate.TheFirstOfMonth
+	toColumn: LocalDateTable_9da29efa-ab57-4315-ab1b-7aa7cd7c5a35.Date
+
+relationship 9d4f4807-b3ef-4f0f-98a3-158b3eddc794
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Vw_dpmc_vs_DimDate.TheLastOfYear
+	toColumn: LocalDateTable_64d6d604-9c9f-4357-8995-1629575fc509.Date
+
+relationship 0042c47c-93b4-a1a3-fb7f-f470dd7171b7
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Vw_dpmc_vs_DimDate.TheDate
+	toColumn: gold_dpmc_dimdate.TheDate
+

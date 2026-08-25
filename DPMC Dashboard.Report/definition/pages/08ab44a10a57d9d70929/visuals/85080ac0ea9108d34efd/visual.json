@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "d649385e21cd476f650a",
+  "name": "85080ac0ea9108d34efd",
   "position": {
-    "x": 1089,
-    "y": 555,
-    "z": 21000,
-    "height": 339,
-    "width": 492,
-    "tabOrder": 21000
+    "x": 444,
+    "y": 735,
+    "z": 24006,
+    "height": 211,
+    "width": 285,
+    "tabOrder": 24006
   },
   "visual": {
-    "visualType": "funnel",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Stage"
+                      "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
                     }
                   },
-                  "Property": "StageName"
+                  "Property": "STR_MODEL_DESC"
                 }
               },
-              "queryRef": "Stage.StageName",
-              "nativeQueryRef": "StageName",
+              "queryRef": "gold_dpmc_vs_2w3w4w_dimproduct.STR_MODEL_DESC",
+              "nativeQueryRef": "STR_MODEL_DESC",
               "active": true
             }
           ]
@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures_Table"
+                      "Entity": "DimDealer"
                     }
                   },
-                  "Property": "Funnel Value"
+                  "Property": "Avg Sales Units (Last 3 Months)"
                 }
               },
-              "queryRef": "Measures_Table.Funnel Value",
-              "nativeQueryRef": "Funnel Value"
+              "queryRef": "DimDealer.Avg Sales Units (Last 3 Months)",
+              "nativeQueryRef": "Avg Sales Units (Last 3 Months)"
             }
           ]
         }
@@ -58,10 +58,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures_Table"
+                    "Entity": "DimDealer"
                   }
                 },
-                "Property": "Funnel Value"
+                "Property": "Avg Sales Units (Last 3 Months)"
               }
             },
             "direction": "Descending"

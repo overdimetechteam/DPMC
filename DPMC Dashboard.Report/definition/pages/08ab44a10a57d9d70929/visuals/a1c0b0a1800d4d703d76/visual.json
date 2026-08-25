@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "a1c0b0a1800d4d703d76",
   "position": {
     "x": 644.26673177084228,
@@ -65,13 +65,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'growToFit'"
-                }
-              }
-            },
-            "defaultColumnWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "90D"
                 }
               }
             }

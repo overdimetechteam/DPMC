@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "d649385e21cd476f650a",
+  "name": "d40fb5e5b7f28ab78785",
   "position": {
-    "x": 1089,
-    "y": 555,
-    "z": 21000,
-    "height": 339,
-    "width": 492,
-    "tabOrder": 21000
+    "x": 444,
+    "y": 967,
+    "z": 24007,
+    "height": 211,
+    "width": 285,
+    "tabOrder": 24007
   },
   "visual": {
-    "visualType": "funnel",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Stage"
+                      "Entity": "gold_dpmc_vs_2w3w_target"
                     }
                   },
-                  "Property": "StageName"
+                  "Property": "SRM"
                 }
               },
-              "queryRef": "Stage.StageName",
-              "nativeQueryRef": "StageName",
+              "queryRef": "gold_dpmc_vs_2w3w_target.SRM",
+              "nativeQueryRef": "SRM",
               "active": true
             }
           ]
@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures_Table"
+                      "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Funnel Value"
+                  "Property": "Next Daily Target"
                 }
               },
-              "queryRef": "Measures_Table.Funnel Value",
-              "nativeQueryRef": "Funnel Value"
+              "queryRef": "VehicleTypeSelector.Next Daily Target",
+              "nativeQueryRef": "Next Daily Target"
             }
           ]
         }
@@ -58,10 +58,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures_Table"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Funnel Value"
+                "Property": "Next Daily Target"
               }
             },
             "direction": "Descending"
