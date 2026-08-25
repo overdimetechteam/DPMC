@@ -1,0 +1,24 @@
+table DimDealer
+	lineageTag: ddb2d5ae-2e5f-480f-b2bd-4b152d2c9453
+
+	column Dealer
+		lineageTag: 60838548-d6cc-47f3-bd1a-3dde39039e77
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dealer]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDealer = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        gold_dpmc_vs_2w3w4w_factinquiry,
+				        "Dealer", gold_dpmc_vs_2w3w4w_factinquiry[DealerPremiseDesc]
+				    )
+				)
+
+	annotation PBI_Id = e91d797403f948da88789d52651083f5
+

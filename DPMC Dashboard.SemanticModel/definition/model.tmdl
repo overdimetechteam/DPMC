@@ -24,6 +24,15 @@ ref table gold_dpmc_vs_2w3w4w_factinquiry
 ref table gold_dpmc_vs_2w3w4w_factsales
 ref table gold_dpmc_vs_2w3w4w_factstock
 ref table VehicleTypeSelector
+ref table Measures_Table
+ref table Table
+ref table 'Table 2'
+ref table 'Table 3'
+ref table 'Table 4'
+ref table DimDealer
+ref table DimProductFilter
+ref table DimRegion
+ref table Stage
 
 ref cultureInfo en-US
 
