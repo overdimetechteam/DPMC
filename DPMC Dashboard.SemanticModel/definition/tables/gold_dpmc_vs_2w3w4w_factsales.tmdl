@@ -266,6 +266,33 @@ table gold_dpmc_vs_2w3w4w_factsales
 
 		annotation SummarizationSetBy = Automatic
 
+	column InqType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 56e1f33a-f338-4f70-961a-76c2793b65a7
+		summarizeBy: none
+		sourceColumn: InqType
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentType
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 31c58079-0c02-4909-a07a-6030502df791
+		summarizeBy: none
+		sourceColumn: PaymentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column AssemblyCategory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a9d1a22a-ad42-435f-a8f3-00be30a755b0
+		summarizeBy: none
+		sourceColumn: AssemblyCategory
+
+		annotation SummarizationSetBy = Automatic
+
 	partition gold_dpmc_vs_2w3w4w_factsales = m
 		mode: directQuery
 		source =
