@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "d649385e21cd476f650a",
+  "position": {
+    "x": 1089,
+    "y": 555,
+    "z": 17007,
+    "height": 339,
+    "width": 492,
+    "tabOrder": 17007
+  },
+  "visual": {
+    "visualType": "funnel",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage"
+                    }
+                  },
+                  "Property": "StageName"
+                }
+              },
+              "queryRef": "Stage.StageName",
+              "nativeQueryRef": "StageName",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Funnel Value"
+                }
+              },
+              "queryRef": "Measures_Table.Funnel Value",
+              "nativeQueryRef": "Funnel Value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures_Table"
+                  }
+                },
+                "Property": "Funnel Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

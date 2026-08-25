@@ -63,3 +63,7 @@ relationship 1377c708-af77-61af-71f8-fd92a1d48469
 	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
 	toColumn: VehicleTypeSelector.'Vehicle Type'
 
+relationship ace104df-f723-e35f-7dab-2dd55eb5cc21
+	fromColumn: gold_dpmc_vs_2w3w4w_factstock.PremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+

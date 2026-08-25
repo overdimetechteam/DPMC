@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "22f9289620bc7d496039",
+  "position": {
+    "x": 1608,
+    "y": 173,
+    "z": 17003,
+    "height": 250,
+    "width": 628,
+    "tabOrder": 17003
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                    }
+                  },
+                  "Property": "STR_MODEL_DESC"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_dimproduct.STR_MODEL_DESC",
+              "nativeQueryRef": "STR_MODEL_DESC",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Current Month Inquiry"
+                }
+              },
+              "queryRef": "Measures_Table.Current Month Inquiry",
+              "nativeQueryRef": "Current Month Inquiry"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Previous Month Inquiry"
+                }
+              },
+              "queryRef": "Measures_Table.Previous Month Inquiry",
+              "nativeQueryRef": "Previous Month Inquiry"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Current Month Booking"
+                }
+              },
+              "queryRef": "Measures_Table.Current Month Booking",
+              "nativeQueryRef": "Current Month Booking"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Previous Month Booking"
+                }
+              },
+              "queryRef": "Measures_Table.Previous Month Booking",
+              "nativeQueryRef": "Previous Month Booking"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures_Table"
+                  }
+                },
+                "Property": "Current Month Inquiry"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

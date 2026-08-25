@@ -1,0 +1,206 @@
+table Measures_Table
+	lineageTag: 2fe036ca-a21b-47ce-9933-a9d26bf1aabd
+
+	measure 'Inquiry Count' =
+			
+			DISTINCTCOUNT(
+			    gold_dpmc_vs_2w3w4w_factsales[InquiryNo]
+			)
+		formatString: 0
+		lineageTag: 750946c3-ee08-4210-8500-87e0192b053a
+
+	measure 'Booking Count' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(
+			        gold_dpmc_vs_2w3w4w_factsales[BookingNo]
+			    ),
+			    NOT ISBLANK(
+			        gold_dpmc_vs_2w3w4w_factsales[BookingNo]
+			    )
+			)
+		formatString: 0
+		lineageTag: 05df34e6-1886-4dfa-801e-2eefae801edc
+
+	measure 'Current Month Inquiry' =
+			
+			VAR StartCurrentMonth =
+			    DATE(
+			        YEAR(TODAY()),
+			        MONTH(TODAY()),
+			        1
+			    )
+			
+			VAR StartNextMonth =
+			    EDATE(
+			        StartCurrentMonth,
+			        1
+			    )
+			
+			RETURN
+			CALCULATE(
+			    [Inquiry Count],
+			    gold_dpmc_vs_2w3w4w_factsales[InquiryDate] >= StartCurrentMonth,
+			    gold_dpmc_vs_2w3w4w_factsales[InquiryDate] < StartNextMonth
+			)
+		formatString: 0
+		lineageTag: 25341901-1c9c-4177-993a-5991999c9b84
+
+	measure 'Previous Month Inquiry' =
+			
+			VAR StartCurrentMonth =
+			    DATE(
+			        YEAR(TODAY()),
+			        MONTH(TODAY()),
+			        1
+			    )
+			
+			VAR StartPreviousMonth =
+			    EDATE(
+			        StartCurrentMonth,
+			        -1
+			    )
+			
+			RETURN
+			CALCULATE(
+			    [Inquiry Count],
+			    gold_dpmc_vs_2w3w4w_factsales[InquiryDate] >= StartPreviousMonth,
+			    gold_dpmc_vs_2w3w4w_factsales[InquiryDate] < StartCurrentMonth
+			)
+		formatString: 0
+		lineageTag: 06b664fe-d1a9-4525-ab4b-fa2b8d3b8dee
+
+	measure 'Current Month Booking' =
+			
+			VAR StartCurrentMonth =
+			    DATE(
+			        YEAR(TODAY()),
+			        MONTH(TODAY()),
+			        1
+			    )
+			
+			VAR StartNextMonth =
+			    EDATE(
+			        StartCurrentMonth,
+			        1
+			    )
+			
+			RETURN
+			CALCULATE(
+			    [Booking Count],
+			    gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] >= StartCurrentMonth,
+			    gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] < StartNextMonth
+			)
+		formatString: 0
+		lineageTag: 917bd643-dd9b-4a4a-886f-59c820dd171c
+
+	measure 'Previous Month Booking' =
+			
+			VAR StartCurrentMonth =
+			    DATE(
+			        YEAR(TODAY()),
+			        MONTH(TODAY()),
+			        1
+			    )
+			
+			VAR StartPreviousMonth =
+			    EDATE(
+			        StartCurrentMonth,
+			        -1
+			    )
+			
+			RETURN
+			CALCULATE(
+			    [Booking Count],
+			    gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] >= StartPreviousMonth,
+			    gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] < StartCurrentMonth
+			)
+		formatString: 0
+		lineageTag: cadca2c2-d4aa-41cd-98ea-53e6d47ba1f6
+
+	measure 'Funnel Value' =
+			
+			VAR CurrentStage =
+			    SELECTEDVALUE('Stage'[StageName])
+			
+			VAR SelectedDealer =
+			    VALUES('DimDealer'[Dealer])
+			
+			VAR SelectedProduct =
+			    VALUES('DimProductFilter'[Product])
+			
+			VAR SelectedRegion =
+			    VALUES('DimRegion'[Region])
+			
+			RETURN
+			
+			SWITCH(
+			    CurrentStage,
+			
+			    "Inquiry",
+			        CALCULATE(
+			            DISTINCTCOUNT(
+			                gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]
+			            ),
+			
+			            TREATAS(
+			                SelectedDealer,
+			                gold_dpmc_vs_2w3w4w_factinquiry[DealerPremiseDesc]
+			            )
+			        ),
+			
+			    "Booking",
+			        CALCULATE(
+			            DISTINCTCOUNT(
+			                gold_dpmc_vs_2w3w4w_factstock[BookingNo]
+			            )
+			        ),
+			
+			    "Allocation",
+			        CALCULATE(
+			            DISTINCTCOUNT(
+			                gold_dpmc_vs_2w3w4w_factstock[AllocatedDate]
+			            ),
+			            NOT ISBLANK(
+			                gold_dpmc_vs_2w3w4w_factstock[AllocatedDate]
+			            )
+			        ),
+			
+			    "Invoice",
+			        CALCULATE(
+			            DISTINCTCOUNT(
+			                gold_dpmc_vs_2w3w4w_factsales[InvoiceNo]
+			            )
+			        ),
+			
+			    BLANK()
+			)
+		formatString: 0
+		lineageTag: 2565c278-5108-41ae-a8a2-16186854b747
+
+	column Column
+		formatString: 0
+		lineageTag: 194b6994-0780-4091-9b5f-56fdb64ff5df
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column 2'
+		type: calculated
+		lineageTag: 6a478076-3d1c-4fd3-97a4-a475434c57d1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Measures_Table = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = ea8fd3edbc174c8ea1108c5301fade10
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":null}
+
+	annotation 277cc1b9-af89-4597-8e15-cacc25c0886b = To use special characters in a calculated table name, enclose the entire name in brackets ( [] ) and add a ] to any closing brackets in the name.
+
