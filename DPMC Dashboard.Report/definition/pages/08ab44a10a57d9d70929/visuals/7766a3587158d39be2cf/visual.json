@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "d649385e21cd476f650a",
+  "name": "7766a3587158d39be2cf",
   "position": {
-    "x": 1089,
-    "y": 555,
-    "z": 21000,
-    "height": 339,
-    "width": 492,
-    "tabOrder": 21000
+    "x": 0,
+    "y": 735,
+    "z": 24001,
+    "height": 220,
+    "width": 374,
+    "tabOrder": 24001
   },
   "visual": {
-    "visualType": "funnel",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Stage"
+                      "Entity": "gold_dpmc_vs_2w3w_target"
                     }
                   },
-                  "Property": "StageName"
+                  "Property": "STR_BRANCH"
                 }
               },
-              "queryRef": "Stage.StageName",
-              "nativeQueryRef": "StageName",
+              "queryRef": "gold_dpmc_vs_2w3w_target.STR_BRANCH",
+              "nativeQueryRef": "STR_BRANCH",
               "active": true
             }
           ]
@@ -39,14 +39,28 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Measures_Table"
+                      "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Funnel Value"
+                  "Property": "Target (Selected)"
                 }
               },
-              "queryRef": "Measures_Table.Funnel Value",
-              "nativeQueryRef": "Funnel Value"
+              "queryRef": "VehicleTypeSelector.Target (Selected)",
+              "nativeQueryRef": "Target (Selected)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Achievement %"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Achievement %",
+              "nativeQueryRef": "Achievement %"
             }
           ]
         }
@@ -58,10 +72,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures_Table"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Funnel Value"
+                "Property": "Target (Selected)"
               }
             },
             "direction": "Descending"

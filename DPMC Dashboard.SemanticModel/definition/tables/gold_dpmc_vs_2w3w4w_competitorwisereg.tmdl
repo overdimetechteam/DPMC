@@ -1,0 +1,44 @@
+table gold_dpmc_vs_2w3w4w_competitorwisereg
+	lineageTag: 636613fb-5001-4542-b4b0-ba010a832310
+
+	column Make
+		dataType: string
+		lineageTag: c3d7aa12-9dbd-4e06-912a-2bb649833134
+		summarizeBy: none
+		sourceColumn: Make
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 33f85298-56c1-4bdb-b458-0ee3318a6173
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Units
+		dataType: string
+		lineageTag: 13af4dfa-40b2-4a40-ba8b-9036aff2df0a
+		summarizeBy: none
+		sourceColumn: Units
+
+		annotation SummarizationSetBy = Automatic
+
+	column productline
+		dataType: string
+		lineageTag: 3af5cf7e-1467-4eb4-a56b-52f0fbb39509
+		summarizeBy: none
+		sourceColumn: productline
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dpmc_vs_2w3w4w_competitorwisereg = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External"),
+				    dbo_gold_dpmc_vs_2w3w4w_competitorwisereg = Source{[Schema="dbo",Item="gold_dpmc_vs_2w3w4w_competitorwisereg"]}[Data]
+				in
+				    dbo_gold_dpmc_vs_2w3w4w_competitorwisereg
+

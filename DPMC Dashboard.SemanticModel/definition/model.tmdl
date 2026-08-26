@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock"]
+annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock","gold_dpmc_vs_2w3w4w_competitorwisereg","Vw_dpmc_vs_DimDate"]
 
 annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
 
@@ -27,12 +27,15 @@ ref table VehicleTypeSelector
 ref table Measures_Table
 ref table Table
 ref table 'Table 2'
-ref table 'Table 3'
-ref table 'Table 4'
 ref table DimDealer
 ref table DimProductFilter
 ref table DimRegion
 ref table Stage
+ref table gold_dpmc_vs_2w3w4w_competitorwisereg
+ref table Vw_dpmc_vs_DimDate
+ref table DateTableTemplate_55d6ae3a-790e-49ca-a963-e25288afb661
+ref table LocalDateTable_9da29efa-ab57-4315-ab1b-7aa7cd7c5a35
+ref table LocalDateTable_64d6d604-9c9f-4357-8995-1629575fc509
 
 ref cultureInfo en-US
 

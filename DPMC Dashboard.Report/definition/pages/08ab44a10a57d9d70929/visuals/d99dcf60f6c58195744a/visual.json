@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d99dcf60f6c58195744a",
   "position": {
     "x": 1320,
     "y": 26,
-    "z": 17001,
+    "z": 15000,
     "height": 92,
     "width": 174,
-    "tabOrder": 17001
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "slicer",
@@ -117,23 +117,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "621b7a29eaa0590e921c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Vehicle Type"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -201,6 +201,21 @@ table VehicleTypeSelector
 			Style & "<div class='kpi-grid'>" & Card1 & Card2 & Card3 & Card4 & Card5 & Card6 & Card7 & Card8 & "</div>"
 		lineageTag: d6a49a0a-53c2-48d4-aabc-6a37ec5ce7df
 
+	measure 'Next Daily Target' = ```
+			
+			VAR TargetUnits = 
+			    SUM(gold_dpmc_vs_2w3w_target[2WTarget]) + SUM(gold_dpmc_vs_2w3w_target[3WTarget])
+			VAR ActualUnits = 
+			    CALCULATE(COUNTROWS(gold_dpmc_vs_2w3w4w_factsales))
+			VAR RemainingDays = 
+			    [Remaining Working Days]
+			RETURN
+			DIVIDE(TargetUnits - ActualUnits, RemainingDays)
+			```
+		lineageTag: 17022eed-0c87-467d-b840-fabbea6ff05c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd
 		summarizeBy: none

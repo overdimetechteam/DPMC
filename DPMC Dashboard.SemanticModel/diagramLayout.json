@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 1600.4730460906953,
-        "y": 195.00347948665157
+        "x": 1672.3449492456468,
+        "y": 216.67053276294621
       },
       "nodes": [
         {
@@ -204,32 +204,6 @@
         },
         {
           "location": {
-            "x": 2199.618667746322,
-            "y": 469.0882906109174
-          },
-          "nodeIndex": "Table 3",
-          "nodeLineageTag": "27255c47-4488-43b0-939d-0c86b545438b",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 2483.618667746322,
-            "y": 469.0882906109174
-          },
-          "nodeIndex": "Table 4",
-          "nodeLineageTag": "ff19c453-224e-4e9a-a6a5-915b370f9c6b",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
             "x": 2515.1974970774895,
             "y": 469.0882906109174
           },
@@ -272,6 +246,32 @@
           "nodeIndex": "Stage",
           "size": {
             "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2641.5128144021596,
+            "y": 481.0882906109174
+          },
+          "nodeIndex": "gold_dpmc_vs_2w3w4w_competitorwisereg",
+          "nodeLineageTag": "636613fb-5001-4542-b4b0-ba010a832310",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 166.83631022746857
+          },
+          "nodeIndex": "Vw_dpmc_vs_DimDate",
+          "nodeLineageTag": "d85fbed9-82ff-4000-ad8e-d4991227cd8c",
+          "size": {
+            "height": 300,
             "width": 234
           },
           "zIndex": 0
