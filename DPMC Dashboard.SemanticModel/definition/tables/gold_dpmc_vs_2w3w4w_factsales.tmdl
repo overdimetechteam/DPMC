@@ -35,7 +35,7 @@ table gold_dpmc_vs_2w3w4w_factsales
 		formatString: 0
 		sourceProviderType: int
 		lineageTag: f0126dfd-d78f-45ff-8cb7-5ac195af230c
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: PremiseSK
 
 		changedProperty = IsHidden
@@ -290,6 +290,19 @@ table gold_dpmc_vs_2w3w4w_factsales
 		lineageTag: a9d1a22a-ad42-435f-a8f3-00be30a755b0
 		summarizeBy: none
 		sourceColumn: AssemblyCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column BranchMonthKey = ```
+			
+			VAR EOM = EOMONTH ( gold_dpmc_vs_2w3w4w_factsales[InvoiceDate], 0 )
+			VAR YM = YEAR ( EOM ) * 100 + MONTH ( EOM )
+			RETURN
+			    YM & "|" & TRIM ( RELATED ( gold_dpmc_vs_2w3w4w_dimpremises[PremiseCode] ) )
+			
+			```
+		lineageTag: 34fb20c7-99e1-444b-9dfa-debdc1b9149d
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

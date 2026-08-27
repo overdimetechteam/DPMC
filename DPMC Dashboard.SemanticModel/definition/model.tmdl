@@ -25,8 +25,6 @@ ref table gold_dpmc_vs_2w3w4w_factsales
 ref table gold_dpmc_vs_2w3w4w_factstock
 ref table VehicleTypeSelector
 ref table Measures_Table
-ref table Table
-ref table 'Table 2'
 ref table DimDealer
 ref table DimProductFilter
 ref table DimRegion
@@ -36,6 +34,12 @@ ref table Vw_dpmc_vs_DimDate
 ref table DateTableTemplate_55d6ae3a-790e-49ca-a963-e25288afb661
 ref table LocalDateTable_9da29efa-ab57-4315-ab1b-7aa7cd7c5a35
 ref table LocalDateTable_64d6d604-9c9f-4357-8995-1629575fc509
+ref table BranchMonthTarget
+ref table LocalDateTable_2645f927-954a-4661-97d2-d4f413ce20bf
+ref table TopBottomSelector
+ref table LocalDateTable_d894c362-d534-44dc-a835-432c84bfc2a0
+ref table MonthBridge
+ref table LocalDateTable_51815c0f-adc3-4045-9491-1eb4203b692f
 
 ref cultureInfo en-US
 

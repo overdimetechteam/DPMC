@@ -3,11 +3,11 @@
   "name": "d40fb5e5b7f28ab78785",
   "position": {
     "x": 444,
-    "y": 967,
-    "z": 24007,
-    "height": 211,
+    "y": 691,
+    "z": 31000,
+    "height": 228,
     "width": 285,
-    "tabOrder": 24007
+    "tabOrder": 31000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -23,11 +23,11 @@
                       "Entity": "gold_dpmc_vs_2w3w_target"
                     }
                   },
-                  "Property": "SRM"
+                  "Property": "Product_Owner"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w_target.SRM",
-              "nativeQueryRef": "SRM",
+              "queryRef": "gold_dpmc_vs_2w3w_target.Product_Owner",
+              "nativeQueryRef": "Product_Owner",
               "active": true
             }
           ]

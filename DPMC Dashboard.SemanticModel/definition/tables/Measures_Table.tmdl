@@ -187,13 +187,6 @@ table Measures_Table
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Column 2'
-		type: calculated
-		lineageTag: 6a478076-3d1c-4fd3-97a4-a475434c57d1
-		summarizeBy: sum
-
-		annotation SummarizationSetBy = Automatic
-
 	partition Measures_Table = calculated
 		mode: import
 		source = Row("Column", BLANK())
