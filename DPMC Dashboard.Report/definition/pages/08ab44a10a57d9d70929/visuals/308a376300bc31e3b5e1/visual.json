@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "d99dcf60f6c58195744a",
+  "name": "308a376300bc31e3b5e1",
   "position": {
-    "x": 1320,
-    "y": 26,
-    "z": 15000,
-    "height": 92,
-    "width": 174,
-    "tabOrder": 15000
+    "x": 0,
+    "y": 1109,
+    "z": 33000,
+    "height": 78,
+    "width": 201,
+    "tabOrder": 33000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "TopBottomSelector"
                     }
                   },
-                  "Property": "Vehicle Type"
+                  "Property": "Selection"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Vehicle Type",
-              "nativeQueryRef": "Vehicle Type",
+              "queryRef": "TopBottomSelector.Selection",
+              "nativeQueryRef": "Selection",
               "active": true
             }
           ]
@@ -63,8 +63,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "v",
-                    "Entity": "VehicleTypeSelector",
+                    "Name": "t",
+                    "Entity": "TopBottomSelector",
                     "Type": 0
                   }
                 ],
@@ -77,10 +77,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "v"
+                                  "Source": "t"
                                 }
                               },
-                              "Property": "Vehicle Type"
+                              "Property": "Selection"
                             }
                           }
                         ],
@@ -88,7 +88,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'3W'"
+                                "Value": "'Bottom'"
                               }
                             }
                           ]
@@ -109,6 +109,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

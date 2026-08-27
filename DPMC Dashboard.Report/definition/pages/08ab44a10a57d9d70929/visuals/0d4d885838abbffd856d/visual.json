@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "0d4d885838abbffd856d",
+  "position": {
+    "x": 17,
+    "y": 691,
+    "z": 34001,
+    "height": 228,
+    "width": 368,
+    "tabOrder": 35001
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MonthBridge"
+                    }
+                  },
+                  "Property": "TheFirstOfMonth"
+                }
+              },
+              "queryRef": "MonthBridge.TheFirstOfMonth.Variation.Date Hierarchy.Year",
+              "nativeQueryRef": "TheFirstOfMonth Year",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "DPMC Total Units (3W)"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.DPMC Total Units (3W)",
+              "nativeQueryRef": "DPMC Total Units (3W)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Competitor Total Units"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Competitor Total Units",
+              "nativeQueryRef": "Competitor Total Units"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

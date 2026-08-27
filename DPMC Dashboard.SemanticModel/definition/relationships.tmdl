@@ -83,3 +83,34 @@ relationship 0042c47c-93b4-a1a3-fb7f-f470dd7171b7
 	fromColumn: Vw_dpmc_vs_DimDate.TheDate
 	toColumn: gold_dpmc_dimdate.TheDate
 
+relationship 4b5103f5-10b0-8170-4f3f-7cc32c148daf
+	fromColumn: gold_dpmc_vs_2w3w4w_factsales.PremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship 0520a3a3-3502-4d46-ab4b-797330190936
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BranchMonthTarget.DATE
+	toColumn: LocalDateTable_2645f927-954a-4661-97d2-d4f413ce20bf.Date
+
+relationship 11b3758b-5df9-66be-7cff-b3762dd8f3e1
+	fromColumn: gold_dpmc_vs_2w3w4w_factsales.BranchMonthKey
+	toColumn: BranchMonthTarget.BranchMonthKey
+
+relationship b14d6582-d52f-46ee-82f1-1751c250e08f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: gold_dpmc_vs_2w3w4w_competitorwisereg.Month
+	toColumn: LocalDateTable_d894c362-d534-44dc-a835-432c84bfc2a0.Date
+
+relationship 32e2f69d-3587-48e7-8389-304b98e92518
+	joinOnDateBehavior: datePartOnly
+	fromColumn: MonthBridge.TheFirstOfMonth
+	toColumn: LocalDateTable_51815c0f-adc3-4045-9491-1eb4203b692f.Date
+
+relationship a34e4f7c-6f3e-362e-a614-8a17154cf71f
+	fromColumn: gold_dpmc_dimdate.TheFirstOfMonth
+	toColumn: MonthBridge.TheFirstOfMonth
+
+relationship 3e8f8ab7-df2d-8413-52c4-7f2c7db9605c
+	fromColumn: gold_dpmc_vs_2w3w4w_competitorwisereg.MonthStart
+	toColumn: MonthBridge.TheFirstOfMonth
+

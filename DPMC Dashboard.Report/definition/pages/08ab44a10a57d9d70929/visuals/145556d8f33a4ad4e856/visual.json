@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "ca1248a3f0483200eedb",
+  "name": "145556d8f33a4ad4e856",
   "position": {
-    "x": 217,
-    "y": 173,
-    "z": 28000,
-    "height": 94,
-    "width": 157,
-    "tabOrder": 28000
+    "x": 2128,
+    "y": 144,
+    "z": 34002,
+    "height": 99,
+    "width": 264,
+    "tabOrder": 35002
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Actual Units"
+                  "Property": "Total Working Days"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Actual Units",
-              "nativeQueryRef": "Actual Units"
+              "queryRef": "VehicleTypeSelector.Total Working Days",
+              "nativeQueryRef": "Total Working Days"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Actual Units"
+                "Property": "Total Working Days"
               }
             },
             "direction": "Descending"

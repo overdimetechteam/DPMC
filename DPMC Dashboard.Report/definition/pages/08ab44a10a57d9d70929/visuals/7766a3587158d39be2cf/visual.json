@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "7766a3587158d39be2cf",
   "position": {
-    "x": 0,
-    "y": 735,
-    "z": 24001,
+    "x": 400,
+    "y": 1223,
+    "z": 25000,
     "height": 220,
     "width": 374,
-    "tabOrder": 24001
+    "tabOrder": 25000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w_target"
+                      "Entity": "BranchMonthTarget"
                     }
                   },
                   "Property": "STR_BRANCH"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w_target.STR_BRANCH",
+              "queryRef": "BranchMonthTarget.STR_BRANCH",
               "nativeQueryRef": "STR_BRANCH",
               "active": true
             }
@@ -84,6 +84,210 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Branch wise - Target vs Achievement '"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cbb52b9652ffa23787d4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "BranchMonthTarget"
+              }
+            },
+            "Property": "STR_BRANCH"
+          }
+        },
+        "type": "TopN",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "subquery",
+              "Expression": {
+                "Subquery": {
+                  "Query": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "b",
+                        "Entity": "BranchMonthTarget",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "t",
+                        "Entity": "TopBottomSelector",
+                        "Type": 0
+                      }
+                    ],
+                    "Select": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "b"
+                            }
+                          },
+                          "Property": "STR_BRANCH"
+                        },
+                        "Name": "field"
+                      }
+                    ],
+                    "OrderBy": [
+                      {
+                        "Direction": 2,
+                        "Expression": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "Sort Basis Branch"
+                          }
+                        }
+                      }
+                    ],
+                    "Top": 5
+                  }
+                }
+              },
+              "Type": 2
+            },
+            {
+              "Name": "b",
+              "Entity": "BranchMonthTarget",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "b"
+                          }
+                        },
+                        "Property": "STR_BRANCH"
+                      }
+                    }
+                  ],
+                  "Table": {
+                    "SourceRef": {
+                      "Source": "subquery"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "4f5069359a990e5a0cc8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "TopBottomSelector"
+              }
+            },
+            "Property": "Show Branch"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "79e57a0e021b7f0797d0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Target (Selected)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5cf29b864fb809d53147",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Achievement %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

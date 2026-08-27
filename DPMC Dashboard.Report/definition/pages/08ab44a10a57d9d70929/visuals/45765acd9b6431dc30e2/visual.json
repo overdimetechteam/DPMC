@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "4161c80d3db6703e5941",
+  "name": "45765acd9b6431dc30e2",
   "position": {
-    "x": 0,
+    "x": 811,
     "y": 1223,
-    "z": 29000,
+    "z": 32000,
     "height": 220,
     "width": 374,
-    "tabOrder": 29000
+    "tabOrder": 32000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -23,11 +23,11 @@
                       "Entity": "BranchMonthTarget"
                     }
                   },
-                  "Property": "Product_Owner"
+                  "Property": "SRM"
                 }
               },
-              "queryRef": "BranchMonthTarget.Product_Owner",
-              "nativeQueryRef": "Product_Owner",
+              "queryRef": "BranchMonthTarget.SRM",
+              "nativeQueryRef": "SRM",
               "active": true
             }
           ]
@@ -119,7 +119,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'RM wise -Target vs Achievement'"
+                  "Value": "'Regional Head wise - Target  vs Achievement '"
                 }
               }
             }
@@ -132,38 +132,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "b2c80810fe7b615847fd",
-        "ordinal": 0,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Achievement %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "35a6459a518a6bef7328",
-        "ordinal": 1,
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Target (Selected)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ce6fc0ae3d8f6cf3e118",
-        "ordinal": 2,
+        "name": "15135b82404913907cca",
         "field": {
           "Column": {
             "Expression": {
@@ -171,7 +140,7 @@
                 "Entity": "BranchMonthTarget"
               }
             },
-            "Property": "Product_Owner"
+            "Property": "SRM"
           }
         },
         "type": "TopN",
@@ -204,7 +173,7 @@
                               "Source": "b"
                             }
                           },
-                          "Property": "Product_Owner"
+                          "Property": "SRM"
                         },
                         "Name": "field"
                       }
@@ -219,7 +188,7 @@
                                 "Source": "t"
                               }
                             },
-                            "Property": "Sort Basis RM"
+                            "Property": "Sort Basis Regional Head"
                           }
                         }
                       }
@@ -248,7 +217,7 @@
                             "Source": "b"
                           }
                         },
-                        "Property": "Product_Owner"
+                        "Property": "SRM"
                       }
                     }
                   ],
@@ -262,8 +231,35 @@
             }
           ]
         }
+      },
+      {
+        "name": "3872ff8acd09f8a02a4b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Target (Selected)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "229785befa5e4d2e7070",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Achievement %"
+          }
+        },
+        "type": "Advanced"
       }
-    ],
-    "filterSortOrder": "Custom"
+    ]
   }
 }

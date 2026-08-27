@@ -3,18 +3,29 @@ table VehicleTypeSelector
 
 	measure 'Total Working Days' =
 			
-			CALCULATE (
-			    COUNTROWS ( gold_dpmc_dimdate ),
-			    gold_dpmc_dimdate[SalesHoliday] = 0
+			SUMX(
+			    VALUES ( Vw_dpmc_vs_DimDate[TheFirstOfMonth] ),
+			    VAR MonthEnd = CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[TheDate] ) )
+			    RETURN CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ), Vw_dpmc_vs_DimDate[TheDate] = MonthEnd )
 			)
 		formatString: 0
 		lineageTag: 252f7970-c951-4c6d-8760-f65c175b0875
 
 	measure 'Performed Working Days' =
 			
-			CALCULATE (
-			    [Total Working Days],
-			    gold_dpmc_dimdate[TheDate] <= TODAY ()
+			SUMX(
+			    VALUES ( Vw_dpmc_vs_DimDate[TheFirstOfMonth] ),
+			    VAR MonthStart = CALCULATE ( MIN ( Vw_dpmc_vs_DimDate[TheDate] ) )
+			    VAR MonthEnd   = CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[TheDate] ) )
+			    VAR MonthTotal = CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ), Vw_dpmc_vs_DimDate[TheDate] = MonthEnd )
+			    RETURN
+			        IF (
+			            TODAY () > MonthEnd, MonthTotal,
+			            IF (
+			                TODAY () < MonthStart, 0,
+			                CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ), Vw_dpmc_vs_DimDate[TheDate] = TODAY () )
+			            )
+			        )
 			)
 		formatString: 0
 		lineageTag: 2a987fb3-1f86-4a2c-b983-69fbefce4f81
@@ -34,18 +45,11 @@ table VehicleTypeSelector
 		formatString: 0
 		lineageTag: 1ac71b14-2082-4497-884f-12f30f2705ec
 
-	measure 'Target (Selected)' =
-			
-			IF (
-			    [Selected Vehicle Type] = "3W",
-			    SUM ( gold_dpmc_vs_2w3w_target[3WTarget] ),
-			    SUM ( gold_dpmc_vs_2w3w_target[2WTarget] ))
+	measure 'Target (Selected)' = VAR VT = [Selected Vehicle Type] RETURN SWITCH(VT, "2W", SUM(BranchMonthTarget[Target2W]), "3W", SUM(BranchMonthTarget[Target3W]), BLANK())
 		formatString: 0
 		lineageTag: 7d0d0746-93fe-461f-a6cf-9578a3931464
 
-	measure 'Achievement %' =
-			
-			DIVIDE ( [Actual Units], [Target (Selected)] )
+	measure 'Achievement %' = DIVIDE([Actual Units], [Target (Selected)], 0) * 100
 		lineageTag: 4c80deb9-ae37-4638-8c29-e9bd5734b035
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -117,55 +121,6 @@ table VehicleTypeSelector
 		formatString: 0
 		lineageTag: 04597c4b-31b5-447b-b2e4-50af71847af3
 
-	measure 'Achievement Gauge (HTML)' =
-			
-			VAR Actual = [Actual Units]
-			VAR Target = [Target (Selected)]
-			VAR Pct = DIVIDE ( Actual, Target, 0 ) * 100
-			VAR PctCapped = MIN ( Pct, 150 )
-			VAR PctDisplay = FORMAT ( Pct, "0" ) & "%"
-			VAR Remaining = Target - Actual
-			VAR NeedleRotate = ROUND ( 1.2 * PctCapped - 90, 1 )
-			RETURN
-			"<div class='ach-gauge'>
-			   <style>
-			     html, body { height:100%; margin:0; padding:0; }
-			     #htmlContent, .htmlViewerEntry, .htmlViewerEntry > div { height:100%; }
-			     .ach-gauge{font-family:'Segoe UI', sans-serif; background:#152540; border:1px solid #2A3F63;
-			       border-radius:16px; padding:16px 18px 10px; color:#EEF3FB; width:100%; margin:0 auto;
-			       text-align:center; transition:transform .18s ease, border-color .18s ease; height:100%; box-sizing:border-box;}
-			     .ach-gauge:hover{transform:translateY(-2px); border-color:#3A5488;}
-			     .ach-gauge .eyebrow{font-size:10.5px; text-transform:uppercase; letter-spacing:.8px;
-			       color:#5F7194; text-align:left; font-weight:600; margin-bottom:2px;}
-			     .ach-gauge svg{width:100%; height:auto; display:block; overflow:visible;}
-			     .ach-gauge .needle{transform-origin:110px 120px; transition:transform .6s cubic-bezier(.2,.8,.2,1);}
-			     .ach-gauge .pct{font-family:Consolas,'IBM Plex Mono',monospace; font-weight:700; font-size:30px; margin-top:-8px;}
-			     .ach-gauge .lbl{font-size:10px; color:#93A5C4; letter-spacing:.4px; text-transform:uppercase; margin-top:2px;}
-			     .ach-gauge .foot{display:flex; justify-content:space-between; margin-top:8px; padding:0 4px;}
-			     .ach-gauge .foot .n{font-family:Consolas,'IBM Plex Mono',monospace; font-weight:600; font-size:14px;}
-			     .ach-gauge .foot .l{font-size:9px; color:#5F7194; text-transform:uppercase; letter-spacing:.3px;}
-			   </style>
-			   <div class='eyebrow'>Achievement</div>
-			   <svg viewBox='0 0 220 140'>
-			     <path d='M 15 120 A 95 95 0 0 1 80.64 29.65' stroke='#E8604F' stroke-width='14' fill='none' stroke-linecap='round' opacity='.85'/>
-			     <path d='M 80.64 29.65 A 95 95 0 0 1 139.36 29.65' stroke='#E8A33D' stroke-width='14' fill='none' stroke-linecap='round' opacity='.85'/>
-			     <path d='M 139.36 29.65 A 95 95 0 0 1 205 120' stroke='#3FCB92' stroke-width='14' fill='none' stroke-linecap='round' opacity='.85'/>
-			     <g class='needle' style='transform:rotate(" & NeedleRotate & "deg);'>
-			       <line x1='110' y1='120' x2='110' y2='40' stroke='#EEF3FB' stroke-width='3' stroke-linecap='round'/>
-			       <circle cx='110' cy='120' r='7' fill='#EEF3FB'/>
-			       <circle cx='110' cy='120' r='3' fill='#152540'/>
-			     </g>
-			   </svg>
-			   <div class='pct'>" & PctDisplay & "</div>
-			   <div class='lbl'>of monthly target</div>
-			   <div class='foot'>
-			     <div><div class='n'>" & FORMAT ( Actual, "#,##0" ) & "</div><div class='l'>Actual</div></div>
-			     <div><div class='n'>" & FORMAT ( Target, "#,##0" ) & "</div><div class='l'>Target</div></div>
-			     <div><div class='n'>" & FORMAT ( Remaining, "#,##0" ) & "</div><div class='l'>Remaining</div></div>
-			   </div>
-			</div>"
-		lineageTag: 5ddea363-8011-4025-901c-4520b49c6404
-
 	measure 'KPI Metrices (HTML)' =
 			
 			VAR SalesValue = [Sales Value (LKR M)]
@@ -215,6 +170,29 @@ table VehicleTypeSelector
 		lineageTag: 17022eed-0c87-467d-b840-fabbea6ff05c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Achievement = DIVIDE([Actual Units], [Target (Selected)])
+		lineageTag: b6ab4a27-3e54-4f15-aa20-a4b6a819c378
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DPMC Total Units (3W)' =
+			
+			CALCULATE(
+			    [Actual Units],
+			    gold_dpmc_vs_2w3w4w_dimproduct[VehicleTypeShort] = "3W"
+			)
+		formatString: 0
+		lineageTag: 9d62ef11-6fbb-4869-947f-0f13eab28ba8
+
+	measure 'Competitor Total Units' =
+			
+			CALCULATE(
+			    SUM(gold_dpmc_vs_2w3w4w_competitorwisereg[Units]),
+			    gold_dpmc_vs_2w3w4w_competitorwisereg[productline] = "3W"
+			)
+		formatString: 0
+		lineageTag: f2d21848-4f5f-47fc-974a-bb2b60db8e0b
 
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd
