@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "45765acd9b6431dc30e2",
   "position": {
-    "x": 811,
-    "y": 1223,
+    "x": 20,
+    "y": 1628,
     "z": 32000,
-    "height": 220,
-    "width": 374,
+    "height": 320,
+    "width": 448.00000000000006,
     "tabOrder": 32000
   },
   "visual": {
@@ -88,6 +88,13 @@
       "categoryAxis": [
         {
           "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "showAxisTitle": {
               "expr": {
                 "Literal": {
@@ -101,13 +108,71 @@
       "valueAxis": [
         {
           "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
+            },
+            "gridlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
             }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0C4CA3'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "VehicleTypeSelector.Target (Selected)"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "VehicleTypeSelector.Achievement %"
           }
         }
       ]
@@ -120,6 +185,71 @@
               "expr": {
                 "Literal": {
                   "Value": "'Regional Head wise - Target  vs Achievement '"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0C4CA3'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -231,34 +361,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "3872ff8acd09f8a02a4b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Target (Selected)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "229785befa5e4d2e7070",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Achievement %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
