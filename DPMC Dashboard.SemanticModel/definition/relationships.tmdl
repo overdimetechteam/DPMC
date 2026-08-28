@@ -114,3 +114,7 @@ relationship 3e8f8ab7-df2d-8413-52c4-7f2c7db9605c
 	fromColumn: gold_dpmc_vs_2w3w4w_competitorwisereg.MonthStart
 	toColumn: MonthBridge.TheFirstOfMonth
 
+relationship df1cf65e-e018-c66c-0022-805e735d929c
+	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.DealerPremiseDesc
+	toColumn: DimDealer.Dealer
+
