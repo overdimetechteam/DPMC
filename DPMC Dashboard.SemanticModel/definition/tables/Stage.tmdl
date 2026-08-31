@@ -26,10 +26,10 @@ table Stage
 				    "StageName", STRING,
 				    "SortOrder", INTEGER,
 				    {
-				        {"Inquiry", 1},
-				        {"Booking", 2},
-				        {"Allocation", 3},
-				        {"Invoice", 4}
+				        { "Inquiry", 1 },
+				        { "Booking", 2 },
+				        { "Allocation", 3 },
+				        { "Invoice", 4 }
 				    }
 				)
 

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "4e19297466afefd11a95",
   "position": {
     "x": 1373,
@@ -36,22 +36,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_vs_2w3w4w_factstock"
-                        }
-                      },
-                      "Property": "CurrentStock"
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
                     }
                   },
-                  "Function": 0
+                  "Property": "Current Stock"
                 }
               },
-              "queryRef": "Sum(gold_dpmc_vs_2w3w4w_factstock.CurrentStock)",
-              "nativeQueryRef": "Sum of CurrentStock"
+              "queryRef": "Measures_Table.Current Stock",
+              "nativeQueryRef": "Current Stock"
             }
           ]
         }
@@ -60,18 +55,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "gold_dpmc_vs_2w3w4w_factstock"
-                      }
-                    },
-                    "Property": "CurrentStock"
+                  "SourceRef": {
+                    "Entity": "Measures_Table"
                   }
                 },
-                "Function": 0
+                "Property": "Current Stock"
               }
             },
             "direction": "Descending"
