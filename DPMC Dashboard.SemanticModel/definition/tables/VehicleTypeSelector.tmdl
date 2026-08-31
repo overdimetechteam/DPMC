@@ -1,32 +1,34 @@
 table VehicleTypeSelector
 	lineageTag: 5979d831-7f36-439f-afef-908a46a3df45
 
-	measure 'Total Working Days' =
+	measure 'Total Working Days' = ```
 			
-			SUMX(
-			    VALUES ( Vw_dpmc_vs_DimDate[TheFirstOfMonth] ),
-			    VAR MonthEnd = CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[TheDate] ) )
-			    RETURN CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ), Vw_dpmc_vs_DimDate[TheDate] = MonthEnd )
-			)
-		formatString: 0
+			VAR AsOfDate = [Selected As Of Date]
+			VAR MonthStart = DATE ( YEAR ( AsOfDate ), MONTH ( AsOfDate ), 1 )
+			VAR MonthEnd = 
+			    CALCULATE (
+			        MAX ( Vw_dpmc_vs_DimDate[TheDate] ),
+			        ALL ( Vw_dpmc_vs_DimDate ),
+			        Vw_dpmc_vs_DimDate[TheFirstOfMonth] = MonthStart
+			    )
+			RETURN
+			    CALCULATE (
+			        MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ),
+			        ALL ( Vw_dpmc_vs_DimDate ),
+			        Vw_dpmc_vs_DimDate[TheDate] = MonthEnd
+			    )
+			```
 		lineageTag: 252f7970-c951-4c6d-8760-f65c175b0875
 
 	measure 'Performed Working Days' =
 			
-			SUMX(
-			    VALUES ( Vw_dpmc_vs_DimDate[TheFirstOfMonth] ),
-			    VAR MonthStart = CALCULATE ( MIN ( Vw_dpmc_vs_DimDate[TheDate] ) )
-			    VAR MonthEnd   = CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[TheDate] ) )
-			    VAR MonthTotal = CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ), Vw_dpmc_vs_DimDate[TheDate] = MonthEnd )
-			    RETURN
-			        IF (
-			            TODAY () > MonthEnd, MonthTotal,
-			            IF (
-			                TODAY () < MonthStart, 0,
-			                CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ), Vw_dpmc_vs_DimDate[TheDate] = TODAY () )
-			            )
-			        )
-			)
+			VAR AsOfDate = [Selected As Of Date]
+			RETURN
+			    CALCULATE (
+			        MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ),
+			        ALL ( Vw_dpmc_vs_DimDate ),
+			        Vw_dpmc_vs_DimDate[TheDate] = AsOfDate
+			    )
 		formatString: 0
 		lineageTag: 2a987fb3-1f86-4a2c-b983-69fbefce4f81
 
@@ -193,6 +195,44 @@ table VehicleTypeSelector
 			)
 		formatString: 0
 		lineageTag: f2d21848-4f5f-47fc-974a-bb2b60db8e0b
+
+	measure 'Gauge HTML' =
+			
+			VAR PctVal = [Achievement %]
+			VAR ScaleMax = 120
+			VAR ClampedPct = MIN ( MAX ( PctVal, 0 ), ScaleMax )
+			VAR NeedleDeg = ( ClampedPct / ScaleMax ) * 180 - 90
+			VAR ActualTxt = FORMAT ( [Actual Units], "#,##0" )
+			VAR TargetTxt = FORMAT ( [Target (Selected)], "#,##0" )
+			VAR RemainingTxt = FORMAT ( [Remaining Target], "#,##0" )
+			VAR PctTxt = FORMAT ( PctVal, "0.0" ) & "%"
+			VAR NeedleDegTxt = FORMAT ( NeedleDeg, "0.0" )
+			RETURN
+			"<div style=""max-width:320px;margin:0 auto;text-align:center;font-family:Segoe UI, sans-serif;"">" &
+			"<div style=""position:relative;width:300px;height:150px;margin:0 auto;"">" &
+			"<div style=""position:absolute;width:300px;height:300px;border-radius:50%;background:conic-gradient(from 270deg, #d03b3b 0deg 72deg, #fab219 72deg 135deg, #0ca30c 135deg 180deg, transparent 180deg 360deg);""></div>" &
+			"<div style=""position:absolute;width:180px;height:180px;left:60px;top:60px;border-radius:50%;background:#ffffff;""></div>" &
+			"<div style=""position:absolute;left:150px;bottom:0;width:3px;height:110px;background:#1a1a1a;transform-origin:bottom center;transform:rotate(" & NeedleDegTxt & "deg);border-radius:2px;""></div>" &
+			"<div style=""position:absolute;left:144px;bottom:-6px;width:12px;height:12px;border-radius:50%;background:#1a1a1a;""></div>" &
+			"</div>" &
+			"<div style=""font-size:32px;font-weight:600;color:#1a1a1a;margin-top:8px;"">" & PctTxt & "</div>" &
+			"<div style=""font-size:13px;color:#5f5f5f;"">of monthly target</div>" &
+			"<div style=""display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:13px;"">" &
+			"<span style=""color:#5f5f5f;"">Actual <b style=""color:#1a1a1a;"">" & ActualTxt & "</b></span>" &
+			"<span style=""color:#5f5f5f;"">Target <b style=""color:#1a1a1a;"">" & TargetTxt & "</b></span>" &
+			"</div>" &
+			"<div style=""background:#f1f1ee;border-radius:6px;padding:8px 12px;margin-top:10px;display:inline-block;"">" &
+			"<span style=""font-size:13px;color:#5f5f5f;"">Remaining target </span>" &
+			"<span style=""font-size:14px;font-weight:600;color:#1a1a1a;"">" & RemainingTxt & "</span>" &
+			"</div>" &
+			"</div>"
+		lineageTag: 98965685-cba9-463e-86dc-6208e7fb5a8a
+
+	measure 'GRN Count' =
+			
+			DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factgrndetails[ChassisNo] )
+		formatString: 0
+		lineageTag: e0e0b1b3-7c43-4289-900a-61795aa158fc
 
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd

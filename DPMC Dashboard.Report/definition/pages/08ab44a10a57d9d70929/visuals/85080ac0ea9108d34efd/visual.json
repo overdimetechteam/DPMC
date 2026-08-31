@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "85080ac0ea9108d34efd",
   "position": {
-    "x": 463.99999999999994,
-    "y": 352,
-    "z": 30000,
+    "x": 464,
+    "y": 460,
+    "z": 22000,
     "height": 272,
     "width": 416,
-    "tabOrder": 30000
+    "tabOrder": 23000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -185,6 +185,13 @@
                   }
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -274,6 +281,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'dotted'"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -422,6 +436,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Model Wise - Avg Sales Units of last 3 months'"
                 }
               }
             }

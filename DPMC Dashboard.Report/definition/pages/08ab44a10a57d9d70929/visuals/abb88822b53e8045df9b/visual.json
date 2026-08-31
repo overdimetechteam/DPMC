@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "ca1248a3f0483200eedb",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "abb88822b53e8045df9b",
   "position": {
-    "x": 224,
-    "y": 168,
-    "z": 28000,
-    "height": 104,
-    "width": 160,
-    "tabOrder": 28000
+    "x": 641,
+    "y": 84,
+    "z": 30000,
+    "height": 89,
+    "width": 154,
+    "tabOrder": 30000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Actual Units"
+                  "Property": "Total Bookings"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Actual Units",
-              "nativeQueryRef": "Actual Units"
+              "queryRef": "VehicleTypeSelector.Total Bookings",
+              "nativeQueryRef": "Total Bookings"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Actual Units"
+                "Property": "Total Bookings"
               }
             },
             "direction": "Descending"
@@ -53,6 +53,17 @@
     },
     "objects": {
       "layout": [
+        {
+          "properties": {
+            "cellPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            }
+          }
+        },
         {
           "properties": {
             "backgroundFillColor": {
@@ -91,17 +102,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "cellPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "8L"
-                }
-              }
-            }
           }
         }
       ],

@@ -1,33 +1,34 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "14f9217d5475d079d02e",
+  "name": "b92dff40b140385ff9d1",
   "position": {
-    "x": 961.06673177083337,
-    "y": 40.533345540364571,
-    "z": 1000,
-    "height": 80,
-    "width": 128,
-    "tabOrder": 6000
+    "x": 2135,
+    "y": 185,
+    "z": 36000,
+    "height": 75,
+    "width": 171,
+    "tabOrder": 36000
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "AsOfDateSelector"
                     }
                   },
-                  "Property": "Stock Units"
+                  "Property": "SelectedDate"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Stock Units",
-              "nativeQueryRef": "Stock Units"
+              "queryRef": "AsOfDateSelector.SelectedDate",
+              "nativeQueryRef": "SelectedDate",
+              "active": true
             }
           ]
         }
@@ -36,123 +37,98 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "AsOfDateSelector"
                   }
                 },
-                "Property": "Stock Units"
+                "Property": "SelectedDate"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
     },
     "objects": {
-      "columnHeaders": [
+      "data": [
         {
           "properties": {
-            "alignment": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
-                }
-              }
-            },
-            "columnAdjustment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'growToFit'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
           }
         }
       ],
-      "values": [
+      "selection": [
         {
           "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "17D"
-                }
-              }
-            },
-            "bold": {
+            "selectAllCheckboxEnabled": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
-            },
-            "backColorPrimary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.1
-                    }
-                  }
-                }
-              }
             }
           }
         }
       ],
-      "columnWidth": [
+      "general": [
         {
           "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "141D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Sales Value (LKR M)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "125D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Stock Units"
-          }
-        }
-      ],
-      "grid": [
-        {
-          "properties": {
-            "gridHorizontalColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0C4CA3'"
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "a",
+                    "Entity": "AsOfDateSelector",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "a"
+                                }
+                              },
+                              "Property": "SelectedDate"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "datetime'2026-08-31T00:00:00'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
                     }
                   }
-                }
+                ]
               }
             },
             "outlineColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#0C4CA3'"
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
                     }
                   }
                 }
@@ -161,39 +137,74 @@
             "outlineWeight": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "1D"
                 }
               }
             }
           }
         }
       ],
-      "total": [
+      "header": [
         {
           "properties": {
-            "bold": {
+            "italic": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
                 }
               }
             }
           }
         }
       ],
-      "columnFormatting": [
+      "items": [
         {
           "properties": {
-            "alignment": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "0D"
+                }
+              }
+            },
+            "padding": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Stock Units"
           }
         }
       ]
@@ -275,53 +286,6 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "stylePreset": [
-        {
-          "properties": {
-            "name": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Default'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
                 }
               }
             }

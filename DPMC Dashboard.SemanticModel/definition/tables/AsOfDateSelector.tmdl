@@ -1,0 +1,40 @@
+table AsOfDateSelector
+	lineageTag: f15f37b5-6470-47b5-a75b-819c9aa09832
+
+	measure 'Selected As Of Date' =
+			
+			SELECTEDVALUE ( AsOfDateSelector[SelectedDate], TODAY () - 1 )
+		formatString: General Date
+		lineageTag: a54d855a-1e89-4107-9062-157ed5ebffb6
+
+	column SelectedDate
+		formatString: yyyy-mm-dd
+		lineageTag: 3a1e9679-8db5-4a1b-b973-22d339fbbfac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [SelectedDate]
+
+		variation Variation
+			isDefault
+			relationship: 6620b2cd-d949-4586-b5b9-c101bb410d1f
+			defaultHierarchy: LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	partition AsOfDateSelector = calculated
+		mode: import
+		source =
+				
+				VAR CurrentMonthEnd = EOMONTH ( TODAY (), 0 )
+				RETURN
+				    FILTER(
+				        DISTINCT ( SELECTCOLUMNS ( Vw_dpmc_vs_DimDate, "SelectedDate", Vw_dpmc_vs_DimDate[TheDate] ) ),
+				        [SelectedDate] <= CurrentMonthEnd
+				    )
+
+	annotation PBI_Id = 76939b37495745718af9bc49fca6c43c
+

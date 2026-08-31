@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "ea8ab199cc77669bc3bd",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d62ffe0741bd0cf1b02c",
   "position": {
-    "x": 23.999999999999996,
-    "y": 168,
-    "z": 27000,
-    "height": 104,
-    "width": 184,
-    "tabOrder": 27000
+    "x": 448,
+    "y": 82,
+    "z": 29000,
+    "height": 92,
+    "width": 196,
+    "tabOrder": 29000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,12 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Target (Selected)"
+                  "Property": "Sales Value (LKR M)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Target (Selected)",
-              "nativeQueryRef": "Target (Selected)"
+              "queryRef": "VehicleTypeSelector.Sales Value (LKR M)",
+              "nativeQueryRef": "Sales Value (LKR M)",
+              "format": "0"
             }
           ]
         }
@@ -42,7 +43,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Target (Selected)"
+                "Property": "Sales Value (LKR M)"
               }
             },
             "direction": "Descending"
@@ -53,6 +54,17 @@
     },
     "objects": {
       "layout": [
+        {
+          "properties": {
+            "cellPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            }
+          }
+        },
         {
           "properties": {
             "backgroundFillColor": {
@@ -91,17 +103,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "cellPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "8L"
-                }
-              }
-            }
           }
         }
       ],
@@ -204,6 +205,20 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
                 }
               }
             }

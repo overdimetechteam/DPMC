@@ -1,0 +1,124 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "0cf41e8de49735a2150e",
+  "position": {
+    "x": 401,
+    "y": 174,
+    "z": 34000,
+    "height": 275,
+    "width": 347,
+    "tabOrder": 34000
+  },
+  "visual": {
+    "visualType": "speedometerKpiProA1B2C3D4E5F6",
+    "query": {
+      "queryState": {
+        "targetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Target (Selected)"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Target (Selected)",
+              "nativeQueryRef": "Target (Selected)",
+              "format": "#,0"
+            }
+          ]
+        },
+        "actualValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Actual Units"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Actual Units",
+              "nativeQueryRef": "Actual Units"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "VehicleTypeSelector"
+                  }
+                },
+                "Property": "Actual Units"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "gauge": [
+        {
+          "properties": {
+            "minValue": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "maxValue": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "showValue": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showPercentage": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showMinMax": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

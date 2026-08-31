@@ -1,172 +1,109 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "62f6753b6ba58583bc03",
+  "name": "9a7f7084c8f9aeb36815",
   "position": {
-    "x": 1121.0667317708333,
-    "y": 40.533345540364586,
-    "z": 3000,
-    "height": 80,
-    "width": 128,
-    "tabOrder": 8000
+    "x": 464,
+    "y": 778,
+    "z": 38000,
+    "height": 75,
+    "width": 164,
+    "tabOrder": 38000
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "slicer",
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "gold_dpmc_vs_2w3w_target"
                     }
                   },
-                  "Property": "Delivery Notes"
+                  "Property": "Product_Owner"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Delivery Notes",
-              "nativeQueryRef": "Delivery Notes"
+              "queryRef": "gold_dpmc_vs_2w3w_target.Product_Owner",
+              "nativeQueryRef": "Product_Owner",
+              "active": true
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
-                  }
-                },
-                "Property": "Delivery Notes"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {
-      "columnHeaders": [
+      "data": [
         {
           "properties": {
-            "alignment": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "'Dropdown'"
                 }
               }
             },
-            "columnAdjustment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'growToFit'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "values": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "17D"
-                }
-              }
-            },
-            "bold": {
+            "isInvertedSelectionMode": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
-            },
-            "backColorPrimary": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.1
-                    }
-                  }
-                }
-              }
             }
           }
         }
       ],
-      "columnWidth": [
+      "header": [
         {
           "properties": {
-            "value": {
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "141D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Sales Value (LKR M)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "125D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Delivery Notes"
-          }
-        }
-      ],
-      "grid": [
-        {
-          "properties": {
-            "gridHorizontalColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0C4CA3'"
-                    }
-                  }
+                  "Value": "'Regional Manager'"
                 }
               }
             },
-            "gridHorizontal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "gridVertical": {
+            "italic": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
             "outlineColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#0C4CA3'"
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
                     }
                   }
                 }
@@ -175,39 +112,55 @@
             "outlineWeight": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "1D"
                 }
               }
             }
           }
         }
       ],
-      "total": [
+      "selection": [
         {
           "properties": {
-            "bold": {
+            "selectAllCheckboxEnabled": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
+            },
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
       ],
-      "columnFormatting": [
+      "items": [
         {
           "properties": {
-            "alignment": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "0D"
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Delivery Notes"
           }
         }
       ]
@@ -289,53 +242,6 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "stylePreset": [
-        {
-          "properties": {
-            "name": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Default'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
                 }
               }
             }

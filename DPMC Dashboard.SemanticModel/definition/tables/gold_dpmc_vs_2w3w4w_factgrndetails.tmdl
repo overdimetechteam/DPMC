@@ -36,7 +36,7 @@ table gold_dpmc_vs_2w3w4w_factgrndetails
 		formatString: 0
 		sourceProviderType: int
 		lineageTag: f99aeb0e-861c-4668-a2ce-6041363179a8
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: ToPremiseSK
 
 		annotation SummarizationSetBy = Automatic

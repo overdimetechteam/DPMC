@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "4e19297466afefd11a95",
   "position": {
-    "x": 1372.7460937499836,
-    "y": 1417.7226562499995,
-    "z": 18000,
+    "x": 1373,
+    "y": 1470,
+    "z": 13000,
     "height": 352,
-    "width": 640,
-    "tabOrder": 18000
+    "width": 550,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "columnChart",
@@ -109,6 +109,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -144,6 +151,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -221,6 +235,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Model Wise - Current Stock '"
                 }
               }
             }

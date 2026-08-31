@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "c2b19a995af2bc5af76e",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d8a49c253596568fbb2f",
   "position": {
-    "x": 408,
-    "y": 168,
-    "z": 26000,
-    "height": 104,
+    "x": 1181,
+    "y": 83,
+    "z": 33000,
+    "height": 89,
     "width": 176,
-    "tabOrder": 26000
+    "tabOrder": 33000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,11 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Remaining Target"
+                  "Property": "Delivery Notes"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Remaining Target",
-              "nativeQueryRef": "Remaining Target"
+              "queryRef": "VehicleTypeSelector.Delivery Notes",
+              "nativeQueryRef": "Delivery Notes"
             }
           ]
         }
@@ -42,7 +42,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Remaining Target"
+                "Property": "Delivery Notes"
               }
             },
             "direction": "Descending"
