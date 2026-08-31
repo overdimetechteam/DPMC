@@ -234,6 +234,14 @@ table VehicleTypeSelector
 		formatString: 0
 		lineageTag: e0e0b1b3-7c43-4289-900a-61795aa158fc
 
+	measure 'From Location' =
+			
+			CALCULATE(
+			    SELECTEDVALUE ( gold_dpmc_vs_2w3w4w_dimpremises[PremisesDesc] ),
+			    USERELATIONSHIP ( gold_dpmc_vs_2w3w4w_factgrndetails[FromPremiseSK], gold_dpmc_vs_2w3w4w_dimpremises[PremiseSK] )
+			)
+		lineageTag: 807c3a6e-cbd8-4dee-ab43-574d186441a4
+
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd
 		summarizeBy: none
