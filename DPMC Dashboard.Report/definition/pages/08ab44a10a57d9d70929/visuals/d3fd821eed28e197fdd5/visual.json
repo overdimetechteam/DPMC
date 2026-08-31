@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d3fd821eed28e197fdd5",
   "position": {
-    "x": 1383.75,
+    "x": 1372.5,
     "y": 1787.5,
     "z": 37000,
     "height": 212.5,
-    "width": 385,
+    "width": 570,
     "tabOrder": 36000
   },
   "visual": {
@@ -70,6 +70,34 @@
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
               "nativeQueryRef": "Total Units Sold"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    }
+                  },
+                  "Property": "Dealer Count"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Dealer Count",
+              "nativeQueryRef": "Dealer Count"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    }
+                  },
+                  "Property": "Premise Count"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Premise Count",
+              "nativeQueryRef": "Premise Count"
             }
           ]
         }

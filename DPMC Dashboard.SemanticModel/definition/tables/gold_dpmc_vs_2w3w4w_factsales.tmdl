@@ -18,6 +18,22 @@ table gold_dpmc_vs_2w3w4w_factsales
 		formatString: 0
 		lineageTag: 7ffec42b-b12f-48cf-80e6-8b967234eada
 
+	measure 'Dealer Count' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factinquiry[DealerPremiseDesc]),
+			    TREATAS(
+			        VALUES(gold_dpmc_vs_2w3w4w_factsales[InquiryNo]),
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]
+			    )
+			)
+		formatString: 0
+		lineageTag: c14758a5-5d38-45dc-b19c-78ce47c061aa
+
+	measure 'Premise Count' = DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factsales[PremiseSK])
+		formatString: 0
+		lineageTag: e5544d01-b106-4777-929f-1fea0e2de86c
+
 	column CompanySK
 		dataType: int64
 		formatString: 0
