@@ -40,6 +40,10 @@ ref table TopBottomSelector
 ref table LocalDateTable_d894c362-d534-44dc-a835-432c84bfc2a0
 ref table MonthBridge
 ref table LocalDateTable_51815c0f-adc3-4045-9491-1eb4203b692f
+ref table AsOfDateSelector
+ref table LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9
+ref table AgeBucketTable
+ref table LocalDateTable_63b5c2f2-4696-4366-9928-76ed2c56c027
 
 ref cultureInfo en-US
 

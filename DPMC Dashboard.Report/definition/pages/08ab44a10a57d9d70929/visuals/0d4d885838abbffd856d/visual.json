@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "0d4d885838abbffd856d",
   "position": {
-    "x": 16,
-    "y": 688,
-    "z": 35000,
-    "height": 288,
-    "width": 432,
-    "tabOrder": 35000
+    "x": 23.75,
+    "y": 878.75,
+    "z": 27000,
+    "height": 287.5,
+    "width": 406.25,
+    "tabOrder": 28000
   },
   "visual": {
     "visualType": "lineChart",
@@ -107,6 +107,20 @@
                   }
                 }
               }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -142,6 +156,20 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -219,7 +247,7 @@
             "markerShape": {
               "expr": {
                 "Literal": {
-                  "Value": "'circle'"
+                  "Value": "'shortDash'"
                 }
               }
             },
@@ -312,6 +340,32 @@
             "metadata": "VehicleTypeSelector.Competitor Total Units"
           }
         }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "seriesLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -322,6 +376,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sales Units comparison with Competitors'"
                 }
               }
             }

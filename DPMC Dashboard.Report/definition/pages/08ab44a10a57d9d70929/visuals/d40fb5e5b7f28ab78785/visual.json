@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d40fb5e5b7f28ab78785",
   "position": {
     "x": 464,
-    "y": 688,
-    "z": 31000,
+    "y": 880,
+    "z": 23000,
     "height": 288,
     "width": 432,
-    "tabOrder": 31000
+    "tabOrder": 24000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -92,6 +92,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -127,6 +134,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -209,6 +223,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Next Daily Target '"
                 }
               }
             }

@@ -1,14 +1,44 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "269d54f5d62fc75f2b41",
-  "displayName": "Page 1",
+  "displayName": "KPI Details",
   "displayOption": "FitToPage",
-  "height": 720,
-  "width": 1280,
+  "height": 2000,
+  "width": 2400,
   "filterConfig": {
     "filters": [
       {
-        "name": "5ea6e7f694f65c5178e8",
+        "name": "9e8f928fdb77cd8da9b0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+              }
+            },
+            "Property": "STR_MODEL_DESC"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "e6f8037dac8c60ad4c86",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+              }
+            },
+            "Property": "PremisesDesc"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "a0b2878966d04d273c51",
         "field": {
           "Column": {
             "Expression": {
@@ -16,7 +46,52 @@
                 "Entity": "gold_dpmc_vs_2w3w_target"
               }
             },
-            "Property": "STR_BRANCH"
+            "Property": "SRM"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "706183170b89fb8b6c03",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_dimdate"
+              }
+            },
+            "Property": "TheMonthName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "e20533c24fa09c3b6aa3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+              }
+            },
+            "Property": "AssemblyCategory"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "766caac9357b2df59f11",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "GRNs"
           }
         },
         "type": "Categorical",
@@ -25,24 +100,38 @@
     ]
   },
   "pageBinding": {
-    "name": "ecb2f080399f5ebc3b04",
+    "name": "ea02b294e8e60a27afe7",
     "type": "Drillthrough",
     "parameters": [
       {
-        "name": "374c2b262a4dc6fc7131",
-        "boundFilter": "5ea6e7f694f65c5178e8",
+        "name": "bd12e71906b75c1ed641",
+        "boundFilter": "766caac9357b2df59f11",
         "fieldExpr": {
-          "Column": {
+          "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w_target"
+                "Entity": "VehicleTypeSelector"
               }
             },
-            "Property": "STR_BRANCH"
+            "Property": "GRNs"
           }
         }
       }
-    ],
-    "referenceScope": "CrossReport"
+    ]
+  },
+  "objects": {
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ]
   }
 }

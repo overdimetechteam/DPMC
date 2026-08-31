@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "7123f742412b4eb9116b",
+  "position": {
+    "x": 60,
+    "y": 196,
+    "z": 35000,
+    "height": 311,
+    "width": 314,
+    "tabOrder": 35000
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Gauge HTML"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Gauge HTML",
+              "nativeQueryRef": "Gauge HTML"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

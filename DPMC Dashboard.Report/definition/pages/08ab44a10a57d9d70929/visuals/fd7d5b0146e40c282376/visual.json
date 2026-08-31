@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "fd7d5b0146e40c282376",
   "position": {
-    "x": 1008.0000000000001,
-    "y": 888.00000000000011,
-    "z": 13000,
+    "x": 1035,
+    "y": 1096,
+    "z": 8000,
     "height": 336,
-    "width": 647.99999999999989,
-    "tabOrder": 13000
+    "width": 584,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "columnChart",
@@ -195,6 +195,13 @@
                   }
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -284,6 +291,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'dotted'"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -464,6 +478,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Location Wise - DeliveryNotes'"
                 }
               }
             }

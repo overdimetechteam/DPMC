@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 1250.707840575958,
-        "y": 0
+        "x": 748.59669069597908,
+        "y": 353.17296840360228
       },
       "nodes": [
         {
@@ -19,7 +19,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 10
+          "zIndex": 12
         },
         {
           "location": {
@@ -32,7 +32,7 @@
             "height": 296,
             "width": 234
           },
-          "zIndex": 11
+          "zIndex": 13
         },
         {
           "location": {
@@ -45,12 +45,12 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 15
+          "zIndex": 16
         },
         {
           "location": {
-            "x": 917.63022279431573,
-            "y": 466.19289632610474
+            "x": 930.63045476009245,
+            "y": 545.27764078458006
           },
           "nodeIndex": "gold_dpmc_vs_2w3w4w_dimdivision",
           "nodeLineageTag": "b48f2535-7986-4287-b5bb-658d6f08e3d5",
@@ -62,8 +62,8 @@
         },
         {
           "location": {
-            "x": 952.03334337340482,
-            "y": 47.667517207848164
+            "x": 933.61634808855445,
+            "y": 288.17180857471845
           },
           "nodeIndex": "gold_dpmc_vs_2w3w4w_dimpremises",
           "nodeLineageTag": "3684e382-0f7e-4669-b282-c8dff1b7ee2e",
@@ -71,7 +71,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 12
+          "zIndex": 23
         },
         {
           "location": {
@@ -97,7 +97,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 14
+          "zIndex": 15
         },
         {
           "location": {
@@ -110,7 +110,7 @@
             "height": 288.86555537677634,
             "width": 234
           },
-          "zIndex": 17
+          "zIndex": 24
         },
         {
           "location": {
@@ -123,7 +123,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 13
+          "zIndex": 14
         },
         {
           "location": {
@@ -136,7 +136,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 16
+          "zIndex": 17
         },
         {
           "location": {
@@ -162,7 +162,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 9
+          "zIndex": 11
         },
         {
           "location": {
@@ -174,7 +174,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 8
+          "zIndex": 10
         },
         {
           "location": {
@@ -187,7 +187,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 3
         },
         {
           "location": {
@@ -200,7 +200,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 4
         },
         {
           "location": {
@@ -213,7 +213,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 5
         },
         {
           "location": {
@@ -226,7 +226,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 6
         },
         {
           "location": {
@@ -239,7 +239,7 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 22
+          "zIndex": 21
         },
         {
           "location": {
@@ -252,7 +252,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 7
         },
         {
           "location": {
@@ -265,7 +265,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 6
+          "zIndex": 8
         },
         {
           "location": {
@@ -277,7 +277,7 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 7
+          "zIndex": 9
         },
         {
           "location": {
@@ -290,7 +290,32 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 3209.5128144021596,
+            "y": 469.0882906109174
+          },
+          "nodeIndex": "AsOfDateSelector",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 941.29554053519371,
+            "y": 0
+          },
+          "nodeIndex": "AgeBucketTable",
+          "nodeLineageTag": "0285f138-3f85-41a2-b3f6-b0460d02d8af",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 22
         }
       ],
       "name": "All tables",

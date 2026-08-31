@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "e335777740703ec38ce2",
+  "position": {
+    "x": 78,
+    "y": 778,
+    "z": 6000,
+    "height": 150,
+    "width": 1008,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
+                    }
+                  },
+                  "Property": "GRNDate"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factgrndetails.GRNDate",
+              "nativeQueryRef": "GRNDate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
+                    }
+                  },
+                  "Property": "ChassisNo"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factgrndetails.ChassisNo",
+              "nativeQueryRef": "ChassisNo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
+                    }
+                  },
+                  "Property": "DealerName"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factgrndetails.DealerName",
+              "nativeQueryRef": "DealerName"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
+                    }
+                  },
+                  "Property": "AssemblyCategory"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factgrndetails.AssemblyCategory",
+              "nativeQueryRef": "AssemblyCategory"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

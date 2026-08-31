@@ -1,6 +1,15 @@
 table gold_dpmc_vs_2w3w4w_factstock
 	lineageTag: 31043d89-3db7-48c3-bf6d-6c66f74018a4
 
+	measure 'Vehicle Count (Unregistered)' =
+			
+			CALCULATE(
+			    COUNTROWS(gold_dpmc_vs_2w3w4w_factstock),
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[Age Bucket])
+			)
+		formatString: 0
+		lineageTag: 651ce0dc-e8c9-476f-8f63-a8c48574bc3e
+
 	column CompanySK
 		dataType: int64
 		formatString: 0
@@ -339,6 +348,52 @@ table gold_dpmc_vs_2w3w4w_factstock
 		lineageTag: 8404e489-3044-400a-a86d-8ec66233b119
 		summarizeBy: none
 		sourceColumn: DtmDeclareDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegistrationAgeDays =
+			
+			IF(
+			    ISBLANK(gold_dpmc_vs_2w3w4w_factstock[VehicleNo]) && NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[DtmDeclareDate]),
+			    DATEDIFF(gold_dpmc_vs_2w3w4w_factstock[DtmDeclareDate], TODAY(), DAY),
+			    BLANK()
+			)
+		formatString: 0
+		lineageTag: 0c395d23-02f8-4878-ae9a-b71e4978ef48
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Age Bucket' =
+			
+			IF(
+			    ISBLANK(gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays]), BLANK(),
+			    SWITCH(
+			        TRUE(),
+			        gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays] <= 30, "0-30 days",
+			        gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays] <= 60, "31-60 days",
+			        gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays] <= 80, "61-80 days",
+			        "81 days above"
+			    )
+			)
+		lineageTag: ba7f8788-816b-4823-b73f-1e081f442a26
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column BucketSortOrder =
+			
+			SWITCH(
+			    TRUE(),
+			    gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays] <= 30, 1,
+			    gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays] <= 60, 2,
+			    gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays] <= 80, 3,
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[RegistrationAgeDays]), 4,
+			    BLANK()
+			)
+		formatString: 0
+		lineageTag: aaf003cf-60d9-46b5-bd07-d3e6540f32c9
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

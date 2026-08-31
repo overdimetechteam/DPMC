@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "8b556b0f22ce713f9729",
+  "position": {
+    "x": 78,
+    "y": 462,
+    "z": 4000,
+    "height": 246,
+    "width": 954,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_dimdate"
+                    }
+                  },
+                  "Property": "TheDate"
+                }
+              },
+              "queryRef": "gold_dpmc_dimdate.TheDate",
+              "nativeQueryRef": "TheDate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    }
+                  },
+                  "Property": "BookingNo"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.BookingNo",
+              "nativeQueryRef": "BookingNo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    }
+                  },
+                  "Property": "ChassisNo"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.ChassisNo",
+              "nativeQueryRef": "ChassisNo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    }
+                  },
+                  "Property": "CompanySK"
+                }
+              },
+              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.CompanySK",
+              "nativeQueryRef": "CompanySK"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "209D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "gold_dpmc_vs_2w3w4w_factsales.BookingNo"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

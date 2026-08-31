@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cf19ded35faaecf3153f",
   "position": {
-    "x": 16,
-    "y": 352,
-    "z": 10000,
+    "x": 8,
+    "y": 456,
+    "z": 5000,
     "height": 272,
     "width": 432,
-    "tabOrder": 3000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -172,6 +172,13 @@
                   }
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -291,6 +298,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -416,7 +430,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Sales Performance & Achievements'"
+                  "Value": "'Model Wise - Sales Units'"
                 }
               }
             },

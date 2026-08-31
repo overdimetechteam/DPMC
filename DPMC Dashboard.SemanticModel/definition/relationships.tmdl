@@ -119,3 +119,24 @@ relationship df1cf65e-e018-c66c-0022-805e735d929c
 	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.DealerPremiseDesc
 	toColumn: DimDealer.Dealer
 
+relationship 6620b2cd-d949-4586-b5b9-c101bb410d1f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AsOfDateSelector.SelectedDate
+	toColumn: LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9.Date
+
+relationship e271855d-b3dc-4c4a-afc0-dcf97499ffed
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AgeBucketTable.DtmDeclareDate
+	toColumn: LocalDateTable_63b5c2f2-4696-4366-9928-76ed2c56c027.Date
+
+relationship 5b6a42bb-e5af-34dc-0562-e716f3041f8a
+	fromColumn: AgeBucketTable.PremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship 0f545cc8-71cc-7b20-645f-c76370096ed0
+	fromColumn: AgeBucketTable.ProductSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimproduct.ProductSK
+
+relationship 958b8bed-06a3-90a6-c21e-17757695367c
+	fromColumn: gold_dpmc_vs_2w3w4w_factgrndetails.ToPremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
