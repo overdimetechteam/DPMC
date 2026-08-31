@@ -114,6 +114,11 @@ relationship 3e8f8ab7-df2d-8413-52c4-7f2c7db9605c
 	fromColumn: gold_dpmc_vs_2w3w4w_competitorwisereg.MonthStart
 	toColumn: MonthBridge.TheFirstOfMonth
 
+relationship df1cf65e-e018-c66c-0022-805e735d929c
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.DealerPremiseDesc
+	toColumn: DimDealer.Dealer
+
 relationship 6620b2cd-d949-4586-b5b9-c101bb410d1f
 	joinOnDateBehavior: datePartOnly
 	fromColumn: AsOfDateSelector.SelectedDate
@@ -135,4 +140,3 @@ relationship 0f545cc8-71cc-7b20-645f-c76370096ed0
 relationship 958b8bed-06a3-90a6-c21e-17757695367c
 	fromColumn: gold_dpmc_vs_2w3w4w_factgrndetails.ToPremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
-

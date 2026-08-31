@@ -178,10 +178,11 @@
         },
         {
           "location": {
-            "x": 2515.1974970774895,
-            "y": 469.0882906109174
+            "x": 1532.6204005470022,
+            "y": 967.22406602968363
           },
           "nodeIndex": "DimDealer",
+          "nodeLineageTag": "ddb2d5ae-2e5f-480f-b2bd-4b152d2c9453",
           "size": {
             "height": 200,
             "width": 234
@@ -190,10 +191,11 @@
         },
         {
           "location": {
-            "x": 2546.776326408657,
-            "y": 469.0882906109174
+            "x": 1790.1577259444136,
+            "y": 970.647679606445
           },
           "nodeIndex": "DimProductFilter",
+          "nodeLineageTag": "881d0fa4-1bef-4287-9505-e295377f4b6b",
           "size": {
             "height": 200,
             "width": 234
@@ -202,10 +204,11 @@
         },
         {
           "location": {
-            "x": 2578.3551557398246,
-            "y": 469.0882906109174
+            "x": 1790.9240330847297,
+            "y": 746.40099032858109
           },
           "nodeIndex": "DimRegion",
+          "nodeLineageTag": "71ac275f-9325-4de0-b171-31c19f070ffd",
           "size": {
             "height": 200,
             "width": 234
@@ -214,10 +217,11 @@
         },
         {
           "location": {
-            "x": 2609.9339850709921,
-            "y": 469.0882906109174
+            "x": 1533.2075151795691,
+            "y": 748.11279711696181
           },
           "nodeIndex": "Stage",
+          "nodeLineageTag": "52973a34-de66-47be-afe3-d9dd15255210",
           "size": {
             "height": 200,
             "width": 234
@@ -315,7 +319,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 92.3060452428088,
+      "zoomValue": 58.417807826664514,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

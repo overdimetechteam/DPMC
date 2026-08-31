@@ -29,6 +29,9 @@ table gold_dpmc_dimdate
 		lineageTag: b9c1aadc-5026-4742-9c47-07cefa1304f9
 		summarizeBy: none
 		sourceColumn: TheDayName
+		sortByColumn: TheDayOfWeek
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
