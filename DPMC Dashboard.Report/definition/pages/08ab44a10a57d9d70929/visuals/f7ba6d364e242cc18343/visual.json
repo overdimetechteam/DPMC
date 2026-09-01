@@ -1,38 +1,38 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "0cf41e8de49735a2150e",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "f7ba6d364e242cc18343",
   "position": {
-    "x": 401,
-    "y": 174,
-    "z": 33000,
-    "height": 275,
-    "width": 347,
-    "tabOrder": 34000
+    "x": 463.33333333333337,
+    "y": 878.33333333333337,
+    "z": 38002,
+    "height": 286.66666666666669,
+    "width": 483.33333333333337,
+    "tabOrder": 38002
   },
   "visual": {
-    "visualType": "speedometerKpiProA1B2C3D4E5F6",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
-        "targetValue": {
+        "Category": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "gold_dpmc_vs_2w3w_target"
                     }
                   },
-                  "Property": "Target (Selected)"
+                  "Property": "Product_Owner"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Target (Selected)",
-              "nativeQueryRef": "Target (Selected)",
-              "format": "#,0"
+              "queryRef": "gold_dpmc_vs_2w3w_target.Product_Owner",
+              "nativeQueryRef": "Product_Owner",
+              "active": true
             }
           ]
         },
-        "actualValue": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -42,11 +42,11 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Actual Units"
+                  "Property": "Next Daily Target"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Actual Units",
-              "nativeQueryRef": "Actual Units"
+              "queryRef": "VehicleTypeSelector.Next Daily Target",
+              "nativeQueryRef": "Next Daily Target"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Actual Units"
+                "Property": "Next Daily Target"
               }
             },
             "direction": "Descending"
@@ -71,44 +71,23 @@
       }
     },
     "objects": {
-      "gauge": [
+      "categoryAxis": [
         {
           "properties": {
-            "minValue": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "maxValue": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
+                  "Value": "false"
                 }
               }
             }
           }
         }
       ],
-      "labels": [
+      "valueAxis": [
         {
           "properties": {
-            "showValue": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showPercentage": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "showMinMax": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"

@@ -4,7 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 747.71718426858456,
+
+        "x": 998.73286685223275,
         "y": 0
       },
       "nodes": [
@@ -150,19 +151,6 @@
             "width": 234
           },
           "zIndex": 20
-        },
-        {
-          "location": {
-            "x": 1847.3324316377889,
-            "y": 199.33689014191052
-          },
-          "nodeIndex": "VehicleTypeSelector",
-          "nodeLineageTag": "5979d831-7f36-439f-afef-908a46a3df45",
-          "size": {
-            "height": 200,
-            "width": 234
-          },
-          "zIndex": 11
         },
         {
           "location": {
@@ -316,6 +304,44 @@
             "width": 234
           },
           "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 3493.5128144021596,
+            "y": 509.32383980322243
+          },
+          "nodeIndex": "Vw_gold_dpmc_vs_2w3w_Thresholds",
+          "nodeLineageTag": "09975af1-1ef8-471d-b3cb-ec60a1b59ffd",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2045.1643445609516,
+            "y": 468.20577191941589
+          },
+          "nodeIndex": "FactGRNDetails_Dedup",
+          "nodeLineageTag": "476bb6b3-44bd-4ed0-8e07-f112ef58ad71",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1847.3324316377889,
+            "y": 199.33689014191052
+          },
+          "nodeIndex": "VehicleTypeSelector",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

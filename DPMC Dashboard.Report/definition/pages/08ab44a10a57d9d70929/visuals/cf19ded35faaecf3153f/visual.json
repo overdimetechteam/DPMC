@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cf19ded35faaecf3153f",
   "position": {
-    "x": 8,
-    "y": 456,
+    "x": 10.204081632653061,
+    "y": 497.9591836734694,
     "z": 5000,
-    "height": 272,
-    "width": 432,
+    "height": 271.42857142857144,
+    "width": 431.63265306122452,
     "tabOrder": 4000
   },
   "visual": {
@@ -42,11 +42,11 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Target (Selected)"
+                  "Property": "Actual Units"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Target (Selected)",
-              "nativeQueryRef": "Target (Selected)"
+              "queryRef": "VehicleTypeSelector.Actual Units",
+              "nativeQueryRef": "Actual Units"
             },
             {
               "field": {
@@ -56,11 +56,11 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Actual Units"
+                  "Property": "Model Wise Target (Proportional)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Actual Units",
-              "nativeQueryRef": "Actual Units"
+              "queryRef": "VehicleTypeSelector.Model Wise Target (Proportional)",
+              "nativeQueryRef": "Model Wise Target (Proportional)"
             }
           ]
         }
@@ -75,7 +75,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Target (Selected)"
+                "Property": "Actual Units"
               }
             },
             "direction": "Descending"
@@ -184,49 +184,6 @@
         }
       ],
       "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0C4CA3'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Target (Selected)"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#C43843'"
-                    }
-                  }
-                }
-              }
-            },
-            "borderShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Actual Units"
-          }
-        },
         {
           "properties": {
             "fillTransparency": {

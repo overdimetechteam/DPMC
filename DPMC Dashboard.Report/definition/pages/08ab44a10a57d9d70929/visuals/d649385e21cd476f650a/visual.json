@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d649385e21cd476f650a",
   "position": {
-    "x": 1071.1371278762795,
-    "y": 590.63224172592163,
-    "z": 15000,
+    "x": 1296,
+    "y": 565,
+    "z": 14000,
     "height": 288,
     "width": 512,
-    "tabOrder": 17000
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "funnel",
@@ -205,6 +205,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Customer Conversion Funnel (Inquiry to Invoice)'"
                 }
               }
             }

@@ -4,10 +4,10 @@
   "position": {
     "x": 524,
     "y": 1328,
-    "z": 19000,
+    "z": 15000,
     "height": 304,
     "width": 448,
-    "tabOrder": 21000
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "clusteredColumnChart",

@@ -96,6 +96,66 @@
         },
         "type": "Categorical",
         "howCreated": "Drillthrough"
+      },
+      {
+        "name": "84d9994b2c81f638ccb1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Sales Value (LKR M)"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "87dd771da8028e62eb1f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Total Bookings"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "b57ba1af719468750211",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factstock"
+              }
+            },
+            "Property": "PremiseSK"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "d75e6ba814ec517efc54",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Delivery Notes"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
       }
     ]
   },
@@ -114,6 +174,66 @@
               }
             },
             "Property": "GRNs"
+          }
+        }
+      },
+      {
+        "name": "bc3c64f9c82386d7fa55",
+        "boundFilter": "84d9994b2c81f638ccb1",
+        "fieldExpr": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Sales Value (LKR M)"
+          }
+        }
+      },
+      {
+        "name": "3d77ddd8bd2006a3d391",
+        "boundFilter": "87dd771da8028e62eb1f",
+        "fieldExpr": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Total Bookings"
+          }
+        }
+      },
+      {
+        "name": "387f60eb7ef655124e8a",
+        "boundFilter": "b57ba1af719468750211",
+        "asAggregation": false,
+        "qnaSingleSelectRequired": false,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factstock"
+              }
+            },
+            "Property": "PremiseSK"
+          }
+        }
+      },
+      {
+        "name": "91b0ded7c1e1bd7c7b56",
+        "boundFilter": "d75e6ba814ec517efc54",
+        "asAggregation": false,
+        "qnaSingleSelectRequired": false,
+        "fieldExpr": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Delivery Notes"
           }
         }
       }

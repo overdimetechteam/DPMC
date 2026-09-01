@@ -58,11 +58,6 @@ relationship 27549d72-5c98-09b8-cb14-7a144b7b6994
 	fromColumn: gold_dpmc_vs_2w3w_target.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
-relationship 1377c708-af77-61af-71f8-fd92a1d48469
-	crossFilteringBehavior: bothDirections
-	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
-	toColumn: VehicleTypeSelector.'Vehicle Type'
-
 relationship ace104df-f723-e35f-7dab-2dd55eb5cc21
 	fromColumn: gold_dpmc_vs_2w3w4w_factstock.PremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
@@ -114,11 +109,6 @@ relationship 3e8f8ab7-df2d-8413-52c4-7f2c7db9605c
 	fromColumn: gold_dpmc_vs_2w3w4w_competitorwisereg.MonthStart
 	toColumn: MonthBridge.TheFirstOfMonth
 
-relationship df1cf65e-e018-c66c-0022-805e735d929c
-	crossFilteringBehavior: bothDirections
-	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.DealerPremiseDesc
-	toColumn: DimDealer.Dealer
-
 relationship 6620b2cd-d949-4586-b5b9-c101bb410d1f
 	joinOnDateBehavior: datePartOnly
 	fromColumn: AsOfDateSelector.SelectedDate
@@ -140,4 +130,44 @@ relationship 0f545cc8-71cc-7b20-645f-c76370096ed0
 relationship 958b8bed-06a3-90a6-c21e-17757695367c
 	fromColumn: gold_dpmc_vs_2w3w4w_factgrndetails.ToPremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship df1cf65e-e018-c66c-0022-805e735d929c
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.DealerPremiseDesc
+	toColumn: DimDealer.Dealer
+
+relationship d4724f5c-d1b8-f2b9-bc87-cfefa4912cde
+	isActive: false
+	fromColumn: gold_dpmc_vs_2w3w4w_factgrndetails.FromPremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship e56e69ae-8cf2-4b78-ab6d-fa15987f15b5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactGRNDetails_Dedup.GatePassDate
+	toColumn: LocalDateTable_4c2c0d3c-8f49-47cd-90e5-5fd1dc7715d6.Date
+
+relationship 4e45c657-fe47-4798-8deb-9e9ab5efc332
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactGRNDetails_Dedup.GatePassApprovedDate
+	toColumn: LocalDateTable_195cf829-2185-4b05-a5b5-371797f09edb.Date
+
+relationship 3027f9c0-a23f-45da-8301-efbac6f699d8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactGRNDetails_Dedup.GRNDate
+	toColumn: LocalDateTable_8cb1b4ba-025c-4197-b3a7-88c5c694a686.Date
+
+relationship a196612e-e36d-4fc3-3528-537d8d868879
+	fromColumn: FactGRNDetails_Dedup.ToPremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship 56f3b6a2-4d84-9613-74c3-066a11a15896
+	isActive: false
+	fromColumn: FactGRNDetails_Dedup.FromPremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship 1377c708-af77-61af-71f8-fd92a1d48469
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
+	toColumn: VehicleTypeSelector.'Vehicle Type'
+
 

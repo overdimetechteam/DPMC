@@ -169,9 +169,8 @@ table VehicleTypeSelector
 			RETURN
 			DIVIDE(TargetUnits - ActualUnits, RemainingDays)
 			```
+		formatString: 0
 		lineageTag: 17022eed-0c87-467d-b840-fabbea6ff05c
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Achievement = DIVIDE([Actual Units], [Target (Selected)])
 		lineageTag: b6ab4a27-3e54-4f15-aa20-a4b6a819c378
@@ -200,47 +199,201 @@ table VehicleTypeSelector
 			
 			VAR PctVal = [Achievement %]
 			VAR ScaleMax = 120
-			VAR ClampedPct = MIN ( MAX ( PctVal, 0 ), ScaleMax )
-			VAR NeedleDeg = ( ClampedPct / ScaleMax ) * 180 - 90
-			VAR ActualTxt = FORMAT ( [Actual Units], "#,##0" )
-			VAR TargetTxt = FORMAT ( [Target (Selected)], "#,##0" )
-			VAR RemainingTxt = FORMAT ( [Remaining Target], "#,##0" )
-			VAR PctTxt = FORMAT ( PctVal, "0.0" ) & "%"
-			VAR NeedleDegTxt = FORMAT ( NeedleDeg, "0.0" )
+			
+			VAR ClampedPct =
+			    MIN ( MAX ( PctVal, 0 ), ScaleMax )
+			
+			VAR NeedleDeg =
+			    ( ClampedPct / ScaleMax ) * 180 - 90
+			
+			VAR ActualTxt =
+			    FORMAT ( [Actual Units], "#,##0" )
+			
+			VAR TargetTxt =
+			    FORMAT ( [Target (Selected)], "#,##0" )
+			
+			VAR RemainingTxt =
+			    FORMAT ( [Remaining Target], "#,##0" )
+			
+			VAR PctTxt =
+			    FORMAT ( PctVal, "0.0" ) & "%"
+			
+			VAR NeedleDegTxt =
+			    FORMAT ( NeedleDeg, "0.0" )
+			
 			RETURN
-			"<div style=""max-width:320px;margin:0 auto;text-align:center;font-family:Segoe UI, sans-serif;"">" &
-			"<div style=""position:relative;width:300px;height:150px;margin:0 auto;"">" &
-			"<div style=""position:absolute;width:300px;height:300px;border-radius:50%;background:conic-gradient(from 270deg, #d03b3b 0deg 72deg, #fab219 72deg 135deg, #0ca30c 135deg 180deg, transparent 180deg 360deg);""></div>" &
-			"<div style=""position:absolute;width:180px;height:180px;left:60px;top:60px;border-radius:50%;background:#ffffff;""></div>" &
-			"<div style=""position:absolute;left:150px;bottom:0;width:3px;height:110px;background:#1a1a1a;transform-origin:bottom center;transform:rotate(" & NeedleDegTxt & "deg);border-radius:2px;""></div>" &
-			"<div style=""position:absolute;left:144px;bottom:-6px;width:12px;height:12px;border-radius:50%;background:#1a1a1a;""></div>" &
-			"</div>" &
-			"<div style=""font-size:32px;font-weight:600;color:#1a1a1a;margin-top:8px;"">" & PctTxt & "</div>" &
-			"<div style=""font-size:13px;color:#5f5f5f;"">of monthly target</div>" &
-			"<div style=""display:flex;justify-content:center;gap:16px;margin-top:12px;font-size:13px;"">" &
-			"<span style=""color:#5f5f5f;"">Actual <b style=""color:#1a1a1a;"">" & ActualTxt & "</b></span>" &
-			"<span style=""color:#5f5f5f;"">Target <b style=""color:#1a1a1a;"">" & TargetTxt & "</b></span>" &
-			"</div>" &
-			"<div style=""background:#f1f1ee;border-radius:6px;padding:8px 12px;margin-top:10px;display:inline-block;"">" &
-			"<span style=""font-size:13px;color:#5f5f5f;"">Remaining target </span>" &
-			"<span style=""font-size:14px;font-weight:600;color:#1a1a1a;"">" & RemainingTxt & "</span>" &
-			"</div>" &
+			
+			"<div style=""width:280px;margin:0 auto;font-family:Segoe UI,sans-serif;text-align:center;"">"
+			
+			&
+			
+			"<div style=""position:relative;width:260px;height:145px;margin:0 auto;overflow:hidden;"">"
+			
+			&
+			
+			/* Gauge background */
+			"<div style=""
+			position:absolute;
+			width:260px;
+			height:260px;
+			left:0;
+			top:0;
+			border-radius:50%;
+			background:conic-gradient(
+			from 270deg,
+			#d03b3b 0deg 72deg,
+			#fab219 72deg 135deg,
+			#0ca30c 135deg 180deg,
+			transparent 180deg 360deg
+			);
+			""></div>"
+			
+			&
+			
+			/* Inner circle */
+			"<div style=""
+			position:absolute;
+			width:160px;
+			height:160px;
+			left:50px;
+			top:50px;
+			border-radius:50%;
+			background:#ffffff;
+			""></div>"
+			
+			&
+			
+			/* Percentage */
+			"<div style=""
+			position:absolute;
+			left:0;
+			right:0;
+			top:72px;
+			font-size:27px;
+			font-weight:700;
+			color:#1a1a1a;
+			z-index:5;
+			"">"
+			& PctTxt &
 			"</div>"
+			
+			&
+			
+			/* Needle */
+			"<div style=""
+			position:absolute;
+			left:129px;
+			bottom:0;
+			width:3px;
+			height:100px;
+			background:#222;
+			transform-origin:bottom center;
+			transform:rotate("
+			& NeedleDegTxt &
+			"deg);
+			border-radius:3px;
+			z-index:6;
+			""></div>"
+			
+			&
+			
+			/* Needle center */
+			"<div style=""
+			position:absolute;
+			left:124px;
+			bottom:-2px;
+			width:13px;
+			height:13px;
+			border-radius:50%;
+			background:#222;
+			z-index:7;
+			""></div>"
+			
+			&
+			
+			"</div>"
+			
+			&
+			
+			/* Scale labels */
+			"<div style=""
+			display:flex;
+			justify-content:space-between;
+			padding:0 8px;
+			margin-top:-2px;
+			font-size:10px;
+			color:#777;
+			"">"
+			
+			& "<span>0%</span>"
+			& "<span>60%</span>"
+			& "<span>90%</span>"
+			& "<span>120%</span>"
+			
+			& "</div>"
+			
+			&
+			
+			/* KPI row */
+			"<div style=""
+			display:flex;
+			justify-content:center;
+			gap:22px;
+			margin-top:7px;
+			font-size:12px;
+			"">"
+			
+			& "<div>"
+			& "<span style=""color:#777;"">Actual</span><br>"
+			& "<b style=""font-size:15px;color:#1a1a1a;"">"
+			& ActualTxt
+			& "</b>"
+			& "</div>"
+			
+			& "<div>"
+			& "<span style=""color:#777;"">Target</span><br>"
+			& "<b style=""font-size:15px;color:#1a1a1a;"">"
+			& TargetTxt
+			& "</b>"
+			& "</div>"
+			
+			& "</div>"
+			
+			&
+			
+			/* Remaining target */
+			"<div style=""
+			margin:7px auto 0;
+			padding:5px 12px;
+			display:inline-block;
+			background:#f5f5f2;
+			border-radius:12px;
+			font-size:11px;
+			color:#666;
+			"">"
+			
+			& "Remaining "
+			& "<b style=""color:#1a1a1a;font-size:12px;"">"
+			& RemainingTxt
+			& "</b>"
+			
+			& "</div>"
+			
+			& "</div>"
 		lineageTag: 98965685-cba9-463e-86dc-6208e7fb5a8a
 
-	measure 'GRN Count' =
+	measure 'Model Wise Target (Proportional)' =
 			
-			DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factgrndetails[ChassisNo] )
+			VAR ModelActual =
+			    [Actual Units]
+			VAR TotalActualInContext =
+			    CALCULATE ( [Actual Units], ALLSELECTED ( gold_dpmc_vs_2w3w4w_dimproduct[STR_MODEL_DESC] ) )
+			VAR TotalTarget =
+			    [Target (Selected)]
+			RETURN
+			    DIVIDE ( ModelActual, TotalActualInContext ) * TotalTarget
 		formatString: 0
-		lineageTag: e0e0b1b3-7c43-4289-900a-61795aa158fc
-
-	measure 'From Location' =
-			
-			CALCULATE(
-			    SELECTEDVALUE ( gold_dpmc_vs_2w3w4w_dimpremises[PremisesDesc] ),
-			    USERELATIONSHIP ( gold_dpmc_vs_2w3w4w_factgrndetails[FromPremiseSK], gold_dpmc_vs_2w3w4w_dimpremises[PremiseSK] )
-			)
-		lineageTag: 807c3a6e-cbd8-4dee-ab43-574d186441a4
+		lineageTag: 20c7aaa8-85ef-4854-b7bd-4bb3969854a7
 
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd

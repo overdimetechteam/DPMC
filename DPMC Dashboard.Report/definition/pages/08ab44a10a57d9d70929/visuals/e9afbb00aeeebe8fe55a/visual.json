@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "d3fd821eed28e197fdd5",
+  "name": "e9afbb00aeeebe8fe55a",
   "position": {
-    "x": 510,
-    "y": 1733.3333333333335,
-    "z": 33000,
-    "height": 211.66666666666669,
-    "width": 578.33333333333337,
-    "tabOrder": 32000
+    "x": 1593,
+    "y": 1714,
+    "z": 38000,
+    "height": 243,
+    "width": 737,
+    "tabOrder": 38000
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,84 +20,70 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_dimdate"
+                      "Entity": "FactGRNDetails_Dedup"
                     }
                   },
-                  "Property": "TheDayName"
+                  "Property": "From Location"
                 }
               },
-              "queryRef": "gold_dpmc_dimdate.TheDayName",
-              "nativeQueryRef": "TheDayName"
+              "queryRef": "FactGRNDetails_Dedup.From Location",
+              "nativeQueryRef": "From Location"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                      "Entity": "FactGRNDetails_Dedup"
                     }
                   },
-                  "Property": "Cash Sales"
+                  "Property": "To Location"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Cash Sales",
-              "nativeQueryRef": "Cash Sales"
+              "queryRef": "FactGRNDetails_Dedup.To Location",
+              "nativeQueryRef": "To Location"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                      "Entity": "FactGRNDetails_Dedup"
                     }
                   },
-                  "Property": "Finance Sales"
+                  "Property": "Pending Days"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Finance Sales",
-              "nativeQueryRef": "Finance Sales"
+              "queryRef": "Sum(FactGRNDetails_Dedup.Pending Days)",
+              "nativeQueryRef": "Pending Days"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                      "Entity": "FactGRNDetails_Dedup"
                     }
                   },
-                  "Property": "Total Units Sold"
+                  "Property": "GatePassApprovedDate"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
-              "nativeQueryRef": "Total Units Sold"
+              "queryRef": "FactGRNDetails_Dedup.GatePassApprovedDate",
+              "nativeQueryRef": "GatePassApprovedDate"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                      "Entity": "FactGRNDetails_Dedup"
                     }
                   },
-                  "Property": "Dealer Count"
+                  "Property": "GatePassNo"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Dealer Count",
-              "nativeQueryRef": "Dealer Count"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-                    }
-                  },
-                  "Property": "Premise Count"
-                }
-              },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Premise Count",
-              "nativeQueryRef": "Premise Count"
+              "queryRef": "FactGRNDetails_Dedup.GatePassNo",
+              "nativeQueryRef": "GatePassNo"
             }
           ]
         }
@@ -109,10 +95,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "gold_dpmc_dimdate"
+                    "Entity": "FactGRNDetails_Dedup"
                   }
                 },
-                "Property": "TheDayName"
+                "Property": "Pending Days"
               }
             },
             "direction": "Descending"
@@ -299,13 +285,6 @@
       "title": [
         {
           "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Units Comparison - Working Days'"
-                }
-              }
-            },
             "titleWrap": {
               "expr": {
                 "Literal": {
@@ -383,80 +362,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "28a2b2bc3a8446a9b978",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_dimdate"
-              }
-            },
-            "Property": "TheDate"
-          }
-        },
-        "type": "RelativeDate",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "g",
-              "Entity": "gold_dpmc_dimdate",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Between": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "g"
-                        }
-                      },
-                      "Property": "TheDate"
-                    }
-                  },
-                  "LowerBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "Now": {}
-                              },
-                              "Amount": 1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": -7,
-                          "TimeUnit": 0
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Now": {}
-                      },
-                      "TimeUnit": 0
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
-      }
-    ]
   }
 }

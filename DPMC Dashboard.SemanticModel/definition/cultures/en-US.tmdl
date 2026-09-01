@@ -1,2 +1,25 @@
 cultureInfo en-US
 
+	linguisticMetadata =
+			{
+			  "Version": "1.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "gold_dpmc_vs_2w3w4w_dimpremises.premisesdesc": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dpmc_vs_2w3w4w_dimpremises",
+			        "ConceptualProperty": "PremisesDesc"
+			      },
+			      "State": "Generated"
+			    },
+			    "gold_dpmc_vs_2w3w4w_factgrndetails.gatepassapproveddate": {
+			      "Binding": {
+			        "ConceptualEntity": "gold_dpmc_vs_2w3w4w_factgrndetails",
+			        "ConceptualProperty": "GatePassApprovedDate"
+			      },
+			      "State": "Generated"
+			    }
+			  }
+			}
+		contentType: json
+

@@ -6,7 +6,7 @@
     "y": 0,
     "z": 36000,
     "height": 96,
-    "width": 256,
+    "width": 221,
     "tabOrder": 0
   },
   "visual": {
@@ -170,6 +170,20 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total Working Days'"
                 }
               }
             }

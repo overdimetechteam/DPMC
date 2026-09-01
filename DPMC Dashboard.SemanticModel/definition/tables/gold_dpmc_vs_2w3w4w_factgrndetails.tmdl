@@ -164,6 +164,19 @@ table gold_dpmc_vs_2w3w4w_factgrndetails
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Pending Days' =
+			
+			DATEDIFF(
+			    gold_dpmc_vs_2w3w4w_factgrndetails[GatePassDate],
+			    COALESCE ( gold_dpmc_vs_2w3w4w_factgrndetails[GatePassApprovedDate], TODAY () ),
+			    DAY
+			)
+		formatString: 0
+		lineageTag: e7221459-867a-4526-9c9d-7ce28cd8aa7d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition gold_dpmc_vs_2w3w4w_factgrndetails = m
 		mode: directQuery
 		source =

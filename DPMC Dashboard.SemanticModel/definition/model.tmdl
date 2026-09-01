@@ -8,9 +8,9 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock","gold_dpmc_vs_2w3w4w_competitorwisereg","Vw_dpmc_vs_DimDate"]
+annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock","gold_dpmc_vs_2w3w4w_competitorwisereg","Vw_dpmc_vs_DimDate","Vw_gold_dpmc_vs_2w3w_Thresholds"]
 
-annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop"]
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","TMDL-Extension"]
 
 ref table gold_dpmc_dimdate
 ref table gold_dpmc_vs_2w3w_target
@@ -44,6 +44,11 @@ ref table AsOfDateSelector
 ref table LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9
 ref table AgeBucketTable
 ref table LocalDateTable_63b5c2f2-4696-4366-9928-76ed2c56c027
+ref table Vw_gold_dpmc_vs_2w3w_Thresholds
+ref table FactGRNDetails_Dedup
+ref table LocalDateTable_4c2c0d3c-8f49-47cd-90e5-5fd1dc7715d6
+ref table LocalDateTable_195cf829-2185-4b05-a5b5-371797f09edb
+ref table LocalDateTable_8cb1b4ba-025c-4197-b3a7-88c5c694a686
 
 ref cultureInfo en-US
 
