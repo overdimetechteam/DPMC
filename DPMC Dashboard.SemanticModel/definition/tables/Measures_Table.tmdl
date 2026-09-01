@@ -253,6 +253,85 @@ table Measures_Table
 		formatString: 0
 		lineageTag: eb0f635e-5451-4b16-842d-19916d87f9e5
 
+	measure 'Allocated Bookings' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factstock[BookingNo]),
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[BookingNo]),
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[AllocatedDate])
+			)
+		formatString: 0
+		lineageTag: 7bc9a9d9-2e4b-4813-8a24-acaf78d1e124
+
+	measure 'Non-allocated Bookings' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factstock[BookingNo]),
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[BookingNo]),
+			    ISBLANK(gold_dpmc_vs_2w3w4w_factstock[AllocatedDate])
+			)
+		formatString: 0
+		lineageTag: 200a6ac7-3067-47ec-90a0-c98a0cd54532
+
+	measure 'Pending Bookings New' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] IN {"INQ", "CONFIRM", "ALLOCATE"}
+			)
+		formatString: 0
+		lineageTag: 72330776-b3c4-4ac4-8ce5-caf4d1534ffe
+
+	measure Inquiry =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo])
+			)
+		formatString: 0
+		lineageTag: 10ade63d-0e95-4764-ae57-73d08fb504b6
+
+	measure Booking =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factsales[BookingNo]),
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factsales[BookingNo])
+			)
+		formatString: 0
+		lineageTag: 8c246d70-3cf8-4076-9991-ae169d758121
+
+	measure 'Confirmed Booking' =
+			
+			VAR MinD = CALCULATE(MIN(gold_dpmc_dimdate[TheDate]))
+			VAR MaxD = CALCULATE(MAX(gold_dpmc_dimdate[TheDate])) + 1
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factsales[BookingNo]),
+			    REMOVEFILTERS(gold_dpmc_vs_2w3w4w_factsales),
+			    gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] >= MinD,
+			    gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] < MaxD,
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factsales[ConfirmDate])
+			)
+		formatString: 0
+		lineageTag: 2c9096d2-bab3-4fbf-867e-db13ec37ec15
+
+	measure Allocation =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factstock[BookingNo]),
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[AllocatedDate])
+			)
+		formatString: 0
+		lineageTag: 632d1bec-29d4-40cd-97ae-e1de4289a1fe
+
+	measure Invoice =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factsales[InvoiceNo]),
+			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factsales[InvoiceNo])
+			)
+		formatString: 0
+		lineageTag: 06dc55b1-960d-46d4-b187-9a19780092a8
+
 	column Column
 		formatString: 0
 		lineageTag: 194b6994-0780-4091-9b5f-56fdb64ff5df

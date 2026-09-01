@@ -397,6 +397,44 @@ table gold_dpmc_vs_2w3w4w_factstock
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Days Pending Bucket' =
+			
+			VAR d = gold_dpmc_vs_2w3w4w_factstock[PendingDaysFromMDP]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(d), BLANK(),
+			        d <= 30, "0-30 days",
+			        d <= 60, "31-60 days",
+			        d <= 80, "61-80 days",
+			        "81 days above"
+			    )
+		lineageTag: d811d54e-6553-4e98-a7f0-973145e494f7
+		summarizeBy: none
+		sortByColumn: 'Days Pending Bucket Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days Pending Bucket Sort' =
+			
+			VAR d = gold_dpmc_vs_2w3w4w_factstock[PendingDaysFromMDP]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(d), BLANK(),
+			        d <= 30, 1,
+			        d <= 60, 2,
+			        d <= 80, 3,
+			        4
+			    )
+		formatString: 0
+		lineageTag: fee5758b-1c19-4b6d-bcd3-bc06d4700e6d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition gold_dpmc_vs_2w3w4w_factstock = m
 		mode: directQuery
 		source =
