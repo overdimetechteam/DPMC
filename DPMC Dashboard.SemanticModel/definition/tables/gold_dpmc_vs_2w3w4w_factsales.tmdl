@@ -334,6 +334,13 @@ table gold_dpmc_vs_2w3w4w_factsales
 
 		annotation SummarizationSetBy = Automatic
 
+	column InvoiceMonth = DATE(YEAR(gold_dpmc_vs_2w3w4w_factsales[InvoiceDate]), MONTH(gold_dpmc_vs_2w3w4w_factsales[InvoiceDate]), 1)
+		formatString: General Date
+		lineageTag: b46cd8f6-0dde-403d-91d0-d59b70a497ed
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition gold_dpmc_vs_2w3w4w_factsales = m
 		mode: directQuery
 		source =
