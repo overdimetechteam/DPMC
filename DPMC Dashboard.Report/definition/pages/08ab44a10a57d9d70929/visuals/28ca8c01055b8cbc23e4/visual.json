@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "d3fd821eed28e197fdd5",
+  "name": "28ca8c01055b8cbc23e4",
   "position": {
-    "x": 1374,
-    "y": 1908,
-    "z": 46000,
-    "height": 212,
+    "x": 1373.3333333333335,
+    "y": 1911.6666666666667,
+    "z": 47000,
+    "height": 213.33333333333334,
     "width": 570,
-    "tabOrder": 36000
+    "tabOrder": 38009
   },
   "visual": {
     "visualType": "tableEx",
@@ -23,11 +23,11 @@
                       "Entity": "gold_dpmc_dimdate"
                     }
                   },
-                  "Property": "TheDayName"
+                  "Property": "TheMonthName"
                 }
               },
-              "queryRef": "gold_dpmc_dimdate.TheDayName",
-              "nativeQueryRef": "TheDayName"
+              "queryRef": "gold_dpmc_dimdate.TheMonthName",
+              "nativeQueryRef": "TheMonthName"
             },
             {
               "field": {
@@ -101,42 +101,9 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "gold_dpmc_dimdate"
-                  }
-                },
-                "Property": "TheDayName"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
-      "columnWidth": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "98.75D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "gold_dpmc_dimdate.TheDayName"
-          }
-        }
-      ],
       "columnHeaders": [
         {
           "properties": {}
@@ -157,7 +124,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Units Comparison - Working Days'"
+                  "Value": "'Units Comparison - Completed Month'"
                 }
               }
             }
@@ -169,62 +136,6 @@
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "ce557adfb298b723914c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_dimdate"
-              }
-            },
-            "Property": "TheDayName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "11dc983386f26eecfda3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Cash Sales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "52a3d2c27c58bca843d7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Finance Sales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ef08f03cff32682eca33",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Total Units Sold"
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "28a2b2bc3a8446a9b978",
         "field": {
@@ -238,64 +149,93 @@
           }
         },
         "type": "RelativeDate",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "g",
-              "Entity": "gold_dpmc_dimdate",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Between": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "g"
-                        }
-                      },
-                      "Property": "TheDate"
-                    }
-                  },
-                  "LowerBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "Now": {}
-                              },
-                              "Amount": 1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": -7,
-                          "TimeUnit": 0
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Now": {}
-                      },
-                      "TimeUnit": 0
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User"
+      },
+      {
+        "name": "a8814558af912134ff28",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+              }
+            },
+            "Property": "Cash Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "297a0fdd2641ed970b8f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+              }
+            },
+            "Property": "Finance Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "063478ff6b9c5c2f6ecb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+              }
+            },
+            "Property": "Total Units Sold"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ea5f1c471566b743e672",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+              }
+            },
+            "Property": "Dealer Count"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a0eb4aaf1aa96ae348a2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+              }
+            },
+            "Property": "Premise Count"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f6bf7b28cc2cf0bed77f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_dimdate"
+              }
+            },
+            "Property": "TheMonthName"
+          }
+        },
+        "type": "Categorical"
       }
     ]
-  }
+  },
+  "isHidden": true
 }

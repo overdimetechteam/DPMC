@@ -4,7 +4,7 @@
   "position": {
     "x": 528.33333333333337,
     "y": 1753.3333333333335,
-    "z": 38005,
+    "z": 42000,
     "height": 246.66666666666669,
     "width": 493.33333333333337,
     "tabOrder": 38005
@@ -86,6 +86,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "isHidden": true
+  }
 }
