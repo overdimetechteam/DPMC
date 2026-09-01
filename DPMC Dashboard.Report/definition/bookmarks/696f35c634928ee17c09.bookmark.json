@@ -1,0 +1,3729 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Working Days View",
+  "name": "696f35c634928ee17c09",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "02d0f059c7cba060cba5",
+      "28ca8c01055b8cbc23e4",
+      "d3fd821eed28e197fdd5"
+    ]
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "08ab44a10a57d9d70929",
+    "sections": {
+      "08ab44a10a57d9d70929": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "378c46502b1ec0e60d0b",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Vehicle Type"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "817083fb3a15588d3f2c",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_dimdate"
+                    }
+                  },
+                  "Property": "TheDate"
+                }
+              },
+              "howCreated": 5
+            }
+          ]
+        },
+        "visualContainers": {
+          "0321aba37034a71d53de": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "656b1cf7b78bd6b38fa8",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDealer"
+                        }
+                      },
+                      "Property": "Dealer"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDealer"
+                        }
+                      },
+                      "Property": "Dealer"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "076ad07b600b806613ce": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "03ae1c5c9de5070eaa19",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AgeBucketTable"
+                        }
+                      },
+                      "Property": "Age Bucket"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4b3f810c8c4aa9240530",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AgeBucketTable"
+                        }
+                      },
+                      "Property": "Vehicle_Count_(Unregistered)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AgeBucketTable"
+                        }
+                      },
+                      "Property": "Age Bucket"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AgeBucketTable"
+                        }
+                      },
+                      "Property": "Age Bucket"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "09da9ce5381bb07d5c7b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e322ba555a787a12d6c6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimProductFilter"
+                        }
+                      },
+                      "Property": "Product"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimProductFilter"
+                        }
+                      },
+                      "Property": "Product"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "0cf41e8de49735a2150e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "669e9a24d93914622571",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7e3b0cc79f941fdc7bba",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Actual Units"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "speedometerKpiProA1B2C3D4E5F6",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Actual Units"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "0d4d885838abbffd856d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f0ff0d4a55fdf7d8a214",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MonthBridge"
+                        }
+                      },
+                      "Property": "TheFirstOfMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f827760f718872472739",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "DPMC Total Units (3W)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "181d64a53967b849f327",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Competitor Total Units"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MonthBridge"
+                        }
+                      },
+                      "Property": "TheFirstOfMonth"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "0dd91fa74017eb376caf": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4273a5ce2d43b1f449a8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Total Units Sold"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "54d9ec10f2d7ddc26211",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "InvoiceDate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "763d7198bb1cdfaaae19",
+                  "type": "RelativeDate",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "g",
+                        "Entity": "gold_dpmc_vs_2w3w4w_factsales",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Between": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "g"
+                                  }
+                                },
+                                "Property": "InvoiceDate"
+                              }
+                            },
+                            "LowerBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "DateAdd": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "Amount": 1,
+                                        "TimeUnit": 0
+                                      }
+                                    },
+                                    "Amount": -3,
+                                    "TimeUnit": 2
+                                  }
+                                },
+                                "TimeUnit": 0
+                              }
+                            },
+                            "UpperBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "Now": {}
+                                },
+                                "TimeUnit": 0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "InvoiceDate"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "InvoiceDate"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "InvoiceDate"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "0fcdd22a044f1e55f507": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "145556d8f33a4ad4e856": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f585738f40a38898d041",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Total Working Days"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Total Working Days"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "161a923dfd1a19aef23c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a4b27c00fcb8913e5e0a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "22f9289620bc7d496039": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e1f3ab06089707fc12bb",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b8299b60666df7c934a3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Current Month Inquiry"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "15fad21bca08ee0ee719",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Previous Month Inquiry"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c7a906bc62d9216eedd0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Current Month Booking"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6964271c64237d139da0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Previous Month Booking"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Current Month Inquiry"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "26306e32141ee824e0d7": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "274ad22facad49251310": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "47322a689acff0f8b4f7",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "AssemblyCategory"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "AssemblyCategory"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2fd357c9b6ea78f8bff7": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "308a376300bc31e3b5e1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "37fcdf5b34d870ff7bc4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TopBottomSelector"
+                        }
+                      },
+                      "Property": "Selection"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "t",
+                                "Entity": "TopBottomSelector",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "t"
+                                            }
+                                          },
+                                          "Property": "Selection"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'Top'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TopBottomSelector"
+                        }
+                      },
+                      "Property": "Selection"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "311d33e46ee88d54a151": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e820a1bbc795c63f86e0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimRegion"
+                        }
+                      },
+                      "Property": "Region"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimRegion"
+                        }
+                      },
+                      "Property": "Region"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3e50a950a7d544825efa": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2ea0114f76ad62de4bf6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4161c80d3db6703e5941": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b2c80810fe7b615847fd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Achievement %"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "35a6459a518a6bef7328",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ce6fc0ae3d8f6cf3e118",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "b",
+                                  "Entity": "BranchMonthTarget",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "t",
+                                  "Entity": "TopBottomSelector",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "b"
+                                      }
+                                    },
+                                    "Property": "Product_Owner"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "t"
+                                        }
+                                      },
+                                      "Property": "Sort Basis RM"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 5
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "b",
+                        "Entity": "BranchMonthTarget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "b"
+                                    }
+                                  },
+                                  "Property": "Product_Owner"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BranchMonthTarget"
+                        }
+                      },
+                      "Property": "Product_Owner"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BranchMonthTarget"
+                        }
+                      },
+                      "Property": "Product_Owner"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "45765acd9b6431dc30e2": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "15135b82404913907cca",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "b",
+                                  "Entity": "BranchMonthTarget",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "t",
+                                  "Entity": "TopBottomSelector",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "b"
+                                      }
+                                    },
+                                    "Property": "SRM"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "t"
+                                        }
+                                      },
+                                      "Property": "Sort Basis Regional Head"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 5
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "b",
+                        "Entity": "BranchMonthTarget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "b"
+                                    }
+                                  },
+                                  "Property": "SRM"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BranchMonthTarget"
+                        }
+                      },
+                      "Property": "SRM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1943789e0f7db3dfbf51",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "052e017c67fc050f7b81",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Achievement %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BranchMonthTarget"
+                        }
+                      },
+                      "Property": "SRM"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "46b68834b3a980140635": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c6566aaf49dc41ea0b06",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheMonthName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheMonthName"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "4e19297466afefd11a95": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "4b3413a261396649593e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "15f8c5bf9c8e515f56a5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Current Stock"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Current Stock"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "5359e553c2bddd3a9938": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "018206d60dc87f700dc9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "013206afa7bc0c3fec59",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "GRN Count"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "GRN Count"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "58ef86b818aac2626c37": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "5e824e8c5a1d68d022af": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b64c034523368d668769",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d727344477b6c156d495",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "gold_dpmc_vs_2w3w4w_factinquiry"
+                            }
+                          },
+                          "Property": "InquiryNo"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "27388c78b85ba2d76894",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                            }
+                          },
+                          "Property": "BookingNo"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "gold_dpmc_vs_2w3w4w_factinquiry"
+                            }
+                          },
+                          "Property": "InquiryNo"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "66c9b4141e67d70a3d37": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a54f58430075072de22c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w_target"
+                        }
+                      },
+                      "Property": "SRM"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w_target"
+                        }
+                      },
+                      "Property": "SRM"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7123f742412b4eb9116b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9aa7a30f41f278af1a31",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Gauge HTML"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+              "objects": {}
+            }
+          },
+          "7766a3587158d39be2cf": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cbb52b9652ffa23787d4",
+                  "type": "TopN",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "subquery",
+                        "Expression": {
+                          "Subquery": {
+                            "Query": {
+                              "Version": 2,
+                              "From": [
+                                {
+                                  "Name": "b",
+                                  "Entity": "BranchMonthTarget",
+                                  "Type": 0
+                                },
+                                {
+                                  "Name": "t",
+                                  "Entity": "TopBottomSelector",
+                                  "Type": 0
+                                }
+                              ],
+                              "Select": [
+                                {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "b"
+                                      }
+                                    },
+                                    "Property": "STR_BRANCH"
+                                  },
+                                  "Name": "field"
+                                }
+                              ],
+                              "OrderBy": [
+                                {
+                                  "Direction": 2,
+                                  "Expression": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "t"
+                                        }
+                                      },
+                                      "Property": "Sort Basis Branch"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Top": 5
+                            }
+                          }
+                        },
+                        "Type": 2
+                      },
+                      {
+                        "Name": "b",
+                        "Entity": "BranchMonthTarget",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "b"
+                                    }
+                                  },
+                                  "Property": "STR_BRANCH"
+                                }
+                              }
+                            ],
+                            "Table": {
+                              "SourceRef": {
+                                "Source": "subquery"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BranchMonthTarget"
+                        }
+                      },
+                      "Property": "STR_BRANCH"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4f5069359a990e5a0cc8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "TopBottomSelector"
+                        }
+                      },
+                      "Property": "Show Branch"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "df3f2196fef165ac4c4c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4d63dc6bb62e95d8c78b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Achievement %"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BranchMonthTarget"
+                        }
+                      },
+                      "Property": "STR_BRANCH"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7b3e37e77004885610e0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a28b6133134acf5aaf7b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "810448d608e911fc7588": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "19f8110148836654c589",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "85080ac0ea9108d34efd": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6280462463503261b7ca",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "02fcea048126cb577ba2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDealer"
+                        }
+                      },
+                      "Property": "Avg Sales Units (Last 3 Months)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimDealer"
+                        }
+                      },
+                      "Property": "Avg Sales Units (Last 3 Months)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "85c1ffb28214486086e6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3ea740286644c6bef16b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Performed Working Days"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Performed Working Days"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "868de5e0773a5a20a5ea": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b9d94fead91fde31a6af",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "GRNs"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "GRNs"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "9a7f7084c8f9aeb36815": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3c3548406652bbb6f685",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w_target"
+                        }
+                      },
+                      "Property": "Product_Owner"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w_target"
+                        }
+                      },
+                      "Property": "Product_Owner"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "9c45c7fcaec2a0175b8a": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "a34c9383e4a64a79face": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c058d794bfe097fecd51",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Stock Units"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Stock Units"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "a4cf26ddb9ea7cd91fe6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9830e8f0baa1349c335d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "abb88822b53e8045df9b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2f670989d681f3d20485",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Total Bookings"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Total Bookings"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "ac52da119b9cb29dafe3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c6976846c0490c38c597",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "InvoiceMonth"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b80d3649ae1414d91f29",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Total Units Sold"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "InvoiceMonth"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "InvoiceMonth"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b4507020127856bcb18b": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "b533dd39dda93387cdb7": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7f9ddaaa84c9b702980b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factinquiry"
+                        }
+                      },
+                      "Property": "DealerPremiseDesc"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factinquiry"
+                        }
+                      },
+                      "Property": "DealerPremiseDesc"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b92dff40b140385ff9d1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "034f433e4681202eba61",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AsOfDateSelector"
+                        }
+                      },
+                      "Property": "SelectedDate"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AsOfDateSelector"
+                        }
+                      },
+                      "Property": "SelectedDate"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AsOfDateSelector"
+                        }
+                      },
+                      "Property": "SelectedDate"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "cf19ded35faaecf3153f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b07e421cd915c6ff3431",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d22f1f64284e56640273",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6ecc55383094e765ef65",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Actual Units"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Target (Selected)"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+                        }
+                      },
+                      "Property": "STR_MODEL_DESC"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d3fd821eed28e197fdd5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ce557adfb298b723914c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheDayName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "11dc983386f26eecfda3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Cash Sales"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "52a3d2c27c58bca843d7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Finance Sales"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ef08f03cff32682eca33",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Total Units Sold"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "28a2b2bc3a8446a9b978",
+                  "type": "RelativeDate",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "g",
+                        "Entity": "gold_dpmc_dimdate",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Between": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "g"
+                                  }
+                                },
+                                "Property": "TheDate"
+                              }
+                            },
+                            "LowerBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "DateAdd": {
+                                    "Expression": {
+                                      "DateAdd": {
+                                        "Expression": {
+                                          "Now": {}
+                                        },
+                                        "Amount": 1,
+                                        "TimeUnit": 0
+                                      }
+                                    },
+                                    "Amount": -7,
+                                    "TimeUnit": 0
+                                  }
+                                },
+                                "TimeUnit": 0
+                              }
+                            },
+                            "UpperBound": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "Now": {}
+                                },
+                                "TimeUnit": 0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheDate"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d638b2ac6603080190a4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Dealer Count"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "438f2582cdcc44d73d73",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Premise Count"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheDayName"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d40fb5e5b7f28ab78785": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3035bc5f8163a30cdcd5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w_target"
+                        }
+                      },
+                      "Property": "Product_Owner"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2df737caf9b01f155e2f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Next Daily Target"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Next Daily Target"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w_target"
+                        }
+                      },
+                      "Property": "Product_Owner"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d62ffe0741bd0cf1b02c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0b1a5c1ff595a48de0a7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Sales Value (LKR M)"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Sales Value (LKR M)"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d649385e21cd476f650a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "13ad771d413683f392a3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Stage"
+                        }
+                      },
+                      "Property": "StageName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e73d62d74042120a16d3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Funnel Value"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "funnel",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measures_Table"
+                        }
+                      },
+                      "Property": "Funnel Value"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Stage"
+                        }
+                      },
+                      "Property": "StageName"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d8a49c253596568fbb2f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8a29233b91fca060d064",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Delivery Notes"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Delivery Notes"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d99dcf60f6c58195744a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "84d1dcc87a060fb8d610",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Vehicle Type"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "v",
+                                "Entity": "VehicleTypeSelector",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "v"
+                                            }
+                                          },
+                                          "Property": "Vehicle Type"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'3W'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Vehicle Type"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e2e15b618a4520255221": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7934b20f9292fe97097c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
+                            }
+                          },
+                          "Property": "ChassisNo"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
+                            }
+                          },
+                          "Property": "ChassisNo"
+                        }
+                      },
+                      "Function": 2
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "f42434cb201638aeb079": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f845eea1bb4a31bdb075",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Remaining Working Days"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Remaining Working Days"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "fd7d5b0146e40c282376": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b0f7951dcd62a82d6488",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e2991286672c193b8cb8",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "gold_dpmc_vs_2w3w4w_factdeliverynotes"
+                            }
+                          },
+                          "Property": "DeliveryNoteNo"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "columnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "gold_dpmc_vs_2w3w4w_factdeliverynotes"
+                            }
+                          },
+                          "Property": "DeliveryNoteNo"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+                        }
+                      },
+                      "Property": "PremisesDesc"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "28ca8c01055b8cbc23e4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "28a2b2bc3a8446a9b978",
+                  "type": "RelativeDate",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheDate"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "a8814558af912134ff28",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Cash Sales"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "297a0fdd2641ed970b8f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Finance Sales"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "063478ff6b9c5c2f6ecb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Total Units Sold"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ea5f1c471566b743e672",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Dealer Count"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a0eb4aaf1aa96ae348a2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Premise Count"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f6bf7b28cc2cf0bed77f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheMonthName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "02d0f059c7cba060cba5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "28a2b2bc3a8446a9b978",
+                  "type": "RelativeDate",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheDate"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "0bdcfb5705cf7233fd28",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Cash Sales"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8aab1a4dad2597cc1d73",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Finance Sales"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b8ab1f5df50ab24fca69",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Total Units Sold"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c8ba49d79d1960b36f46",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Dealer Count"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d1cb7b74d22b4ca0aaa3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                        }
+                      },
+                      "Property": "Premise Count"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9abe0560ea84411eeaae",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_dimdate"
+                        }
+                      },
+                      "Property": "TheYear"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

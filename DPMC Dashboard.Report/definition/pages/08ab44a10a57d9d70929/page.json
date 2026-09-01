@@ -3,7 +3,7 @@
   "name": "08ab44a10a57d9d70929",
   "displayName": "Sales Overview",
   "displayOption": "ActualSize",
-  "height": 2000,
+  "height": 3000,
   "width": 2400,
   "filterConfig": {
     "filters": [
@@ -107,7 +107,7 @@
           "width": {
             "expr": {
               "Literal": {
-                "Value": "413L"
+                "Value": "234L"
               }
             }
           }
