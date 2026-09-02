@@ -58,6 +58,11 @@ relationship 27549d72-5c98-09b8-cb14-7a144b7b6994
 	fromColumn: gold_dpmc_vs_2w3w_target.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
+relationship 1377c708-af77-61af-71f8-fd92a1d48469
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
+	toColumn: VehicleTypeSelector.'Vehicle Type'
+
 relationship ace104df-f723-e35f-7dab-2dd55eb5cc21
 	fromColumn: gold_dpmc_vs_2w3w4w_factstock.PremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
@@ -164,10 +169,4 @@ relationship 56f3b6a2-4d84-9613-74c3-066a11a15896
 	isActive: false
 	fromColumn: FactGRNDetails_Dedup.FromPremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
-
-relationship 1377c708-af77-61af-71f8-fd92a1d48469
-	crossFilteringBehavior: bothDirections
-	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
-	toColumn: VehicleTypeSelector.'Vehicle Type'
-
 
