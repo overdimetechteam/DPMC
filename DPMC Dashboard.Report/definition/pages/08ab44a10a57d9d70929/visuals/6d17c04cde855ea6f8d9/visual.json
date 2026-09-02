@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "6d17c04cde855ea6f8d9",
   "position": {
-    "x": 1939,
-    "y": 1781,
-    "z": 38010,
-    "height": 211,
-    "width": 403,
-    "tabOrder": 38010
+    "x": 2146.666666666667,
+    "y": 1250,
+    "z": 45000,
+    "height": 336.66666666666669,
+    "width": 523.33333333333337,
+    "tabOrder": 52000
   },
   "visual": {
     "visualType": "lineChart",
@@ -108,21 +108,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Measures_Table"
-                  }
-                },
-                "Property": "Inquiry"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },

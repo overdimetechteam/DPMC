@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d3fd821eed28e197fdd5",
   "position": {
-    "x": 510,
-    "y": 1733.3333333333335,
-    "z": 33000,
-    "height": 211.66666666666669,
-    "width": 578.33333333333337,
-    "tabOrder": 32000
+    "x": 915.33336893717455,
+    "y": 551.99997456868516,
+    "z": 32000,
+    "height": 212,
+    "width": 578,
+    "tabOrder": 31000
   },
   "visual": {
     "visualType": "tableEx",
@@ -115,7 +115,7 @@
                 "Property": "TheDayName"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -458,5 +458,6 @@
         "howCreated": "User"
       }
     ]
-  }
+  },
+  "isHidden": true
 }

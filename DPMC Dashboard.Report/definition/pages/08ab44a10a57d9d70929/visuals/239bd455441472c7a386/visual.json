@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "239bd455441472c7a386",
   "position": {
-    "x": 955,
-    "y": 1728,
-    "z": 38008,
-    "height": 264,
-    "width": 402,
-    "tabOrder": 38008
+    "x": 1584.4999694824219,
+    "y": 526.50001525878906,
+    "z": 43000,
+    "height": 265,
+    "width": 525,
+    "tabOrder": 48000
   },
   "visual": {
     "visualType": "columnChart",
@@ -96,23 +96,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ebdc181d217f2365f89f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Measures_Table"
-              }
-            },
-            "Property": "Pending Bookings New"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
