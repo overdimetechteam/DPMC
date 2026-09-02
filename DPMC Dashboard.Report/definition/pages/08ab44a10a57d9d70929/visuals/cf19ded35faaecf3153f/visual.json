@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "cf19ded35faaecf3153f",
   "position": {
     "x": 10.204081632653061,
@@ -75,7 +75,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Actual Units"
+                "Property": "Target (Selected)"
               }
             },
             "direction": "Descending"

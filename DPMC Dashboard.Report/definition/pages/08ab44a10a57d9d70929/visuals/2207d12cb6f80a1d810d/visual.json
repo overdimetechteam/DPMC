@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "2207d12cb6f80a1d810d",
   "position": {
-    "x": 512,
-    "y": 1728,
-    "z": 38005,
-    "height": 264,
-    "width": 428,
-    "tabOrder": 38005
+    "x": 2150.5000305175781,
+    "y": 527.5,
+    "z": 40000,
+    "height": 265,
+    "width": 512.5,
+    "tabOrder": 41000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -66,21 +66,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Measures_Table"
-                  }
-                },
-                "Property": "Allocated Bookings"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },

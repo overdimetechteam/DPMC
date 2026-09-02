@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "4e19297466afefd11a95",
   "position": {
-    "x": 1306,
-    "y": 1304,
+    "x": 1562.0000610351563,
+    "y": 1664,
     "z": 11000,
     "height": 352,
     "width": 550,
@@ -240,37 +240,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e224888e2bdbc446e37c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
-              }
-            },
-            "Property": "STR_MODEL_DESC"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d68e839c18469c218f1a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Measures_Table"
-              }
-            },
-            "Property": "Current Stock"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

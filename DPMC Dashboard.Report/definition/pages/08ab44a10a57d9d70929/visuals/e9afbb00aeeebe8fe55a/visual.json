@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e9afbb00aeeebe8fe55a",
   "position": {
-    "x": 1593,
-    "y": 1714,
-    "z": 38000,
-    "height": 243,
-    "width": 737,
-    "tabOrder": 38000
+    "x": 1376.6666666666667,
+    "y": 2083.3333333333335,
+    "z": 37000,
+    "height": 243.33333333333334,
+    "width": 736.66666666666674,
+    "tabOrder": 37000
   },
   "visual": {
     "visualType": "tableEx",
@@ -87,23 +87,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactGRNDetails_Dedup"
-                  }
-                },
-                "Property": "Pending Days"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {

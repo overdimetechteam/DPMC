@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0197cf217877d055370a",
   "position": {
     "x": 318.36734693877554,
     "y": 204.08163265306123,
-    "z": 38001,
+    "z": 38000,
     "height": 261.22448979591837,
     "width": 275.51020408163265,
-    "tabOrder": 38001
+    "tabOrder": 38000
   },
   "visual": {
     "visualType": "speedometerKpiProA1B2C3D4E5F6",
@@ -51,21 +51,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
-                  }
-                },
-                "Property": "Actual Units"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
