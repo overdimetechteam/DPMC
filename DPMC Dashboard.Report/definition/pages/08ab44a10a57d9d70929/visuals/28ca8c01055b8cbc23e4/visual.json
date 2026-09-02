@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "28ca8c01055b8cbc23e4",
   "position": {
-    "x": 1373.3333333333335,
-    "y": 1911.6666666666667,
-    "z": 47000,
-    "height": 213.33333333333334,
+    "x": 934,
+    "y": 556,
+    "z": 51000,
+    "height": 214,
     "width": 570,
-    "tabOrder": 38009
+    "tabOrder": 49000
   },
   "visual": {
     "visualType": "tableEx",
@@ -150,90 +150,6 @@
         },
         "type": "RelativeDate",
         "howCreated": "User"
-      },
-      {
-        "name": "a8814558af912134ff28",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Cash Sales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "297a0fdd2641ed970b8f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Finance Sales"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "063478ff6b9c5c2f6ecb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Total Units Sold"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ea5f1c471566b743e672",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Dealer Count"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "a0eb4aaf1aa96ae348a2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Premise Count"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f6bf7b28cc2cf0bed77f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_dimdate"
-              }
-            },
-            "Property": "TheMonthName"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   },

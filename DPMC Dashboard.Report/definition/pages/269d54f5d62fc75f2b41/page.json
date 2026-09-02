@@ -208,8 +208,6 @@
       {
         "name": "387f60eb7ef655124e8a",
         "boundFilter": "b57ba1af719468750211",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {
@@ -224,8 +222,6 @@
       {
         "name": "91b0ded7c1e1bd7c7b56",
         "boundFilter": "d75e6ba814ec517efc54",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Measure": {
             "Expression": {

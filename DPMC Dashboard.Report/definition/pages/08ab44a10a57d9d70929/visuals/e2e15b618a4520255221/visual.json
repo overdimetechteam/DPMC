@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e2e15b618a4520255221",
   "position": {
-    "x": 955,
-    "y": 222.5,
-    "z": 39000,
-    "height": 146.25,
+    "x": 1032.5,
+    "y": 247.5,
+    "z": 46000,
+    "height": 147.5,
     "width": 245,
-    "tabOrder": 38002
+    "tabOrder": 39000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -278,28 +278,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7934b20f9292fe97097c",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
-                  }
-                },
-                "Property": "ChassisNo"
-              }
-            },
-            "Function": 2
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -4,7 +4,7 @@
   "displayName": "Sales Overview",
   "displayOption": "ActualSize",
   "height": 3000,
-  "width": 2400,
+  "width": 2850,
   "filterConfig": {
     "filters": [
       {
@@ -90,8 +90,6 @@
       {
         "name": "15e5db0331bfd4362b0e",
         "boundFilter": "c95f8498653bbc14777d",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Column": {
             "Expression": {

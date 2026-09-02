@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "f7ba6d364e242cc18343",
   "position": {
-    "x": 463.33333333333337,
-    "y": 878.33333333333337,
-    "z": 38002,
+    "x": 444.6667098999024,
+    "y": 909.6666717529306,
+    "z": 39000,
     "height": 286.66666666666669,
     "width": 483.33333333333337,
-    "tabOrder": 38002
+    "tabOrder": 40000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -52,21 +52,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
-                  }
-                },
-                "Property": "Next Daily Target"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },

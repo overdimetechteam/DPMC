@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "5359e553c2bddd3a9938",
   "position": {
-    "x": 1856,
-    "y": 939,
-    "z": 35000,
+    "x": 2190.0000406901031,
+    "y": 1685.6666158040364,
+    "z": 34000,
     "height": 339,
     "width": 518,
-    "tabOrder": 35000
+    "tabOrder": 34000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -58,7 +58,7 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "FactGRNDetails_Dedup"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
                 "Property": "GRN Count"

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0dd91fa74017eb376caf",
   "position": {
-    "x": 528.33333333333337,
-    "y": 1755,
-    "z": 43000,
-    "height": 258.33333333333337,
-    "width": 495,
-    "tabOrder": 38006
+    "x": 30,
+    "y": 1355,
+    "z": 48000,
+    "height": 257.5,
+    "width": 875,
+    "tabOrder": 43000
   },
   "visual": {
     "visualType": "lineChart",
@@ -90,34 +90,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4273a5ce2d43b1f449a8",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "Total Units Sold"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "54d9ec10f2d7ddc26211",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-              }
-            },
-            "Property": "InvoiceDate"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "763d7198bb1cdfaaae19",
         "field": {
           "Column": {
@@ -189,6 +161,5 @@
         "howCreated": "User"
       }
     ]
-  },
-  "isHidden": true
+  }
 }
