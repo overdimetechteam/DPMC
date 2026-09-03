@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "b41b5ae676716a339f48",
+  "name": "dc928f24149436f417da",
   "position": {
-    "x": 1566,
-    "y": 792,
-    "z": 55006,
-    "height": 372.99996948242188,
-    "width": 512,
-    "tabOrder": 54001
+    "x": 495.99999999999994,
+    "y": 48,
+    "z": 12000,
+    "height": 80,
+    "width": 1568,
+    "tabOrder": 17000
   },
   "visualGroup": {
-    "displayName": "Group 7",
+    "displayName": "Group 11",
     "groupMode": "ScaleMode"
   }
 }

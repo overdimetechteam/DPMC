@@ -3,11 +3,11 @@
   "name": "02d0f059c7cba060cba5",
   "position": {
     "x": 0,
-    "y": 80,
-    "z": 52000,
-    "height": 112,
-    "width": 512,
-    "tabOrder": 50000
+    "y": 80.000000000000014,
+    "z": 1000,
+    "height": 112.00000000000003,
+    "width": 528,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -101,6 +101,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                  }
+                },
+                "Property": "Dealer Count"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {
@@ -125,6 +142,43 @@
               "expr": {
                 "Literal": {
                   "Value": "'Units Comparison - Year'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0C4CA3'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

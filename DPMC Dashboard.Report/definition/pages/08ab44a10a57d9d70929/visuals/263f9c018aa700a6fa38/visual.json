@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "263f9c018aa700a6fa38",
   "position": {
-    "x": 304,
+    "x": 313.5,
     "y": 0,
-    "z": 55000,
-    "height": 48,
-    "width": 112,
-    "tabOrder": 54000
+    "z": 2000,
+    "height": 48.000000000000014,
+    "width": 115.5,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "actionButton",
@@ -46,6 +46,61 @@
               "expr": {
                 "Literal": {
                   "Value": "'Year'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "shape": [
+        {
+          "properties": {
+            "roundEdge": {
+              "expr": {
+                "Literal": {
+                  "Value": "12L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }

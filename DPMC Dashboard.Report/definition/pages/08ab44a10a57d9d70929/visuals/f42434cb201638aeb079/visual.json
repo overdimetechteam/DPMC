@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "f42434cb201638aeb079",
   "position": {
-    "x": 0,
-    "y": 176,
-    "z": 38000,
-    "height": 80,
-    "width": 208
+    "x": 400.00000000000023,
+    "y": 0,
+    "z": 2000,
+    "height": 95.999999999999986,
+    "width": 191.99999999999997,
+    "tabOrder": 35000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -74,6 +75,13 @@
               "expr": {
                 "Literal": {
                   "Value": "8L"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'middle'"
                 }
               }
             }
@@ -256,6 +264,56 @@
             "metadata": "VehicleTypeSelector.Sales Value (LKR M)"
           }
         }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -265,7 +323,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -273,6 +331,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Remaining Working Days'"
                 }
               }
             }
@@ -377,5 +442,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "857812a7521f949c503a"
+  "parentGroupName": "4a45ea6ebb860d8faa7a"
 }
