@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d649385e21cd476f650a",
   "position": {
-    "x": 29.282254431153206,
-    "y": 579.20606036135359,
+    "x": 1595.6521739130435,
+    "y": 789.85507246376812,
     "z": 0,
-    "height": 296.49332184519608,
-    "width": 552,
+    "height": 295.6521739130435,
+    "width": 552.17391304347825,
     "tabOrder": 2000
   },
   "visual": {
@@ -264,37 +264,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "73ccfe817ebc5ae8cb1e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Stage"
-              }
-            },
-            "Property": "StageName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "53a3b6587aadcea15d4b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Measures_Table"
-              }
-            },
-            "Property": "Funnel Value"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
