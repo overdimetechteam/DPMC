@@ -307,6 +307,74 @@ table Measures_Table
 		formatString: General Date
 		lineageTag: 61a77099-0e03-4ce2-a63b-7f11d69d274e
 
+	measure 'Working Day Number' =
+			
+			VAR CurrentDate =
+			    CALCULATE(MAX(gold_dpmc_vs_2w3w4w_factsales[InvoiceDate]), ALLSELECTED(gold_dpmc_vs_2w3w4w_factsales))
+			VAR MonthStart = DATE(YEAR(CurrentDate), MONTH(CurrentDate), 1)
+			RETURN
+			CALCULATE(
+			    COUNTROWS(gold_dpmc_dimdate),
+			    FILTER(
+			        ALL(gold_dpmc_dimdate),
+			        gold_dpmc_dimdate[TheDate] >= MonthStart &&
+			        gold_dpmc_dimdate[TheDate] <= CurrentDate &&
+			        WEEKDAY(gold_dpmc_dimdate[TheDate], 2) <= 6
+			    )
+			)
+		formatString: 0
+		lineageTag: 7b446831-f5ad-4df6-a297-1b706d6398b0
+
+	measure 'Working Days Title Text' =
+			
+			"Units Comparison - Working Day " & [Working Day Number]
+		lineageTag: 55c93bd2-8c48-431b-bf3c-b961c6924c18
+
+	measure 'Total Units Trend' =
+			
+			VAR CurrentDayNum =
+			    CALCULATE(MIN(gold_dpmc_dimdate[TheDayOfWeek]), ALLEXCEPT(gold_dpmc_dimdate, gold_dpmc_dimdate[TheDayName]))
+			VAR CurrentTotal = [Total Units Sold]
+			VAR PrevTotal =
+			    CALCULATE(
+			        [Total Units Sold],
+			        REMOVEFILTERS(gold_dpmc_dimdate[TheDayName]),
+			        gold_dpmc_dimdate[TheDayOfWeek] = CurrentDayNum - 1
+			    )
+			VAR Diff = CurrentTotal - PrevTotal
+			RETURN
+			IF(ISBLANK(PrevTotal) || Diff = 0, BLANK(), SIGN(Diff))
+		formatString: 0
+		lineageTag: 937b244f-a3c9-4fd0-82ad-abd4968715e0
+
+	measure 'Test CurrentDayNum' =
+			
+			CALCULATE(MIN(gold_dpmc_dimdate[TheDayOfWeek]), ALLEXCEPT(gold_dpmc_dimdate, gold_dpmc_dimdate[TheDayName]))
+		formatString: 0
+		lineageTag: caf65101-286b-4414-a04b-ea9cab51e0a4
+
+	measure 'Month Units Trend' =
+			
+			VAR CurrentMonthNum =
+			    CALCULATE(
+			        MIN(YEAR(gold_dpmc_dimdate[TheDate]) * 12 + MONTH(gold_dpmc_dimdate[TheDate])),
+			        ALLEXCEPT(gold_dpmc_dimdate, gold_dpmc_dimdate[TheMonthName])
+			    )
+			VAR CurrentTotal = [Total Units Sold]
+			VAR PrevTotal =
+			    CALCULATE(
+			        [Total Units Sold],
+			        REMOVEFILTERS(gold_dpmc_dimdate[TheMonthName]),
+			        FILTER(
+			            ALL(gold_dpmc_dimdate),
+			            YEAR(gold_dpmc_dimdate[TheDate]) * 12 + MONTH(gold_dpmc_dimdate[TheDate]) = CurrentMonthNum - 1
+			        )
+			    )
+			VAR Diff = CurrentTotal - PrevTotal
+			RETURN
+			IF(ISBLANK(PrevTotal) || Diff = 0, BLANK(), SIGN(Diff))
+		lineageTag: 810d3f1c-990b-414b-a46c-d37d6749a004
+
 	column Column
 		formatString: 0
 		lineageTag: 194b6994-0780-4091-9b5f-56fdb64ff5df
