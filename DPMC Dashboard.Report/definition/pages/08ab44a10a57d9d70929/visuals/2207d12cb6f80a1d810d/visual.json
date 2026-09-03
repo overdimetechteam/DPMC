@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "2207d12cb6f80a1d810d",
   "position": {
-    "x": 605.28225443115207,
-    "y": 131.69938220654913,
+    "x": 575.99999999999886,
+    "y": 76.000000000000284,
     "z": 7000,
     "height": 320,
     "width": 560,
@@ -42,11 +42,11 @@
                       "Entity": "Measures_Table"
                     }
                   },
-                  "Property": "Allocated Bookings"
+                  "Property": "Allocation Count"
                 }
               },
-              "queryRef": "Measures_Table.Allocated Bookings",
-              "nativeQueryRef": "Allocated Bookings"
+              "queryRef": "Measures_Table.Allocation Count",
+              "nativeQueryRef": "Allocation Count"
             },
             {
               "field": {
@@ -56,16 +56,31 @@
                       "Entity": "Measures_Table"
                     }
                   },
-                  "Property": "Non-allocated Bookings"
+                  "Property": "Inquiry And Confirm Count"
                 }
               },
-              "queryRef": "Measures_Table.Non-allocated Bookings",
-              "nativeQueryRef": "Non-allocated Bookings"
+              "queryRef": "Measures_Table.Inquiry And Confirm Count",
+              "nativeQueryRef": "Inquiry And Confirm Count"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measures_Table"
+                  }
+                },
+                "Property": "Allocation Count"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
