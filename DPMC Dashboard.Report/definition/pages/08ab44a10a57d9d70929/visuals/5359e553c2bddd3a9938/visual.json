@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "5359e553c2bddd3a9938",
   "position": {
-    "x": 2190.0000406901031,
-    "y": 1685.6666158040364,
+    "x": 2168.3333333333335,
+    "y": 1251.6666666666667,
     "z": 34000,
-    "height": 339,
-    "width": 518,
+    "height": 340,
+    "width": 518.33333333333337,
     "tabOrder": 33000
   },
   "visual": {
@@ -259,7 +259,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Location Wise - Delivery Notes'"
+                  "Value": "'Location Wise - GRNs'"
                 }
               }
             }

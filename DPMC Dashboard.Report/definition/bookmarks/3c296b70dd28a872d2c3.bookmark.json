@@ -2652,56 +2652,6 @@
               }
             }
           },
-          "e2e15b618a4520255221": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "7934b20f9292fe97097c",
-                  "type": "Advanced",
-                  "expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
-                            }
-                          },
-                          "Property": "ChassisNo"
-                        }
-                      },
-                      "Function": 2
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Aggregation": {
-                      "Expression": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
-                            }
-                          },
-                          "Property": "ChassisNo"
-                        }
-                      },
-                      "Function": 2
-                    }
-                  }
-                }
-              ]
-            }
-          },
           "f42434cb201638aeb079": {
             "filters": {
               "byExpr": [
