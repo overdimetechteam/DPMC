@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "d649385e21cd476f650a",
   "position": {
     "x": 29.282254431153206,
@@ -265,5 +265,36 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "f34b12d1052bdd6807a0"
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "73ccfe817ebc5ae8cb1e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stage"
+              }
+            },
+            "Property": "StageName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "53a3b6587aadcea15d4b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures_Table"
+              }
+            },
+            "Property": "Funnel Value"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
