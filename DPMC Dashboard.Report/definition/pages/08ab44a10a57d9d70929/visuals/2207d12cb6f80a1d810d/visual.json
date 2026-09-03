@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "2207d12cb6f80a1d810d",
   "position": {
-    "x": 2150.5000305175781,
-    "y": 527.5,
-    "z": 40000,
-    "height": 265,
-    "width": 512.5,
-    "tabOrder": 40000
+    "x": 605.28225443115207,
+    "y": 131.69938220654913,
+    "z": 7000,
+    "height": 320,
+    "width": 560,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -107,11 +107,77 @@
                   "Value": "'Allocated/ Non-allocated Bookings – Location wise'"
                 }
               }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0C4CA3'"
+                    }
+                  }
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
             }
           }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "f34b12d1052bdd6807a0"
 }

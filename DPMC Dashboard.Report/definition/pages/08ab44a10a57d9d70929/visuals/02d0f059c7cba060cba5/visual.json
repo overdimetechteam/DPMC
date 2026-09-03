@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "02d0f059c7cba060cba5",
   "position": {
-    "x": 938,
-    "y": 558,
-    "z": 52000,
-    "height": 212,
-    "width": 570,
-    "tabOrder": 50000
+    "x": 0,
+    "y": 80.000000000000014,
+    "z": 1000,
+    "height": 112.00000000000003,
+    "width": 528,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -101,6 +101,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                  }
+                },
+                "Property": "Dealer Count"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {
@@ -130,10 +147,48 @@
             }
           }
         }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0C4CA3'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "fa618d2b641f91500c0a",
   "filterConfig": {
     "filters": [
       {

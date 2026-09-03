@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d40fb5e5b7f28ab78785",
   "position": {
-    "x": 445.33337656656903,
-    "y": 911.33333841959711,
-    "z": 22000,
-    "height": 288,
-    "width": 432,
-    "tabOrder": 22000
+    "x": 470.99993896484375,
+    "y": 358.00012207031239,
+    "z": 4000,
+    "height": 384.00000000000006,
+    "width": 984,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -212,6 +212,13 @@
                   }
                 }
               }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
             }
           }
         }
@@ -238,5 +245,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "a93f44a849dff002dc7b"
 }

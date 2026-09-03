@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "abb88822b53e8045df9b",
   "position": {
-    "x": 601,
-    "y": 76,
-    "z": 25000,
-    "height": 86,
-    "width": 141,
-    "tabOrder": 24000
+    "x": 173.04201680672267,
+    "y": 0,
+    "z": 1000,
+    "height": 72,
+    "width": 125.84873949579831,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -257,6 +257,22 @@
             "metadata": "VehicleTypeSelector.Sales Value (LKR M)"
           }
         }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -308,6 +324,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Total Bookings'"
                 }
               }
             }
@@ -377,5 +400,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "5eb808a9387c584c65e5"
 }

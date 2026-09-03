@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "868de5e0773a5a20a5ea",
   "position": {
-    "x": 748,
-    "y": 76,
-    "z": 26000,
-    "height": 86,
-    "width": 132,
-    "tabOrder": 25000
+    "x": 314.62184873949576,
+    "y": 0,
+    "z": 2000,
+    "height": 72,
+    "width": 133.71428571428569,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -257,6 +257,22 @@
             "metadata": "VehicleTypeSelector.Sales Value (LKR M)"
           }
         }
+      ],
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -308,6 +324,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'GRNs'"
                 }
               }
             }
@@ -377,5 +400,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "5eb808a9387c584c65e5"
 }
