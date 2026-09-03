@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "46b68834b3a980140635",
   "position": {
-    "x": 1882,
-    "y": 72,
+    "x": 489.49011446409986,
+    "y": 0.98765432098765438,
     "z": 4000,
-    "height": 80,
-    "width": 128,
-    "tabOrder": 4000
+    "height": 79.012345679012327,
+    "width": 139.85431841831425
   },
   "visual": {
     "visualType": "slicer",
@@ -42,13 +41,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
-                }
-              }
-            },
-            "isInvertedSelectionMode": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
                 }
               }
             }
@@ -299,6 +291,7 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "5aefff3b89f06c431bf2",
   "filterConfig": {
     "filters": [
       {

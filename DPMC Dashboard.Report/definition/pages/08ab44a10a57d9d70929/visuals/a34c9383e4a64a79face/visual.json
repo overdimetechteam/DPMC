@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "a34c9383e4a64a79face",
   "position": {
-    "x": 886,
-    "y": 76,
+    "x": 470,
+    "y": 0,
     "z": 27000,
-    "height": 86,
+    "height": 80,
     "width": 134,
     "tabOrder": 26000
   },
@@ -377,5 +377,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "669227802c320368ec5f"
 }

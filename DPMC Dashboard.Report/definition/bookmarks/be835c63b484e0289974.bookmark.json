@@ -1239,31 +1239,6 @@
               }
             }
           },
-          "7123f742412b4eb9116b": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "63165f88ba50b3754a62",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "VehicleTypeSelector"
-                        }
-                      },
-                      "Property": "Gauge HTML"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
-              "objects": {}
-            }
-          },
           "7766a3587158d39be2cf": {
             "filters": {
               "byExpr": [
