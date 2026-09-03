@@ -170,3 +170,7 @@ relationship 56f3b6a2-4d84-9613-74c3-066a11a15896
 	fromColumn: FactGRNDetails_Dedup.FromPremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
 
+relationship 588c3521-7135-914d-5198-89aa972ec399
+	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.AttachedPremiseSK
+	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+

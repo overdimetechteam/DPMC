@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "d99dcf60f6c58195744a",
   "position": {
     "x": 16,
@@ -81,7 +81,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'3W'"
+                                "Value": "'2W'"
                               }
                             }
                           ]
@@ -225,23 +225,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "selectionIcon": [
-        {
-          "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#000000'"
-                    }
-                  }
                 }
               }
             }

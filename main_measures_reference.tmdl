@@ -110,8 +110,7 @@ table Measures_Table
 			    DISTINCTCOUNTNOBLANK(
 			        gold_dpmc_vs_2w3w4w_factstock[ChassisNo]
 			    ),
-			    gold_dpmc_vs_2w3w4w_factstock[CurrentStock] = 1,
-			    gold_dpmc_vs_2w3w4w_factstock[Status] <> "INVOICE"
+			    gold_dpmc_vs_2w3w4w_factstock[CurrentStock] = 1
 			)
 		formatString: 0
 		lineageTag: 73e9ea71-de2f-4531-98e1-e4b6788e32f6
@@ -130,7 +129,6 @@ table Measures_Table
 			    FILTER(
 			        gold_dpmc_vs_2w3w4w_factstock,
 			        gold_dpmc_vs_2w3w4w_factstock[CurrentStock] IN { 0, 1 }
-			            && gold_dpmc_vs_2w3w4w_factstock[Status] <> "INVOICE"
 			            && gold_dpmc_vs_2w3w4w_factstock[GRNDate] <= SelectedDate
 			            &&
 			            (
@@ -199,25 +197,25 @@ table Measures_Table
 		formatString: 0
 		lineageTag: a1bcd704-770b-409f-848c-07e65b024133
 
-	measure 'Funnel Allocation' = 
+	measure 'Funnel Allocation' = ```
 			
 			CALCULATE(
 			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
 			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
 			   
 			)
-			
+			```
 		formatString: 0
 		lineageTag: b1cbd04a-1d41-4bb3-9657-f887a5134ced
 
-	measure 'Funnel Invoice' = 
+	measure 'Funnel Invoice' = ```
 			
 			CALCULATE(
 			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
 			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INVOICE"
 			  
 			)
-			
+			```
 		formatString: 0
 		lineageTag: eb0f635e-5451-4b16-842d-19916d87f9e5
 
@@ -309,7 +307,6 @@ table Measures_Table
 		formatString: General Date
 		lineageTag: 61a77099-0e03-4ce2-a63b-7f11d69d274e
 
-
 	measure 'Working Day Number' =
 			
 			VAR CurrentDate =
@@ -377,24 +374,6 @@ table Measures_Table
 			RETURN
 			IF(ISBLANK(PrevTotal) || Diff = 0, BLANK(), SIGN(Diff))
 		lineageTag: 810d3f1c-990b-414b-a46c-d37d6749a004
-
-	measure 'Allocation Count' =
-			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
-			)
-		formatString: 0
-		lineageTag: 5776a924-97cf-4aaf-b25a-c1454744274a
-
-	measure 'Inquiry And Confirm Count' =
-			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] IN { "INQ", "CONFIRM" }
-			)
-		formatString: 0
-		lineageTag: d4fff464-431f-4741-befa-0b8458da2e89
 
 	column Column
 		formatString: 0
