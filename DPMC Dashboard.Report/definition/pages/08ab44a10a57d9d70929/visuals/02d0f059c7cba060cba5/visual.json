@@ -3,10 +3,10 @@
   "name": "02d0f059c7cba060cba5",
   "position": {
     "x": 0,
-    "y": 80.000000000000014,
+    "y": 94.811320754716988,
     "z": 1000,
-    "height": 112.00000000000003,
-    "width": 528,
+    "height": 132.7358490566038,
+    "width": 528.47826086956536,
     "tabOrder": 0
   },
   "visual": {
@@ -101,23 +101,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-                  }
-                },
-                "Property": "Dealer Count"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {
@@ -207,5 +190,6 @@
         "howCreated": "User"
       }
     ]
-  }
+  },
+  "isHidden": true
 }
