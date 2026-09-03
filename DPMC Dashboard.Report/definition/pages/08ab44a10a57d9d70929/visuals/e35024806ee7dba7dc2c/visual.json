@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "e2e15b618a4520255221",
+  "name": "e35024806ee7dba7dc2c",
   "position": {
-    "x": 1808,
-    "y": 192,
-    "z": 46000,
+    "x": 1821.6666666666667,
+    "y": 193.33333333333334,
+    "z": 28000,
     "height": 80,
-    "width": 176,
-    "tabOrder": 38000
+    "width": 150,
+    "tabOrder": 54001
   },
   "visual": {
     "visualType": "cardVisual",
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
-                        }
-                      },
-                      "Property": "ChassisNo"
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Function": 2
+                  "Property": "No of Inquiries"
                 }
               },
-              "queryRef": "Min(gold_dpmc_vs_2w3w4w_factgrndetails.ChassisNo)",
-              "nativeQueryRef": "Count of ChassisNo"
+              "queryRef": "VehicleTypeSelector.No of Inquiries",
+              "nativeQueryRef": "No of Inquiries"
             }
           ]
         }
@@ -41,18 +36,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "gold_dpmc_vs_2w3w4w_factgrndetails"
-                      }
-                    },
-                    "Property": "ChassisNo"
+                  "SourceRef": {
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Function": 2
+                "Property": "No of Inquiries"
               }
             },
             "direction": "Descending"
@@ -62,22 +52,6 @@
       }
     },
     "objects": {
-      "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
       "layout": [
         {
           "properties": {
@@ -131,6 +105,42 @@
           }
         }
       ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "overFlow": [
+        {
+          "properties": {
+            "overFlowStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "overFlowDirection": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
       "outline": [
         {
           "properties": {
@@ -162,26 +172,6 @@
           },
           "selector": {
             "metadata": "VehicleTypeSelector.Sales Value (LKR M)"
-          }
-        }
-      ],
-      "overFlow": [
-        {
-          "properties": {
-            "overFlowStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            },
-            "overFlowDirection": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
           }
         }
       ],
@@ -270,13 +260,34 @@
       ]
     },
     "visualContainerObjects": {
-      "border": [
+      "padding": [
         {
           "properties": {
-            "width": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -351,34 +362,13 @@
           }
         }
       ],
-      "padding": [
+      "border": [
         {
           "properties": {
-            "top": {
+            "width": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "1D"
                 }
               }
             }
