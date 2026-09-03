@@ -3,111 +3,74 @@ table Measures_Table
 
 	measure 'Inquiry Count' =
 			
-			DISTINCTCOUNTNOBLANK(
-			    gold_dpmc_vs_2w3w4w_factsales[InquiryNo]
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INQ"
 			)
 		formatString: 0
 		lineageTag: 750946c3-ee08-4210-8500-87e0192b053a
 
 	measure 'Booking Count' =
 			
-			DISTINCTCOUNTNOBLANK(
-			    gold_dpmc_vs_2w3w4w_factsales[BookingNo]
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "CONFIRM"
 			)
 		formatString: 0
 		lineageTag: 05df34e6-1886-4dfa-801e-2eefae801edc
 
 	measure 'Current Month Inquiry' =
 			
-			VAR AnchorDate =
-			    [Selected Date]
-			VAR StartCurrentMonth =
-			    DATE(
-			        YEAR(AnchorDate),
-			        MONTH(AnchorDate),
-			        1
-			    )
-			VAR StartNextMonth =
-			    EDATE(
-			        StartCurrentMonth,
-			        1
-			    )
+			VAR AnchorDate = [Selected Date Field]
+			VAR StartCurrentMonth = DATE(YEAR(AnchorDate), MONTH(AnchorDate), 1)
+			VAR StartNextMonth = EDATE(StartCurrentMonth, 1)
 			RETURN
 			    CALCULATE(
 			        [Inquiry Count],
-			        gold_dpmc_vs_2w3w4w_factsales[InquiryDate] >= StartCurrentMonth,
-			        gold_dpmc_vs_2w3w4w_factsales[InquiryDate] < StartNextMonth
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartCurrentMonth,
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] < StartNextMonth
 			    )
 		formatString: 0
 		lineageTag: 25341901-1c9c-4177-993a-5991999c9b84
 
 	measure 'Previous Month Inquiry' =
 			
-			VAR AnchorDate =
-			    [Selected Date]
-			VAR StartCurrentMonth =
-			    DATE(
-			        YEAR(AnchorDate),
-			        MONTH(AnchorDate),
-			        1
-			    )
-			VAR StartPreviousMonth =
-			    EDATE(
-			        StartCurrentMonth,
-			        -1
-			    )
+			VAR AnchorDate = [Selected Date Field]
+			VAR StartCurrentMonth = DATE(YEAR(AnchorDate), MONTH(AnchorDate), 1)
+			VAR StartPreviousMonth = EDATE(StartCurrentMonth, -1)
 			RETURN
 			    CALCULATE(
 			        [Inquiry Count],
-			        gold_dpmc_vs_2w3w4w_factsales[InquiryDate] >= StartPreviousMonth,
-			        gold_dpmc_vs_2w3w4w_factsales[InquiryDate] < StartCurrentMonth
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartPreviousMonth,
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] < StartCurrentMonth
 			    )
 		formatString: 0
 		lineageTag: 06b664fe-d1a9-4525-ab4b-fa2b8d3b8dee
 
 	measure 'Current Month Booking' =
 			
-			VAR AnchorDate =
-			    [Selected Date]
-			VAR StartCurrentMonth =
-			    DATE(
-			        YEAR(AnchorDate),
-			        MONTH(AnchorDate),
-			        1
-			    )
-			VAR StartNextMonth =
-			    EDATE(
-			        StartCurrentMonth,
-			        1
-			    )
+			VAR AnchorDate = [Selected Date Field]
+			VAR StartCurrentMonth = DATE(YEAR(AnchorDate), MONTH(AnchorDate), 1)
+			VAR StartNextMonth = EDATE(StartCurrentMonth, 1)
 			RETURN
 			    CALCULATE(
 			        [Booking Count],
-			        gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] >= StartCurrentMonth,
-			        gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] < StartNextMonth
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartCurrentMonth,
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] < StartNextMonth
 			    )
+		formatString: 0
 		lineageTag: 917bd643-dd9b-4a4a-886f-59c820dd171c
 
 	measure 'Previous Month Booking' =
 			
-			VAR AnchorDate =
-			    [Selected Date]
-			VAR StartCurrentMonth =
-			    DATE(
-			        YEAR(AnchorDate),
-			        MONTH(AnchorDate),
-			        1
-			    )
-			VAR StartPreviousMonth =
-			    EDATE(
-			        StartCurrentMonth,
-			        -1
-			    )
+			VAR AnchorDate = [Selected Date Field]
+			VAR StartCurrentMonth = DATE(YEAR(AnchorDate), MONTH(AnchorDate), 1)
+			VAR StartPreviousMonth = EDATE(StartCurrentMonth, -1)
 			RETURN
 			    CALCULATE(
 			        [Booking Count],
-			        gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] >= StartPreviousMonth,
-			        gold_dpmc_vs_2w3w4w_factsales[ConfirmDate] < StartCurrentMonth
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartPreviousMonth,
+			        gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] < StartCurrentMonth
 			    )
 		formatString: 0
 		lineageTag: cadca2c2-d4aa-41cd-98ea-53e6d47ba1f6
@@ -122,7 +85,7 @@ table Measures_Table
 			    SWITCH(
 			        CurrentStage,
 			        "Inquiry",    [Funnel Inquiry],
-			        "Booking",    [Funnel Booking],
+			        "Confirmed Booking",    [Funnel Booking],
 			        "Allocation", [Funnel Allocation],
 			        "Invoice",    [Funnel Invoice],
 			        BLANK()
@@ -218,38 +181,41 @@ table Measures_Table
 
 	measure 'Funnel Inquiry' =
 			
-			DISTINCTCOUNTNOBLANK(
-			    gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INQ"
 			)
 		formatString: 0
 		lineageTag: dd8bafa2-0d72-4bca-9d45-f3daa89ca0d7
 
 	measure 'Funnel Booking' =
 			
-			DISTINCTCOUNTNOBLANK(
-			    gold_dpmc_vs_2w3w4w_factstock[BookingNo]
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "CONFIRM"
 			)
 		formatString: 0
 		lineageTag: a1bcd704-770b-409f-848c-07e65b024133
 
-	measure 'Funnel Allocation' =
+	measure 'Funnel Allocation' = ```
 			
 			CALCULATE(
-			    DISTINCTCOUNTNOBLANK(
-			        gold_dpmc_vs_2w3w4w_factstock[BookingNo]
-			    ),
-			    NOT ISBLANK(
-			        gold_dpmc_vs_2w3w4w_factstock[AllocatedDate]
-			    )
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
+			   
 			)
+			```
 		formatString: 0
 		lineageTag: b1cbd04a-1d41-4bb3-9657-f887a5134ced
 
-	measure 'Funnel Invoice' =
+	measure 'Funnel Invoice' = ```
 			
-			DISTINCTCOUNTNOBLANK(
-			    gold_dpmc_vs_2w3w4w_factsales[InvoiceNo]
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INVOICE"
+			  
 			)
+			```
 		formatString: 0
 		lineageTag: eb0f635e-5451-4b16-842d-19916d87f9e5
 
@@ -331,6 +297,15 @@ table Measures_Table
 			)
 		formatString: 0
 		lineageTag: 06dc55b1-960d-46d4-b187-9a19780092a8
+
+	measure 'Selected Date Field' =
+			
+			COALESCE(
+			    SELECTEDVALUE(gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate]),
+			    TODAY() - 1
+			)
+		formatString: General Date
+		lineageTag: 61a77099-0e03-4ce2-a63b-7f11d69d274e
 
 	column Column
 		formatString: 0
