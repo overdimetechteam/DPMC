@@ -158,6 +158,28 @@ table gold_dpmc_dimdate
 
 		annotation SummarizationSetBy = Automatic
 
+	column MonthYearShort =
+			
+			SWITCH(
+			    gold_dpmc_dimdate[TheMonth],
+			    1, "Jan-", 2, "Feb-", 3, "Mar-", 4, "Apr-",
+			    5, "May-", 6, "Jun-", 7, "Jul-", 8, "Aug-",
+			    9, "Sep-", 10, "Oct-", 11, "Nov-", 12, "Dec-"
+			) & RIGHT ( gold_dpmc_dimdate[TheYear], 2 )
+		lineageTag: 69665a0b-8607-406d-ab65-80bba9746500
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthYearSort =
+			
+			gold_dpmc_dimdate[TheYear] * 100 + gold_dpmc_dimdate[TheMonth]
+		formatString: 0
+		lineageTag: 8006e4c9-c536-4ac7-ba9a-9967d6e4b0fb
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition gold_dpmc_dimdate = m
 		mode: directQuery
 		source =

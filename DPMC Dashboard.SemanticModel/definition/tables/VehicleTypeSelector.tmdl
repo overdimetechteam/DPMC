@@ -47,7 +47,7 @@ table VehicleTypeSelector
 		formatString: 0
 		lineageTag: 1ac71b14-2082-4497-884f-12f30f2705ec
 
-	measure 'Target (Selected)' = VAR VT = [Selected Vehicle Type] RETURN SWITCH(VT, "2W", SUM(BranchMonthTarget[Target2W]), "3W", SUM(BranchMonthTarget[Target3W]), BLANK())
+	measure 'Target (Selected)' = VAR VT = [Selected Vehicle Type] RETURN CALCULATE( SWITCH( VT, "2W", SUM ( BranchMonthTarget[Target2W] ), "3W", SUM ( BranchMonthTarget[Target3W] ), BLANK () ), USERELATIONSHIP ( BranchMonthTarget[DATE], gold_dpmc_dimdate[TheDate] ) )
 		formatString: 0
 		lineageTag: 7d0d0746-93fe-461f-a6cf-9578a3931464
 
@@ -394,6 +394,56 @@ table VehicleTypeSelector
 			    DIVIDE ( ModelActual, TotalActualInContext ) * TotalTarget
 		formatString: 0
 		lineageTag: 20c7aaa8-85ef-4854-b7bd-4bb3969854a7
+
+	measure 'Total WD (Month)' =
+			
+			SUMX(
+			    VALUES ( Vw_dpmc_vs_DimDate[TheFirstOfMonth] ),
+			    VAR MonthEnd = CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[TheDate] ) )
+			    RETURN CALCULATE ( MAX ( Vw_dpmc_vs_DimDate[WorkingDay] ), Vw_dpmc_vs_DimDate[TheDate] = MonthEnd )
+			)
+		formatString: 0
+		lineageTag: cf955039-1639-4106-bc40-525e46f3ee80
+
+	measure 'Target MoM % Change' =
+			
+			VAR CurrentTarget = [Target (Selected)]
+			VAR PreviousTarget = CALCULATE ( [Target (Selected)], DATEADD ( gold_dpmc_dimdate[TheDate], -1, MONTH ) )
+			RETURN DIVIDE ( CurrentTarget - PreviousTarget, PreviousTarget )
+		lineageTag: 0e63dd7d-fea8-44ac-b688-d569e2797f5c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual MoM % Change' = ```
+			
+			VAR CurrentActual = [Actual Units]
+			VAR PreviousActual = 
+			    CALCULATE(
+			        [Actual Units],
+			        DATEADD ( gold_dpmc_dimdate[TheDate], -1, MONTH )
+			    )
+			RETURN
+			    DIVIDE ( CurrentActual - PreviousActual, PreviousActual )
+			```
+		lineageTag: 7e4274b2-5402-4df5-898e-271c23ff7254
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Show In Last3Months' =
+			
+			VAR ThisMonth = SELECTEDVALUE ( gold_dpmc_dimdate[TheFirstOfMonth] )
+			VAR HasTarget = NOT ISBLANK ( [Target (Selected)] )
+			VAR RankPosition =
+			    COUNTROWS (
+			        FILTER (
+			            MonthsWithTargetTable,
+			            MonthsWithTargetTable[TheFirstOfMonth] >= ThisMonth
+			        )
+			    )
+			RETURN
+			    IF ( HasTarget && RankPosition <= 3, 1, 0 )
+		formatString: 0
+		lineageTag: a9a14a19-6682-4257-85cb-118752b65752
 
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd

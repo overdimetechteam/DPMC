@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cf19ded35faaecf3153f",
   "position": {
     "x": 49.048913043478258,
@@ -75,7 +75,7 @@
                     "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Target (Selected)"
+                "Property": "Actual Units"
               }
             },
             "direction": "Descending"
@@ -543,5 +543,51 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "a93f44a849dff002dc7b"
+  "parentGroupName": "a93f44a849dff002dc7b",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a933857e5a46db2ca5a3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+              }
+            },
+            "Property": "STR_MODEL_DESC"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f084b6706b4e92101810",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Actual Units"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1ff856ffa5dedfa71894",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Model Wise Target (Proportional)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

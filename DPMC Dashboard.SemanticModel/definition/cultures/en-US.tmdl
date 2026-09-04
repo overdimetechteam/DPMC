@@ -2,22 +2,68 @@ cultureInfo en-US
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
+			  "Version": "2.0.0",
 			  "Language": "en-US",
 			  "Entities": {
 			    "gold_dpmc_vs_2w3w4w_dimpremises.premisesdesc": {
-			      "Binding": {
-			        "ConceptualEntity": "gold_dpmc_vs_2w3w4w_dimpremises",
-			        "ConceptualProperty": "PremisesDesc"
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dpmc_vs_2w3w4w_dimpremises",
+			          "ConceptualProperty": "PremisesDesc"
+			        }
 			      },
 			      "State": "Generated"
 			    },
 			    "gold_dpmc_vs_2w3w4w_factgrndetails.gatepassapproveddate": {
-			      "Binding": {
-			        "ConceptualEntity": "gold_dpmc_vs_2w3w4w_factgrndetails",
-			        "ConceptualProperty": "GatePassApprovedDate"
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dpmc_vs_2w3w4w_factgrndetails",
+			          "ConceptualProperty": "GatePassApprovedDate"
+			        }
 			      },
 			      "State": "Generated"
+			    },
+			    "gold_dpmc_dimdate.monthyearshort": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dpmc_dimdate",
+			          "ConceptualProperty": "MonthYearShort"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MonthYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "vehicletypeselector.target_selected": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Target (Selected)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

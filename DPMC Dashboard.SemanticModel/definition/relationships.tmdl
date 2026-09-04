@@ -87,11 +87,6 @@ relationship 4b5103f5-10b0-8170-4f3f-7cc32c148daf
 	fromColumn: gold_dpmc_vs_2w3w4w_factsales.PremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
 
-relationship 0520a3a3-3502-4d46-ab4b-797330190936
-	joinOnDateBehavior: datePartOnly
-	fromColumn: BranchMonthTarget.DATE
-	toColumn: LocalDateTable_2645f927-954a-4661-97d2-d4f413ce20bf.Date
-
 relationship 11b3758b-5df9-66be-7cff-b3762dd8f3e1
 	fromColumn: gold_dpmc_vs_2w3w4w_factsales.BranchMonthKey
 	toColumn: BranchMonthTarget.BranchMonthKey
@@ -173,4 +168,14 @@ relationship 56f3b6a2-4d84-9613-74c3-066a11a15896
 relationship 588c3521-7135-914d-5198-89aa972ec399
 	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.AttachedPremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
+
+relationship ecc4bcf9-c01a-3bca-490d-c8ae6b3f0b2e
+	isActive: false
+	fromColumn: BranchMonthTarget.DATE
+	toColumn: gold_dpmc_dimdate.TheDate
+
+relationship ab186ad4-6fd3-49fb-b484-97c4dcb7ab9b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: MonthsWithTargetTable.TheFirstOfMonth
+	toColumn: LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077.Date
 

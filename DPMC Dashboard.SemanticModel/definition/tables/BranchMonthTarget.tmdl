@@ -8,11 +8,6 @@ table BranchMonthTarget
 		isNameInferred
 		sourceColumn: gold_dpmc_vs_2w3w_target[DATE]
 
-		variation Variation
-			isDefault
-			relationship: 0520a3a3-3502-4d46-ab4b-797330190936
-			defaultHierarchy: LocalDateTable_2645f927-954a-4661-97d2-d4f413ce20bf.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 	column STR_BRANCH
@@ -26,7 +21,7 @@ table BranchMonthTarget
 	column Target2W
 		formatString: 0
 		lineageTag: ed63d1a5-3780-4769-b0e9-22eeac49a350
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Target2W]
 
@@ -35,7 +30,7 @@ table BranchMonthTarget
 	column Target3W
 		formatString: 0
 		lineageTag: 6fb34b0b-74fb-4315-a122-79a7f7542449
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Target3W]
 

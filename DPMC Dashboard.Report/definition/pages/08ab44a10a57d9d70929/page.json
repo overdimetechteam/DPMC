@@ -66,6 +66,21 @@
         },
         "type": "Categorical",
         "howCreated": "Drillthrough"
+      },
+      {
+        "name": "b22d4029a955c3c30180",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Target (Selected)"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
       }
     ]
   },
@@ -98,6 +113,22 @@
               }
             },
             "Property": "GatePassApprovedDate"
+          }
+        }
+      },
+      {
+        "name": "0e2604b6eadfbb9be99e",
+        "boundFilter": "b22d4029a955c3c30180",
+        "asAggregation": false,
+        "qnaSingleSelectRequired": false,
+        "fieldExpr": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Target (Selected)"
           }
         }
       }
