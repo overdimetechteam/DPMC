@@ -1,0 +1,237 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a1cf6cde92a2c5164f8e",
+  "position": {
+    "x": 1059,
+    "y": 2371,
+    "z": 55003,
+    "height": 162,
+    "width": 357,
+    "tabOrder": 35003
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_dpmc_dimdate"
+                    }
+                  },
+                  "Property": "MonthYearShort"
+                }
+              },
+              "queryRef": "gold_dpmc_dimdate.MonthYearShort",
+              "nativeQueryRef": "MonthYear",
+              "displayName": "MonthYear"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Total WD (Month)"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Total WD (Month)",
+              "nativeQueryRef": "Total WD (Month)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Target (Selected)"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Target (Selected)",
+              "nativeQueryRef": "Target ",
+              "displayName": "Target "
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VehicleTypeSelector"
+                    }
+                  },
+                  "Property": "Actual Units"
+                }
+              },
+              "queryRef": "VehicleTypeSelector.Actual Units",
+              "nativeQueryRef": "Actual Units"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_dpmc_dimdate"
+                  }
+                },
+                "Property": "MonthYearShort"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Target & Actual MonthEnd'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0e8f0286664b88713345",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_dimdate"
+              }
+            },
+            "Property": "MonthYearShort"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f5199c1e06d92d1623b2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Total WD (Month)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c5b9e687a5f3568630ac",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Actual Units"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "389f2e8aeb70f78e968e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Show In Last3Months"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "v",
+              "Entity": "VehicleTypeSelector",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "v"
+                        }
+                      },
+                      "Property": "Show In Last3Months"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "743c949e375df9fbdb61",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Target (Selected)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

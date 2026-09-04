@@ -35,7 +35,6 @@ ref table DateTableTemplate_55d6ae3a-790e-49ca-a963-e25288afb661
 ref table LocalDateTable_9da29efa-ab57-4315-ab1b-7aa7cd7c5a35
 ref table LocalDateTable_64d6d604-9c9f-4357-8995-1629575fc509
 ref table BranchMonthTarget
-ref table LocalDateTable_2645f927-954a-4661-97d2-d4f413ce20bf
 ref table TopBottomSelector
 ref table LocalDateTable_d894c362-d534-44dc-a835-432c84bfc2a0
 ref table MonthBridge
@@ -49,6 +48,9 @@ ref table FactGRNDetails_Dedup
 ref table LocalDateTable_4c2c0d3c-8f49-47cd-90e5-5fd1dc7715d6
 ref table LocalDateTable_195cf829-2185-4b05-a5b5-371797f09edb
 ref table LocalDateTable_8cb1b4ba-025c-4197-b3a7-88c5c694a686
+ref table AlertThresholds
+ref table MonthsWithTargetTable
+ref table LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077
 
 ref cultureInfo en-US
 
