@@ -307,6 +307,24 @@ table Measures_Table
 		formatString: General Date
 		lineageTag: 61a77099-0e03-4ce2-a63b-7f11d69d274e
 
+	measure 'Allocation Count' =
+			
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
+			)
+		formatString: 0
+		lineageTag: 5776a924-97cf-4aaf-b25a-c1454744274a
+
+	measure 'Inquiry And Confirm Count' =
+			
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] IN { "INQ", "CONFIRM" }
+			)
+		formatString: 0
+		lineageTag: d4fff464-431f-4741-befa-0b8458da2e89
+
 	measure 'Working Day Number' =
 			
 			VAR CurrentDate =
@@ -374,24 +392,6 @@ table Measures_Table
 			RETURN
 			IF(ISBLANK(PrevTotal) || Diff = 0, BLANK(), SIGN(Diff))
 		lineageTag: 810d3f1c-990b-414b-a46c-d37d6749a004
-
-	measure 'Allocation Count' =
-			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
-			)
-		formatString: 0
-		lineageTag: 5776a924-97cf-4aaf-b25a-c1454744274a
-
-	measure 'Inquiry And Confirm Count' =
-			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] IN { "INQ", "CONFIRM" }
-			)
-		formatString: 0
-		lineageTag: d4fff464-431f-4741-befa-0b8458da2e89
 
 	column Column
 		formatString: 0
