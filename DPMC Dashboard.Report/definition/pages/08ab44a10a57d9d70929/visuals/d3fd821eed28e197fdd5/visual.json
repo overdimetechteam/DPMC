@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d3fd821eed28e197fdd5",
   "position": {
     "x": 956.25,
@@ -106,16 +106,16 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    "Entity": "gold_dpmc_dimdate"
                   }
                 },
-                "Property": "Premise Count"
+                "Property": "TheDayName"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -580,5 +580,6 @@
         "howCreated": "User"
       }
     ]
-  }
+  },
+  "isHidden": true
 }
