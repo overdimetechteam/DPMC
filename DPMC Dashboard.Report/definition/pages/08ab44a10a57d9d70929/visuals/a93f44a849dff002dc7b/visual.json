@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "a93f44a849dff002dc7b",
   "position": {
-    "x": 176,
-    "y": 316,
-    "z": 14000,
-    "height": 2011,
-    "width": 1531
+    "x": 16,
+    "y": 304,
+    "z": 12000,
+    "height": 2010.416666666667,
+    "width": 1531.25,
+    "tabOrder": 7000
   },
   "visualGroup": {
     "displayName": "Group 13",

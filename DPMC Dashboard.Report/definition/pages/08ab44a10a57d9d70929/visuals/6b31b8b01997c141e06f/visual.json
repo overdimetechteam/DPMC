@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "621fd2451471a418b73f",
+  "name": "6b31b8b01997c141e06f",
   "position": {
-    "x": 3559,
-    "y": 260,
-    "z": 1000,
-    "height": 1308,
-    "width": 1192,
-    "tabOrder": 14000
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 1320,
+    "width": 1200,
+    "tabOrder": 35003
   },
   "visual": {
     "visualType": "shape",
@@ -83,6 +83,13 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "text": {
               "expr": {
                 "Literal": {
@@ -90,17 +97,36 @@
                 }
               }
             },
-            "titleWrap": {
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
                 }
               }
             },
-            "show": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "22D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -108,44 +134,6 @@
         }
       ],
       "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#2A3F63'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "background": [
         {
           "properties": {
             "show": {
@@ -160,59 +148,16 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0A1220'"
+                      "Value": "'#0C4CA3'"
                     }
                   }
                 }
               }
             },
-            "transparency": {
+            "width": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "visualHeader": [
-        {
-          "properties": {
-            "border": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#333333'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            },
-            "foreground": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.1
-                    }
-                  }
-                }
-              }
-            },
-            "showVisualInformationButton": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "2D"
                 }
               }
             }
@@ -222,5 +167,6 @@
     },
     "drillFilterOtherVisuals": true
   },
+  "parentGroupName": "c5c2ec4e7c2858a876e8",
   "howCreated": "InsertVisualButton"
 }
