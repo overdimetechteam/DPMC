@@ -1,0 +1,97 @@
+table KPI_Measures
+	lineageTag: c6df2a79-aef8-4dfb-8015-789bdb9cdb52
+
+	measure 'CF MoM' = SWITCH(TRUE(),[Sales % Change vs Last Month]>0,"Green",[Sales % Change vs Last Month]<0,"Red","Grey")
+		lineageTag: b177e7d2-e52a-4e1e-932e-f7a125a64b55
+
+	measure 'Sales Display Text' = ```
+			
+			VAR RawValue = [Sales (MTD as of Selected Date)] * 1000000
+			VAR AbsValue = ABS ( RawValue )
+			VAR ScaledText = 
+			    SWITCH (
+			        TRUE (),
+			        AbsValue >= 1000000000, FORMAT ( RawValue / 1000000000, "#,##0.00" ) & " B",
+			        AbsValue >= 10000000,   FORMAT ( RawValue / 1000000, "#,##0.00" ) & " M",
+			        AbsValue >= 100000,     FORMAT ( RawValue / 100000, "#,##0.00" ) & " Lakh",
+			        AbsValue >= 1000,       FORMAT ( RawValue / 1000, "#,##0.00" ) & " K",
+			        FORMAT ( RawValue, "#,##0.00" )
+			    )
+			RETURN
+			    "LKR " & ScaledText
+			```
+		lineageTag: 9dc2c212-9f98-4376-b0e2-8ca2626ec0f5
+
+	measure 'Sales Format String' =
+			
+			VAR Q = UNICHAR ( 34 )
+			VAR RawValue = [Sales (MTD as of Selected Date)] * 1000000
+			VAR AbsValue = ABS ( RawValue )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        AbsValue >= 1000000000, Q & "LKR " & Q & "#,##0.00,,," & Q & " B" & Q,
+			        AbsValue >= 1000000,    Q & "LKR " & Q & "#,##0.00,," & Q & " M" & Q,
+			        AbsValue >= 1000,       Q & "LKR " & Q & "#,##0.00," & Q & " K" & Q,
+			        Q & "LKR " & Q & "#,##0.00"
+			    )
+		lineageTag: 574faeba-f87e-4323-b4df-fc30fbd6584b
+
+	measure 'Sales (MTD as of Selected Date)' =
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			RETURN
+			    CALCULATE (
+			        [Sales Value (LKR M)],
+			        gold_dpmc_dimdate[TheDate] >= MonthStart,
+			        gold_dpmc_dimdate[TheDate] <= CutoffDate
+			    )
+		lineageTag: 1def8ade-7bb7-4d24-9380-9e6e270fa03f
+
+		formatStringDefinition = ""
+
+	measure 'Total Bookings (MTD as of Selected Date)' =
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			RETURN
+			    CALCULATE (
+			        [Total Bookings],
+			        gold_dpmc_dimdate[TheDate] >= MonthStart,
+			        gold_dpmc_dimdate[TheDate] <= CutoffDate
+			    )
+		formatString: 0
+		lineageTag: c2105e6c-d94d-46af-8fff-2327f2050540
+
+	measure 'GRN Count (MTD as of Selected Date)' =
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			RETURN
+			    CALCULATE (
+			        [GRN Count],
+			        FactGRNDetails_Dedup[GatePassDate] >= MonthStart,
+			        FactGRNDetails_Dedup[GatePassDate] <= CutoffDate
+			    )
+		formatString: 0
+		lineageTag: 901dc8ed-5205-4cb4-bcbc-19ca18dead2e
+
+	column Placeholder
+		formatString: 0
+		lineageTag: 36676873-846a-439f-9954-e7225f75afc6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Placeholder]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KPI_Measures = calculated
+		mode: import
+		source = ROW("Placeholder", BLANK())
+
+	annotation PBI_Id = 68f336133eb64ff8a34b902fd019d6bd
+

@@ -81,6 +81,21 @@
         },
         "type": "Categorical",
         "howCreated": "Drillthrough"
+      },
+      {
+        "name": "4740b1feca33f59f4483",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Actual MoM % Change"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
       }
     ]
   },
@@ -119,8 +134,6 @@
       {
         "name": "0e2604b6eadfbb9be99e",
         "boundFilter": "b22d4029a955c3c30180",
-        "asAggregation": false,
-        "qnaSingleSelectRequired": false,
         "fieldExpr": {
           "Measure": {
             "Expression": {
@@ -129,6 +142,20 @@
               }
             },
             "Property": "Target (Selected)"
+          }
+        }
+      },
+      {
+        "name": "701be01e2f7810443bdd",
+        "boundFilter": "4740b1feca33f59f4483",
+        "fieldExpr": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Actual MoM % Change"
           }
         }
       }
@@ -1376,11 +1403,6 @@
       "type": "NoFilter"
     },
     {
-      "source": "e3365b97ffd4d009a844",
-      "target": "f7ba6d364e242cc18343",
-      "type": "NoFilter"
-    },
-    {
       "source": "3e50a950a7d544825efa",
       "target": "d99dcf60f6c58195744a",
       "type": "NoFilter"
@@ -1533,11 +1555,6 @@
     {
       "source": "3e50a950a7d544825efa",
       "target": "e9afbb00aeeebe8fe55a",
-      "type": "NoFilter"
-    },
-    {
-      "source": "3e50a950a7d544825efa",
-      "target": "f7ba6d364e242cc18343",
       "type": "NoFilter"
     },
     {

@@ -64,6 +64,48 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "vehicletypeselector.target_mom__change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Target MoM % Change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "vehicletypeselector.actual_mom__change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Actual MoM % Change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

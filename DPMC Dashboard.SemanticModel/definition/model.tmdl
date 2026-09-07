@@ -50,6 +50,7 @@ ref table LocalDateTable_195cf829-2185-4b05-a5b5-371797f09edb
 ref table LocalDateTable_8cb1b4ba-025c-4197-b3a7-88c5c694a686
 ref table AlertThresholds
 ref table MonthsWithTargetTable
+ref table KPI_Measures
 ref table LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077
 
 ref cultureInfo en-US
