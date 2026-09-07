@@ -365,6 +365,32 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4345.51281440216,
+            "y": 485.32383980322243
+          },
+          "nodeIndex": "MonthsBackSelector",
+          "nodeLineageTag": "9e932881-576b-4893-a3df-b64c1303839c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4629.51281440216,
+            "y": 521.32383980322243
+          },
+          "nodeIndex": "WorkingDayLookup",
+          "nodeLineageTag": "917ed96c-66b9-4ec9-94ae-bc7d416e925b",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
