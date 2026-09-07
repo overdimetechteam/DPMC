@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e9afbb00aeeebe8fe55a",
   "position": {
     "x": 32,
@@ -87,6 +87,23 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactGRNDetails_Dedup"
+                  }
+                },
+                "Property": "Pending Days"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {

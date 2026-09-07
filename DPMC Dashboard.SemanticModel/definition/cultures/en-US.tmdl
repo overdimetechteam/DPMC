@@ -211,6 +211,90 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "vehicletypeselector.target_mom__change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Target MoM % Change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "vehicletypeselector.actual_mom__change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Actual MoM % Change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi_measures.total_bookings_mtd_as_of_selected_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_Measures",
+			          "ConceptualProperty": "Total Bookings (MTD as of Selected Date)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Total Bookings": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi_measures.grn_count_mtd_as_of_selected_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI_Measures",
+			          "ConceptualProperty": "GRN Count (MTD as of Selected Date)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "GRNs": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

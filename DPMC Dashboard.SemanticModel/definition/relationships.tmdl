@@ -58,11 +58,6 @@ relationship 27549d72-5c98-09b8-cb14-7a144b7b6994
 	fromColumn: gold_dpmc_vs_2w3w_target.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
-relationship 1377c708-af77-61af-71f8-fd92a1d48469
-	crossFilteringBehavior: bothDirections
-	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
-	toColumn: VehicleTypeSelector.'Vehicle Type'
-
 relationship ace104df-f723-e35f-7dab-2dd55eb5cc21
 	fromColumn: gold_dpmc_vs_2w3w4w_factstock.PremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
@@ -179,7 +174,12 @@ relationship ecc4bcf9-c01a-3bca-490d-c8ae6b3f0b2e
 	fromColumn: BranchMonthTarget.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
-relationship ab186ad4-6fd3-49fb-b484-97c4dcb7ab9b
+relationship 1377c708-af77-61af-71f8-fd92a1d48469
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
+	toColumn: VehicleTypeSelector.'Vehicle Type'
+
+relationship e142fb57-ebbe-4511-959c-97ebc728dd9b
 	joinOnDateBehavior: datePartOnly
 	fromColumn: MonthsWithTargetTable.TheFirstOfMonth
 	toColumn: LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077.Date

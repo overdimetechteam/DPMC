@@ -5,6 +5,30 @@ table AgeBucketTable
 		formatString: 0
 		lineageTag: fd7e8c38-4609-4110-b044-043db77be266
 
+	measure 'Units (MTD as of Selected Date)' =
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			RETURN
+			    CALCULATE (
+			        [Actual Units],
+			        gold_dpmc_dimdate[TheDate] >= MonthStart,
+			        gold_dpmc_dimdate[TheDate] <= CutoffDate
+			    )
+		formatString: 0
+		lineageTag: 55aea53a-2a4b-442c-99ac-ae774f3767ae
+
+	measure 'Sales % Change vs Last Month' =
+			
+			DIVIDE (
+			    [Sales (MTD as of Selected Date)] - [Sales Last Month (MTD)],
+			    [Sales Last Month (MTD)]
+			)
+		lineageTag: 362fdefb-9b04-4596-8589-3a4f388a8f3a
+
+		formatStringDefinition = "+0.0%;-0.0%;0.0%"
+
 	column ChassisNo
 		lineageTag: 8567da71-08e9-49b1-9b8e-8729fd479d0a
 		summarizeBy: none

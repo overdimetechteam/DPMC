@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d8a49c253596568fbb2f",
   "position": {
     "x": 613.51260504201673,
-    "y": 0,
+    "y": 2.8421709430404007E-14,
     "z": 4000,
     "height": 72,
     "width": 149.44537815126048,
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "KPI_Measures"
                     }
                   },
-                  "Property": "Delivery Notes"
+                  "Property": "Delivery Notes (MTD as of Selected Date)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Delivery Notes",
-              "nativeQueryRef": "Delivery Notes"
+              "queryRef": "KPI_Measures.Delivery Notes (MTD as of Selected Date)",
+              "nativeQueryRef": "Delivery Notes (MTD as of Selected Date)"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "KPI_Measures"
                   }
                 },
-                "Property": "Delivery Notes"
+                "Property": "Delivery Notes (MTD as of Selected Date)"
               }
             },
             "direction": "Descending"

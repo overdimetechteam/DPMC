@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "4161c80d3db6703e5941",
   "position": {
     "x": 0,
@@ -377,94 +377,57 @@
             "Property": "Product_Owner"
           }
         },
-        "type": "TopN",
+        "type": "TopN"
+      },
+      {
+        "name": "7160327ac0d8f9bacfbd",
+        "ordinal": 3,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "AlertThresholds"
+              }
+            },
+            "Property": "RM In Threshold View"
+          }
+        },
+        "type": "Advanced",
         "filter": {
           "Version": 2,
           "From": [
             {
-              "Name": "subquery",
-              "Expression": {
-                "Subquery": {
-                  "Query": {
-                    "Version": 2,
-                    "From": [
-                      {
-                        "Name": "b",
-                        "Entity": "BranchMonthTarget",
-                        "Type": 0
-                      },
-                      {
-                        "Name": "t",
-                        "Entity": "TopBottomSelector",
-                        "Type": 0
-                      }
-                    ],
-                    "Select": [
-                      {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "b"
-                            }
-                          },
-                          "Property": "Product_Owner"
-                        },
-                        "Name": "field"
-                      }
-                    ],
-                    "OrderBy": [
-                      {
-                        "Direction": 2,
-                        "Expression": {
-                          "Measure": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "t"
-                              }
-                            },
-                            "Property": "Sort Basis RM"
-                          }
-                        }
-                      }
-                    ],
-                    "Top": 5
-                  }
-                }
-              },
-              "Type": 2
-            },
-            {
-              "Name": "b",
-              "Entity": "BranchMonthTarget",
+              "Name": "a",
+              "Entity": "AlertThresholds",
               "Type": 0
             }
           ],
           "Where": [
             {
               "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "b"
-                          }
-                        },
-                        "Property": "Product_Owner"
-                      }
+                "Comparison": {
+                  "ComparisonKind": 3,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "a"
+                        }
+                      },
+                      "Property": "RM In Threshold View"
                     }
-                  ],
-                  "Table": {
-                    "SourceRef": {
-                      "Source": "subquery"
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
                     }
                   }
                 }
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
     ],
     "filterSortOrder": "Custom"
