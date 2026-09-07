@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d3fd821eed28e197fdd5",
   "position": {
-    "x": 1.9768100087135232,
-    "y": 81.977528089887642,
+    "x": 0,
+    "y": 73.333333333333343,
     "z": 1500,
-    "height": 222.02247191011236,
-    "width": 590.02318999128647,
+    "height": 211.66666666666669,
+    "width": 598.33333333333337,
     "tabOrder": 0
   },
   "visual": {
@@ -17,87 +17,108 @@
           "projections": [
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "Row Month Label"
+                }
+              },
+              "queryRef": "Measures_Table.Row Month Label",
+              "nativeQueryRef": "Month",
+              "displayName": "Month"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "SameDay Cash Sales"
+                }
+              },
+              "queryRef": "Measures_Table.SameDay Cash Sales",
+              "nativeQueryRef": "Cash",
+              "displayName": "Cash"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "SameDay Finance Sales"
+                }
+              },
+              "queryRef": "Measures_Table.SameDay Finance Sales",
+              "nativeQueryRef": "Finance",
+              "displayName": "Finance"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "SameDay Total Units Sold"
+                }
+              },
+              "queryRef": "Measures_Table.SameDay Total Units Sold",
+              "nativeQueryRef": "Total Units",
+              "displayName": "Total Units"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "SameDay Dealer Count"
+                }
+              },
+              "queryRef": "Measures_Table.SameDay Dealer Count",
+              "nativeQueryRef": "Dealer",
+              "displayName": "Dealer"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measures_Table"
+                    }
+                  },
+                  "Property": "SameDay Premise Count"
+                }
+              },
+              "queryRef": "Measures_Table.SameDay Premise Count",
+              "nativeQueryRef": "Premise",
+              "displayName": "Premise"
+            },
+            {
+              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_dimdate"
+                      "Entity": "MonthsBackSelector"
                     }
                   },
-                  "Property": "TheDayName"
+                  "Property": "MonthsBack"
                 }
               },
-              "queryRef": "gold_dpmc_dimdate.TheDayName",
-              "nativeQueryRef": "TheDayName"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-                    }
-                  },
-                  "Property": "Cash Sales"
-                }
-              },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Cash Sales",
-              "nativeQueryRef": "Cash Sales"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-                    }
-                  },
-                  "Property": "Finance Sales"
-                }
-              },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Finance Sales",
-              "nativeQueryRef": "Finance Sales"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-                    }
-                  },
-                  "Property": "Total Units Sold"
-                }
-              },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
-              "nativeQueryRef": "Total Units Sold"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-                    }
-                  },
-                  "Property": "Dealer Count"
-                }
-              },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Dealer Count",
-              "nativeQueryRef": "Dealer Count"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
-                    }
-                  },
-                  "Property": "Premise Count"
-                }
-              },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Premise Count",
-              "nativeQueryRef": "Premise Count"
+              "queryRef": "Sum(MonthsBackSelector.MonthsBack)",
+              "nativeQueryRef": ".",
+              "displayName": "."
             }
           ]
         }
@@ -134,6 +155,104 @@
           },
           "selector": {
             "metadata": "FactGRNDetails_Dedup.From Location"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(MonthsBackSelector.MonthsBack)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "95.01235676935877D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.Row Month Label"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.4721142233516D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Cash Sales"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.63280605843921D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Finance Sales"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.00180034895214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Total Units Sold"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "95.33309175341029D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Dealer Count"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.33333333333333D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Premise Count"
           }
         }
       ],
@@ -326,7 +445,7 @@
                                     "Entity": "Measures_Table"
                                   }
                                 },
-                                "Property": "Total Units Trend"
+                                "Property": "SameDay Total Units Trend"
                               }
                             },
                             "Right": {
@@ -353,7 +472,7 @@
                                     "Entity": "Measures_Table"
                                   }
                                 },
-                                "Property": "Total Units Trend"
+                                "Property": "SameDay Total Units Trend"
                               }
                             },
                             "Right": {
@@ -383,7 +502,32 @@
                 }
               }
             ],
-            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold"
+            "metadata": "Measures_Table.SameDay Total Units Sold"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           }
         }
       ],
@@ -400,7 +544,198 @@
                   }
                 }
               }
+            },
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(MonthsBackSelector.MonthsBack)"
+          }
+        },
+        {
+          "properties": {
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleValues": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.Row Month Label"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Cash Sales"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Finance Sales"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Total Units Sold"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Dealer Count"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.SameDay Premise Count"
           }
         }
       ]
@@ -439,6 +774,20 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "21D"
                 }
               }
             }
