@@ -307,24 +307,6 @@ table Measures_Table
 		formatString: General Date
 		lineageTag: 61a77099-0e03-4ce2-a63b-7f11d69d274e
 
-	measure 'Allocation Count' =
-			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
-			)
-		formatString: 0
-		lineageTag: 5776a924-97cf-4aaf-b25a-c1454744274a
-
-	measure 'Inquiry And Confirm Count' =
-			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] IN { "INQ", "CONFIRM" }
-			)
-		formatString: 0
-		lineageTag: d4fff464-431f-4741-befa-0b8458da2e89
-
 	measure 'Working Day Number' =
 			
 			VAR CurrentDate =
@@ -345,7 +327,7 @@ table Measures_Table
 
 	measure 'Working Days Title Text' =
 			
-			"Units Comparison - Working Day " & [Working Day Number]
+			"Units Comparison - Working Day " & [Anchor Working Day N]
 		lineageTag: 55c93bd2-8c48-431b-bf3c-b961c6924c18
 
 	measure 'Total Units Trend' =
@@ -392,6 +374,133 @@ table Measures_Table
 			RETURN
 			IF(ISBLANK(PrevTotal) || Diff = 0, BLANK(), SIGN(Diff))
 		lineageTag: 810d3f1c-990b-414b-a46c-d37d6749a004
+
+	measure 'Allocation Count' =
+			
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
+			)
+		formatString: 0
+		lineageTag: 5776a924-97cf-4aaf-b25a-c1454744274a
+
+	measure 'Inquiry And Confirm Count' =
+			
+			CALCULATE(
+			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
+			    gold_dpmc_vs_2w3w4w_factinquiry[Type] IN { "INQ", "CONFIRM" }
+			)
+		formatString: 0
+		lineageTag: d4fff464-431f-4741-befa-0b8458da2e89
+
+	measure 'Anchor Working Day N' =
+			
+			VAR AnchorDate = [Anchor Selected Date]
+			VAR EffectiveDate =
+			    CALCULATE(
+			        MAX(WorkingDayLookup[Date]),
+			        WorkingDayLookup[Date] <= AnchorDate,
+			        NOT ISBLANK(WorkingDayLookup[WorkingDayOfMonth])
+			    )
+			RETURN
+			LOOKUPVALUE(WorkingDayLookup[WorkingDayOfMonth], WorkingDayLookup[Date], EffectiveDate)
+		formatString: 0
+		lineageTag: 3fa6c943-2988-40c0-a9ff-02010681029d
+
+	measure 'Row Target Date' =
+			
+			VAR AnchorDate = [Anchor Selected Date]
+			VAR AnchorMonthStart = DATE(YEAR(AnchorDate), MONTH(AnchorDate), 1)
+			VAR N = [Anchor Working Day N]
+			VAR MonthsBack = SELECTEDVALUE(MonthsBackSelector[MonthsBack])
+			VAR TargetMonthStart = EDATE(AnchorMonthStart, -MonthsBack)
+			VAR TargetMonthEnd = EDATE(TargetMonthStart, 1)
+			RETURN
+			CALCULATE(
+			    MIN(WorkingDayLookup[Date]),
+			    WorkingDayLookup[Date] >= TargetMonthStart,
+			    WorkingDayLookup[Date] < TargetMonthEnd,
+			    WorkingDayLookup[WorkingDayOfMonth] = N
+			)
+		formatString: General Date
+		lineageTag: b9c7a6df-7386-47fd-93d3-f830c7fd99b9
+
+	measure 'SameDay Total Units Sold' =
+			
+			VAR TargetDate = [Row Target Date]
+			RETURN
+			CALCULATE(
+			    [Total Units Sold],
+			    REMOVEFILTERS(gold_dpmc_dimdate),
+			    gold_dpmc_dimdate[TheDate] = TargetDate
+			)
+		formatString: 0
+		lineageTag: 0d1a9ecb-9545-4357-b7e7-82fc2d18fe1f
+
+	measure 'SameDay Cash Sales' =
+			
+			VAR TargetDate = [Row Target Date]
+			RETURN
+			CALCULATE([Cash Sales], REMOVEFILTERS(gold_dpmc_dimdate), gold_dpmc_dimdate[TheDate] = TargetDate)
+		formatString: 0
+		lineageTag: 3708495d-2677-4495-9643-4ffb597e198a
+
+	measure 'SameDay Finance Sales' =
+			
+			VAR TargetDate = [Row Target Date]
+			RETURN
+			CALCULATE([Finance Sales], REMOVEFILTERS(gold_dpmc_dimdate), gold_dpmc_dimdate[TheDate] = TargetDate)
+		formatString: 0
+		lineageTag: 2905983e-4a97-404f-b120-d2014641212d
+
+	measure 'SameDay Dealer Count' =
+			
+			VAR TargetDate = [Row Target Date]
+			RETURN
+			CALCULATE([Dealer Count], REMOVEFILTERS(gold_dpmc_dimdate), gold_dpmc_dimdate[TheDate] = TargetDate)
+		formatString: 0
+		lineageTag: 0e46590a-b91b-4e58-b01f-c7e9192dc698
+
+	measure 'SameDay Premise Count' =
+			
+			VAR TargetDate = [Row Target Date]
+			RETURN
+			CALCULATE([Premise Count], REMOVEFILTERS(gold_dpmc_dimdate), gold_dpmc_dimdate[TheDate] = TargetDate)
+		formatString: 0
+		lineageTag: 6bbba086-4484-4ba2-a147-a20d39c74ba8
+
+	measure 'Row Month Label' = VAR AnchorDate = [Anchor Selected Date] VAR AnchorMonthStart = DATE(YEAR(AnchorDate), MONTH(AnchorDate), 1) VAR MonthsBack = SELECTEDVALUE(MonthsBackSelector[MonthsBack]) RETURN FORMAT(EDATE(AnchorMonthStart, -MonthsBack), "MMM-yy")
+		lineageTag: f5230739-9421-4751-9276-77b4be079fe2
+
+	measure 'Anchor Selected Date' =
+			
+			COALESCE(
+			    SELECTEDVALUE(AsOfDateSelector[SelectedDate]),
+			    TODAY() - 1
+			)
+		formatString: General Date
+		lineageTag: 2433db57-ae8c-4952-91ac-b19d8e6e422a
+
+	measure 'SameDay Total Units Trend' =
+			
+			VAR CurrentMonthsBack = SELECTEDVALUE(MonthsBackSelector[MonthsBack])
+			VAR HasPrevRow =
+			    CALCULATE(COUNTROWS(MonthsBackSelector), REMOVEFILTERS(MonthsBackSelector), MonthsBackSelector[MonthsBack] = CurrentMonthsBack + 1) > 0
+			VAR CurrentTotal = [SameDay Total Units Sold]
+			VAR PrevTotal =
+			    IF(
+			        HasPrevRow,
+			        CALCULATE(
+			            [SameDay Total Units Sold],
+			            REMOVEFILTERS(MonthsBackSelector),
+			            MonthsBackSelector[MonthsBack] = CurrentMonthsBack + 1
+			        )
+			    )
+			VAR Diff = CurrentTotal - PrevTotal
+			RETURN
+			IF(ISBLANK(PrevTotal) || Diff = 0, BLANK(), SIGN(Diff))
+		formatString: 0
+		lineageTag: 21d30c23-c4d7-49fe-9c80-9550510beeb6
 
 	column Column
 		formatString: 0
