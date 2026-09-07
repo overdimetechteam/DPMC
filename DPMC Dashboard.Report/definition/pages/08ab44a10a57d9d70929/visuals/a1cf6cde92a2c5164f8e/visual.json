@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "a1cf6cde92a2c5164f8e",
   "position": {
-    "x": 1460,
-    "y": 2541.4285714285716,
-    "z": 15000,
-    "height": 162.85714285714286,
-    "width": 562.85714285714289,
-    "tabOrder": 12000
+    "x": 980.64516129032256,
+    "y": 383.87096774193549,
+    "z": 55003,
+    "height": 177.41935483870967,
+    "width": 506.45161290322579,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "tableEx",
@@ -107,27 +107,165 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "gold_dpmc_dimdate"
-                  }
-                },
-                "Property": "MonthYearShort"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
       "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Aggregation": {
+                                      "Expression": {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Entity": "FactGRNDetails_Dedup"
+                                            }
+                                          },
+                                          "Property": "Pending Days"
+                                        }
+                                      },
+                                      "Function": 0
+                                    }
+                                  },
+                                  "Right": {
+                                    "RangePercent": {
+                                      "Min": {
+                                        "ScopedEval": {
+                                          "Expression": {
+                                            "Aggregation": {
+                                              "Expression": {
+                                                "ScopedEval": {
+                                                  "Expression": {
+                                                    "Aggregation": {
+                                                      "Expression": {
+                                                        "Column": {
+                                                          "Expression": {
+                                                            "SourceRef": {
+                                                              "Entity": "FactGRNDetails_Dedup"
+                                                            }
+                                                          },
+                                                          "Property": "Pending Days"
+                                                        }
+                                                      },
+                                                      "Function": 0
+                                                    }
+                                                  },
+                                                  "Scope": [
+                                                    {
+                                                      "AllRolesRef": {}
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "Function": 3
+                                            }
+                                          },
+                                          "Scope": []
+                                        }
+                                      },
+                                      "Max": {
+                                        "ScopedEval": {
+                                          "Expression": {
+                                            "Aggregation": {
+                                              "Expression": {
+                                                "ScopedEval": {
+                                                  "Expression": {
+                                                    "Aggregation": {
+                                                      "Expression": {
+                                                        "Column": {
+                                                          "Expression": {
+                                                            "SourceRef": {
+                                                              "Entity": "FactGRNDetails_Dedup"
+                                                            }
+                                                          },
+                                                          "Property": "Pending Days"
+                                                        }
+                                                      },
+                                                      "Function": 0
+                                                    }
+                                                  },
+                                                  "Scope": [
+                                                    {
+                                                      "AllRolesRef": {}
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "Function": 4
+                                            }
+                                          },
+                                          "Scope": []
+                                        }
+                                      },
+                                      "Percent": 0.2
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 3,
+                                  "Left": {
+                                    "Aggregation": {
+                                      "Expression": {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Entity": "FactGRNDetails_Dedup"
+                                            }
+                                          },
+                                          "Property": "Pending Days"
+                                        }
+                                      },
+                                      "Function": 0
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "0D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#743028'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Sum(FactGRNDetails_Dedup.Pending Days)"
+          }
+        },
         {
           "properties": {
             "icon": {
@@ -135,7 +273,7 @@
               "layout": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Before'"
+                    "Value": "'After'"
                   }
                 }
               },
@@ -153,78 +291,20 @@
                       {
                         "Condition": {
                           "Comparison": {
-                            "ComparisonKind": 2,
+                            "ComparisonKind": 0,
                             "Left": {
                               "Measure": {
                                 "Expression": {
                                   "SourceRef": {
-                                    "Entity": "VehicleTypeSelector"
+                                    "Entity": "Measures_Table"
                                   }
                                 },
-                                "Property": "Target MoM % Change"
+                                "Property": "Total Units Trend"
                               }
                             },
                             "Right": {
-                              "RangePercent": {
-                                "Min": {
-                                  "ScopedEval": {
-                                    "Expression": {
-                                      "Aggregation": {
-                                        "Expression": {
-                                          "ScopedEval": {
-                                            "Expression": {
-                                              "Measure": {
-                                                "Expression": {
-                                                  "SourceRef": {
-                                                    "Entity": "VehicleTypeSelector"
-                                                  }
-                                                },
-                                                "Property": "Target MoM % Change"
-                                              }
-                                            },
-                                            "Scope": [
-                                              {
-                                                "AllRolesRef": {}
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "Function": 3
-                                      }
-                                    },
-                                    "Scope": []
-                                  }
-                                },
-                                "Max": {
-                                  "ScopedEval": {
-                                    "Expression": {
-                                      "Aggregation": {
-                                        "Expression": {
-                                          "ScopedEval": {
-                                            "Expression": {
-                                              "Measure": {
-                                                "Expression": {
-                                                  "SourceRef": {
-                                                    "Entity": "VehicleTypeSelector"
-                                                  }
-                                                },
-                                                "Property": "Target MoM % Change"
-                                              }
-                                            },
-                                            "Scope": [
-                                              {
-                                                "AllRolesRef": {}
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "Function": 4
-                                      }
-                                    },
-                                    "Scope": []
-                                  }
-                                },
-                                "Percent": 0.75
+                              "Literal": {
+                                "Value": "1D"
                               }
                             }
                           }
@@ -238,78 +318,20 @@
                       {
                         "Condition": {
                           "Comparison": {
-                            "ComparisonKind": 3,
+                            "ComparisonKind": 0,
                             "Left": {
                               "Measure": {
                                 "Expression": {
                                   "SourceRef": {
-                                    "Entity": "VehicleTypeSelector"
+                                    "Entity": "Measures_Table"
                                   }
                                 },
-                                "Property": "Target MoM % Change"
+                                "Property": "Total Units Trend"
                               }
                             },
                             "Right": {
-                              "RangePercent": {
-                                "Min": {
-                                  "ScopedEval": {
-                                    "Expression": {
-                                      "Aggregation": {
-                                        "Expression": {
-                                          "ScopedEval": {
-                                            "Expression": {
-                                              "Measure": {
-                                                "Expression": {
-                                                  "SourceRef": {
-                                                    "Entity": "VehicleTypeSelector"
-                                                  }
-                                                },
-                                                "Property": "Target MoM % Change"
-                                              }
-                                            },
-                                            "Scope": [
-                                              {
-                                                "AllRolesRef": {}
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "Function": 3
-                                      }
-                                    },
-                                    "Scope": []
-                                  }
-                                },
-                                "Max": {
-                                  "ScopedEval": {
-                                    "Expression": {
-                                      "Aggregation": {
-                                        "Expression": {
-                                          "ScopedEval": {
-                                            "Expression": {
-                                              "Measure": {
-                                                "Expression": {
-                                                  "SourceRef": {
-                                                    "Entity": "VehicleTypeSelector"
-                                                  }
-                                                },
-                                                "Property": "Target MoM % Change"
-                                              }
-                                            },
-                                            "Scope": [
-                                              {
-                                                "AllRolesRef": {}
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "Function": 4
-                                      }
-                                    },
-                                    "Scope": []
-                                  }
-                                },
-                                "Percent": 0.25
+                              "Literal": {
+                                "Value": "-1D"
                               }
                             }
                           }
@@ -334,272 +356,132 @@
                 }
               }
             ],
-            "metadata": "VehicleTypeSelector.Target MoM % Change"
-          }
-        },
-        {
-          "properties": {
-            "backColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "And": {
-                              "Left": {
-                                "Comparison": {
-                                  "ComparisonKind": 2,
-                                  "Left": {
-                                    "Measure": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "VehicleTypeSelector"
-                                        }
-                                      },
-                                      "Property": "Target MoM % Change"
-                                    }
-                                  },
-                                  "Right": {
-                                    "RangePercent": {
-                                      "Min": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "VehicleTypeSelector"
-                                                        }
-                                                      },
-                                                      "Property": "Target MoM % Change"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 3
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Max": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "VehicleTypeSelector"
-                                                        }
-                                                      },
-                                                      "Property": "Target MoM % Change"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 4
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Percent": 0.75
-                                    }
-                                  }
-                                }
-                              },
-                              "Right": {
-                                "Comparison": {
-                                  "ComparisonKind": 3,
-                                  "Left": {
-                                    "Measure": {
-                                      "Expression": {
-                                        "SourceRef": {
-                                          "Entity": "VehicleTypeSelector"
-                                        }
-                                      },
-                                      "Property": "Target MoM % Change"
-                                    }
-                                  },
-                                  "Right": {
-                                    "Literal": {
-                                      "Value": "100D"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#2f986e'"
-                            }
-                          }
-                        },
-                        {
-                          "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 3,
-                              "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "VehicleTypeSelector"
-                                    }
-                                  },
-                                  "Property": "Target MoM % Change"
-                                }
-                              },
-                              "Right": {
-                                "Literal": {
-                                  "Value": "0D"
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#efb5b9'"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "VehicleTypeSelector.Target (Selected)"
-          }
-        }
-      ],
-      "columnFormatting": [
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1000D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Target (Selected)"
-          }
-        },
-        {
-          "properties": {
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1000D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Actual Units"
-          }
-        },
-        {
-          "properties": {
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Left'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Target MoM % Change"
-          }
-        },
-        {
-          "properties": {
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Left'"
-                }
-              }
-            },
-            "styleHeader": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.2
-                    }
-                  }
-                }
-              }
-            },
-            "labelPrecision": {
-              "expr": {
-                "Literal": {
-                  "Value": "1L"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Actual MoM % Change"
+            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold"
           }
         }
       ],
       "total": [
         {
           "properties": {
-            "totals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D1B33'"
+                    }
+                  }
                 }
               }
             }
           }
         }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "153D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactGRNDetails_Dedup.From Location"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "57.97933831347141D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "VehicleTypeSelector.Target (Selected)"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
       ]
     },
     "visualContainerObjects": {
       "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Target & Actual MonthEnd'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {
@@ -609,17 +491,28 @@
                 }
               }
             },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Target & Actual MonthEnd'"
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0C4CA3'"
+                    }
+                  }
                 }
               }
             },
-            "alignment": {
+            "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "13D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -644,40 +537,6 @@
           }
         },
         "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "v",
-              "Entity": "VehicleTypeSelector",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 0,
-                  "Left": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "v"
-                        }
-                      },
-                      "Property": "Show In Last3Months"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "1L"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User"
       }
     ]
