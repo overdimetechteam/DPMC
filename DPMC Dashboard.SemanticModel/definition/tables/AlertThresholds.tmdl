@@ -1,0 +1,18 @@
+table AlertThresholds
+	lineageTag: 54bdcb31-92b7-4d91-9d11-7332c846195c
+
+	column Placeholder
+		formatString: 0
+		lineageTag: 20b028bc-b810-4845-9acc-a689c80982e8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Placeholder]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AlertThresholds = calculated
+		mode: import
+		source = ROW("Placeholder", BLANK())
+
+	annotation PBI_Id = 23f7765ce19d4c65b3d95586733a24f5
+

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "26306e32141ee824e0d7",
   "position": {
-    "x": 443.61413043478262,
-    "y": 994.10653138627845,
+    "x": 64,
+    "y": 1008,
     "z": 7000,
-    "height": 56.678413488114984,
-    "width": 306.52173913043481,
-    "tabOrder": 3000
+    "height": 64,
+    "width": 240,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "actionButton",
@@ -26,8 +26,9 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#000000'"
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
                     }
                   }
                 }
@@ -98,6 +99,13 @@
                   }
                 }
               }
+            },
+            "bottomMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
             }
           },
           "selector": {
@@ -164,6 +172,13 @@
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Last 12 months- monthly'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -171,23 +186,17 @@
                 }
               }
             },
-            "text": {
+            "titleWrap": {
               "expr": {
                 "Literal": {
-                  "Value": "'Last 12 months- monthly'"
+                  "Value": "true"
                 }
               }
-            }
-          }
-        }
-      ],
-      "general": [
-        {
-          "properties": {
-            "altText": {
+            },
+            "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "''"
+                  "Value": "true"
                 }
               }
             }
@@ -227,7 +236,40 @@
             "show": {
               "expr": {
                 "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             },
@@ -242,10 +284,17 @@
                 }
               }
             },
-            "transparency": {
+            "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "73D"
+                  "Value": "13D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

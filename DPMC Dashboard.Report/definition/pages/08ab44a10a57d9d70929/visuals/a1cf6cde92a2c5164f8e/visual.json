@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "e9afbb00aeeebe8fe55a",
+  "name": "a1cf6cde92a2c5164f8e",
   "position": {
-    "x": 32,
-    "y": 480,
-    "z": 1000,
-    "height": 384,
-    "width": 688,
-    "tabOrder": 8000
+    "x": 160,
+    "y": 416,
+    "z": 55003,
+    "height": 176,
+    "width": 384,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "tableEx",
@@ -20,92 +20,64 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactGRNDetails_Dedup"
+                      "Entity": "gold_dpmc_dimdate"
                     }
                   },
-                  "Property": "From Location"
+                  "Property": "MonthYearShort"
                 }
               },
-              "queryRef": "FactGRNDetails_Dedup.From Location",
-              "nativeQueryRef": "From Location"
+              "queryRef": "gold_dpmc_dimdate.MonthYearShort",
+              "nativeQueryRef": "MonthYear",
+              "displayName": "MonthYear"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactGRNDetails_Dedup"
+                      "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "To Location"
+                  "Property": "Total WD (Month)"
                 }
               },
-              "queryRef": "FactGRNDetails_Dedup.To Location",
-              "nativeQueryRef": "To Location"
+              "queryRef": "VehicleTypeSelector.Total WD (Month)",
+              "nativeQueryRef": "Total WD (Month)"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactGRNDetails_Dedup"
+                      "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Pending Days"
+                  "Property": "Target (Selected)"
                 }
               },
-              "queryRef": "Sum(FactGRNDetails_Dedup.Pending Days)",
-              "nativeQueryRef": "Pending Days"
+              "queryRef": "VehicleTypeSelector.Target (Selected)",
+              "nativeQueryRef": "Target ",
+              "displayName": "Target "
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactGRNDetails_Dedup"
+                      "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "GatePassApprovedDate"
+                  "Property": "Actual Units"
                 }
               },
-              "queryRef": "FactGRNDetails_Dedup.GatePassApprovedDate",
-              "nativeQueryRef": "GatePassApprovedDate"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactGRNDetails_Dedup"
-                    }
-                  },
-                  "Property": "GatePassNo"
-                }
-              },
-              "queryRef": "FactGRNDetails_Dedup.GatePassNo",
-              "nativeQueryRef": "GatePassNo"
+              "queryRef": "VehicleTypeSelector.Actual Units",
+              "nativeQueryRef": "Actual Units"
             }
           ]
         }
       }
     },
     "objects": {
-      "columnWidth": [
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "153D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "FactGRNDetails_Dedup.From Location"
-          }
-        }
-      ],
       "values": [
         {
           "properties": {
@@ -264,52 +236,148 @@
         },
         {
           "properties": {
-            "outlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+            "icon": {
+              "kind": "Icon",
+              "layout": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'After'"
+                  }
+                }
+              },
+              "verticalAlignment": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Top'"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Conditional": {
+                    "Cases": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Measures_Table"
+                                  }
+                                },
+                                "Property": "Total Units Trend"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "1D"
+                              }
+                            }
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'TriangleHigh'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "Measures_Table"
+                                  }
+                                },
+                                "Property": "Total Units Trend"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "-1D"
+                              }
+                            }
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'TriangleLow'"
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               }
             }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D1B33'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "153D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactGRNDetails_Dedup.From Location"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "57.97933831347141D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "VehicleTypeSelector.Target (Selected)"
           }
         }
       ],
       "columnHeaders": [
         {
-          "properties": {
-            "outlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "4D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "grid": [
-        {
-          "properties": {
-            "outlineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 9,
-                      "Percent": -0.25
-                    }
-                  }
-                }
-              }
-            },
-            "outlineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ]
     },
@@ -317,6 +385,20 @@
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Target & Actual MonthEnd'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "titleWrap": {
               "expr": {
                 "Literal": {
@@ -348,6 +430,19 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -395,5 +490,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "ee05edb69cfbfcec37b7"
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "389f2e8aeb70f78e968e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Show In Last3Months"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      }
+    ]
+  }
 }

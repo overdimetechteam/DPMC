@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0fcdd22a044f1e55f507",
   "position": {
-    "x": 786.00543478260863,
-    "y": 994.10653138627845,
+    "x": 320,
+    "y": 1008,
     "z": 8000,
-    "height": 56.678413488114984,
-    "width": 329.34782608695656,
+    "height": 64,
+    "width": 240,
     "tabOrder": 2000
   },
   "visual": {
@@ -153,11 +153,18 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -173,7 +180,27 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             },
@@ -188,32 +215,13 @@
                 }
               }
             },
-            "transparency": {
+            "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "73D"
+                  "Value": "13D"
                 }
               }
-            }
-          }
-        }
-      ],
-      "general": [
-        {
-          "properties": {
-            "altText": {
-              "expr": {
-                "Literal": {
-                  "Value": "''"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "border": [
-        {
-          "properties": {
+            },
             "width": {
               "expr": {
                 "Literal": {
@@ -224,13 +232,13 @@
           }
         }
       ],
-      "visualHeader": [
+      "lockAspect": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }

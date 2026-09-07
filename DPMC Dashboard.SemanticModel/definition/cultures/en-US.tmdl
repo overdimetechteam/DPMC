@@ -44,6 +44,27 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "gold_dpmc_dimdate.monthyearshort": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dpmc_dimdate",
+			          "ConceptualProperty": "MonthYearShort"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MonthYear": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
 			    "measures_table.sameday_cash_sales": {
 			      "Definition": {
 			        "Binding": {
@@ -169,8 +190,28 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "vehicletypeselector.target_selected": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Target (Selected)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}
 		contentType: json
-
