@@ -20,19 +20,34 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "KPI_Measures"
                     }
                   },
-                  "Property": "No of Inquiries"
+                  "Property": "No of Inquiries (MTD as of Selected Date)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.No of Inquiries",
-              "nativeQueryRef": "No of Inquiries"
+              "queryRef": "KPI_Measures.No of Inquiries (MTD as of Selected Date)",
+              "nativeQueryRef": "No of Inquiries (MTD as of Selected Date)"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KPI_Measures"
+                  }
+                },
+                "Property": "No of Inquiries (MTD as of Selected Date)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "5a37f6ea18ee6b9d8ad9",
   "position": {
-    "x": 1516.1290322580646,
-    "y": 138.70967741935485,
-    "z": 16000,
-    "height": 187.09677419354838,
-    "width": 280.64516129032256,
-    "tabOrder": 13000
+    "x": 289,
+    "y": 149,
+    "z": 24000,
+    "height": 193,
+    "width": 254,
+    "tabOrder": 21000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -507,5 +507,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "01bcdde0b0eda320d791",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KPI_Measures"
+              }
+            },
+            "Property": "Sales (MTD as of Selected Date)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

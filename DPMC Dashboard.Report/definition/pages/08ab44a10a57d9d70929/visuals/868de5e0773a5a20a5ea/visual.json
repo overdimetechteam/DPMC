@@ -20,14 +20,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "KPI_Measures"
                     }
                   },
-                  "Property": "GRNs"
+                  "Property": "GRN Count (MTD as of Selected Date)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.GRNs",
-              "nativeQueryRef": "GRNs"
+              "queryRef": "KPI_Measures.GRN Count (MTD as of Selected Date)",
+              "nativeQueryRef": "GRNs",
+              "displayName": "GRNs"
             }
           ]
         }
@@ -39,10 +40,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "KPI_Measures"
                   }
                 },
-                "Property": "GRNs"
+                "Property": "GRN Count (MTD as of Selected Date)"
               }
             },
             "direction": "Descending"

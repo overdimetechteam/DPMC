@@ -480,11 +480,6 @@ table VehicleTypeSelector
 			```
 		lineageTag: c6ac1b11-bd0f-475c-b9ec-a298e7bdc2eb
 
-	measure 'Measure 2'
-		lineageTag: 26e9e6c2-801b-40b5-b7cb-2ea46f63988f
-
-		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
-
 	measure 'Actual Units Display' = ```
 			
 			VAR PctChange = [Actual MoM % Change]

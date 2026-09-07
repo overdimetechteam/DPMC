@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "abb88822b53e8045df9b",
   "position": {
-    "x": 173,
+    "x": 165,
     "y": 0,
     "z": 1000,
     "height": 72,
-    "width": 126,
+    "width": 134,
     "tabOrder": 3000
   },
   "visual": {
@@ -20,14 +20,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "KPI_Measures"
                     }
                   },
-                  "Property": "Total Bookings"
+                  "Property": "Total Bookings (MTD as of Selected Date)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Total Bookings",
-              "nativeQueryRef": "Total Bookings"
+              "queryRef": "KPI_Measures.Total Bookings (MTD as of Selected Date)",
+              "nativeQueryRef": "Total Bookings",
+              "displayName": "Total Bookings"
             }
           ]
         }
@@ -39,10 +40,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "KPI_Measures"
                   }
                 },
-                "Property": "Total Bookings"
+                "Property": "Total Bookings (MTD as of Selected Date)"
               }
             },
             "direction": "Descending"
