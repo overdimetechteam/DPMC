@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "9a7f7084c8f9aeb36815",
   "position": {
-    "x": 1262.0923913043478,
-    "y": 473.99873702475281,
+    "x": 960,
+    "y": 512,
     "z": 5000,
-    "height": 93.35268103924821,
-    "width": 192.39130434782609,
-    "tabOrder": 7000
+    "height": 80,
+    "width": 192,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "slicer",
@@ -169,7 +169,21 @@
       "title": [
         {
           "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -186,17 +200,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0A1220'"
-                    }
-                  }
                 }
               }
             },
@@ -225,7 +228,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#2A3F63'"
+                      "Value": "'#0C4CA3'"
                     }
                   }
                 }
@@ -234,7 +237,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "13D"
                 }
               }
             },
@@ -248,40 +251,10 @@
           }
         }
       ],
-      "visualHeader": [
+      "lockAspect": [
         {
           "properties": {
-            "border": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#333333'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "100D"
-                }
-              }
-            },
-            "foreground": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.1
-                    }
-                  }
-                }
-              }
-            },
-            "showVisualInformationButton": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
