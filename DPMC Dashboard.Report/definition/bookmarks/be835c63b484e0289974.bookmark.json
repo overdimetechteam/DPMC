@@ -2388,46 +2388,6 @@
               }
             }
           },
-          "d62ffe0741bd0cf1b02c": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "792036eac31c908754e4",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "VehicleTypeSelector"
-                        }
-                      },
-                      "Property": "Sales Value (LKR M)"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "VehicleTypeSelector"
-                        }
-                      },
-                      "Property": "Sales Value (LKR M)"
-                    }
-                  }
-                }
-              ]
-            }
-          },
           "d649385e21cd476f650a": {
             "filters": {
               "byExpr": [

@@ -1,8 +1,8 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "868de5e0773a5a20a5ea",
   "position": {
-    "x": 314.62184873949576,
+    "x": 149.62184873949576,
     "y": 2.8421709430404007E-14,
     "z": 2000,
     "height": 72,
@@ -40,10 +40,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "KPI_Measures"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "GRN Count (MTD as of Selected Date)"
+                "Property": "GRNs"
               }
             },
             "direction": "Descending"

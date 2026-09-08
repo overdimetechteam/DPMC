@@ -3,10 +3,10 @@
   "name": "d3fd821eed28e197fdd5",
   "position": {
     "x": 0,
-    "y": 80,
+    "y": 64,
     "z": 1500,
-    "height": 225,
-    "width": 597.5,
+    "height": 208,
+    "width": 560,
     "tabOrder": 0
   },
   "visual": {
@@ -130,10 +130,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "MonthsBackSelector"
+                    "Entity": "gold_dpmc_dimdate"
                   }
                 },
-                "Property": "MonthsBack"
+                "Property": "TheDayName"
               }
             },
             "direction": "Ascending"
@@ -232,7 +232,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "95.33309175341029D"
+                  "Value": "81.38128057491495D"
                 }
               }
             }
