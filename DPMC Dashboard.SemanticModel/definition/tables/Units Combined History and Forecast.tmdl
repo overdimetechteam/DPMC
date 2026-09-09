@@ -1,0 +1,51 @@
+table 'Units Combined History and Forecast'
+	lineageTag: 0ebfa92b-7ccf-4196-ae8a-82b457ff9e6d
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f10c9cd4-c02d-4fca-8be5-198d636b89e6
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		variation Variation
+			isDefault
+			relationship: 03356283-cab0-481d-8f62-02141cde90fa
+			defaultHierarchy: LocalDateTable_f56ffb1c-398f-4c88-ab8a-17275c09805b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ForecastValue
+		dataType: int64
+		lineageTag: e80fe81d-3592-48f7-9fa8-501f8e4beeef
+		summarizeBy: sum
+		sourceColumn: ForecastValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitsSold
+		dataType: int64
+		formatString: 0
+		lineageTag: 43de91b0-bddc-41bc-876c-b64261d45e33
+		summarizeBy: sum
+		sourceColumn: UnitsSold
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Units Combined History and Forecast' = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"Units Actual Monthly", #"Units Forecast Result"}),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"UnitsSold", Int64.Type}, {"ForecastValue", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

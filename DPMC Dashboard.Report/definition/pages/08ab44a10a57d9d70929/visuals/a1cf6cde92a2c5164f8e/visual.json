@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "a1cf6cde92a2c5164f8e",
   "position": {
-    "x": 932,
-    "y": 384,
+    "x": 974.468085106383,
+    "y": 661.70212765957456,
     "z": 25000,
-    "height": 177,
-    "width": 537,
+    "height": 176.59574468085108,
+    "width": 538.29787234042556,
     "tabOrder": 23000
   },
   "visual": {
@@ -107,23 +107,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
-                  }
-                },
-                "Property": "Target MoM % Change"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {
@@ -813,40 +796,6 @@
           }
         },
         "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "v",
-              "Entity": "VehicleTypeSelector",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 0,
-                  "Left": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "v"
-                        }
-                      },
-                      "Property": "Show In Last3Months"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "1L"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User"
       }
     ]

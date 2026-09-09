@@ -40,10 +40,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "KPI_Measures"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Total Bookings (MTD as of Selected Date)"
+                "Property": "Total Bookings"
               }
             },
             "direction": "Descending"

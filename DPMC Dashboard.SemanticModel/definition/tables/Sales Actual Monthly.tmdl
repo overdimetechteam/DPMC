@@ -1,0 +1,48 @@
+table 'Sales Actual Monthly'
+	lineageTag: 1b0b7bc4-2b17-473c-ac9b-d8b2de5a2832
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 95c80ea3-4cde-4676-8d2c-c140cf58236a
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SalesValue
+		dataType: double
+		lineageTag: 33f392e0-605f-4f01-b7bc-87c5b24e91ba
+		summarizeBy: sum
+		sourceColumn: SalesValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ForecastValue
+		dataType: double
+		lineageTag: c02c1ceb-451a-486a-a727-846d2473b801
+		summarizeBy: sum
+		sourceColumn: ForecastValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Sales Actual Monthly' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [Query="SELECT #(lf)    CONVERT(varchar(10), DATEFROMPARTS(YEAR(InvoiceDate), MONTH(InvoiceDate), 1), 23) AS InvoiceDate,#(lf)    SUM(InvoiceValue) AS SalesValue#(lf)FROM gold_dpmc_vs_2w3w4w_factsales#(lf)GROUP BY DATEFROMPARTS(YEAR(InvoiceDate), MONTH(InvoiceDate), 1)#(lf)ORDER BY 1;"]),
+				    #"Added Custom" = Table.AddColumn(Source, "ForecastValue", each null),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"InvoiceDate", type date}, {"ForecastValue", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

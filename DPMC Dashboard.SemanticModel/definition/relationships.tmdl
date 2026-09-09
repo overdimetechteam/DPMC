@@ -184,3 +184,29 @@ relationship c70e612c-ae79-4529-b091-7866c7202532
 	fromColumn: WorkingDayLookup.Date
 	toColumn: LocalDateTable_ac1e6156-bae0-424a-8346-f560214fab84.Date
 
+relationship AutoDetected_73b30f64-0ae1-4240-be50-02c283f7d097
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Sales Actual Monthly'.InvoiceDate
+	toColumn: 'Sales Combined History and Forecast'.InvoiceDate
+
+relationship ce4a9373-fd4c-4075-9bc5-7c5e9ee14626
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Sales Combined History and Forecast'.InvoiceDate
+	toColumn: LocalDateTable_93473800-aea4-4386-91ad-fc25685b3a8d.Date
+
+relationship f4ec78de-21fa-4a9e-b6a2-64f0b9af32ce
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Units Actual Monthly'.InvoiceDate
+	toColumn: LocalDateTable_d96c3b0a-8d31-42ac-a4c7-6106eebc4f55.Date
+
+relationship a5ec7ceb-0862-48e9-87de-990c7dc3c49c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Units Forecast Result'.InvoiceDate
+	toColumn: LocalDateTable_788bfc01-299a-453b-a885-d9c0e5e4eba7.Date
+
+relationship 03356283-cab0-481d-8f62-02141cde90fa
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Units Combined History and Forecast'.InvoiceDate
+	toColumn: LocalDateTable_f56ffb1c-398f-4c88-ab8a-17275c09805b.Date
+

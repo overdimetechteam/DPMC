@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d3fd821eed28e197fdd5",
   "position": {
     "x": 0,
-    "y": 80,
+    "y": 17,
     "z": 1500,
     "height": 225,
-    "width": 597.5,
+    "width": 598,
     "tabOrder": 0
   },
   "visual": {
@@ -130,10 +130,10 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "MonthsBackSelector"
+                    "Entity": "gold_dpmc_dimdate"
                   }
                 },
-                "Property": "MonthsBack"
+                "Property": "TheDayName"
               }
             },
             "direction": "Ascending"

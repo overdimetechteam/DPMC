@@ -1,0 +1,52 @@
+table 'Units Actual Monthly'
+	lineageTag: a0226c71-9b9e-408e-87bb-24648c001a2c
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2fbf4a3d-ef5d-4b11-8b8e-d94756d231c8
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		variation Variation
+			isDefault
+			relationship: f4ec78de-21fa-4a9e-b6a2-64f0b9af32ce
+			defaultHierarchy: LocalDateTable_d96c3b0a-8d31-42ac-a4c7-6106eebc4f55.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UnitsSold
+		dataType: int64
+		formatString: 0
+		lineageTag: b713e7b2-d465-4516-8a5d-956939e88019
+		summarizeBy: sum
+		sourceColumn: UnitsSold
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastValue
+		dataType: int64
+		formatString: 0
+		lineageTag: b8b49eb6-0054-48a8-afee-d811a256710a
+		summarizeBy: sum
+		sourceColumn: ForecastValue
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Units Actual Monthly' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [Query="SELECT #(lf)    CONVERT(varchar(10), DATEFROMPARTS(YEAR(InvoiceDate), MONTH(InvoiceDate), 1), 23) AS InvoiceDate,#(lf)    COUNT(DISTINCT ChassisNo) AS UnitsSold#(lf)FROM gold_dpmc_vs_2w3w4w_factsales#(lf)GROUP BY DATEFROMPARTS(YEAR(InvoiceDate), MONTH(InvoiceDate), 1)#(lf)ORDER BY 1;"]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"InvoiceDate", type date}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "ForecastValue", each null),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"ForecastValue", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

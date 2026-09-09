@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "VehicleTypeSelector.Stock Units",
-              "nativeQueryRef": "Stock Units"
+              "nativeQueryRef": "Stock Units",
+              "format": "0"
             }
           ]
         }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "5a37f6ea18ee6b9d8ad9",
   "position": {
-    "x": 289,
-    "y": 149,
+    "x": 312,
+    "y": 138,
     "z": 24000,
-    "height": 193,
-    "width": 254,
+    "height": 187,
+    "width": 216,
     "tabOrder": 21000
   },
   "visual": {
@@ -28,27 +28,12 @@
               },
               "queryRef": "VehicleTypeSelector.Sales (MTD as of Selected Date)",
               "nativeQueryRef": "Sales (MTD as of Selected Date)",
-              "format": " \"LKR \"#,##0.00\" M\""
+              "format": "0"
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "KPI_Measures"
-                  }
-                },
-                "Property": "Sales (MTD as of Selected Date)"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -507,23 +492,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "01bcdde0b0eda320d791",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "KPI_Measures"
-              }
-            },
-            "Property": "Sales (MTD as of Selected Date)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

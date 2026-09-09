@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock","gold_dpmc_vs_2w3w4w_competitorwisereg","Vw_dpmc_vs_DimDate","Vw_gold_dpmc_vs_2w3w_Thresholds","Sales Monthly History"]
+annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock","gold_dpmc_vs_2w3w4w_competitorwisereg","Vw_dpmc_vs_DimDate","Vw_gold_dpmc_vs_2w3w_Thresholds","Sales Monthly History","Sales Forecast Result","Sales Actual Monthly","Sales Combined History and Forecast","Units Actual Monthly","Units Forecast Result","Units Combined History and Forecast"]
 
 annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","TMDL-Extension"]
 
@@ -56,6 +56,15 @@ ref table 'Sales Monthly History'
 ref table MonthsBackSelector
 ref table WorkingDayLookup
 ref table LocalDateTable_ac1e6156-bae0-424a-8346-f560214fab84
+ref table 'Sales Actual Monthly'
+ref table 'Sales Combined History and Forecast'
+ref table LocalDateTable_93473800-aea4-4386-91ad-fc25685b3a8d
+ref table 'Units Actual Monthly'
+ref table LocalDateTable_d96c3b0a-8d31-42ac-a4c7-6106eebc4f55
+ref table 'Units Forecast Result'
+ref table LocalDateTable_788bfc01-299a-453b-a885-d9c0e5e4eba7
+ref table 'Units Combined History and Forecast'
+ref table LocalDateTable_f56ffb1c-398f-4c88-ab8a-17275c09805b
 
 ref cultureInfo en-US
 

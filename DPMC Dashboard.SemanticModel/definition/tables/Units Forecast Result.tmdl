@@ -1,0 +1,53 @@
+table 'Units Forecast Result'
+	lineageTag: 4ed81001-f05b-4eff-be82-4beb81c8bf47
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0e12b11f-1036-4261-b4d4-383242022cea
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		variation Variation
+			isDefault
+			relationship: a5ec7ceb-0862-48e9-87de-990c7dc3c49c
+			defaultHierarchy: LocalDateTable_788bfc01-299a-453b-a885-d9c0e5e4eba7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column UnitsSold
+		dataType: string
+		lineageTag: 8d5804f8-a10a-4f55-99e8-af514295d176
+		summarizeBy: none
+		sourceColumn: UnitsSold
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastValue
+		dataType: int64
+		lineageTag: aaae0fe2-ad55-45ad-b368-74b9ae6784f1
+		summarizeBy: sum
+		sourceColumn: ForecastValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Units Forecast Result' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [Query="SELECT #(lf)    CONVERT(varchar(10), DATEFROMPARTS(YEAR(InvoiceDate), MONTH(InvoiceDate), 1), 23) AS InvoiceDate,#(lf)    COUNT(DISTINCT ChassisNo) AS UnitsSold#(lf)FROM gold_dpmc_vs_2w3w4w_factsales#(lf)GROUP BY DATEFROMPARTS(YEAR(InvoiceDate), MONTH(InvoiceDate), 1)#(lf)ORDER BY 1;"]),
+				    #"Run Python script" = Python.Execute("# import os#(lf)os.environ['OPENBLAS_NUM_THREADS'] = '1'#(lf)os.environ['OMP_NUM_THREADS'] = '1'#(lf)os.environ['MKL_NUM_THREADS'] = '1'#(lf)#(lf)import pandas as pd#(lf)from statsmodels.tsa.holtwinters import ExponentialSmoothing#(lf)#(lf)df = dataset.copy()#(lf)df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])#(lf)df = df.sort_values('InvoiceDate').drop_duplicates(subset='InvoiceDate', keep='last')#(lf)df = df.set_index('InvoiceDate')#(lf)#(lf)# Force a continuous monthly calendar so seasonal_periods=12 always#(lf)# lines up with real calendar months, even if a month has no sales rows#(lf)df = df.asfreq('MS')#(lf)#(lf)# Safety net: drop the trailing row if it's the current, still-open month#(lf)today = pd.Timestamp.today().normalize()#(lf)current_month_start = today.replace(day=1)#(lf)if len(df) and df.index[-1] >= current_month_start:#(lf)    df = df.iloc[:-1]#(lf)#(lf)df['UnitsSold'] = df['UnitsSold'].fillna(0)#(lf)#(lf)# Multiplicative components break on zeros - fall back to additive if needed#(lf)has_zero = (df['UnitsSold'] == 0).any()#(lf)trend_type = 'add' if has_zero else 'mul'#(lf)seasonal_type = 'add' if has_zero else 'mul'#(lf)#(lf)model = ExponentialSmoothing(#(lf)    df['UnitsSold'],#(lf)    trend=trend_type,#(lf)    damped_trend=True,#(lf)    seasonal=seasonal_type,#(lf)    seasonal_periods=12,#(lf)    initialization_method='estimated'#(lf))#(lf)fitted_model = model.fit(optimized=True)#(lf)#(lf)forecast = fitted_model.forecast(steps=3)#(lf)forecast_df = pd.DataFrame({'ForecastValue': forecast}).reset_index().rename(columns={'index': 'InvoiceDate'})#(lf)",[dataset=Source]),
+				    forecast_df = #"Run Python script"{[Name="forecast_df"]}[Value],
+				    #"Changed Type" = Table.TransformColumnTypes(forecast_df,{{"InvoiceDate", type date}, {"ForecastValue", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "UnitsSold", each null)
+				in
+				    #"Added Custom"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "ac52da119b9cb29dafe3",
   "position": {
-    "x": 60,
-    "y": 1455,
-    "z": 11000,
-    "height": 373,
-    "width": 1395,
-    "tabOrder": 11000
+    "x": 48.936170212765958,
+    "y": 1457.4468085106384,
+    "z": 12000,
+    "height": 370.21276595744683,
+    "width": 1463.8297872340427,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "lineChart",
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                      "Entity": "Units Combined History and Forecast"
                     }
                   },
-                  "Property": "InvoiceMonth"
+                  "Property": "InvoiceDate"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.InvoiceMonth",
-              "nativeQueryRef": "InvoiceMonth",
+              "queryRef": "Units Combined History and Forecast.InvoiceDate",
+              "nativeQueryRef": "InvoiceDate",
               "active": true
             }
           ]
@@ -36,17 +36,41 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Units Combined History and Forecast"
+                        }
+                      },
+                      "Property": "UnitsSold"
                     }
                   },
-                  "Property": "Total Units Sold"
+                  "Function": 0
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
-              "nativeQueryRef": "Total Units Sold"
+              "queryRef": "Sum(Units Combined History and Forecast.UnitsSold)",
+              "nativeQueryRef": "Sum of UnitsSold"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Units Combined History and Forecast"
+                        }
+                      },
+                      "Property": "ForecastValue"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Units Combined History and Forecast.ForecastValue)",
+              "nativeQueryRef": "Sum of ForecastValue"
             }
           ]
         }
@@ -92,6 +116,13 @@
                   }
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -122,28 +153,14 @@
                   }
                 }
               }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 6,
-                      "Percent": 0
-                    }
-                  }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold"
           }
         }
       ],
@@ -175,11 +192,32 @@
                   }
                 }
               }
+            },
+            "areaShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
+          }
+        },
+        {
+          "properties": {
+            "lineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(Units Combined History and Forecast.ForecastValue)"
           }
         }
       ],
-      "forecast": [
+      "legend": [
         {
           "properties": {
             "show": {
@@ -188,47 +226,20 @@
                   "Value": "true"
                 }
               }
-            },
-            "displayName": {
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'Forecast 1'"
+                  "Value": "false"
                 }
               }
-            },
-            "transform": {
-              "algorithm": "Forecast",
-              "parameters": [
-                {
-                  "Literal": {
-                    "Value": "7D"
-                  },
-                  "Name": "Unit"
-                },
-                {
-                  "Literal": {
-                    "Value": "10D"
-                  },
-                  "Name": "ForecastLength"
-                },
-                {
-                  "Literal": {
-                    "Value": "0D"
-                  },
-                  "Name": "IgnoreLast"
-                },
-                {
-                  "Literal": {
-                    "Value": "0.95D"
-                  },
-                  "Name": "ConfidenceLevel"
-                }
-              ]
             }
-          },
-          "selector": {
-            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
-            "id": "1"
           }
         }
       ]
@@ -255,6 +266,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'UnitsSold and Sum of ForecastValue by InvoiceDate'"
                 }
               }
             }
