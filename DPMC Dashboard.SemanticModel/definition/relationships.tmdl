@@ -184,11 +184,6 @@ relationship e142fb57-ebbe-4511-959c-97ebc728dd9b
 	fromColumn: MonthsWithTargetTable.TheFirstOfMonth
 	toColumn: LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077.Date
 
-relationship c70e612c-ae79-4529-b091-7866c7202532
-	joinOnDateBehavior: datePartOnly
-	fromColumn: WorkingDayLookup.Date
-	toColumn: LocalDateTable_ac1e6156-bae0-424a-8346-f560214fab84.Date
-
 relationship AutoDetected_73b30f64-0ae1-4240-be50-02c283f7d097
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
