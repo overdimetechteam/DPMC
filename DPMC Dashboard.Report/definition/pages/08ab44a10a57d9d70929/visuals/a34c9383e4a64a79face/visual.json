@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "a34c9383e4a64a79face",
   "position": {
     "x": 299.06722689075627,
@@ -20,14 +20,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "Measures_Table"
                     }
                   },
-                  "Property": "Stock Units"
+                  "Property": "Current Stock"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Stock Units",
-              "nativeQueryRef": "Stock Units"
+              "queryRef": "Measures_Table.Current Stock",
+              "nativeQueryRef": "Current Stock"
             }
           ]
         }
@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "Measures_Table"
                   }
                 },
-                "Property": "Stock Units"
+                "Property": "Current Stock"
               }
             },
             "direction": "Descending"
