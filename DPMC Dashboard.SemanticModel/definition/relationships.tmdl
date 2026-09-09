@@ -174,13 +174,13 @@ relationship ecc4bcf9-c01a-3bca-490d-c8ae6b3f0b2e
 	fromColumn: BranchMonthTarget.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
-relationship e142fb57-ebbe-4511-959c-97ebc728dd9b
-	joinOnDateBehavior: datePartOnly
-	fromColumn: MonthsWithTargetTable.TheFirstOfMonth
-	toColumn: LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077.Date
-
 relationship c70e612c-ae79-4529-b091-7866c7202532
 	joinOnDateBehavior: datePartOnly
 	fromColumn: WorkingDayLookup.Date
 	toColumn: LocalDateTable_ac1e6156-bae0-424a-8346-f560214fab84.Date
+
+relationship e142fb57-ebbe-4511-959c-97ebc728dd9b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: MonthsWithTargetTable.TheFirstOfMonth
+	toColumn: LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077.Date
 

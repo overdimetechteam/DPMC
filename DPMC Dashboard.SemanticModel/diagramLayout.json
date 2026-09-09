@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2925.1355235691535,
+        "x": 2926.0484732589039,
         "y": 0
       },
       "nodes": [
@@ -386,6 +386,26 @@
           },
           "nodeIndex": "WorkingDayLookup",
           "nodeLineageTag": "917ed96c-66b9-4ec9-94ae-bc7d416e925b",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "KPI_Measures",
+          "nodeLineageTag": "c6df2a79-aef8-4dfb-8015-789bdb9cdb52",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Sales Monthly History",
+          "nodeLineageTag": "75591fc9-086f-4670-87cd-deb93de974be",
           "size": {
             "height": 128,
             "width": 234
