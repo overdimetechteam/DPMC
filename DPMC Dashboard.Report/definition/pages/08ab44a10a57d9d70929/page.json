@@ -195,7 +195,7 @@
           "width": {
             "expr": {
               "Literal": {
-                "Value": "234L"
+                "Value": "270L"
               }
             }
           }
@@ -450,22 +450,22 @@
     {
       "source": "b92dff40b140385ff9d1",
       "target": "308a376300bc31e3b5e1",
-      "type": "NoFilter"
+      "type": "DataFilter"
     },
     {
       "source": "b92dff40b140385ff9d1",
       "target": "45765acd9b6431dc30e2",
-      "type": "NoFilter"
+      "type": "DataFilter"
     },
     {
       "source": "b92dff40b140385ff9d1",
       "target": "4161c80d3db6703e5941",
-      "type": "NoFilter"
+      "type": "DataFilter"
     },
     {
       "source": "b92dff40b140385ff9d1",
       "target": "7766a3587158d39be2cf",
-      "type": "NoFilter"
+      "type": "DataFilter"
     },
     {
       "source": "b92dff40b140385ff9d1",

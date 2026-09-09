@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "KPI_Measures"
                     }
                   },
-                  "Property": "Target (Selected)"
+                  "Property": "Target (Selected Month)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Target (Selected)",
-              "nativeQueryRef": "Target (Selected)"
+              "queryRef": "KPI_Measures.Target (Selected Month)",
+              "nativeQueryRef": "Target (Selected Month)"
             },
             {
               "field": {
@@ -56,11 +56,12 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Achievement %"
+                  "Property": "Actual Units (MTD as of Selected Date)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Achievement %",
-              "nativeQueryRef": "Achievement %"
+              "queryRef": "VehicleTypeSelector.Actual Units (MTD as of Selected Date)",
+              "nativeQueryRef": "Achievement",
+              "displayName": "Achievement"
             }
           ]
         }
@@ -72,10 +73,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "KPI_Measures"
                   }
                 },
-                "Property": "Target (Selected)"
+                "Property": "Target (Selected Month)"
               }
             },
             "direction": "Descending"
@@ -134,45 +135,6 @@
                 }
               }
             }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0C4CA3'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Target (Selected)"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Achievement %"
           }
         }
       ],
@@ -347,7 +309,8 @@
             "Property": "Achievement %"
           }
         },
-        "type": "Advanced"
+        "type": "Advanced",
+        "howCreated": "User"
       },
       {
         "name": "35a6459a518a6bef7328",
@@ -362,7 +325,8 @@
             "Property": "Target (Selected)"
           }
         },
-        "type": "Advanced"
+        "type": "Advanced",
+        "howCreated": "User"
       },
       {
         "name": "ce6fc0ae3d8f6cf3e118",
@@ -481,6 +445,34 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "33d31ef77b1025120050",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KPI_Measures"
+              }
+            },
+            "Property": "Target (Selected Month)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "013d4e245e53aa5456e2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Actual Units (MTD as of Selected Date)"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"
