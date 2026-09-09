@@ -39,14 +39,14 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "KPI_Measures"
                     }
                   },
-                  "Property": "Target (Selected)"
+                  "Property": "Target (Selected Month)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Target (Selected)",
-              "nativeQueryRef": "Target (Selected)"
+              "queryRef": "KPI_Measures.Target (Selected Month)",
+              "nativeQueryRef": "Target (Selected Month)"
             },
             {
               "field": {
@@ -56,11 +56,12 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Achievement %"
+                  "Property": "Actual Units (MTD as of Selected Date)"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Achievement %",
-              "nativeQueryRef": "Achievement %"
+              "queryRef": "VehicleTypeSelector.Actual Units (MTD as of Selected Date)",
+              "nativeQueryRef": "Achievement",
+              "displayName": "Achievement"
             }
           ]
         }
@@ -72,10 +73,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "KPI_Measures"
                   }
                 },
-                "Property": "Target (Selected)"
+                "Property": "Target (Selected Month)"
               }
             },
             "direction": "Descending"
@@ -134,45 +135,6 @@
                 }
               }
             }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0C4CA3'"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Target (Selected)"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 5,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "VehicleTypeSelector.Achievement %"
           }
         }
       ],
@@ -433,6 +395,21 @@
               }
             }
           ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
         }
       },
       {
@@ -449,6 +426,34 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "30841d3a488ac42b0872",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KPI_Measures"
+              }
+            },
+            "Property": "Target (Selected Month)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5ea3f0a18884216bb026",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Actual Units (MTD as of Selected Date)"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

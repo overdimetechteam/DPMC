@@ -494,6 +494,30 @@ table VehicleTypeSelector
 			```
 		lineageTag: 85e84d08-3d65-4f41-b9d2-00e346acb69e
 
+	measure 'Measure 3'
+		lineageTag: 14aa5f5a-4375-4174-ae79-913950700046
+
+	measure 'Actual Units (MTD as of Selected Date)' =
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			RETURN
+			CALCULATE (
+			    [Actual Units],
+			    gold_dpmc_dimdate[TheDate] >= MonthStart,
+			    gold_dpmc_dimdate[TheDate] <= CutoffDate
+			)
+		formatString: 0
+		lineageTag: e44a7dbd-a69b-466c-bb21-10bad56b2e30
+
+	measure 'Achievement % (Selected Month)' =
+			
+			DIVIDE ( [Actual Units (MTD as of Selected Date)], [Target (Selected Month)], 0 ) * 100
+		lineageTag: e17a7627-e6c3-436a-895d-23a7f8a0db37
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd
 		summarizeBy: none

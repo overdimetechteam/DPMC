@@ -295,6 +295,27 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "vehicletypeselector.actual_units_mtd_as_of_selected_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Actual Units (MTD as of Selected Date)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Achievement": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}
