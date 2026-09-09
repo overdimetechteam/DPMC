@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "ac52da119b9cb29dafe3",
   "position": {
-    "x": 58,
-    "y": 1080,
-    "z": 5500,
-    "height": 373,
-    "width": 1395,
-    "tabOrder": 5000
+    "x": 64,
+    "y": 1456,
+    "z": 12000,
+    "height": 368,
+    "width": 1472,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "lineChart",
@@ -77,7 +77,7 @@
             "axisType": {
               "expr": {
                 "Literal": {
-                  "Value": "'Categorical'"
+                  "Value": "'Scalar'"
                 }
               }
             },
@@ -176,6 +176,59 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "forecast": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "displayName": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Forecast 1'"
+                }
+              }
+            },
+            "transform": {
+              "algorithm": "Forecast",
+              "parameters": [
+                {
+                  "Literal": {
+                    "Value": "7D"
+                  },
+                  "Name": "Unit"
+                },
+                {
+                  "Literal": {
+                    "Value": "10D"
+                  },
+                  "Name": "ForecastLength"
+                },
+                {
+                  "Literal": {
+                    "Value": "0D"
+                  },
+                  "Name": "IgnoreLast"
+                },
+                {
+                  "Literal": {
+                    "Value": "0.95D"
+                  },
+                  "Name": "ConfidenceLevel"
+                }
+              ]
+            }
+          },
+          "selector": {
+            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
+            "id": "1"
           }
         }
       ]
@@ -281,6 +334,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "parentGroupName": "a93f44a849dff002dc7b"
+  }
 }

@@ -432,6 +432,8 @@ table VehicleTypeSelector
 	measure 'Show In Last3Months' =
 			
 			VAR ThisMonth = SELECTEDVALUE ( gold_dpmc_dimdate[TheFirstOfMonth] )
+			VAR CurrentMonthStart = DATE ( YEAR ( TODAY () ), MONTH ( TODAY () ), 1 )
+			VAR IsCompletedMonth = ThisMonth < CurrentMonthStart
 			VAR HasTarget = NOT ISBLANK ( [Target (Selected)] )
 			VAR RankPosition =
 			    COUNTROWS (
@@ -441,9 +443,80 @@ table VehicleTypeSelector
 			        )
 			    )
 			RETURN
-			    IF ( HasTarget && RankPosition <= 3, 1, 0 )
+			    IF ( IsCompletedMonth && HasTarget && RankPosition <= 3, 1, 0 )
 		formatString: 0
 		lineageTag: a9a14a19-6682-4257-85cb-118752b65752
+
+	measure 'Sales Last Month (MTD)' = ```
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			VAR DaysElapsed = DAY ( SelectedDate ) - 1
+			VAR LastMonthStart = EDATE ( MonthStart, -1 )
+			VAR LastMonthCutoff = 
+			    MIN ( LastMonthStart + DaysElapsed - 1, EOMONTH ( LastMonthStart, 0 ) )
+			RETURN
+			    CALCULATE (
+			        [Sales Value (LKR M)],
+			        gold_dpmc_dimdate[TheDate] >= LastMonthStart,
+			        gold_dpmc_dimdate[TheDate] <= LastMonthCutoff
+			    )
+			```
+		lineageTag: a6e6469c-dfb4-44ef-b5e8-827e88387393
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target Display' = ```
+			
+			VAR PctChange = [Target MoM % Change]
+			VAR ValueText = FORMAT ( [Target (Selected)], "#,##0," ) & "K"
+			RETURN
+			    IF (
+			        ISBLANK ( PctChange ),
+			        ValueText,
+			        FORMAT ( PctChange, "0%" ) & " " & ValueText & " " & 
+			        UNICHAR ( IF ( PctChange >= 0, 9650, 9660 ) )
+			    )
+			```
+		lineageTag: c6ac1b11-bd0f-475c-b9ec-a298e7bdc2eb
+
+	measure 'Actual Units Display' = ```
+			
+			VAR PctChange = [Actual MoM % Change]
+			VAR ValueText = FORMAT ( [Actual Units], "#,##0" )
+			RETURN
+			    IF (
+			        ISBLANK ( PctChange ),
+			        ValueText,
+			        FORMAT ( PctChange, "0%" ) & " " & ValueText & " " & 
+			        UNICHAR ( IF ( PctChange >= 0, 9650, 9660 ) )
+			    )
+			```
+		lineageTag: 85e84d08-3d65-4f41-b9d2-00e346acb69e
+
+	measure 'Measure 3'
+		lineageTag: 14aa5f5a-4375-4174-ae79-913950700046
+
+	measure 'Actual Units (MTD as of Selected Date)' =
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			RETURN
+			CALCULATE (
+			    [Actual Units],
+			    gold_dpmc_dimdate[TheDate] >= MonthStart,
+			    gold_dpmc_dimdate[TheDate] <= CutoffDate
+			)
+		formatString: 0
+		lineageTag: e44a7dbd-a69b-466c-bb21-10bad56b2e30
+
+	measure 'Achievement % (Selected Month)' =
+			
+			DIVIDE ( [Actual Units (MTD as of Selected Date)], [Target (Selected Month)], 0 ) * 100
+		lineageTag: e17a7627-e6c3-436a-895d-23a7f8a0db37
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd

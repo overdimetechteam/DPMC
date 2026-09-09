@@ -79,7 +79,7 @@ table TopBottomSelector
 	measure 'Sort Basis RM' =
 			
 			VAR Sel = [Top Bottom]
-			RETURN IF(Sel = "Top", [Achievement %], -[Achievement %])
+			RETURN IF(Sel = "Top", [Achievement % (Selected Month)], -[Achievement % (Selected Month)])
 		lineageTag: a1fdcc72-ed3d-48da-87bc-38b74cd290f9
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -87,7 +87,7 @@ table TopBottomSelector
 	measure 'Sort Basis Branch' =
 			
 			VAR Sel = [Top Bottom]
-			RETURN IF(Sel = "Top", [Achievement %], -[Achievement %])
+			RETURN IF(Sel = "Top", [Achievement % (Selected Month)], -[Achievement % (Selected Month)])
 		lineageTag: 68d61e8a-3aaa-47f7-80bb-55521a967495
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -95,10 +95,32 @@ table TopBottomSelector
 	measure 'Sort Basis Regional Head' =
 			
 			VAR Sel = [Top Bottom]
-			RETURN IF(Sel = "Top", [Achievement %], -[Achievement %])
+			RETURN IF(Sel = "Top", [Achievement % (Selected Month)], -[Achievement % (Selected Month)])
 		lineageTag: 23b20b56-67d0-45ce-a1b3-a6cf7e2ad06c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Show Branch (Threshold)' =
+			
+			VAR Sel = [Top Bottom]
+			VAR Ach = [Achievement % (Selected Month)]
+			VAR Trg = [Target (Selected Month)]
+			VAR RankValue =
+			    RANKX(
+			        ALLSELECTED ( BranchMonthTarget[STR_BRANCH] ),
+			        [Achievement % (Selected Month)],
+			        ,
+			        DESC
+			    )
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Sel = "Top", IF ( RankValue <= 5, 1, 0 ),
+			    Sel = "Bottom", IF ( ISBLANK ( Trg ) || Trg = 0, 0, IF ( Ach < 10, 1, 0 ) ),
+			    0
+			)
+		formatString: 0
+		lineageTag: 97a4adbe-21e5-43c8-89b1-b0e03793e692
 
 	column Selection
 		lineageTag: 7108baf4-fdb8-4892-9814-05a5b491032e

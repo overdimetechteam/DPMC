@@ -10,7 +10,7 @@ table MonthsWithTargetTable
 
 		variation Variation
 			isDefault
-			relationship: ab186ad4-6fd3-49fb-b484-97c4dcb7ab9b
+			relationship: e142fb57-ebbe-4511-959c-97ebc728dd9b
 			defaultHierarchy: LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
@@ -33,7 +33,8 @@ table MonthsWithTargetTable
 				        VALUES ( gold_dpmc_dimdate[TheFirstOfMonth] ),
 				        "@HasTarget", CALCULATE ( [Target (Selected)] )
 				    ),
-				    NOT ISBLANK ( [@HasTarget] )
+				    NOT ISBLANK ( [@HasTarget] ) &&
+				    [TheFirstOfMonth] < DATE ( YEAR ( TODAY () ), MONTH ( TODAY () ), 1 )
 				)
 
 	annotation PBI_Id = 808501fe6f9b4760a9eb6f85e2378094

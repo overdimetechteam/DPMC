@@ -1,0 +1,39 @@
+table 'Sales Monthly History'
+	lineageTag: 75591fc9-086f-4670-87cd-deb93de974be
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2690e656-c8ed-4e55-9401-88acde0f5b83
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column InvoiceValue
+		dataType: double
+		sourceProviderType: decimal(18, 2)
+		lineageTag: 6d26cbda-bf3d-437b-83ad-70a41a33d56a
+		summarizeBy: sum
+		sourceColumn: InvoiceValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Sales Monthly History' = m
+		mode: directQuery
+		source =
+				let
+				    Source = gold_dpmc_vs_2w3w4w_factsales,
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"CompanySK", "DivisionSK", "PremiseSK", "ProductSK", "InquiryNo", "BookingNo", "InvoiceNo", "WorkshopNo", "InquiryDate", "DeliveryDate", "GRNDate", "ConfirmDate", "ChassisNo", "EngineNo", "VehicleNo", "InqType", "PaymentType", "AssemblyCategory", "DMT_LOADED_DATE", "INT_LOADED_DATE", "DMT_MONTH_END", "INT_MONTH_END"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
