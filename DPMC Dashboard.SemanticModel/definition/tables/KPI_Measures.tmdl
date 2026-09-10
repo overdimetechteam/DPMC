@@ -177,9 +177,9 @@ table KPI_Measures
 			VAR AchPctDisplay = FORMAT ( AchPct, "0%" )
 			VAR Circumference = 282.74
 			VAR ProgressLength = Circumference * AchPct
-			VAR ActualDisplay = "LKR " & FORMAT ( Actual, "#,##0.0" ) & "M"
-			VAR TargetDisplay = "LKR " & FORMAT ( Target, "#,##0.0" ) & "M"
-			VAR RemainingDisplay = "LKR " & FORMAT ( Remaining, "#,##0.0" ) & "M"
+			VAR ActualDisplay = FORMAT ( Actual, "#,##0" )
+			VAR TargetDisplay = FORMAT ( Target, "#,##0" )
+			VAR RemainingDisplay = FORMAT ( Remaining, "#,##0" )
 			RETURN
 			"<div style=" & Q & "display:flex;align-items:center;font-family:Segoe UI,sans-serif;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);" & Q & ">" &
 			  "<svg width=" & Q & "130" & Q & " height=" & Q & "130" & Q & " viewBox=" & Q & "0 0 100 100" & Q & ">" &

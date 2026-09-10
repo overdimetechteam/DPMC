@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "45765acd9b6431dc30e2",
   "position": {
     "x": 1010.9362668144348,
@@ -177,6 +177,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -396,34 +403,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "b162083914ddda07a3c5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "KPI_Measures"
-              }
-            },
-            "Property": "Target (Selected Month)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3a4de766ee0647114c71",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Actual Units (MTD as of Selected Date)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

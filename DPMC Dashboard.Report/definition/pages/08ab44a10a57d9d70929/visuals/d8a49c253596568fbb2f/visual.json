@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d8a49c253596568fbb2f",
   "position": {
     "x": 448.51260504201673,
-    "y": 2.8421709430404007E-14,
+    "y": 1.0000000000000284,
     "z": 4000,
     "height": 72,
     "width": 149.44537815126048,
@@ -271,6 +271,36 @@
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI_Measures.Delivery Notes (MTD as of Selected Date)"
           }
         }
       ]
