@@ -6,7 +6,8 @@
     "y": 64,
     "z": 1250,
     "height": 224,
-    "width": 566
+    "width": 566,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -874,6 +875,5 @@
         "howCreated": "User"
       }
     ]
-  },
-  "isHidden": true
+  }
 }

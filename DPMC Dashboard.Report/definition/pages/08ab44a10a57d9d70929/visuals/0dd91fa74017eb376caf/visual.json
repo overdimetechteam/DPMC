@@ -3,9 +3,9 @@
   "name": "0dd91fa74017eb376caf",
   "position": {
     "x": 64,
-    "y": 1456,
+    "y": 1455.9999999999998,
     "z": 14000,
-    "height": 368,
+    "height": 384.00000000000006,
     "width": 1472,
     "tabOrder": 2000
   },
@@ -356,6 +356,5 @@
         "howCreated": "User"
       }
     ]
-  },
-  "isHidden": true
+  }
 }

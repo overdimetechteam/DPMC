@@ -39,10 +39,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Measures_Table"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Current Stock"
+                "Property": "Stock Units"
               }
             },
             "direction": "Descending"
