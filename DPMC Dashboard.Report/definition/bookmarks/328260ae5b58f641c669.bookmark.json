@@ -465,61 +465,6 @@
               }
             }
           },
-          "46b68834b3a980140635": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "126076ff01173aa83cf8",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_dimdate"
-                        }
-                      },
-                      "Property": "TheMonthName"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_dimdate"
-                        }
-                      },
-                      "Property": "TheMonthName"
-                    }
-                  }
-                ]
-              }
-            }
-          },
           "4e19297466afefd11a95": {
             "filters": {
               "byExpr": [
