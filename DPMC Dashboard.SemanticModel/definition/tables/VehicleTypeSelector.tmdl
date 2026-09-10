@@ -160,17 +160,45 @@ table VehicleTypeSelector
 
 	measure 'Next Daily Target' = ```
 			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			VAR MonthEndDate = EOMONTH ( SelectedDate, 0 )
+			
 			VAR TargetUnits = 
-			    SUM(gold_dpmc_vs_2w3w_target[2WTarget]) + SUM(gold_dpmc_vs_2w3w_target[3WTarget])
+			    CALCULATE (
+			        SUM ( gold_dpmc_vs_2w3w_target[2WTarget] ) + SUM ( gold_dpmc_vs_2w3w_target[3WTarget] ),
+			        gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate
+			    )
+			
+			VAR BranchCodes = 
+			    CALCULATETABLE (
+			        VALUES ( gold_dpmc_vs_2w3w_target[STR_BRANCH] ),
+			        gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate
+			    )
+			
 			VAR ActualUnits = 
-			    CALCULATE(COUNTROWS(gold_dpmc_vs_2w3w4w_factsales))
+			    CALCULATE (
+			        DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factsales[ChassisNo] ),
+			        NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[InvoiceNo] ),
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate,
+			        TREATAS ( BranchCodes, gold_dpmc_vs_2w3w4w_dimpremises[PremiseCode] )
+			    )
+			
 			VAR RemainingDays = 
-			    [Remaining Working Days]
+			    CALCULATE (
+			        [Remaining Working Days],
+			        gold_dpmc_dimdate[TheDate] >= MonthStart,
+			        gold_dpmc_dimdate[TheDate] <= MonthEndDate
+			    )
+			
 			RETURN
-			DIVIDE(TargetUnits - ActualUnits, RemainingDays)
+			DIVIDE ( TargetUnits - ActualUnits, RemainingDays )
 			```
-		formatString: 0
 		lineageTag: 17022eed-0c87-467d-b840-fabbea6ff05c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Achievement = DIVIDE([Actual Units], [Target (Selected)])
 		lineageTag: b6ab4a27-3e54-4f15-aa20-a4b6a819c378
