@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d8a49c253596568fbb2f",
   "position": {
     "x": 448.51260504201673,
-    "y": 1.0000000000000284,
+    "y": 2.8421709430404014E-14,
     "z": 4000,
-    "height": 72,
-    "width": 149.44537815126048,
-    "tabOrder": 0
+    "height": 72.000000000000014,
+    "width": 133,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -294,7 +294,14 @@
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "-1D"
+                }
+              }
+            },
+            "customFormatString": {
+              "expr": {
+                "Literal": {
+                  "Value": "',0'"
                 }
               }
             }
@@ -361,6 +368,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Delivery Notes'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

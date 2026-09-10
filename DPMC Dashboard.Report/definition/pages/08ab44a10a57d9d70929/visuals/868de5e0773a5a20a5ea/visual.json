@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "868de5e0773a5a20a5ea",
   "position": {
-    "x": 153,
+    "x": 150,
     "y": 0,
     "z": 2000,
-    "height": 72,
+    "height": 72.000000000000014,
     "width": 133,
-    "tabOrder": 2000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -362,6 +362,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'GRNs'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

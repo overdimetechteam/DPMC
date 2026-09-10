@@ -3,9 +3,9 @@
   "name": "a34c9383e4a64a79face",
   "position": {
     "x": 299.06722689075627,
-    "y": 1.0000000000000284,
+    "y": 2.8421709430404014E-14,
     "z": 3000,
-    "height": 72,
+    "height": 72.000000000000014,
     "width": 133.71428571428569,
     "tabOrder": 1000
   },
@@ -361,6 +361,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Stock Units'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }
