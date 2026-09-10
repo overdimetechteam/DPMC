@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 2925.4778013425139,
+        "x": 941.29554053519371,
         "y": 0
       },
       "nodes": [
@@ -393,7 +393,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 5481.51281440216,
+            "y": 460.32383980322243
+          },
           "nodeIndex": "KPI_Measures",
           "nodeLineageTag": "c6df2a79-aef8-4dfb-8015-789bdb9cdb52",
           "size": {
@@ -403,7 +406,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 5765.51281440216,
+            "y": 546.32383980322243
+          },
           "nodeIndex": "Sales Monthly History",
           "nodeLineageTag": "75591fc9-086f-4670-87cd-deb93de974be",
           "size": {
@@ -413,7 +419,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 5247.51281440216,
+            "y": 484.32383980322243
+          },
           "nodeIndex": "Sales Actual Monthly",
           "nodeLineageTag": "1b0b7bc4-2b17-473c-ac9b-d8b2de5a2832",
           "size": {
@@ -423,7 +432,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 4963.51281440216,
+            "y": 484.32383980322243
+          },
           "nodeIndex": "Sales Combined History and Forecast",
           "nodeLineageTag": "b8cd53cf-5121-4850-aa0d-0c12a303718b",
           "size": {
@@ -433,7 +445,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 6049.51281440216,
+            "y": 534.32383980322243
+          },
           "nodeIndex": "Units Actual Monthly",
           "nodeLineageTag": "a0226c71-9b9e-408e-87bb-24648c001a2c",
           "size": {
@@ -443,7 +458,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 6333.51281440216,
+            "y": 534.32383980322243
+          },
           "nodeIndex": "Units Combined History and Forecast",
           "nodeLineageTag": "0ebfa92b-7ccf-4196-ae8a-82b457ff9e6d",
           "size": {
@@ -453,7 +471,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 6617.51281440216,
+            "y": 534.32383980322243
+          },
           "nodeIndex": "Units Forecast Result",
           "nodeLineageTag": "4ed81001-f05b-4eff-be82-4beb81c8bf47",
           "size": {

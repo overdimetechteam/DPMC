@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_dimproduct.STR_MODEL_DESC",
-              "nativeQueryRef": "STR_MODEL_DESC",
-              "active": true
+              "nativeQueryRef": "Model",
+              "active": true,
+              "displayName": "Model"
             }
           ]
         },
@@ -39,14 +40,15 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "AgeBucketTable"
                     }
                   },
-                  "Property": "Actual Units"
+                  "Property": "Model Wise Target"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Actual Units",
-              "nativeQueryRef": "Actual Units"
+              "queryRef": "AgeBucketTable.Model Wise Target",
+              "nativeQueryRef": "Target",
+              "displayName": "Target"
             },
             {
               "field": {
@@ -56,11 +58,12 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Model Wise Target (Proportional)"
+                  "Property": "Model Wise Actual Units"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Model Wise Target (Proportional)",
-              "nativeQueryRef": "Model Wise Target (Proportional)"
+              "queryRef": "VehicleTypeSelector.Model Wise Actual Units",
+              "nativeQueryRef": "Actual Units",
+              "displayName": "Actual Units"
             }
           ]
         }
@@ -72,10 +75,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "VehicleTypeSelector"
+                    "Entity": "AgeBucketTable"
                   }
                 },
-                "Property": "Target (Selected)"
+                "Property": "Model Wise Target"
               }
             },
             "direction": "Descending"

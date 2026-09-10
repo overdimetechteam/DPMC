@@ -164,12 +164,7 @@ table VehicleTypeSelector
 			VAR CutoffDate = SelectedDate - 1
 			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
 			VAR MonthEndDate = EOMONTH ( SelectedDate, 0 )
-			
-			VAR TargetUnits = 
-			    CALCULATE (
-			        SUM ( gold_dpmc_vs_2w3w_target[2WTarget] ) + SUM ( gold_dpmc_vs_2w3w_target[3WTarget] ),
-			        gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate
-			    )
+			VAR SelectedType = SELECTEDVALUE ( VehicleTypeSelector[Vehicle Type])
 			
 			VAR BranchCodes = 
 			    CALCULATETABLE (
@@ -177,13 +172,38 @@ table VehicleTypeSelector
 			        gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate
 			    )
 			
+			VAR TargetUnits = 
+			    SWITCH (
+			        SelectedType,
+			        "2W", CALCULATE ( SUM ( gold_dpmc_vs_2w3w_target[2WTarget] ), gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate ),
+			        "3W", CALCULATE ( SUM ( gold_dpmc_vs_2w3w_target[3WTarget] ), gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate ),
+			        CALCULATE ( SUM ( gold_dpmc_vs_2w3w_target[2WTarget] ) + SUM ( gold_dpmc_vs_2w3w_target[3WTarget] ), gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate )
+			    )
+			
 			VAR ActualUnits = 
-			    CALCULATE (
-			        DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factsales[ChassisNo] ),
-			        NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[InvoiceNo] ),
-			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
-			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate,
-			        TREATAS ( BranchCodes, gold_dpmc_vs_2w3w4w_dimpremises[PremiseCode] )
+			    SWITCH (
+			        SelectedType,
+			        "2W", CALCULATE (
+			                  COUNTROWS ( gold_dpmc_vs_2w3w4w_factsales ),
+			                  gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] = "2 WHEELERS",
+			                  gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
+			                  gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate,
+			                  TREATAS ( BranchCodes, gold_dpmc_vs_2w3w4w_dimpremises[PremiseCode] )
+			              ),
+			        "3W", CALCULATE (
+			                  COUNTROWS ( gold_dpmc_vs_2w3w4w_factsales ),
+			                  gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] = "3 WHEELERS",
+			                  gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
+			                  gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate,
+			                  TREATAS ( BranchCodes, gold_dpmc_vs_2w3w4w_dimpremises[PremiseCode] )
+			              ),
+			        CALCULATE (
+			            COUNTROWS ( gold_dpmc_vs_2w3w4w_factsales ),
+			            gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] IN { "2 WHEELERS", "3 WHEELERS" },
+			            gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
+			            gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate,
+			            TREATAS ( BranchCodes, gold_dpmc_vs_2w3w4w_dimpremises[PremiseCode] )
+			        )
 			    )
 			
 			VAR RemainingDays = 
@@ -410,16 +430,28 @@ table VehicleTypeSelector
 			& "</div>"
 		lineageTag: 98965685-cba9-463e-86dc-6208e7fb5a8a
 
-	measure 'Model Wise Target (Proportional)' =
+	measure 'Model Wise Actual Units' = ```
 			
-			VAR ModelActual =
-			    [Actual Units]
-			VAR TotalActualInContext =
-			    CALCULATE ( [Actual Units], ALLSELECTED ( gold_dpmc_vs_2w3w4w_dimproduct[STR_MODEL_DESC] ) )
-			VAR TotalTarget =
-			    [Target (Selected)]
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			VAR MonthEndDate = EOMONTH ( SelectedDate, 0 )
+			
+			VAR BranchCodes = 
+			    CALCULATETABLE (
+			        VALUES ( gold_dpmc_vs_2w3w_target[STR_BRANCH] ),
+			        gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate
+			    )
+			
 			RETURN
-			    DIVIDE ( ModelActual, TotalActualInContext ) * TotalTarget
+			CALCULATE (
+			    DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factsales[ChassisNo] ),
+			    NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[InvoiceNo] ),
+			    gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
+			    gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate,
+			    TREATAS ( BranchCodes, gold_dpmc_vs_2w3w4w_dimpremises[PremiseCode] )
+			)
+			```
 		formatString: 0
 		lineageTag: 20c7aaa8-85ef-4854-b7bd-4bb3969854a7
 
