@@ -316,6 +316,69 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "agebuckettable.model_wise_target": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "AgeBucketTable",
+			          "ConceptualProperty": "Model Wise Target"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "vehicletypeselector.model_wise_actual_units": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "VehicleTypeSelector",
+			          "ConceptualProperty": "Model Wise Actual Units"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual Units": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "gold_dpmc_vs_2w3w4w_dimproduct.str_model_desc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "gold_dpmc_vs_2w3w4w_dimproduct",
+			          "ConceptualProperty": "STR_MODEL_DESC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Model": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}

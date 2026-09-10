@@ -29,6 +29,44 @@ table AgeBucketTable
 
 		formatStringDefinition = "+0.0%;-0.0%;0.0%"
 
+	measure 'Model Wise Target' = ```
+			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
+			VAR MonthEndDate = EOMONTH ( SelectedDate, 0 )
+			VAR ModelLine = SELECTEDVALUE ( gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC])
+			
+			VAR BranchCodes = 
+			    CALCULATETABLE (
+			        VALUES ( gold_dpmc_vs_2w3w_target[STR_BRANCH] ),
+			        gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate
+			    )
+			
+			VAR LineTarget = 
+			    SWITCH (
+			        ModelLine,
+			        "2 WHEELERS", CALCULATE ( SUM ( gold_dpmc_vs_2w3w_target[2WTarget] ), gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate ),
+			        "3 WHEELERS", CALCULATE ( SUM ( gold_dpmc_vs_2w3w_target[3WTarget] ), gold_dpmc_vs_2w3w_target[DATE] = MonthEndDate ),
+			        BLANK ()
+			    )
+			
+			VAR ModelActual = [Model Wise Actual Units]
+			
+			VAR LineTotalActual = 
+			    CALCULATE (
+			        [Model Wise Actual Units],
+			        ALLSELECTED ( gold_dpmc_vs_2w3w4w_dimproduct[STR_MODEL_DESC] ),
+			        gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] = ModelLine
+			    )
+			
+			RETURN
+			DIVIDE ( ModelActual, LineTotalActual ) * LineTarget
+			```
+		lineageTag: 465f2902-d160-46be-89e9-382dd9641bd8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column ChassisNo
 		lineageTag: 8567da71-08e9-49b1-9b8e-8729fd479d0a
 		summarizeBy: none
