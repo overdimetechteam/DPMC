@@ -45,8 +45,8 @@ table KPI_Measures
 			RETURN
 			    CALCULATE (
 			        [Sales Value (LKR M)],
-			        gold_dpmc_dimdate[TheDate] >= MonthStart,
-			        gold_dpmc_dimdate[TheDate] <= CutoffDate
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate
 			    )
 		lineageTag: 1def8ade-7bb7-4d24-9380-9e6e270fa03f
 
@@ -169,10 +169,19 @@ table KPI_Measures
 
 	measure 'Sales Achievement Ring HTML' =
 			
+			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
+			VAR CutoffDate = SelectedDate - 1
+			VAR MonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
 			VAR Q = UNICHAR ( 34 )
-			VAR Actual = [Sales (MTD as of Selected Date)]
+			VAR Actual =
+			    CALCULATE (
+			        DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factsales[ChassisNo] ),
+			        NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[InvoiceNo] ),
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= MonthStart,
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= CutoffDate
+			    )
 			VAR Target = [Target (Selected Month)]
-			VAR Remaining = [Remaining Target (MTD as of Selected Date)]
+			VAR Remaining = Target - Actual
 			VAR AchPct = DIVIDE ( Actual, Target )
 			VAR AchPctDisplay = FORMAT ( AchPct, "0%" )
 			VAR Circumference = 282.74
@@ -189,11 +198,11 @@ table KPI_Measures
 			    "<text x=" & Q & "50" & Q & " y=" & Q & "62" & Q & " text-anchor=" & Q & "middle" & Q & " font-size=" & Q & "8" & Q & " fill=" & Q & "#6b7280" & Q & ">of target</text>" &
 			  "</svg>" &
 			  "<div style=" & Q & "margin-left:20px;" & Q & ">" &
-			    "<div style=" & Q & "font-size:12px;color:#6b7280;font-weight:600;letter-spacing:0.5px;" & Q & ">TOTAL SALES</div>" &
+			    "<div style=" & Q & "font-size:12px;color:#6b7280;font-weight:600;letter-spacing:0.5px;" & Q & ">TOTAL UNITS SOLD</div>" &
 			    "<div style=" & Q & "font-size:26px;font-weight:bold;color:#111827;margin-bottom:8px;" & Q & ">" & ActualDisplay & "</div>" &
 			    "<div style=" & Q & "border-top:1px solid #e5e7eb;padding-top:8px;font-size:12px;" & Q & ">" &
-			      "<div style=" & Q & "display:flex;justify-content:space-between;color:#6b7280;" & Q & "><span>TARGET</span><span style=" & Q & "color:#111827;font-weight:600;" & Q & ">" & TargetDisplay & "</span></div>" &
-			      "<div style=" & Q & "display:flex;justify-content:space-between;color:#6b7280;margin-top:4px;" & Q & "><span>REMAINING</span><span style=" & Q & "color:#111827;font-weight:600;" & Q & ">" & RemainingDisplay & "</span></div>" &
+			      "<div style=" & Q & "display:flex;justify-content:space-between;color:#6b7280;" & Q & "><span>TARGET </span><span style=" & Q & "color:#111827;font-weight:600;" & Q & ">" & TargetDisplay & "</span></div>" &
+			      "<div style=" & Q & "display:flex;justify-content:space-between;color:#6b7280;margin-top:4px;" & Q & "><span>REMAINING </span><span style=" & Q & "color:#111827;font-weight:600;" & Q & ">" & RemainingDisplay & "</span></div>" &
 			    "</div>" &
 			  "</div>" &
 			"</div>"

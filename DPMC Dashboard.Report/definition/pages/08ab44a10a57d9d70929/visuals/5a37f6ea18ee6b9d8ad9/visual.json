@@ -28,7 +28,7 @@
               },
               "queryRef": "VehicleTypeSelector.Sales (MTD as of Selected Date)",
               "nativeQueryRef": "Sales (MTD as of Selected Date)",
-              "format": "0"
+              "format": "   #,##0\" M\""
             }
           ]
         }
