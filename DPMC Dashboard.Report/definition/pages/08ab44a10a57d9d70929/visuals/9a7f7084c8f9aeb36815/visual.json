@@ -266,5 +266,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a9913a2b04de01ca9200",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w_target"
+              }
+            },
+            "Property": "Product_Owner"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

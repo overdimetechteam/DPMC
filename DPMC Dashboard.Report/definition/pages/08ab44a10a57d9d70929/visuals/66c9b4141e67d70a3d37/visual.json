@@ -299,5 +299,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "dc928f24149436f417da"
+  "parentGroupName": "dc928f24149436f417da",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e0ef27bd38c401424120",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w_target"
+              }
+            },
+            "Property": "SRM"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
 }
