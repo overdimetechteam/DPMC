@@ -491,8 +491,9 @@ table VehicleTypeSelector
 
 	measure 'Show In Last3Months' =
 			
+			VAR SelectedDate = COALESCE ( SELECTEDVALUE ( AsOfDateSelector[SelectedDate] ), TODAY () )
 			VAR ThisMonth = SELECTEDVALUE ( gold_dpmc_dimdate[TheFirstOfMonth] )
-			VAR CurrentMonthStart = DATE ( YEAR ( TODAY () ), MONTH ( TODAY () ), 1 )
+			VAR CurrentMonthStart = DATE ( YEAR ( SelectedDate ), MONTH ( SelectedDate ), 1 )
 			VAR IsCompletedMonth = ThisMonth < CurrentMonthStart
 			VAR HasTarget = NOT ISBLANK ( [Target (Selected)] )
 			VAR RankPosition =
@@ -554,9 +555,6 @@ table VehicleTypeSelector
 			```
 		lineageTag: 85e84d08-3d65-4f41-b9d2-00e346acb69e
 
-	measure 'Measure 3'
-		lineageTag: 14aa5f5a-4375-4174-ae79-913950700046
-
 	measure 'Actual Units (MTD as of Selected Date)' =
 			
 			VAR SelectedDate = SELECTEDVALUE ( AsOfDateSelector[SelectedDate] )
@@ -577,6 +575,28 @@ table VehicleTypeSelector
 		lineageTag: e17a7627-e6c3-436a-895d-23a7f8a0db37
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Actual Units Trend' = ```
+			
+			VAR CurrentMonthDate = SELECTEDVALUE ( gold_dpmc_dimdate[MonthDate] )  -- swap for your actual month field
+			VAR PrevMonthDate = EDATE ( CurrentMonthDate, -1 )
+			VAR PrevMonthEnd = EOMONTH ( PrevMonthDate, 0 )
+			VAR PrevMonthStart = DATE ( YEAR ( PrevMonthDate ), MONTH ( PrevMonthDate ), 1 )
+			
+			VAR CurrentActual = [Actual Units]  -- your existing measure for this row's month
+			
+			VAR PreviousActual = 
+			    CALCULATE (
+			        DISTINCTCOUNT ( gold_dpmc_vs_2w3w4w_factsales[ChassisNo] ),
+			        NOT ISBLANK ( gold_dpmc_vs_2w3w4w_factsales[InvoiceNo] ),
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] >= PrevMonthStart,
+			        gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] <= PrevMonthEnd
+			    )
+			
+			RETURN
+			SIGN ( CurrentActual - PreviousActual )
+			```
+		lineageTag: 7190fc0a-6d48-4871-ab2d-72e010cc68c2
 
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd

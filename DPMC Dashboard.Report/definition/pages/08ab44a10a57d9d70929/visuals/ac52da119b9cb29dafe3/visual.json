@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "ac52da119b9cb29dafe3",
   "position": {
-    "x": 64,
-    "y": 1456,
+    "x": 65,
+    "y": 1455,
     "z": 12000,
     "height": 368,
     "width": 1472,
-    "tabOrder": 9000
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "lineChart",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Units Combined History and Forecast"
+                      "Entity": "gold_dpmc_2w3w_forecast_units"
                     }
                   },
                   "Property": "InvoiceDate"
                 }
               },
-              "queryRef": "Units Combined History and Forecast.InvoiceDate",
+              "queryRef": "gold_dpmc_2w3w_forecast_units.InvoiceDate",
               "nativeQueryRef": "InvoiceDate",
               "active": true
             }
@@ -41,7 +41,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Units Combined History and Forecast"
+                          "Entity": "gold_dpmc_2w3w_forecast_units"
                         }
                       },
                       "Property": "UnitsSold"
@@ -50,9 +50,8 @@
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(Units Combined History and Forecast.UnitsSold)",
-              "nativeQueryRef": "Sum of UnitsSold",
-              "displayName": "Units Sold"
+              "queryRef": "CountNonNull(gold_dpmc_2w3w_forecast_units.UnitsSold)",
+              "nativeQueryRef": "Sum of UnitsSold"
             },
             {
               "field": {
@@ -61,7 +60,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "Units Combined History and Forecast"
+                          "Entity": "gold_dpmc_2w3w_forecast_units"
                         }
                       },
                       "Property": "ForecastValue"
@@ -70,7 +69,7 @@
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(Units Combined History and Forecast.ForecastValue)",
+              "queryRef": "Sum(gold_dpmc_2w3w_forecast_units.ForecastValue)",
               "nativeQueryRef": "Sum of ForecastValue"
             }
           ]
@@ -201,20 +200,6 @@
                 }
               }
             }
-          }
-        },
-        {
-          "properties": {
-            "lineStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'dashed'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(Units Combined History and Forecast.ForecastValue)"
           }
         }
       ],
@@ -422,5 +407,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }

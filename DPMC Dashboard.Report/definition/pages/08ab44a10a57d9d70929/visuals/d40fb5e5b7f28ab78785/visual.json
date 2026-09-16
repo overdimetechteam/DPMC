@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d40fb5e5b7f28ab78785",
   "position": {
     "x": 649,
@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 433,
     "width": 881,
-    "tabOrder": 16000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w_target.Product_Owner",
-              "nativeQueryRef": "Product_Owner",
-              "active": true
+              "nativeQueryRef": "Regional Manager",
+              "active": true,
+              "displayName": "Regional Manager"
             }
           ]
         },

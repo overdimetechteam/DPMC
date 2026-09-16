@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock","gold_dpmc_vs_2w3w4w_competitorwisereg","Vw_dpmc_vs_DimDate","Vw_gold_dpmc_vs_2w3w_Thresholds","Sales Monthly History","Sales Forecast Result","Sales Actual Monthly","Sales Combined History and Forecast","Units Actual Monthly","Units Forecast Result","Units Combined History and Forecast"]
+annotation PBI_QueryOrder = ["gold_dpmc_dimdate","gold_dpmc_vs_2w3w_target","gold_dpmc_vs_2w3w4w_dimcompany","gold_dpmc_vs_2w3w4w_dimdivision","gold_dpmc_vs_2w3w4w_dimpremises","gold_dpmc_vs_2w3w4w_dimproduct","gold_dpmc_vs_2w3w4w_factdeliverynotes","gold_dpmc_vs_2w3w4w_factgrndetails","gold_dpmc_vs_2w3w4w_factinquiry","gold_dpmc_vs_2w3w4w_factsales","gold_dpmc_vs_2w3w4w_factstock","gold_dpmc_vs_2w3w4w_competitorwisereg","Vw_dpmc_vs_DimDate","Vw_gold_dpmc_vs_2w3w_Thresholds","Sales Forecast Result","Sales Monthly History","Sales Forecast","Sales history and forecast","gold_dpmc_2w3w_forecast_units_1","gold_dpmc_2w3w_forecast_units","gold_dpmc_2w3w_forecast_sales_1"]
 
 annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","TMDL-Extension"]
 
@@ -40,7 +40,6 @@ ref table LocalDateTable_d894c362-d534-44dc-a835-432c84bfc2a0
 ref table MonthBridge
 ref table LocalDateTable_51815c0f-adc3-4045-9491-1eb4203b692f
 ref table AsOfDateSelector
-ref table LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9
 ref table AgeBucketTable
 ref table LocalDateTable_63b5c2f2-4696-4366-9928-76ed2c56c027
 ref table Vw_gold_dpmc_vs_2w3w_Thresholds
@@ -50,21 +49,24 @@ ref table LocalDateTable_195cf829-2185-4b05-a5b5-371797f09edb
 ref table LocalDateTable_8cb1b4ba-025c-4197-b3a7-88c5c694a686
 ref table AlertThresholds
 ref table MonthsWithTargetTable
+ref table KPI_Measures
 ref table LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077
 ref table MonthsBackSelector
 ref table WorkingDayLookup
 ref table LocalDateTable_ac1e6156-bae0-424a-8346-f560214fab84
-ref table KPI_Measures
 ref table 'Sales Monthly History'
-ref table 'Sales Actual Monthly'
-ref table 'Sales Combined History and Forecast'
-ref table LocalDateTable_93473800-aea4-4386-91ad-fc25685b3a8d
-ref table 'Units Actual Monthly'
-ref table LocalDateTable_d96c3b0a-8d31-42ac-a4c7-6106eebc4f55
-ref table 'Units Forecast Result'
-ref table LocalDateTable_788bfc01-299a-453b-a885-d9c0e5e4eba7
-ref table 'Units Combined History and Forecast'
-ref table LocalDateTable_f56ffb1c-398f-4c88-ab8a-17275c09805b
+ref table 'Sales Forecast'
+ref table LocalDateTable_4a6320ee-93ec-41b5-8828-d69ba047a965
+ref table 'Sales history and forecast'
+ref table LocalDateTable_0c2f76a0-79b5-4bd0-995a-0cd4d56f656b
+ref table LocalDateTable_05d5e813-3e4f-49da-9e6c-6f6d82e9473b
+ref table LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9
+ref table gold_dpmc_2w3w_forecast_units_1
+ref table LocalDateTable_f2b5d2c9-bbf0-4665-8b67-7b8b2ac2c734
+ref table gold_dpmc_2w3w_forecast_units
+ref table LocalDateTable_17f4a05f-89d3-483f-8dd2-0055821c7a9f
+ref table gold_dpmc_2w3w_forecast_sales_1
+ref table LocalDateTable_b71c0ebb-d6be-42a7-b6ca-598719569255
 
 ref cultureInfo en-US
 

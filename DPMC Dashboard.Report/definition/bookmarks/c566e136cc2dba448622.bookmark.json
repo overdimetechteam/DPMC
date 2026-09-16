@@ -3,7 +3,11 @@
   "displayName": "Monthly View",
   "name": "c566e136cc2dba448622",
   "options": {
-    "targetVisualNames": []
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "ac52da119b9cb29dafe3",
+      "0dd91fa74017eb376caf"
+    ]
   },
   "explorationState": {
     "version": "1.3",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "239bd455441472c7a386",
   "position": {
     "x": 45.282254431153206,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_factinquiry.Days Pending Bucket",
-              "nativeQueryRef": "Days Pending Bucket",
-              "active": true
+              "nativeQueryRef": "Pending Days Bucket",
+              "active": true,
+              "displayName": "Pending Days Bucket"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "Measures_Table.Pending Bookings New",
-              "nativeQueryRef": "Pending Bookings New"
+              "nativeQueryRef": "Pending Bookings",
+              "displayName": "Pending Bookings"
             }
           ]
         }

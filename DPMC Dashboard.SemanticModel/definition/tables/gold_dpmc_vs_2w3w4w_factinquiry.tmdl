@@ -88,7 +88,7 @@ table gold_dpmc_vs_2w3w4w_factinquiry
 
 	column InquiryDate
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
 		sourceProviderType: datetime2
 		lineageTag: cd907bc6-09c5-4bfa-ac19-7f7a2f9814c3
 		summarizeBy: none

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "4161c80d3db6703e5941",
   "position": {
     "x": 0,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "BranchMonthTarget.Product_Owner",
-              "nativeQueryRef": "Product_Owner",
-              "active": true
+              "nativeQueryRef": "Regional Manager",
+              "active": true,
+              "displayName": "Regional Manager"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "KPI_Measures.Target (Selected Month)",
-              "nativeQueryRef": "Target (Selected Month)"
+              "nativeQueryRef": "Target",
+              "displayName": "Target"
             },
             {
               "field": {

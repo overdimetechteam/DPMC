@@ -3,7 +3,11 @@
   "displayName": "Daily View",
   "name": "852757b4357f8f3abb3c",
   "options": {
-    "targetVisualNames": []
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "ac52da119b9cb29dafe3",
+      "0dd91fa74017eb376caf"
+    ]
   },
   "explorationState": {
     "version": "1.3",

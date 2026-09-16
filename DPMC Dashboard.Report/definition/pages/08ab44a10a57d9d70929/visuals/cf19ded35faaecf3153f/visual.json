@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cf19ded35faaecf3153f",
   "position": {
     "x": 647.66666666666674,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 352,
     "width": 448.00000000000006,
-    "tabOrder": 15000
+    "tabOrder": 16000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -48,7 +48,8 @@
               },
               "queryRef": "AgeBucketTable.Model Wise Target",
               "nativeQueryRef": "Target",
-              "displayName": "Target"
+              "displayName": "Target",
+              "format": "0"
             },
             {
               "field": {
@@ -63,7 +64,8 @@
               },
               "queryRef": "VehicleTypeSelector.Model Wise Actual Units",
               "nativeQueryRef": "Actual Units",
-              "displayName": "Actual Units"
+              "displayName": "Actual Units",
+              "format": "0"
             }
           ]
         }
@@ -75,10 +77,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "AgeBucketTable"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Model Wise Target"
+                "Property": "Target (Selected)"
               }
             },
             "direction": "Descending"

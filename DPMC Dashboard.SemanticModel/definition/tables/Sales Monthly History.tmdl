@@ -1,39 +1,59 @@
 table 'Sales Monthly History'
-	lineageTag: 75591fc9-086f-4670-87cd-deb93de974be
+	lineageTag: eda7a038-2bdb-4fc8-bab9-05325ce4281a
 
 	column InvoiceDate
 		dataType: dateTime
 		formatString: Long Date
-		sourceProviderType: date
-		lineageTag: 2690e656-c8ed-4e55-9401-88acde0f5b83
+		lineageTag: b932d16c-924b-449d-966e-cfb4056bb336
 		summarizeBy: none
 		sourceColumn: InvoiceDate
+
+		variation Variation
+			isDefault
+			relationship: fe3b955a-6426-4c2d-850a-d80d701b0853
+			defaultHierarchy: LocalDateTable_05d5e813-3e4f-49da-9e6c-6f6d82e9473b.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column InvoiceValue
-		dataType: double
-		sourceProviderType: decimal(18, 2)
-		lineageTag: 6d26cbda-bf3d-437b-83ad-70a41a33d56a
-		summarizeBy: sum
-		sourceColumn: InvoiceValue
+	column VehicleTypeShort
+		dataType: string
+		lineageTag: 33f79187-1f08-4d4e-9685-2ca3d7fe701b
+		summarizeBy: none
+		sourceColumn: VehicleTypeShort
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+	column UnitsSold
+		dataType: int64
+		formatString: 0
+		lineageTag: 18ead631-e9d9-40e8-8094-8febd1ddd974
+		summarizeBy: none
+		sourceColumn: UnitsSold
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastValue
+		dataType: int64
+		formatString: 0
+		lineageTag: dc28c9ed-5c2b-4a32-89fd-af1ab77371d6
+		summarizeBy: sum
+		sourceColumn: ForecastValue
+
+		annotation SummarizationSetBy = Automatic
 
 	partition 'Sales Monthly History' = m
-		mode: directQuery
+		mode: import
 		source =
 				let
-				    Source = gold_dpmc_vs_2w3w4w_factsales,
-				    #"Removed Columns" = Table.RemoveColumns(Source,{"CompanySK", "DivisionSK", "PremiseSK", "ProductSK", "InquiryNo", "BookingNo", "InvoiceNo", "WorkshopNo", "InquiryDate", "DeliveryDate", "GRNDate", "ConfirmDate", "ChassisNo", "EngineNo", "VehicleNo", "InqType", "PaymentType", "AssemblyCategory", "DMT_LOADED_DATE", "INT_LOADED_DATE", "DMT_MONTH_END", "INT_MONTH_END"})
+				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [Query="SELECT #(lf)    CONVERT(varchar(10), DATEFROMPARTS(YEAR(S.InvoiceDate), MONTH(S.InvoiceDate), 1), 23) AS InvoiceDate,#(lf)    CASE WHEN P.STR_PRODLINE_DESC = '2 WHEELERS' THEN '2W'#(lf)         WHEN P.STR_PRODLINE_DESC = '3 WHEELERS' THEN '3W' END AS VehicleTypeShort,#(lf)    COUNT(DISTINCT S.ChassisNo) AS UnitsSold#(lf)FROM gold_dpmc_vs_2w3w4w_factsales S#(lf)INNER JOIN gold_dpmc_vs_2w3w4w_dimproduct P ON P.ProductSK = S.ProductSK#(lf)WHERE P.STR_PRODLINE_DESC IN ('2 WHEELERS','3 WHEELERS')#(lf)GROUP BY DATEFROMPARTS(YEAR(S.InvoiceDate), MONTH(S.InvoiceDate), 1),#(lf)         CASE WHEN P.STR_PRODLINE_DESC = '2 WHEELERS' THEN '2W'#(lf)              WHEN P.STR_PRODLINE_DESC = '3 WHEELERS' THEN '3W' END#(lf)ORDER BY 1, 2;"]),
+				    #"Added Custom" = Table.AddColumn(Source, "ForecastValue", each null),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"InvoiceDate", type date}, {"ForecastValue", Int64.Type}})
 				in
-				    #"Removed Columns"
-
-	annotation PBI_NavigationStepName = Navigation
+				    #"Changed Type"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

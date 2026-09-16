@@ -1,8 +1,8 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "fd7d5b0146e40c282376",
   "position": {
-    "x": 32,
+    "x": 0,
     "y": 64,
     "z": 2000,
     "height": 384,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_dimpremises.PremisesDesc",
-              "nativeQueryRef": "PremisesDesc",
-              "active": true
+              "nativeQueryRef": "Location",
+              "active": true,
+              "displayName": "Location"
             }
           ]
         },

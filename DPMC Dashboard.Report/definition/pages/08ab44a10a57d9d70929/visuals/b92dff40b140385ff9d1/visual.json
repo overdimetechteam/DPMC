@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "b92dff40b140385ff9d1",
   "position": {
     "x": 1282.0000000000002,
@@ -130,7 +130,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "datetime'2026-09-09T00:00:00'"
+                                "Value": "datetime'2026-09-15T00:00:00'"
                               }
                             }
                           ]

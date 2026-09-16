@@ -8,7 +8,9 @@
       "28ca8c01055b8cbc23e4",
       "d3fd821eed28e197fdd5",
       "02d0f059c7cba060cba5"
-    ]
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.3",

@@ -58,11 +58,6 @@ relationship 27549d72-5c98-09b8-cb14-7a144b7b6994
 	fromColumn: gold_dpmc_vs_2w3w_target.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
-relationship 1377c708-af77-61af-71f8-fd92a1d48469
-	crossFilteringBehavior: bothDirections
-	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
-	toColumn: VehicleTypeSelector.'Vehicle Type'
-
 relationship ace104df-f723-e35f-7dab-2dd55eb5cc21
 	fromColumn: gold_dpmc_vs_2w3w4w_factstock.PremiseSK
 	toColumn: gold_dpmc_vs_2w3w4w_dimpremises.PremiseSK
@@ -108,11 +103,6 @@ relationship a34e4f7c-6f3e-362e-a614-8a17154cf71f
 relationship 3e8f8ab7-df2d-8413-52c4-7f2c7db9605c
 	fromColumn: gold_dpmc_vs_2w3w4w_competitorwisereg.MonthStart
 	toColumn: MonthBridge.TheFirstOfMonth
-
-relationship 6620b2cd-d949-4586-b5b9-c101bb410d1f
-	joinOnDateBehavior: datePartOnly
-	fromColumn: AsOfDateSelector.SelectedDate
-	toColumn: LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9.Date
 
 relationship e271855d-b3dc-4c4a-afc0-dcf97499ffed
 	joinOnDateBehavior: datePartOnly
@@ -174,39 +164,77 @@ relationship ecc4bcf9-c01a-3bca-490d-c8ae6b3f0b2e
 	fromColumn: BranchMonthTarget.DATE
 	toColumn: gold_dpmc_dimdate.TheDate
 
-relationship c70e612c-ae79-4529-b091-7866c7202532
-	joinOnDateBehavior: datePartOnly
-	fromColumn: WorkingDayLookup.Date
-	toColumn: LocalDateTable_ac1e6156-bae0-424a-8346-f560214fab84.Date
+relationship 1377c708-af77-61af-71f8-fd92a1d48469
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dpmc_vs_2w3w4w_dimproduct.VehicleTypeShort
+	toColumn: VehicleTypeSelector.'Vehicle Type'
 
 relationship e142fb57-ebbe-4511-959c-97ebc728dd9b
 	joinOnDateBehavior: datePartOnly
 	fromColumn: MonthsWithTargetTable.TheFirstOfMonth
 	toColumn: LocalDateTable_b3258b9d-76df-4cc7-9059-5b9979bc4077.Date
 
-relationship AutoDetected_73b30f64-0ae1-4240-be50-02c283f7d097
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: 'Sales Actual Monthly'.InvoiceDate
-	toColumn: 'Sales Combined History and Forecast'.InvoiceDate
-
-relationship ce4a9373-fd4c-4075-9bc5-7c5e9ee14626
+relationship c70e612c-ae79-4529-b091-7866c7202532
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Sales Combined History and Forecast'.InvoiceDate
-	toColumn: LocalDateTable_93473800-aea4-4386-91ad-fc25685b3a8d.Date
+	fromColumn: WorkingDayLookup.Date
+	toColumn: LocalDateTable_ac1e6156-bae0-424a-8346-f560214fab84.Date
 
-relationship f4ec78de-21fa-4a9e-b6a2-64f0b9af32ce
+relationship 79b3a642-305b-4bb0-97ca-028f4037e3dd
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Units Actual Monthly'.InvoiceDate
-	toColumn: LocalDateTable_d96c3b0a-8d31-42ac-a4c7-6106eebc4f55.Date
+	fromColumn: 'Sales Forecast'.InvoiceDate
+	toColumn: LocalDateTable_4a6320ee-93ec-41b5-8828-d69ba047a965.Date
 
-relationship a5ec7ceb-0862-48e9-87de-990c7dc3c49c
+relationship 763bb982-c421-40b8-8b38-be098ee4a012
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Units Forecast Result'.InvoiceDate
-	toColumn: LocalDateTable_788bfc01-299a-453b-a885-d9c0e5e4eba7.Date
+	fromColumn: 'Sales history and forecast'.InvoiceDate
+	toColumn: LocalDateTable_0c2f76a0-79b5-4bd0-995a-0cd4d56f656b.Date
 
-relationship 03356283-cab0-481d-8f62-02141cde90fa
+relationship fe3b955a-6426-4c2d-850a-d80d701b0853
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Units Combined History and Forecast'.InvoiceDate
-	toColumn: LocalDateTable_f56ffb1c-398f-4c88-ab8a-17275c09805b.Date
+	fromColumn: 'Sales Monthly History'.InvoiceDate
+	toColumn: LocalDateTable_05d5e813-3e4f-49da-9e6c-6f6d82e9473b.Date
+
+relationship AutoDetected_1fdc892e-ccc3-43f6-b1fa-a5d9efaba7c3
+	fromColumn: 'Sales history and forecast'.ForecastValue
+	toColumn: 'Sales Forecast'.ForecastValue
+
+relationship b2c2abb6-5672-441b-ba66-c74e98858463
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AsOfDateSelector.SelectedDate
+	toColumn: LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9.Date
+
+relationship ea6b4c08-ba87-63ca-cb51-a4b73f73f48a
+	fromColumn: 'Sales history and forecast'.VehicleTypeShort
+	toColumn: VehicleTypeSelector.'Vehicle Type'
+
+relationship fe6c9668-446e-b91d-b7c4-e33ea68f0434
+	fromColumn: gold_dpmc_vs_2w3w4w_factinquiry.InquiryDate
+	toColumn: gold_dpmc_dimdate.TheDate
+
+relationship cee0a00c-da19-4ced-9275-50e932032c4d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: gold_dpmc_2w3w_forecast_units_1.InvoiceDate
+	toColumn: LocalDateTable_f2b5d2c9-bbf0-4665-8b67-7b8b2ac2c734.Date
+
+relationship AutoDetected_4cedda5a-1bb0-4a5f-abf5-688f7751783f
+	fromColumn: gold_dpmc_2w3w_forecast_units_1.UnitsSold
+	toColumn: 'Sales Monthly History'.UnitsSold
+
+relationship 1f4aeb4d-0fe5-4311-9c35-86bf8fd67eac
+	joinOnDateBehavior: datePartOnly
+	fromColumn: gold_dpmc_2w3w_forecast_units.InvoiceDate
+	toColumn: LocalDateTable_17f4a05f-89d3-483f-8dd2-0055821c7a9f.Date
+
+relationship 657e8d67-5141-420e-83fa-09980e760cea
+	joinOnDateBehavior: datePartOnly
+	fromColumn: gold_dpmc_2w3w_forecast_sales_1.InvoiceDate
+	toColumn: LocalDateTable_b71c0ebb-d6be-42a7-b6ca-598719569255.Date
+
+relationship AutoDetected_483ecb4e-03b1-4267-bcb4-6f069da8d3aa
+	fromColumn: gold_dpmc_2w3w_forecast_units.UnitsSold
+	toColumn: 'Sales Monthly History'.UnitsSold
+
+relationship eceaa02f-576b-7ba0-6f67-6e20f3415077
+	fromColumn: gold_dpmc_2w3w_forecast_units.Product
+	toColumn: VehicleTypeSelector.'Vehicle Type'
 

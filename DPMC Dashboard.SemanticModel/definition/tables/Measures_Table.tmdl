@@ -251,7 +251,8 @@ table Measures_Table
 	measure Inquiry =
 			
 			CALCULATE(
-			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo])
+			    COUNT('gold_dpmc_vs_2w3w4w_factinquiry'[InquiryNo]),
+			    'gold_dpmc_vs_2w3w4w_factinquiry'[Type] = "INQ"
 			)
 		formatString: 0
 		lineageTag: 10ade63d-0e95-4764-ae57-73d08fb504b6
@@ -259,8 +260,8 @@ table Measures_Table
 	measure Booking =
 			
 			CALCULATE(
-			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factsales[BookingNo]),
-			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factsales[BookingNo])
+			    COUNT('gold_dpmc_vs_2w3w4w_factinquiry'[InquiryNo]),
+			    'gold_dpmc_vs_2w3w4w_factinquiry'[Type] = "CONFIRM"
 			)
 		formatString: 0
 		lineageTag: 8c246d70-3cf8-4076-9991-ae169d758121
@@ -283,8 +284,8 @@ table Measures_Table
 	measure Allocation =
 			
 			CALCULATE(
-			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factstock[BookingNo]),
-			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factstock[AllocatedDate])
+			    COUNT('gold_dpmc_vs_2w3w4w_factinquiry'[InquiryNo]),
+			    'gold_dpmc_vs_2w3w4w_factinquiry'[Type] = "ALLOCATE"
 			)
 		formatString: 0
 		lineageTag: 632d1bec-29d4-40cd-97ae-e1de4289a1fe
@@ -292,8 +293,8 @@ table Measures_Table
 	measure Invoice =
 			
 			CALCULATE(
-			    DISTINCTCOUNT(gold_dpmc_vs_2w3w4w_factsales[InvoiceNo]),
-			    NOT ISBLANK(gold_dpmc_vs_2w3w4w_factsales[InvoiceNo])
+			    COUNT('gold_dpmc_vs_2w3w4w_factinquiry'[InquiryNo]),
+			    'gold_dpmc_vs_2w3w4w_factinquiry'[Type] = "INVOICE"
 			)
 		formatString: 0
 		lineageTag: 06dc55b1-960d-46d4-b187-9a19780092a8
@@ -501,6 +502,14 @@ table Measures_Table
 			IF(ISBLANK(PrevTotal) || Diff = 0, BLANK(), SIGN(Diff))
 		formatString: 0
 		lineageTag: 21d30c23-c4d7-49fe-9c80-9550510beeb6
+
+	measure Confirmed_Bookings =
+			CALCULATE(
+			    COUNT('gold_dpmc_vs_2w3w4w_factinquiry'[InquiryNo]),
+			    'gold_dpmc_vs_2w3w4w_factinquiry'[Type] IN {"INQ", "CONFIRM"}
+			)
+		formatString: 0
+		lineageTag: 300200dd-fa9d-4aa8-8bdd-962c747a4a72
 
 	column Column
 		formatString: 0
