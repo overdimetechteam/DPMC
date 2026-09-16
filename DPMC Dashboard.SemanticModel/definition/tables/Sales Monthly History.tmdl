@@ -31,7 +31,7 @@ table 'Sales Monthly History'
 				    Source = gold_dpmc_vs_2w3w4w_factsales,
 				    #"Removed Columns" = Table.RemoveColumns(Source,{"CompanySK", "DivisionSK", "PremiseSK", "ProductSK", "InquiryNo", "BookingNo", "InvoiceNo", "WorkshopNo", "InquiryDate", "DeliveryDate", "GRNDate", "ConfirmDate", "ChassisNo", "EngineNo", "VehicleNo", "InqType", "PaymentType", "AssemblyCategory", "DMT_LOADED_DATE", "INT_LOADED_DATE", "DMT_MONTH_END", "INT_MONTH_END"})
 				in
-				    #"Removed Columns"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

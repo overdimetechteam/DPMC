@@ -280,5 +280,81 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c5c2ec4e7c2858a876e8"
+  "parentGroupName": "c5c2ec4e7c2858a876e8",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9aee1d31e509e2181c36",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
+              }
+            },
+            "Property": "STR_PRODLINE_DESC"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "g",
+              "Entity": "gold_dpmc_vs_2w3w4w_dimproduct",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "g"
+                              }
+                            },
+                            "Property": "STR_PRODLINE_DESC"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }

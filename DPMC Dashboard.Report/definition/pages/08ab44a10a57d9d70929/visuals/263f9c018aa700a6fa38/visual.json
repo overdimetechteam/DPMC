@@ -5,9 +5,8 @@
     "x": 279,
     "y": 0,
     "z": 2000,
-    "height": 48,
-    "width": 128,
-    "tabOrder": 1000
+    "height": 54,
+    "width": 128
   },
   "visual": {
     "visualType": "actionButton",

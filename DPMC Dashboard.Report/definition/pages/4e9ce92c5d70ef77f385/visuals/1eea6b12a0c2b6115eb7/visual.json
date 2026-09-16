@@ -295,7 +295,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "450472d7d7642295fe4d",
+        "name": "24fdf7876e98784c3ac5",
         "field": {
           "Column": {
             "Expression": {
@@ -307,6 +307,49 @@
           }
         },
         "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "g",
+              "Entity": "gold_dpmc_vs_2w3w4w_dimpremises",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "g"
+                              }
+                            },
+                            "Property": "PremisesDesc"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
         "objects": {
           "general": [
             {

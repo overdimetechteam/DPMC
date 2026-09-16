@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d3fd821eed28e197fdd5",
   "position": {
-    "x": 0,
-    "y": 64,
+    "x": 5.5555555555555767,
+    "y": 71.875,
     "z": 1500,
-    "height": 208,
-    "width": 560,
-    "tabOrder": 0
+    "height": 253.125,
+    "width": 580.55555555555554
   },
   "visual": {
     "visualType": "tableEx",
@@ -127,16 +126,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "gold_dpmc_dimdate"
+                    "Entity": "Measures_Table"
                   }
                 },
-                "Property": "TheDayName"
+                "Property": "SameDay Premise Count"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
