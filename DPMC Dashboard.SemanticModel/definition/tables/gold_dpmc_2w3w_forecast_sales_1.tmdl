@@ -37,6 +37,14 @@ table gold_dpmc_2w3w_forecast_sales_1
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column Product
+		dataType: string
+		lineageTag: c8048939-1ec6-4b15-a32d-69629863b957
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
 	partition gold_dpmc_2w3w_forecast_sales_1 = m
 		mode: import
 		source =
