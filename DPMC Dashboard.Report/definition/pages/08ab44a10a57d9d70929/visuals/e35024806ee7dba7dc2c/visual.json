@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e35024806ee7dba7dc2c",
   "position": {
-    "x": 613.68907563025209,
-    "y": 2.8421709430404007E-14,
+    "x": 598,
+    "y": 2.8421709430404014E-14,
     "z": 5000,
-    "height": 72,
-    "width": 157.31092436974788,
-    "tabOrder": 5000
+    "height": 72.000000000000014,
+    "width": 133,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -258,6 +258,71 @@
             "id": "default"
           }
         }
+      ],
+      "value": [
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "-1D"
+                }
+              }
+            },
+            "customFormatString": {
+              "expr": {
+                "Literal": {
+                  "Value": "',0'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Measures_Table.Current Stock"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "-1D"
+                }
+              }
+            },
+            "customFormatString": {
+              "expr": {
+                "Literal": {
+                  "Value": "',0'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI_Measures.No of Inquiries (MTD as of Selected Date)"
+          }
+        },
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -298,6 +363,13 @@
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'No of Inquiries'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -312,10 +384,10 @@
                 }
               }
             },
-            "text": {
+            "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'No of Inquiries'"
+                  "Value": "'center'"
                 }
               }
             }

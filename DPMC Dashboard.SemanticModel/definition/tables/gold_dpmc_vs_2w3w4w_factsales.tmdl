@@ -128,7 +128,7 @@ table gold_dpmc_vs_2w3w4w_factsales
 
 	column InvoiceDate
 		dataType: dateTime
-		formatString: Long Date
+		formatString: dd/MM/yy
 		sourceProviderType: date
 		lineageTag: 08404caf-75a6-47f0-af59-8adb14526d70
 		summarizeBy: none

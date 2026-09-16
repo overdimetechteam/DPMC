@@ -3,7 +3,11 @@
   "displayName": "Daily View",
   "name": "852757b4357f8f3abb3c",
   "options": {
-    "targetVisualNames": []
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "ac52da119b9cb29dafe3",
+      "0dd91fa74017eb376caf"
+    ]
   },
   "explorationState": {
     "version": "1.3",
@@ -986,68 +990,6 @@
                         }
                       },
                       "Property": "SRM"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "46b68834b3a980140635": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "e57baef74b54e60e2adc",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_dimdate"
-                        }
-                      },
-                      "Property": "TheMonthName"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        },
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_dimdate"
-                        }
-                      },
-                      "Property": "TheMonthName"
                     }
                   }
                 ]

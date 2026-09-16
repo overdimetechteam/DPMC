@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_dimpremises.PremisesDesc",
-              "nativeQueryRef": "PremisesDesc",
-              "active": true
+              "nativeQueryRef": "Location",
+              "active": true,
+              "displayName": "Location"
             }
           ]
         },

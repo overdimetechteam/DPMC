@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "cf19ded35faaecf3153f",
   "position": {
-    "x": 640,
-    "y": 480,
+    "x": 647.66666666666674,
+    "y": 478.33333333333331,
     "z": 3000,
     "height": 352,
     "width": 448.00000000000006,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_dimproduct.STR_MODEL_DESC",
-              "nativeQueryRef": "STR_MODEL_DESC",
-              "active": true
+              "nativeQueryRef": "Model",
+              "active": true,
+              "displayName": "Model"
             }
           ]
         },
@@ -39,14 +40,16 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "VehicleTypeSelector"
+                      "Entity": "AgeBucketTable"
                     }
                   },
-                  "Property": "Actual Units"
+                  "Property": "Model Wise Target"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Actual Units",
-              "nativeQueryRef": "Actual Units"
+              "queryRef": "AgeBucketTable.Model Wise Target",
+              "nativeQueryRef": "Target",
+              "displayName": "Target",
+              "format": "0"
             },
             {
               "field": {
@@ -56,11 +59,13 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "Model Wise Target (Proportional)"
+                  "Property": "Model Wise Actual Units"
                 }
               },
-              "queryRef": "VehicleTypeSelector.Model Wise Target (Proportional)",
-              "nativeQueryRef": "Model Wise Target (Proportional)"
+              "queryRef": "VehicleTypeSelector.Model Wise Actual Units",
+              "nativeQueryRef": "Actual Units",
+              "displayName": "Actual Units",
+              "format": "0"
             }
           ]
         }
@@ -300,14 +305,14 @@
             "showGradientLegend": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },

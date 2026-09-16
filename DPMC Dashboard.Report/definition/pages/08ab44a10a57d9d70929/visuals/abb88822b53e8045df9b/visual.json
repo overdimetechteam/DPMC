@@ -5,9 +5,9 @@
     "x": 0,
     "y": 0,
     "z": 1000,
-    "height": 72,
+    "height": 72.000000000000014,
     "width": 133,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -274,6 +274,43 @@
             "id": "default"
           }
         }
+      ],
+      "value": [
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "-1D"
+                }
+              }
+            },
+            "customFormatString": {
+              "expr": {
+                "Literal": {
+                  "Value": "',0'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI_Measures.Total Bookings (MTD as of Selected Date)"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -332,6 +369,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Total Bookings'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

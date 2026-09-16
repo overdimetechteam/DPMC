@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "45765acd9b6431dc30e2",
   "position": {
     "x": 1010.9362668144348,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "BranchMonthTarget.SRM",
-              "nativeQueryRef": "SRM",
-              "active": true
+              "nativeQueryRef": "Regional Head",
+              "active": true,
+              "displayName": "Regional Head"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "KPI_Measures.Target (Selected Month)",
-              "nativeQueryRef": "Target (Selected Month)"
+              "nativeQueryRef": "Target ",
+              "displayName": "Target "
             },
             {
               "field": {
@@ -73,10 +75,10 @@
               "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "KPI_Measures"
+                    "Entity": "VehicleTypeSelector"
                   }
                 },
-                "Property": "Target (Selected Month)"
+                "Property": "Target (Selected)"
               }
             },
             "direction": "Descending"
@@ -92,7 +94,19 @@
             "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             },
@@ -154,7 +168,21 @@
       "labels": [
         {
           "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
             "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -172,11 +200,22 @@
                   }
                 }
               }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
@@ -396,34 +435,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "b162083914ddda07a3c5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "KPI_Measures"
-              }
-            },
-            "Property": "Target (Selected Month)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3a4de766ee0647114c71",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "VehicleTypeSelector"
-              }
-            },
-            "Property": "Actual Units (MTD as of Selected Date)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

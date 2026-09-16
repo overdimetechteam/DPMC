@@ -3,11 +3,11 @@
   "name": "d8a49c253596568fbb2f",
   "position": {
     "x": 448.51260504201673,
-    "y": 2.8421709430404007E-14,
+    "y": 2.8421709430404014E-14,
     "z": 4000,
-    "height": 72,
-    "width": 149.44537815126048,
-    "tabOrder": 0
+    "height": 72.000000000000014,
+    "width": 133,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -273,6 +273,43 @@
             "id": "default"
           }
         }
+      ],
+      "value": [
+        {
+          "properties": {
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "-1D"
+                }
+              }
+            },
+            "customFormatString": {
+              "expr": {
+                "Literal": {
+                  "Value": "',0'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KPI_Measures.Delivery Notes (MTD as of Selected Date)"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -331,6 +368,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Delivery Notes'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }

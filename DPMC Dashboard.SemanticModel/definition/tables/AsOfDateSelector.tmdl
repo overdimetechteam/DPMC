@@ -16,7 +16,7 @@ table AsOfDateSelector
 
 		variation Variation
 			isDefault
-			relationship: 6620b2cd-d949-4586-b5b9-c101bb410d1f
+			relationship: b2c2abb6-5672-441b-ba66-c74e98858463
 			defaultHierarchy: LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
@@ -29,11 +29,11 @@ table AsOfDateSelector
 		mode: import
 		source =
 				
-				VAR CurrentMonthEnd = EOMONTH ( TODAY (), 0 )
+				VAR Today = TODAY ()
 				RETURN
 				    FILTER(
 				        DISTINCT ( SELECTCOLUMNS ( Vw_dpmc_vs_DimDate, "SelectedDate", Vw_dpmc_vs_DimDate[TheDate] ) ),
-				        [SelectedDate] <= CurrentMonthEnd
+				        [SelectedDate] <= Today
 				    )
 
 	annotation PBI_Id = 76939b37495745718af9bc49fca6c43c

@@ -64,6 +64,13 @@
                   "Value": "false"
                 }
               }
+            },
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }

@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "85080ac0ea9108d34efd",
   "position": {
-    "x": 1104,
-    "y": 480,
+    "x": 1111.6666666666667,
+    "y": 478.33333333333331,
     "z": 5000,
     "height": 352,
     "width": 464,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_dimproduct.STR_MODEL_DESC",
-              "nativeQueryRef": "STR_MODEL_DESC",
-              "active": true
+              "nativeQueryRef": "Model",
+              "active": true,
+              "displayName": "Model"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "DimDealer.Avg Sales Units (Last 3 Months)",
-              "nativeQueryRef": "Avg Sales Units (Last 3 Months)"
+              "nativeQueryRef": "Avg Sales Units (Last 3 Months)",
+              "format": "0"
             }
           ]
         }
@@ -380,7 +382,26 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

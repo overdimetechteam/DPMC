@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "6d17c04cde855ea6f8d9",
   "position": {
     "x": 605.282254431153,
@@ -23,11 +23,11 @@
                       "Entity": "gold_dpmc_dimdate"
                     }
                   },
-                  "Property": "TheMonthName"
+                  "Property": "TheFirstOfMonth"
                 }
               },
-              "queryRef": "gold_dpmc_dimdate.TheMonthName",
-              "nativeQueryRef": "TheMonthName",
+              "queryRef": "gold_dpmc_dimdate.TheFirstOfMonth",
+              "nativeQueryRef": "TheFirstOfMonth",
               "active": true
             }
           ]
@@ -70,11 +70,11 @@
                       "Entity": "Measures_Table"
                     }
                   },
-                  "Property": "Confirmed Booking"
+                  "Property": "Confirmed_Bookings"
                 }
               },
-              "queryRef": "Measures_Table.Confirmed Booking",
-              "nativeQueryRef": "Confirmed Booking"
+              "queryRef": "Measures_Table.Confirmed_Bookings",
+              "nativeQueryRef": "Confirmed_Bookings"
             },
             {
               "field": {
@@ -108,6 +108,21 @@
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "gold_dpmc_dimdate"
+                  }
+                },
+                "Property": "TheFirstOfMonth"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
@@ -244,6 +259,13 @@
               }
             },
             "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bold": {
               "expr": {
                 "Literal": {
                   "Value": "true"

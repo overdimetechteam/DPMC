@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d40fb5e5b7f28ab78785",
   "position": {
     "x": 649,
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w_target.Product_Owner",
-              "nativeQueryRef": "Product_Owner",
-              "active": true
+              "nativeQueryRef": "Regional Manager",
+              "active": true,
+              "displayName": "Regional Manager"
             }
           ]
         },
@@ -46,7 +47,8 @@
                 }
               },
               "queryRef": "VehicleTypeSelector.Next Daily Target",
-              "nativeQueryRef": "Next Daily Target"
+              "nativeQueryRef": "Next Daily Target",
+              "format": "0"
             }
           ]
         }
@@ -155,7 +157,7 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 5,
+                      "ColorId": 3,
                       "Percent": 0
                     }
                   }

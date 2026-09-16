@@ -8,7 +8,9 @@
       "d3fd821eed28e197fdd5",
       "02d0f059c7cba060cba5",
       "28ca8c01055b8cbc23e4"
-    ]
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.3",
@@ -972,68 +974,6 @@
                         }
                       },
                       "Property": "SRM"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "46b68834b3a980140635": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "7cad506495a4aa8d665a",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_dimdate"
-                        }
-                      },
-                      "Property": "TheMonthName"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        },
-                        "isInvertedSelectionMode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "true"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "gold_dpmc_dimdate"
-                        }
-                      },
-                      "Property": "TheMonthName"
                     }
                   }
                 ]

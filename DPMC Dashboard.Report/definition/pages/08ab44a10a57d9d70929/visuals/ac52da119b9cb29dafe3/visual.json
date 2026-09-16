@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "ac52da119b9cb29dafe3",
   "position": {
-    "x": 64,
-    "y": 1456,
+    "x": 65,
+    "y": 1455,
     "z": 12000,
     "height": 368,
     "width": 1472,
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                      "Entity": "gold_dpmc_2w3w_forecast_units"
                     }
                   },
-                  "Property": "InvoiceMonth"
+                  "Property": "InvoiceDate"
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.InvoiceMonth",
-              "nativeQueryRef": "InvoiceMonth",
+              "queryRef": "gold_dpmc_2w3w_forecast_units.InvoiceDate",
+              "nativeQueryRef": "InvoiceDate",
               "active": true
             }
           ]
@@ -36,17 +36,41 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_2w3w_forecast_units"
+                        }
+                      },
+                      "Property": "UnitsSold"
                     }
                   },
-                  "Property": "Total Units Sold"
+                  "Function": 0
                 }
               },
-              "queryRef": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
-              "nativeQueryRef": "Total Units Sold"
+              "queryRef": "CountNonNull(gold_dpmc_2w3w_forecast_units.UnitsSold)",
+              "nativeQueryRef": "Sum of UnitsSold"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "gold_dpmc_2w3w_forecast_units"
+                        }
+                      },
+                      "Property": "ForecastValue"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(gold_dpmc_2w3w_forecast_units.ForecastValue)",
+              "nativeQueryRef": "Sum of ForecastValue"
             }
           ]
         }
@@ -92,6 +116,13 @@
                   }
                 }
               }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -122,28 +153,14 @@
                   }
                 }
               }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 6,
-                      "Percent": 0
-                    }
-                  }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
-          },
-          "selector": {
-            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold"
           }
         }
       ],
@@ -175,11 +192,18 @@
                   }
                 }
               }
+            },
+            "areaShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
       ],
-      "forecast": [
+      "legend": [
         {
           "properties": {
             "show": {
@@ -189,46 +213,63 @@
                 }
               }
             },
-            "displayName": {
+            "labelColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'Forecast 1'"
+                  "Value": "true"
                 }
               }
             },
-            "transform": {
-              "algorithm": "Forecast",
-              "parameters": [
-                {
-                  "Literal": {
-                    "Value": "7D"
-                  },
-                  "Name": "Unit"
-                },
-                {
-                  "Literal": {
-                    "Value": "10D"
-                  },
-                  "Name": "ForecastLength"
-                },
-                {
-                  "Literal": {
-                    "Value": "0D"
-                  },
-                  "Name": "IgnoreLast"
-                },
-                {
-                  "Literal": {
-                    "Value": "0.95D"
-                  },
-                  "Name": "ConfidenceLevel"
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
-              ]
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
             }
-          },
-          "selector": {
-            "metadata": "gold_dpmc_vs_2w3w4w_factsales.Total Units Sold",
-            "id": "1"
+          }
+        }
+      ],
+      "seriesLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]
@@ -255,6 +296,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Units Sold and Sum of Forecast Value by Invoice Date'"
                 }
               }
             }
@@ -331,8 +379,34 @@
             }
           }
         }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Canvas'"
+                }
+              }
+            },
+            "themedTitleFontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }

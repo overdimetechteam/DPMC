@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "5a37f6ea18ee6b9d8ad9",
   "position": {
-    "x": 495.99999999999994,
-    "y": 160,
+    "x": 576,
+    "y": 128,
     "z": 24000,
     "height": 144,
     "width": 192,
@@ -28,7 +28,7 @@
               },
               "queryRef": "VehicleTypeSelector.Sales (MTD as of Selected Date)",
               "nativeQueryRef": "Sales (MTD as of Selected Date)",
-              "format": " \"LKR \"#,##0.00\" M\""
+              "format": "   #,##0\" M\""
             }
           ]
         }
@@ -66,6 +66,13 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
