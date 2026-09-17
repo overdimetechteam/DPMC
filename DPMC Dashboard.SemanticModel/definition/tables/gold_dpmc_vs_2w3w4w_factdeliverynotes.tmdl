@@ -125,7 +125,7 @@ table gold_dpmc_vs_2w3w4w_factdeliverynotes
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_vs_2w3w4w_factdeliverynotes = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

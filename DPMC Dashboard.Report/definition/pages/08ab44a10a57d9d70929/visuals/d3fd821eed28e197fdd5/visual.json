@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "d3fd821eed28e197fdd5",
   "position": {
-    "x": 5.5555555555555767,
+    "x": 0.21367521367523334,
     "y": 71.875,
     "z": 1500,
     "height": 253.125,
-    "width": 580.55555555555554
+    "width": 580.55555555555554,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -662,6 +663,13 @@
                   }
                 }
               }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Auto'"
+                }
+              }
             }
           },
           "selector": {
@@ -673,7 +681,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "'Center'"
                 }
               }
             }
@@ -687,7 +695,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "'Center'"
                 }
               }
             }
@@ -701,7 +709,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "'Center'"
                 }
               }
             }
@@ -715,7 +723,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "'Center'"
                 }
               }
             }
@@ -729,7 +737,7 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'Left'"
+                  "Value": "'Center'"
                 }
               }
             }

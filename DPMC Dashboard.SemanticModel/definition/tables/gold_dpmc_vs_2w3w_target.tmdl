@@ -77,6 +77,11 @@ table gold_dpmc_vs_2w3w_target
 		summarizeBy: none
 		sourceColumn: DMT_LOADED_DATE
 
+		variation Variation
+			isDefault
+			relationship: 0ad35fdc-955e-45cd-819f-3e0d06bfa512
+			defaultHierarchy: LocalDateTable_b1ff85d0-f904-4de6-ba71-69ef15711402.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -92,7 +97,7 @@ table gold_dpmc_vs_2w3w_target
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_vs_2w3w_target = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

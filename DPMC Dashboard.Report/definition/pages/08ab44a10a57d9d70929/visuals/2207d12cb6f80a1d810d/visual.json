@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "2207d12cb6f80a1d810d",
   "position": {
-    "x": 589.28225443115207,
-    "y": 143,
+    "x": 582.07535787942788,
+    "y": 144,
     "z": 8000,
     "height": 320.2439024390244,
     "width": 560,
@@ -42,8 +42,9 @@
                 }
               },
               "queryRef": "gold_dpmc_vs_2w3w4w_dimproduct.STR_MODEL_DESC",
-              "nativeQueryRef": "STR_MODEL_DESC",
-              "active": false
+              "nativeQueryRef": "Model",
+              "active": false,
+              "displayName": "Model"
             }
           ]
         },
@@ -61,7 +62,8 @@
                 }
               },
               "queryRef": "Measures_Table.Allocation Count",
-              "nativeQueryRef": "Allocation Count"
+              "nativeQueryRef": "Allocated Bookings",
+              "displayName": "Allocated Bookings"
             },
             {
               "field": {
@@ -75,7 +77,8 @@
                 }
               },
               "queryRef": "Measures_Table.Inquiry And Confirm Count",
-              "nativeQueryRef": "Inquiry And Confirm Count"
+              "nativeQueryRef": "Non Allocated Bookings",
+              "displayName": "Non Allocated Bookings"
             }
           ]
         }
@@ -431,5 +434,81 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c5c2ec4e7c2858a876e8"
+  "parentGroupName": "c5c2ec4e7c2858a876e8",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cf92e4a950e33dc7ed4a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_dpmc_vs_2w3w4w_dimpremises"
+              }
+            },
+            "Property": "PremiseCode"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "g",
+              "Entity": "gold_dpmc_vs_2w3w4w_dimpremises",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "g"
+                              }
+                            },
+                            "Property": "PremiseCode"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 }

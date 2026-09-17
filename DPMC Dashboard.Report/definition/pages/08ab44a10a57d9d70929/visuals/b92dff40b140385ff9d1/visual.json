@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "b92dff40b140385ff9d1",
   "position": {
-    "x": 1282.0000000000002,
+    "x": 1280,
     "y": 0,
     "z": 5000,
     "height": 80,
@@ -23,12 +23,13 @@
                       "Entity": "AsOfDateSelector"
                     }
                   },
-                  "Property": "SelectedDate"
+                  "Property": "SelectedDate Display"
                 }
               },
-              "queryRef": "AsOfDateSelector.SelectedDate",
-              "nativeQueryRef": "SelectedDate",
-              "active": true
+              "queryRef": "AsOfDateSelector.SelectedDate Display",
+              "nativeQueryRef": "Selected Date",
+              "active": true,
+              "displayName": "Selected Date"
             }
           ]
         }
@@ -43,7 +44,7 @@
                     "Entity": "AsOfDateSelector"
                   }
                 },
-                "Property": "SelectedDate"
+                "Property": "SelectedDate Display"
               }
             },
             "direction": "Descending"
@@ -71,7 +72,21 @@
             "selectAllCheckboxEnabled": {
               "expr": {
                 "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "singleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -100,6 +115,13 @@
                 }
               }
             },
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
             "filter": {
               "filter": {
                 "Version": 2,
@@ -122,7 +144,7 @@
                                   "Source": "a"
                                 }
                               },
-                              "Property": "SelectedDate"
+                              "Property": "SelectedDate Display"
                             }
                           }
                         ],
@@ -130,7 +152,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "datetime'2026-09-14T00:00:00'"
+                                "Value": "'Yesterday'"
                               }
                             }
                           ]
@@ -334,7 +356,25 @@
             }
           }
         }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
+                }
+              }
+            }
+          }
+        }
       ]
+    },
+    "syncGroup": {
+      "groupName": "SelectedDate Display",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

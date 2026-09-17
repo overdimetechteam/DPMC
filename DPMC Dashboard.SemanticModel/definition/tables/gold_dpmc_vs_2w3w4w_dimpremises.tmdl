@@ -37,10 +37,15 @@ table gold_dpmc_vs_2w3w4w_dimpremises
 		summarizeBy: none
 		sourceColumn: CreatedDate
 
+		variation Variation
+			isDefault
+			relationship: 06ada7ac-ebc8-46c5-9015-9e3fa7ef0674
+			defaultHierarchy: LocalDateTable_74fec9b1-647a-41e0-b3ad-e56f8cd52ce8.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_vs_2w3w4w_dimpremises = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

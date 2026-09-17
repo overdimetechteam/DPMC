@@ -317,7 +317,7 @@
                           "Entity": "VehicleTypeSelector"
                         }
                       },
-                      "Property": "DPMC Total Units (3W)"
+                      "Property": "DPMC Total Units"
                     }
                   },
                   "howCreated": 0
@@ -1874,12 +1874,6 @@
             },
             "singleVisual": {
               "visualType": "cardVisual",
-              "objects": {}
-            }
-          },
-          "621fd2451471a418b73f": {
-            "singleVisual": {
-              "visualType": "shape",
               "objects": {}
             }
           },

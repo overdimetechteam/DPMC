@@ -149,7 +149,7 @@
                           "Entity": "VehicleTypeSelector"
                         }
                       },
-                      "Property": "DPMC Total Units (3W)"
+                      "Property": "DPMC Total Units"
                     }
                   },
                   "howCreated": 0

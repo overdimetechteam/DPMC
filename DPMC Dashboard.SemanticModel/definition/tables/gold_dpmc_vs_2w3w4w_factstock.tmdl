@@ -147,6 +147,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		summarizeBy: none
 		sourceColumn: GRNDate
 
+		variation Variation
+			isDefault
+			relationship: a0c81b4d-4682-47d0-a763-d2151b983c2b
+			defaultHierarchy: LocalDateTable_38583cf8-1c31-4c5d-95c0-be4a60359f26.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -158,6 +163,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		lineageTag: 559cc8c3-1d63-4858-afd7-1a398638f6c2
 		summarizeBy: none
 		sourceColumn: ScheduleStartDate
+
+		variation Variation
+			isDefault
+			relationship: f427e9cc-ef1f-4f1d-b5f4-c4e21034b6e7
+			defaultHierarchy: LocalDateTable_125980db-861f-4c4d-91b8-4aaabbab8435.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -171,6 +181,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		summarizeBy: none
 		sourceColumn: ScheduleEndDate
 
+		variation Variation
+			isDefault
+			relationship: 786271c2-d016-46fc-96d9-48156672ab0c
+			defaultHierarchy: LocalDateTable_98846d00-89a6-4716-82eb-dbe71c0dd90d.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -182,6 +197,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		lineageTag: d3108d39-5b1f-458e-822f-333904e963d9
 		summarizeBy: none
 		sourceColumn: CSUDate
+
+		variation Variation
+			isDefault
+			relationship: cd91f263-c73f-41c8-9ea1-27494c1fbb72
+			defaultHierarchy: LocalDateTable_4eac1445-3981-40c3-9e16-a7333ac001e5.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -195,6 +215,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		summarizeBy: none
 		sourceColumn: MDPDepartureDate
 
+		variation Variation
+			isDefault
+			relationship: 62ed8388-d30c-4a06-b886-05b66e0e17b0
+			defaultHierarchy: LocalDateTable_1161c95f-a935-4610-96e1-4e44d62bd7f2.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -206,6 +231,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		lineageTag: 9e447e16-0af6-4311-8dc3-fb2c8e21d558
 		summarizeBy: none
 		sourceColumn: AllocatedDate
+
+		variation Variation
+			isDefault
+			relationship: 5a34ed26-35c6-4bc3-b129-a1803ce4dd16
+			defaultHierarchy: LocalDateTable_1b1e842d-6939-4644-8469-b6d62036b7dd.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -219,6 +249,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		summarizeBy: none
 		sourceColumn: InvoiceDate
 
+		variation Variation
+			isDefault
+			relationship: 6f0d502e-5bad-48e7-a340-cb12181ffc5e
+			defaultHierarchy: LocalDateTable_b60ff057-f981-4c13-b2d1-854c80ddcd01.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -230,6 +265,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		lineageTag: a169ed16-b126-4d0a-9b50-4c366f24b2c5
 		summarizeBy: none
 		sourceColumn: CalMaxDate
+
+		variation Variation
+			isDefault
+			relationship: ce556b53-b014-42b9-af1b-9c21478a4999
+			defaultHierarchy: LocalDateTable_2942f0c0-0fdf-4d29-a787-6d5114edc261.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -337,6 +377,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		summarizeBy: none
 		sourceColumn: DeliveryDate
 
+		variation Variation
+			isDefault
+			relationship: 5c9f26b2-b05b-411c-991a-028a0cf54bc1
+			defaultHierarchy: LocalDateTable_132da61d-2f13-4a53-a88e-c53e566275e0.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -348,6 +393,11 @@ table gold_dpmc_vs_2w3w4w_factstock
 		lineageTag: 8404e489-3044-400a-a86d-8ec66233b119
 		summarizeBy: none
 		sourceColumn: DtmDeclareDate
+
+		variation Variation
+			isDefault
+			relationship: f6f3b90d-e79a-4581-96e2-57c3d6c238ff
+			defaultHierarchy: LocalDateTable_1a0a3b6a-3bc4-4a66-bd69-a5588b9e13cf.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -436,7 +486,7 @@ table gold_dpmc_vs_2w3w4w_factstock
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_vs_2w3w4w_factstock = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

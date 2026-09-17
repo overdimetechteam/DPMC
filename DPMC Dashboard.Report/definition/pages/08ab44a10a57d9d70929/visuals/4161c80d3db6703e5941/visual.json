@@ -463,20 +463,34 @@
         }
       },
       {
-        "name": "7160327ac0d8f9bacfbd",
+        "name": "81138a31c0b58dcdd8a9",
         "ordinal": 3,
         "field": {
           "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "AlertThresholds"
+                "Entity": "KPI_Measures"
               }
             },
-            "Property": "RM In Threshold View"
+            "Property": "Target (Selected Month)"
           }
         },
-        "type": "Advanced",
-        "howCreated": "User"
+        "type": "Advanced"
+      },
+      {
+        "name": "74838e7b1526c098403a",
+        "ordinal": 4,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Actual Units (MTD as of Selected Date)"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

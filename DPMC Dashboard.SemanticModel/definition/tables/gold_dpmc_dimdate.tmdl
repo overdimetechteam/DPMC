@@ -9,6 +9,11 @@ table gold_dpmc_dimdate
 		summarizeBy: none
 		sourceColumn: TheDate
 
+		variation Variation
+			isDefault
+			relationship: 644c8b1a-bf7b-49cb-b195-b4cd2deaa9a2
+			defaultHierarchy: LocalDateTable_8fa256c7-1689-4a13-bd67-dd46cf02866a.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -124,6 +129,11 @@ table gold_dpmc_dimdate
 		summarizeBy: none
 		sourceColumn: TheLastOfYear
 
+		variation Variation
+			isDefault
+			relationship: aa2ae7ad-566f-45af-bd7c-4c22652d70bf
+			defaultHierarchy: LocalDateTable_2b82303d-27d5-4700-b8c8-440c8265b4b3.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -181,7 +191,7 @@ table gold_dpmc_dimdate
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_dimdate = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

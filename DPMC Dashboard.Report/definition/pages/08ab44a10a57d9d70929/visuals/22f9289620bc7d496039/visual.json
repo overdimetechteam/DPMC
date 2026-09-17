@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "22f9289620bc7d496039",
   "position": {
-    "x": 45.282254431153206,
-    "y": 911,
+    "x": 32,
+    "y": 896,
     "z": 2000,
-    "height": 384,
+    "height": 400,
     "width": 1120,
     "tabOrder": 10000
   },
@@ -277,6 +277,19 @@
           },
           "selector": {
             "metadata": "Measures_Table.Current Month Booking"
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

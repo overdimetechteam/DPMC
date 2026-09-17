@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "e9afbb00aeeebe8fe55a",
   "position": {
-    "x": 33.333333333333336,
-    "y": 480.5555555555556,
+    "x": 24.000000000000004,
+    "y": 48.000000000000007,
     "z": 1000,
-    "height": 383.33333333333337,
-    "width": 738.88888888888891,
+    "height": 432,
+    "width": 1152,
     "tabOrder": 8000
   },
   "visual": {
@@ -69,7 +69,8 @@
                 }
               },
               "queryRef": "FactGRNDetails_Dedup.GatePassApprovedDate",
-              "nativeQueryRef": "GatePassApprovedDate"
+              "nativeQueryRef": "Gate Pass Approved D",
+              "displayName": "Gate Pass Approved D"
             },
             {
               "field": {
@@ -113,13 +114,27 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "153D"
+                  "Value": "226D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "FactGRNDetails_Dedup.From Location"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "225D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactGRNDetails_Dedup.GatePassApprovedDate"
           }
         }
       ],
@@ -130,138 +145,13 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Conditional": {
-                      "Cases": [
-                        {
-                          "Condition": {
-                            "And": {
-                              "Left": {
-                                "Comparison": {
-                                  "ComparisonKind": 2,
-                                  "Left": {
-                                    "Aggregation": {
-                                      "Expression": {
-                                        "Column": {
-                                          "Expression": {
-                                            "SourceRef": {
-                                              "Entity": "FactGRNDetails_Dedup"
-                                            }
-                                          },
-                                          "Property": "Pending Days"
-                                        }
-                                      },
-                                      "Function": 0
-                                    }
-                                  },
-                                  "Right": {
-                                    "RangePercent": {
-                                      "Min": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Aggregation": {
-                                                      "Expression": {
-                                                        "Column": {
-                                                          "Expression": {
-                                                            "SourceRef": {
-                                                              "Entity": "FactGRNDetails_Dedup"
-                                                            }
-                                                          },
-                                                          "Property": "Pending Days"
-                                                        }
-                                                      },
-                                                      "Function": 0
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 3
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Max": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Aggregation": {
-                                                      "Expression": {
-                                                        "Column": {
-                                                          "Expression": {
-                                                            "SourceRef": {
-                                                              "Entity": "FactGRNDetails_Dedup"
-                                                            }
-                                                          },
-                                                          "Property": "Pending Days"
-                                                        }
-                                                      },
-                                                      "Function": 0
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 4
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Percent": 0.2
-                                    }
-                                  }
-                                }
-                              },
-                              "Right": {
-                                "Comparison": {
-                                  "ComparisonKind": 3,
-                                  "Left": {
-                                    "Aggregation": {
-                                      "Expression": {
-                                        "Column": {
-                                          "Expression": {
-                                            "SourceRef": {
-                                              "Entity": "FactGRNDetails_Dedup"
-                                            }
-                                          },
-                                          "Property": "Pending Days"
-                                        }
-                                      },
-                                      "Function": 0
-                                    }
-                                  },
-                                  "Right": {
-                                    "Literal": {
-                                      "Value": "0D"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "Value": {
-                            "Literal": {
-                              "Value": "'#6b2328'"
-                            }
-                          }
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
                         }
-                      ]
+                      },
+                      "Property": "Pending Days Row Color"
                     }
                   }
                 }
@@ -289,6 +179,126 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Pending Days Row Color"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "FactGRNDetails_Dedup.From Location"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Pending Days Row Color"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "FactGRNDetails_Dedup.To Location"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Pending Days Row Color"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "FactGRNDetails_Dedup.GatePassApprovedDate"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VehicleTypeSelector"
+                        }
+                      },
+                      "Property": "Pending Days Row Color"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "FactGRNDetails_Dedup.GatePassNo"
+          }
         }
       ],
       "columnHeaders": [
@@ -298,6 +308,39 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -325,7 +368,70 @@
                   "Value": "0D"
                 }
               }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "77D"
+                }
+              }
+            },
+            "imageWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "100D"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
             }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(FactGRNDetails_Dedup.Pending Days)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactGRNDetails_Dedup.GatePassApprovedDate"
           }
         }
       ]

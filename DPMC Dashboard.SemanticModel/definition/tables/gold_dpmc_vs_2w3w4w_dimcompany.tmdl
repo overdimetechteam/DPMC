@@ -37,6 +37,11 @@ table gold_dpmc_vs_2w3w4w_dimcompany
 		summarizeBy: none
 		sourceColumn: ModifiedDate
 
+		variation Variation
+			isDefault
+			relationship: c995274f-1f71-4423-94de-8c1e0875adb5
+			defaultHierarchy: LocalDateTable_aecd6cd8-120b-418d-8f21-8b47f351ae44.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 	column CompanyCode
@@ -56,7 +61,7 @@ table gold_dpmc_vs_2w3w4w_dimcompany
 			column: CompanySK
 
 	partition gold_dpmc_vs_2w3w4w_dimcompany = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

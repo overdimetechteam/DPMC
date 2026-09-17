@@ -30,7 +30,7 @@ table gold_dpmc_2w3w_forecast_units
 		dataType: int64
 		formatString: 0
 		lineageTag: 2da25a31-11e8-4beb-a405-415624b8131b
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: UnitsSold
 
 		annotation SummarizationSetBy = Automatic

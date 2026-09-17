@@ -16,7 +16,7 @@ table AsOfDateSelector
 
 		variation Variation
 			isDefault
-			relationship: b2c2abb6-5672-441b-ba66-c74e98858463
+			relationship: bba42c09-50c0-49ab-9e09-d2b993e06000
 			defaultHierarchy: LocalDateTable_00b49d70-07ac-4fed-a74b-6400707bb5a9.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
@@ -24,6 +24,19 @@ table AsOfDateSelector
 		annotation UnderlyingDateTimeDataType = Date
 
 		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'SelectedDate Display' =
+			
+			IF (
+			    AsOfDateSelector[SelectedDate] = TODAY() - 1,
+			    "Yesterday",
+			    FORMAT ( AsOfDateSelector[SelectedDate], "YYYY-MM-DD" )
+			)
+		lineageTag: bc0d0be1-dbd0-48ef-b3b5-6032d446b325
+		summarizeBy: none
+		sortByColumn: SelectedDate
+
+		annotation SummarizationSetBy = Automatic
 
 	partition AsOfDateSelector = calculated
 		mode: import
@@ -33,7 +46,7 @@ table AsOfDateSelector
 				RETURN
 				    FILTER(
 				        DISTINCT ( SELECTCOLUMNS ( Vw_dpmc_vs_DimDate, "SelectedDate", Vw_dpmc_vs_DimDate[TheDate] ) ),
-				        [SelectedDate] <= Today
+				        [SelectedDate] <= Today - 1
 				    )
 
 	annotation PBI_Id = 76939b37495745718af9bc49fca6c43c

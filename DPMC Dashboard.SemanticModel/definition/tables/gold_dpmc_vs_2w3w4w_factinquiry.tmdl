@@ -88,13 +88,15 @@ table gold_dpmc_vs_2w3w4w_factinquiry
 
 	column InquiryDate
 		dataType: dateTime
-		formatString: Long Date
+		formatString: yyyy-mm-dd
 		sourceProviderType: datetime2
 		lineageTag: cd907bc6-09c5-4bfa-ac19-7f7a2f9814c3
 		summarizeBy: none
 		sourceColumn: InquiryDate
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column DMT_LOADED_DATE
 		dataType: string
@@ -182,7 +184,7 @@ table gold_dpmc_vs_2w3w4w_factinquiry
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_vs_2w3w4w_factinquiry = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0d4d885838abbffd856d",
   "position": {
-    "x": 52.777777777777779,
-    "y": 961.1111111111112,
-    "z": 6000,
-    "height": 369.44444444444446,
-    "width": 513.88888888888891,
+    "x": 48,
+    "y": 960,
+    "z": 5000,
+    "height": 368,
+    "width": 576,
     "tabOrder": 0
   },
   "visual": {
@@ -42,11 +42,11 @@
                       "Entity": "VehicleTypeSelector"
                     }
                   },
-                  "Property": "DPMC Total Units (3W)"
+                  "Property": "DPMC Total Units"
                 }
               },
               "queryRef": "VehicleTypeSelector.DPMC Total Units (3W)",
-              "nativeQueryRef": "DPMC Total Units (3W)"
+              "nativeQueryRef": "DPMC Total Units"
             },
             {
               "field": {
@@ -216,6 +216,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top'"
                 }
               }
             }

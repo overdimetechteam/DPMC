@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "1ad5fb95377bdb969b4f",
   "position": {
-    "x": 45.282254431153206,
-    "y": 63,
+    "x": 38.07535787942907,
+    "y": 64,
     "z": 10000,
     "height": 72,
     "width": 144,
@@ -280,23 +280,5 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "c5c2ec4e7c2858a876e8",
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3cfc995005c7d692aa2c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_dimproduct"
-              }
-            },
-            "Property": "STR_MODEL_DESC"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
-  }
+  "parentGroupName": "c5c2ec4e7c2858a876e8"
 }

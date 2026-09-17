@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0dd91fa74017eb376caf",
   "position": {
-    "x": 64,
-    "y": 1455.9999999999998,
-    "z": 14000,
-    "height": 384.00000000000006,
+    "x": 65,
+    "y": 1456,
+    "z": 13000,
+    "height": 384,
     "width": 1472,
-    "tabOrder": 2000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "lineChart",
@@ -285,74 +285,18 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "763d7198bb1cdfaaae19",
+        "name": "6846cae97552b8113533",
         "field": {
-          "Column": {
+          "Measure": {
             "Expression": {
               "SourceRef": {
-                "Entity": "gold_dpmc_vs_2w3w4w_factsales"
+                "Entity": "VehicleTypeSelector"
               }
             },
-            "Property": "InvoiceDate"
+            "Property": "Show In Last3MonthsDaily"
           }
         },
-        "type": "RelativeDate",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "g",
-              "Entity": "gold_dpmc_vs_2w3w4w_factsales",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Between": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "g"
-                        }
-                      },
-                      "Property": "InvoiceDate"
-                    }
-                  },
-                  "LowerBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "DateAdd": {
-                          "Expression": {
-                            "DateAdd": {
-                              "Expression": {
-                                "Now": {}
-                              },
-                              "Amount": 1,
-                              "TimeUnit": 0
-                            }
-                          },
-                          "Amount": -3,
-                          "TimeUnit": 2
-                        }
-                      },
-                      "TimeUnit": 0
-                    }
-                  },
-                  "UpperBound": {
-                    "DateSpan": {
-                      "Expression": {
-                        "Now": {}
-                      },
-                      "TimeUnit": 0
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
+        "type": "Advanced",
         "howCreated": "User"
       }
     ]

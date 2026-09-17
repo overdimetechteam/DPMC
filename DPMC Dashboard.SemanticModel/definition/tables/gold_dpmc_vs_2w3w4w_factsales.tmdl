@@ -148,6 +148,11 @@ table gold_dpmc_vs_2w3w4w_factsales
 		summarizeBy: none
 		sourceColumn: InquiryDate
 
+		variation Variation
+			isDefault
+			relationship: 8aeb739e-5ffd-44f5-8584-6be3b9cde1fe
+			defaultHierarchy: LocalDateTable_60dcd2e1-e48e-4573-8faa-6f3158662fe1.'Date Hierarchy'
+
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
@@ -161,6 +166,11 @@ table gold_dpmc_vs_2w3w4w_factsales
 		lineageTag: ecf38cd0-1022-493e-8065-7c105cd9f969
 		summarizeBy: none
 		sourceColumn: DeliveryDate
+
+		variation Variation
+			isDefault
+			relationship: 851bc76f-d7c0-4d77-aa13-34089c7dbc78
+			defaultHierarchy: LocalDateTable_b6a2f01f-3d7c-41a8-8e59-b33830da742a.'Date Hierarchy'
 
 		changedProperty = IsHidden
 
@@ -176,6 +186,11 @@ table gold_dpmc_vs_2w3w4w_factsales
 		summarizeBy: none
 		sourceColumn: GRNDate
 
+		variation Variation
+			isDefault
+			relationship: 72d017ec-08b8-48e5-a0bf-4d73ba5be275
+			defaultHierarchy: LocalDateTable_9b3e11e2-f843-4d7b-af3a-81e2d4dd0d9d.'Date Hierarchy'
+
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
@@ -189,6 +204,11 @@ table gold_dpmc_vs_2w3w4w_factsales
 		lineageTag: 15ab0553-2440-4930-8ae5-347f3224aacf
 		summarizeBy: none
 		sourceColumn: ConfirmDate
+
+		variation Variation
+			isDefault
+			relationship: 0ae5508c-625e-4b08-bb62-83f0ce098dbe
+			defaultHierarchy: LocalDateTable_954e5880-698b-4056-8379-7fff7e514f20.'Date Hierarchy'
 
 		changedProperty = IsHidden
 
@@ -250,6 +270,11 @@ table gold_dpmc_vs_2w3w4w_factsales
 		summarizeBy: none
 		sourceColumn: DMT_LOADED_DATE
 
+		variation Variation
+			isDefault
+			relationship: d4459f1f-f867-414b-a529-20b3aa4f29a3
+			defaultHierarchy: LocalDateTable_e3715d4b-394e-4149-bc8f-4c87d2737ad1.'Date Hierarchy'
+
 		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
@@ -275,6 +300,11 @@ table gold_dpmc_vs_2w3w4w_factsales
 		lineageTag: fb57c01e-b05d-4ca2-ad07-b52d77855639
 		summarizeBy: none
 		sourceColumn: DMT_MONTH_END
+
+		variation Variation
+			isDefault
+			relationship: 71b9a59f-a9f7-4c65-a363-2ff373153576
+			defaultHierarchy: LocalDateTable_20ac0e3f-e749-4ae4-90bc-df58cbd30008.'Date Hierarchy'
 
 		changedProperty = IsHidden
 
@@ -339,10 +369,15 @@ table gold_dpmc_vs_2w3w4w_factsales
 		lineageTag: b46cd8f6-0dde-403d-91d0-d59b70a497ed
 		summarizeBy: none
 
+		variation Variation
+			isDefault
+			relationship: 6e9708ff-ae29-4f05-bfe4-59a942fe3486
+			defaultHierarchy: LocalDateTable_7f8b7f80-1091-420c-a7c2-ec91fd464108.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_vs_2w3w4w_factsales = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

@@ -213,8 +213,10 @@ table VehicleTypeSelector
 			        gold_dpmc_dimdate[TheDate] <= MonthEndDate
 			    )
 			
+			VAR Gap = TargetUnits - ActualUnits
+			
 			RETURN
-			DIVIDE ( TargetUnits - ActualUnits, RemainingDays )
+			IF ( RemainingDays = 0, Gap, DIVIDE ( Gap, RemainingDays ) )
 			```
 		lineageTag: 17022eed-0c87-467d-b840-fabbea6ff05c
 
@@ -225,20 +227,34 @@ table VehicleTypeSelector
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'DPMC Total Units (3W)' =
+	measure 'DPMC Total Units' =
 			
-			CALCULATE(
+			VAR SelectedType = SELECTEDVALUE ( VehicleTypeSelector[Vehicle Type] )
+			RETURN
+			CALCULATE (
 			    [Actual Units],
-			    gold_dpmc_vs_2w3w4w_dimproduct[VehicleTypeShort] = "3W"
+			    SWITCH (
+			        SelectedType,
+			        "2W", gold_dpmc_vs_2w3w4w_dimproduct[VehicleTypeShort] = "2W",
+			        "3W", gold_dpmc_vs_2w3w4w_dimproduct[VehicleTypeShort] = "3W",
+			        gold_dpmc_vs_2w3w4w_dimproduct[VehicleTypeShort] IN { "2W", "3W" }
+			    )
 			)
 		formatString: 0
 		lineageTag: 9d62ef11-6fbb-4869-947f-0f13eab28ba8
 
 	measure 'Competitor Total Units' =
 			
-			CALCULATE(
-			    SUM(gold_dpmc_vs_2w3w4w_competitorwisereg[Units]),
-			    gold_dpmc_vs_2w3w4w_competitorwisereg[productline] = "3W"
+			VAR SelectedType = SELECTEDVALUE ( VehicleTypeSelector[Vehicle Type] )
+			RETURN
+			CALCULATE (
+			    SUM ( gold_dpmc_vs_2w3w4w_competitorwisereg[Units] ),
+			    SWITCH (
+			        SelectedType,
+			        "2W", gold_dpmc_vs_2w3w4w_competitorwisereg[productline] = "2W",
+			        "3W", gold_dpmc_vs_2w3w4w_competitorwisereg[productline] = "3W",
+			        gold_dpmc_vs_2w3w4w_competitorwisereg[productline] IN { "2W", "3W" }
+			    )
 			)
 		formatString: 0
 		lineageTag: f2d21848-4f5f-47fc-974a-bb2b60db8e0b
@@ -597,6 +613,32 @@ table VehicleTypeSelector
 			SIGN ( CurrentActual - PreviousActual )
 			```
 		lineageTag: 7190fc0a-6d48-4871-ab2d-72e010cc68c2
+
+	measure 'Pending Days Row Color' =
+			
+			VAR PendingDays = MAX ( FactGRNDetails_Dedup[Pending Days] )
+			RETURN
+			IF ( PendingDays > 20, "#FFC7CE", "#FFFFFF" )
+		lineageTag: 8dda9d20-31cf-4219-b4d5-b95a354af651
+
+	measure 'Show In Last12MonthsOrForecast' =
+			
+			VAR CurrentMonthStart = DATE ( YEAR ( TODAY () ), MONTH ( TODAY () ), 1 )
+			VAR WindowStart = EDATE ( CurrentMonthStart, -11 )
+			VAR RowDate = SELECTEDVALUE ( gold_dpmc_2w3w_forecast_units[InvoiceDate] )
+			RETURN
+			IF ( RowDate >= WindowStart, 1, 0 )
+		formatString: 0
+		lineageTag: 516aa21b-9320-445c-a444-1e8006e34859
+
+	measure 'Show In Last3MonthsDaily' =
+			
+			VAR WindowStart = EDATE ( TODAY (), -3 )
+			VAR RowDate = SELECTEDVALUE ( gold_dpmc_vs_2w3w4w_factsales[InvoiceDate] )
+			RETURN
+			IF ( RowDate >= WindowStart, 1, 0 )
+		formatString: 0
+		lineageTag: 795a4cce-98b0-4a8f-87b3-8ec136d6c33d
 
 	column 'Vehicle Type'
 		lineageTag: 35e92f18-5e72-4d7c-b541-10f7aed243fd

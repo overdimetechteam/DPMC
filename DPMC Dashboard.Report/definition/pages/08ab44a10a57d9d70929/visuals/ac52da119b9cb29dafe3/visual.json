@@ -1,10 +1,10 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "ac52da119b9cb29dafe3",
   "position": {
     "x": 65,
     "y": 1455,
-    "z": 12000,
+    "z": 11000,
     "height": 368,
     "width": 1472,
     "tabOrder": 10000
@@ -51,7 +51,8 @@
                 }
               },
               "queryRef": "CountNonNull(gold_dpmc_2w3w_forecast_units.UnitsSold)",
-              "nativeQueryRef": "Sum of UnitsSold"
+              "nativeQueryRef": "Total Units",
+              "displayName": "Total Units"
             },
             {
               "field": {
@@ -70,7 +71,8 @@
                 }
               },
               "queryRef": "Sum(gold_dpmc_2w3w_forecast_units.ForecastValue)",
-              "nativeQueryRef": "Sum of ForecastValue"
+              "nativeQueryRef": "ForecastValue",
+              "displayName": "ForecastValue"
             }
           ]
         }
@@ -256,6 +258,13 @@
                   }
                 }
               }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
@@ -302,7 +311,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Units Sold and Sum of Forecast Value by Invoice Date'"
+                  "Value": "'Total Units Sold ,Forecast Values by Invoice Date'"
                 }
               }
             }
@@ -407,5 +416,58 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cd9c1bd4c20acde637a1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VehicleTypeSelector"
+              }
+            },
+            "Property": "Show In Last12MonthsOrForecast"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "v",
+              "Entity": "VehicleTypeSelector",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "v"
+                        }
+                      },
+                      "Property": "Show In Last12MonthsOrForecast"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
   }
 }

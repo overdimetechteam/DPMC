@@ -64,6 +64,11 @@ table gold_dpmc_vs_2w3w4w_dimproduct
 		summarizeBy: none
 		sourceColumn: CreatedDate
 
+		variation Variation
+			isDefault
+			relationship: 37694f80-4d03-44ee-bdc4-5086a8b83ced
+			defaultHierarchy: LocalDateTable_3cd4d963-cc36-487d-9bc0-4b9ec2b735dd.'Date Hierarchy'
+
 		annotation SummarizationSetBy = Automatic
 
 	column VehicleTypeShort = IF(gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] = "2 WHEELERS", "2W", IF(gold_dpmc_vs_2w3w4w_dimproduct[STR_PRODLINE_DESC] = "3 WHEELERS", "3W", BLANK()))
@@ -73,7 +78,7 @@ table gold_dpmc_vs_2w3w4w_dimproduct
 		annotation SummarizationSetBy = Automatic
 
 	partition gold_dpmc_vs_2w3w4w_dimproduct = m
-		mode: directQuery
+		mode: import
 		source =
 				let
 				    Source = Sql.Database("7feayvayvgkebc6l4lr5ck2nkq-c7rf6hb2ej7erc674mjqmjlkeu.datawarehouse.fabric.microsoft.com", "DPMC_Lakehouse_External", [HierarchicalNavigation=true, MultiSubnetFailover=true]),

@@ -183,39 +183,81 @@ table Measures_Table
 
 	measure 'Funnel Inquiry' =
 			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INQ"
-			)
+			VAR HasManualDateFilter = ISFILTERED ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] )
+			VAR EndDate = [Selected As Of Date]
+			VAR ThreeMonthsBack = EDATE ( EndDate, -3 )
+			VAR StartDate = DATE ( YEAR ( ThreeMonthsBack ), MONTH ( ThreeMonthsBack ), 1 )
+			RETURN
+			    IF (
+			        HasManualDateFilter,
+			        CALCULATE ( COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ), gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INQ" ),
+			        CALCULATE (
+			            COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ),
+			            gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INQ",
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartDate,
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] <= EndDate
+			        )
+			    )
 		formatString: 0
 		lineageTag: dd8bafa2-0d72-4bca-9d45-f3daa89ca0d7
 
 	measure 'Funnel Booking' =
 			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "CONFIRM"
-			)
+			VAR HasManualDateFilter = ISFILTERED ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] )
+			VAR EndDate = [Selected As Of Date]
+			VAR ThreeMonthsBack = EDATE ( EndDate, -3 )
+			VAR StartDate = DATE ( YEAR ( ThreeMonthsBack ), MONTH ( ThreeMonthsBack ), 1 )
+			RETURN
+			    IF (
+			        HasManualDateFilter,
+			        CALCULATE ( COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ), gold_dpmc_vs_2w3w4w_factinquiry[Type] = "CONFIRM" ),
+			        CALCULATE (
+			            COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ),
+			            gold_dpmc_vs_2w3w4w_factinquiry[Type] = "CONFIRM",
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartDate,
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] <= EndDate
+			        )
+			    )
 		formatString: 0
 		lineageTag: a1bcd704-770b-409f-848c-07e65b024133
 
 	measure 'Funnel Allocation' =
 			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE"
-			
-			)
+			VAR HasManualDateFilter = ISFILTERED ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] )
+			VAR EndDate = [Selected As Of Date]
+			VAR ThreeMonthsBack = EDATE ( EndDate, -3 )
+			VAR StartDate = DATE ( YEAR ( ThreeMonthsBack ), MONTH ( ThreeMonthsBack ), 1 )
+			RETURN
+			    IF (
+			        HasManualDateFilter,
+			        CALCULATE ( COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ), gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE" ),
+			        CALCULATE (
+			            COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ),
+			            gold_dpmc_vs_2w3w4w_factinquiry[Type] = "ALLOCATE",
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartDate,
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] <= EndDate
+			        )
+			    )
 		formatString: 0
 		lineageTag: b1cbd04a-1d41-4bb3-9657-f887a5134ced
 
 	measure 'Funnel Invoice' =
 			
-			CALCULATE(
-			    COUNT(gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo]),
-			    gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INVOICE"
-			
-			)
+			VAR HasManualDateFilter = ISFILTERED ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] )
+			VAR EndDate = [Selected As Of Date]
+			VAR ThreeMonthsBack = EDATE ( EndDate, -3 )
+			VAR StartDate = DATE ( YEAR ( ThreeMonthsBack ), MONTH ( ThreeMonthsBack ), 1 )
+			RETURN
+			    IF (
+			        HasManualDateFilter,
+			        CALCULATE ( COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ), gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INVOICE" ),
+			        CALCULATE (
+			            COUNT ( gold_dpmc_vs_2w3w4w_factinquiry[InquiryNo] ),
+			            gold_dpmc_vs_2w3w4w_factinquiry[Type] = "INVOICE",
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] >= StartDate,
+			            gold_dpmc_vs_2w3w4w_factinquiry[InquiryDate] <= EndDate
+			        )
+			    )
 		formatString: 0
 		lineageTag: eb0f635e-5451-4b16-842d-19916d87f9e5
 
@@ -510,6 +552,29 @@ table Measures_Table
 			)
 		formatString: 0
 		lineageTag: 300200dd-fa9d-4aa8-8bdd-962c747a4a72
+
+	measure 'Selected As Of Date - Rolling Start' = ```
+			
+			    VAR EndDate = [Selected As Of Date]
+			    RETURN
+			        DATE ( YEAR ( EndDate ), MONTH ( EndDate ) - 3, 1 )
+			```
+		formatString: General Date
+		lineageTag: c2e9d313-80cc-4b86-90cb-302eb1e25498
+
+	measure 'Your Measure (Rolling 3M)' = ```
+			
+			    VAR StartDate = [Selected As Of Date - Rolling Start]
+			    VAR EndDate = [Selected As Of Date]
+			    RETURN
+			        CALCULATE (
+			            [Funnel Value],
+			            gold_dpmc_dimdate[TheDate] >= StartDate,
+			            gold_dpmc_dimdate[TheDate] <= EndDate
+			    )
+			```
+		formatString: 0
+		lineageTag: 1b3b5bcd-2486-4745-987d-c0872dfb5243
 
 	column Column
 		formatString: 0
